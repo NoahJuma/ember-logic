@@ -1,0 +1,25 @@
+(function(root){
+ 'use strict';
+ const types=['AND','OR','XOR','NOT','NAND','NOR','XNOR'],inputs=['A','B','C','D'];
+ const presets={
+  starter:{name:'Mix & match',description:'Two branches meet: NAND(A, B), OR(C, D), then AND.',nodes:[{id:'G1',op:'NAND',a:'A',b:'B'},{id:'G2',op:'OR',a:'C',b:'D'},{id:'G3',op:'AND',a:'G1',b:'G2'}],output:'G3'},
+  nand:{name:'NAND-only XOR',description:'Four NAND gates behave exactly like one XOR. Try all four A/B combinations.',nodes:[{id:'G1',op:'NAND',a:'A',b:'B'},{id:'G2',op:'NAND',a:'A',b:'G1'},{id:'G3',op:'NAND',a:'B',b:'G1'},{id:'G4',op:'NAND',a:'G2',b:'G3'}],output:'G4'},
+  adder:{name:'Half adder',description:'G1 is the sum; G2 is the carry. Select either as Y and inspect both in the table.',nodes:[{id:'G1',op:'XOR',a:'A',b:'B'},{id:'G2',op:'AND',a:'A',b:'B'}],output:'G1'},
+  full:{name:'Full adder',description:'A + B + carry-in C. G2 is the sum; G5 is the carry-out.',nodes:[{id:'G1',op:'XOR',a:'A',b:'B'},{id:'G2',op:'XOR',a:'G1',b:'C'},{id:'G3',op:'AND',a:'A',b:'B'},{id:'G4',op:'AND',a:'G1',b:'C'},{id:'G5',op:'OR',a:'G3',b:'G4'}],output:'G2'},
+  ten:{name:'10-gate trail',description:'A complete ten-operation circuit using all seven gate types. Follow its branches one gate at a time.',nodes:[{id:'G1',op:'AND',a:'A',b:'B'},{id:'G2',op:'XOR',a:'C',b:'D'},{id:'G3',op:'NAND',a:'G1',b:'G2'},{id:'G4',op:'NOT',a:'A',b:'A'},{id:'G5',op:'OR',a:'G3',b:'G4'},{id:'G6',op:'NOR',a:'G5',b:'B'},{id:'G7',op:'XNOR',a:'G6',b:'C'},{id:'G8',op:'AND',a:'G7',b:'D'},{id:'G9',op:'XOR',a:'G8',b:'G1'},{id:'G10',op:'NAND',a:'G9',b:'G2'}],output:'G10'}
+ };
+ function getPreset(key){const p=presets[key];if(!p)throw Error('Unknown example.');return{nodes:p.nodes.map(n=>({...n})),output:p.output};}
+ function validate(nodes,output){
+  if(!Array.isArray(nodes)||nodes.length>10)throw Error('A circuit can contain at most 10 gates.');
+  const refs=new Set([...inputs,'0','1']);
+  for(const n of nodes){if(!n||!/^G(?:[1-9]|10)$/.test(n.id)||refs.has(n.id))throw Error('Gate IDs must be unique G1–G10.');if(!types.includes(n.op))throw Error('Choose a supported gate type.');if(!refs.has(n.a)||(n.op!=='NOT'&&!refs.has(n.b)))throw Error('Connect each gate to an input, constant, or earlier gate. Feedback loops are not supported.');refs.add(n.id);}
+  if(!refs.has(output))throw Error('Choose an existing signal for Y.');return true;
+ }
+ function evaluate(nodes,values,output){validate(nodes,output);const signals={'0':0,'1':1};for(const k of inputs){if(values[k]!==0&&values[k]!==1)throw Error('Input '+k+' must be 0 or 1.');signals[k]=values[k];}const steps=[];for(const n of nodes){const a=signals[n.a],b=n.op==='NOT'?undefined:signals[n.b],out=root.EmberLogic.gate(n.op,a,b);signals[n.id]=out;steps.push({...n,av:a,bv:b,out});}return{signals,steps,out:signals[output]};}
+ function usedInputs(nodes,output){validate(nodes,output);const refs=new Set([output]);for(const n of nodes){refs.add(n.a);if(n.op!=='NOT')refs.add(n.b);}return inputs.filter(k=>refs.has(k));}
+ function truthTable(nodes,output){const vars=usedInputs(nodes,output);return Array.from({length:2**vars.length},(_,i)=>{const values={A:0,B:0,C:0,D:0};vars.forEach((v,j)=>values[v]=(i>>(vars.length-1-j))&1);return{values,...evaluate(nodes,values,output)};});}
+ function ancestors(nodes,ref){const map=new Map(nodes.map(n=>[n.id,n])),s=new Set();function walk(k){if(s.has(k))return;s.add(k);const n=map.get(k);if(n){walk(n.a);if(n.op!=='NOT')walk(n.b);}}walk(ref);return s;}
+ function expression(nodes,output,maxLength=900){validate(nodes,output);const map=new Map(nodes.map(n=>[n.id,n]));function walk(k){const n=map.get(k);if(!n)return k;const a=walk(n.a),b=n.op==='NOT'?'':walk(n.b);if(a.length+b.length>maxLength)return '…';return n.op==='NOT'?'NOT ('+a+')':'('+a+' '+n.op+' '+b+')';}const text=walk(output);return{text,truncated:text.includes('…')};}
+ function layout(nodes,output){validate(nodes,output);const levels={A:0,B:0,C:0,D:0,'0':0,'1':0};for(const n of nodes)levels[n.id]=1+Math.max(levels[n.a],n.op==='NOT'?0:levels[n.b]);const refs=new Set(usedInputs(nodes,output));for(const n of nodes){if(n.a==='0'||n.a==='1')refs.add(n.a);if(n.op!=='NOT'&&(n.b==='0'||n.b==='1'))refs.add(n.b);}if(output==='0'||output==='1')refs.add(output);const sources=[...inputs,'0','1'].filter(x=>refs.has(x));const max=Math.max(0,...nodes.map(n=>levels[n.id]));const groups=Array.from({length:max+1},()=>[]);groups[0]=sources;for(const n of nodes)groups[levels[n.id]].push(n.id);const height=Math.max(285,sources.length*75+50,...groups.slice(1).map(g=>g.length*110+50)),positions={};groups.forEach((group,l)=>group.forEach((id,j)=>positions[id]={x:45+l*185,y:35+(j+.5)*(height-65)/group.length,level:l}));return{positions,width:Math.max(650,45+max*185+240),height,levels};}
+ const api={types,inputs,presets,getPreset,validate,evaluate,usedInputs,truthTable,ancestors,expression,layout};root.EmberCircuit=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window!=='undefined'?window:globalThis);

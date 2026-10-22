@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f3eb">
   <meta name="author" content="Noah J.G TELTA Student MIUN 2026">
-  <meta name="description" content="Make logic click. A hands-on study kit for gates, Boolean expressions, flip-flops, and binary/decimal/hex conversions, with visual experiments and explained exam practice.">
+  <meta name="description" content="Make logic click. A hands-on study kit for seven gate types, ten-gate circuits, Boolean expressions, flip-flops, and binary/decimal/hex conversions, with visual experiments and explained exam practice.">
   <title>Ember Logic — Make logic click</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="numbers.css">
+  <link rel="stylesheet" href="circuit.css">
   <script src="logic.js" defer></script>
   <script src="numbers.js" defer></script>
   <script src="number-ui.js" defer></script>
+  <script src="circuit.js" defer></script>
+  <script src="circuit-ui.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -21,13 +24,14 @@
     <div class="sidebar-label">YOUR WORKBENCH</div>
     <nav aria-label="Study sections">
       <button aria-label="Gate playground" title="Gate playground" data-short="Gates" data-view="gates" class="nav-link active"><span class="nav-icon">⌘</span><span>Gate playground<small>Start with the basics</small></span><span class="nav-arrow">↗</span></button>
+      <button aria-label="Circuit workbench" title="Circuit workbench" data-short="Build" data-view="circuit" class="nav-link"><span class="nav-icon">⌁</span><span>Circuit workbench<small>Connect up to 10 gates</small></span></button>
       <button aria-label="Boolean studio" title="Boolean studio" data-short="Boolean" data-view="boolean" class="nav-link"><span class="nav-icon">ƒ</span><span>Boolean studio<small>Untangle expressions</small></span></button>
       <button aria-label="Memory lab" title="Memory lab" data-short="Memory" data-view="memory" class="nav-link"><span class="nav-icon">▤</span><span>Memory lab<small>Meet the flip-flops</small></span></button>
       <button aria-label="Number systems" title="Number systems" data-short="Numbers" data-view="numbers" class="nav-link"><span class="nav-icon">₁₆</span><span>Number systems<small>Binary, decimal &amp; hex</small></span></button>
       <button aria-label="Exam practice" title="Exam practice" data-short="Practice" data-view="practice" class="nav-link"><span class="nav-icon">✧</span><span>Exam practice<small>Turn knowing into doing</small></span></button>
       <button aria-label="Pocket guide" title="Pocket guide" data-short="Guide" data-view="reference" class="nav-link"><span class="nav-icon">▧</span><span>Pocket guide<small>Your quick reference</small></span></button>
     </nav>
-    <div class="journey-card"><span class="eyebrow">LITTLE STEPS, BIG CLICKS</span><div class="journey-heading"><strong>Your exploration</strong><span id="journey-count">0 / 7</span></div><div class="progress-track"><span id="journey-fill"></span></div><p id="journey-text">Try a gate. Follow a signal.<br>Build your intuition.</p><small>Saved in this browser.</small></div>
+    <div class="journey-card"><span class="eyebrow">LITTLE STEPS, BIG CLICKS</span><div class="journey-heading"><strong>Your exploration</strong><span id="journey-count">0 / 11</span></div><div class="progress-track"><span id="journey-fill"></span></div><p id="journey-text">Try a gate. Follow a signal.<br>Build your intuition.</p><small>Saved in this browser.</small></div>
     <div class="sidebar-bottom"><span class="tiny-orbit"></span> A little curiosity goes a long way.</div>
   </aside>
   <div class="workspace">
@@ -36,7 +40,7 @@
     <footer><span class="creator-credit">Created by <strong>Noah J.G</strong> TELTA Student MIUN 2026.</span><span>0 = false / OFF <b>·</b> 1 = true / ON</span></footer>
   </div>
 </div>
-<dialog id="help-dialog"><button id="close-help" class="dialog-close" aria-label="Close help">×</button><span class="eyebrow">WELCOME TO EMBER</span><h2>Learn it. See it. Try it.</h2><p>Start with <strong>Gate playground</strong>. Flip the input switches and connect each rule to its truth table.</p><p>Next, use <strong>Boolean studio</strong> to solve expressions one operation at a time. Then visit <strong>Memory lab</strong>: change an input, raise the clock, and watch what Q remembers.</p><p>Explore <strong>Number systems</strong> to connect four bits to one hex digit and practise conversions. Finish with <strong>Exam practice</strong>. Predict before you reveal. You get an explanation for every answer, and missed topics return more often.</p><div class="note">These are ideal digital models. The memory lab uses rising-edge, synchronous flip-flops; real chips also have timing limits and may have asynchronous controls.</div><button id="start-help" class="primary">Let’s make it click →</button></dialog>
+<dialog id="help-dialog"><button id="close-help" class="dialog-close" aria-label="Close help">×</button><span class="eyebrow">WELCOME TO EMBER</span><h2>Learn it. See it. Try it.</h2><p>Start with <strong>Gate playground</strong>. Flip the input switches and connect each rule to its truth table.</p><p>Build a circuit of up to 10 gates in <strong>Circuit workbench</strong>, choose connections, and trace every intermediate result. Next, use <strong>Boolean studio</strong> to solve expressions one operation at a time. Then visit <strong>Memory lab</strong>: change an input, raise the clock, and watch what Q remembers.</p><p>Explore <strong>Number systems</strong> to connect four bits to one hex digit and practise conversions. Finish with <strong>Exam practice</strong>. Predict before you reveal. You get an explanation for every answer, and missed topics return more often.</p><div class="note">These are ideal digital models. The memory lab uses rising-edge, synchronous flip-flops; real chips also have timing limits and may have asynchronous controls.</div><button id="start-help" class="primary">Let’s make it click →</button></dialog>
 <noscript>This interactive kit needs JavaScript enabled.</noscript>
 </body>
 </html>
