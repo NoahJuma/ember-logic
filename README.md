@@ -10,8 +10,8 @@ A warm, interactive study kit for learning digital logic by experimenting.
 - **Circuit workbench:** combine up to 10 gates, connect branches and constants, trace every intermediate result, inspect a complete truth table, save locally, and undo edits. Includes NAND-only XOR, half-adder, full-adder, and ten-gate examples.
 - **Boolean studio:** expression tracing, intermediate results, truth tables, Boolean laws, and equivalence checking.
 - **Memory lab:** ideal rising-edge D, T, JK, and active-high synchronous SR flip-flops, with clock controls and timing diagrams.
-- **Number systems:** unsigned binary, decimal, and hexadecimal conversion for 0–65,535; 8-bit and 16-bit patterns; four-bit grouping; place values; and repeated division.
-- **Practice:** 46 explained exam questions plus free-response conversion challenges.
+- **Number systems:** exact unsigned binary, octal, decimal, and hexadecimal conversion from 0 through 18,446,744,073,709,551,615; 8-, 16-, 32-, and 64-bit views; an interactive byte inspector; three-/four-bit grouping; exact place values; and repeated division.
+- **Practice:** 53 explained exam questions plus free-response conversion challenges.
 - **Pocket guide:** printable revision notes and creator attribution.
 
 ## Use it
@@ -28,6 +28,8 @@ Boolean expressions use explicit operators and this precedence: parentheses, NOT
 
 `index.html` contains the shared app shell. `app.js` and `logic.js` provide the logic lessons. `numbers.js` and `number-ui.js` provide number conversion and its learning interface. `circuit.js` and `circuit-ui.js` provide the connected-gate simulator. The stylesheets define the responsive design.
 
-The conversion engine was checked across every supported value from 0 to 65,535, alongside logic-gate and flip-flop checks and browser interaction checks.
+The conversion checks exhaust all values from 0 to 65,535 across all four bases, then cover large unsigned 64-bit boundaries and representative patterns. Logic-gate, flip-flop, and browser interaction checks also pass.
 
-Run the core checks with `node --test tests/core.test.cjs`. They cover all seven gate truth tables, the ten-operation limit, mixed-gate grouping, prevention of feedback loops, NAND-only XOR, arithmetic sum/carry for both adders, randomly branched circuits, and regression checks for memory and number conversions.
+Run the checks with `node --test tests/core.test.cjs tests/numbers.test.cjs`. They cover all seven gate truth tables, the ten-operation limit, mixed-gate grouping, prevention of feedback loops, NAND-only XOR, arithmetic sum/carry for both adders, randomly branched circuits, and regression checks for memory and number conversions.
+
+The number engine uses BigInt throughout value arithmetic. Number conversion is limited to individual digits, byte values (0–255), bit counts, and display positions. The number tests exhaust all 65,536 low values across all four bases, then test exact large boundary values, deterministic 64-bit samples, all individual bit toggles, byte order, octal alignment, invalid input, and overflow rejection. Signed values, fractions, and text encoding are outside this unsigned integer lab.
