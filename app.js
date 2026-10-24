@@ -10,7 +10,7 @@ let ffType='D',ffQ=0,ffX=1,ffY=0,ffClk=0,ffEvents=[],ffMessage='Q starts at 0. C
 let quizTopic='All topics',quizId=-1,quizSelected=null,quizChecked=false,quizHint=false,quizHistory=[];
 function save(){try{localStorage.setItem('ember-logic-v1',JSON.stringify(saved));}catch{}updateProgress();}
 function mark(key){saved.visits[key]=true;save();}
-function updateProgress(){const n=['AND','OR','XOR','NOT','NAND','NOR','XNOR','circuit','boolean','memory','numbers','systems','ascii','training'].filter(k=>saved.visits[k]).length;document.getElementById('journey-count').textContent=n+' / 14';document.getElementById('journey-fill').style.width=(n/14*100)+'%';document.getElementById('journey-text').innerHTML=n===14?'Every lab explored.<br>Keep practising to make it stick.':n>0?'You’re connecting the dots.<br>Keep exploring the workbench.':'Try a gate. Follow a signal.<br>Build your intuition.';}
+function updateProgress(){const n=['AND','OR','XOR','NOT','NAND','NOR','XNOR','circuit','boolean','memory','numbers','systems','ascii','training','binary','media'].filter(k=>saved.visits[k]).length;document.getElementById('journey-count').textContent=n+' / 16';document.getElementById('journey-fill').style.width=(n/16*100)+'%';document.getElementById('journey-text').innerHTML=n===16?'Every lab explored.<br>Keep practising to make it stick.':n>0?'You’re connecting the dots.<br>Keep exploring the workbench.':'Try a gate. Follow a signal.<br>Build your intuition.';}
 function bit(v){return `<span class="table-bit ${v===1?'on':''}">${v===null?'?':v}</span>`;}
 function switchBit(label,value,action){return `<button class="bit-switch" data-action="${action}" aria-label="Toggle input ${label}" aria-pressed="${!!value}"><strong>${label}</strong><span class="switch-track" aria-hidden="true"></span><span class="bit-value">${value}</span></button>`;}
 function intro(k,title,desc,n){return `<section class="page-intro"><div><span class="eyebrow">${k}</span><h1>${title}</h1><p class="intro-text">${desc}</p></div><span class="chapter-label"><b>${n}</b> EXPLORE · UNDERSTAND · PRACTISE</span></section>`;}
@@ -355,16 +355,253 @@ questions.push(...[
   "hint": "Ask which encoding defines the upper bytes."
  }
 ]);
+questions.push(...[
+ {
+  "topic": "Binary",
+  "q": "What is the signed 8-bit range?",
+  "choices": [
+   "−128 to 127",
+   "−127 to 128",
+   "0 to 255"
+  ],
+  "correct": 0,
+  "why": "The sign bit has weight −128 and the remaining weights total 127.",
+  "hint": "Use −2⁷ through 2⁷−1."
+ },
+ {
+  "topic": "Binary",
+  "q": "How do you form the two’s complement negative of a value?",
+  "choices": [
+   "Invert all bits, then add one",
+   "Only flip the first bit",
+   "Reverse the bit order"
+  ],
+  "correct": 0,
+  "why": "Invert every bit at the chosen width, then add one and retain that width.",
+  "hint": "There are two steps."
+ },
+ {
+  "topic": "Binary",
+  "q": "Interpret 11111011 as signed 8-bit two’s complement.",
+  "choices": [
+   "−5",
+   "251",
+   "−123"
+  ],
+  "correct": 0,
+  "why": "Its unsigned value is 251; 251 − 256 = −5.",
+  "hint": "Subtract 2⁸ when the sign bit is 1."
+ },
+ {
+  "topic": "Binary",
+  "q": "What does 127 + 1 produce in this 8-bit wrapping lab?",
+  "choices": [
+   "−128, with signed overflow",
+   "128, without overflow",
+   "0, with no flags"
+  ],
+  "correct": 0,
+  "why": "The exact sum 128 cannot fit in signed 8-bit. The stored pattern is 10000000, interpreted as −128.",
+  "hint": "Track exact value and stored bits separately."
+ },
+ {
+  "topic": "Binary",
+  "q": "Can signed 8-bit −128 be negated to signed +128 at the same width?",
+  "choices": [
+   "No, +128 is outside the range",
+   "Yes, it always fits"
+  ],
+  "correct": 0,
+  "why": "The range is asymmetric: −128…127. Negation wraps to the same pattern with signed overflow in this lab.",
+  "hint": "Compare the positive limit."
+ },
+ {
+  "topic": "Binary",
+  "q": "Which shift preserves the sign when shifting right?",
+  "choices": [
+   "Arithmetic right shift",
+   "Logical right shift",
+   "Neither ever does"
+  ],
+  "correct": 0,
+  "why": "Arithmetic right shift repeats the leading sign bit. Logical right shift fills with zeros.",
+  "hint": "Consider a negative bit pattern."
+ },
+ {
+  "topic": "Binary",
+  "q": "What preserves a negative value when widening it?",
+  "choices": [
+   "Repeat the sign bit",
+   "Always add zeros on the left",
+   "Reverse the bytes"
+  ],
+  "correct": 0,
+  "why": "Sign extension repeats the most-significant sign bit. 11111011 and 1111111111111011 both mean −5.",
+  "hint": "Keep the signed value unchanged."
+ },
+ {
+  "topic": "Binary",
+  "q": "Is unsigned carry the same condition as signed overflow?",
+  "choices": [
+   "No",
+   "Yes"
+  ],
+  "correct": 0,
+  "why": "They describe different interpretations of a fixed-width operation. 01111111 + 1 overflows signed 8-bit with no carry-out.",
+  "hint": "Check the 127 + 1 example."
+ },
+ {
+  "topic": "Binary",
+  "q": "What is 11110000 AND 00001111?",
+  "choices": [
+   "00000000",
+   "11111111",
+   "11110000"
+  ],
+  "correct": 0,
+  "why": "AND keeps a 1 only where both corresponding input bits are 1.",
+  "hint": "Compare each bit position."
+ },
+ {
+  "topic": "Binary",
+  "q": "What is −7 ÷ 2 in this integer lab?",
+  "choices": [
+   "−3, remainder −1",
+   "−4, remainder 1",
+   "−3.5, no remainder"
+  ],
+  "correct": 0,
+  "why": "Division truncates toward zero. −7 = (−3 × 2) + (−1).",
+  "hint": "This lab uses integer division."
+ },
+ {
+  "topic": "Media",
+  "q": "What is the raw RGB payload of an 8 × 8 image at 24 bits per pixel?",
+  "choices": [
+   "192 bytes",
+   "64 bytes",
+   "1,536 bytes"
+  ],
+  "correct": 0,
+  "why": "8 × 8 × 24 = 1,536 bits; divide by 8 to get 192 bytes, excluding file overhead.",
+  "hint": "First compute bits, then bytes."
+ },
+ {
+  "topic": "Media",
+  "q": "What does alpha usually describe in an RGBA pixel?",
+  "choices": [
+   "Opacity",
+   "A fourth primary color",
+   "Audio pitch"
+  ],
+  "correct": 0,
+  "why": "Alpha controls how the pixel is composited with its background. RGB still supplies the color channels.",
+  "hint": "Check the transparency checkerboard."
+ },
+ {
+  "topic": "Media",
+  "q": "What is mono 8,000-sample/s, 8-bit PCM raw data rate?",
+  "choices": [
+   "64,000 bits/s",
+   "8,000 bits/s",
+   "1,000 bits/s"
+  ],
+  "correct": 0,
+  "why": "8,000 samples/s × 8 bits/sample × one channel = 64,000 bits/s.",
+  "hint": "Multiply rate, depth, and channels."
+ },
+ {
+  "topic": "Media",
+  "q": "What does increasing PCM bit depth primarily refine?",
+  "choices": [
+   "Amplitude quantization",
+   "How many time samples occur per second",
+   "The video frame rate"
+  ],
+  "correct": 0,
+  "why": "More amplitude levels give finer quantization. Sample rate determines time-sampling frequency.",
+  "hint": "Separate amplitude resolution from time resolution."
+ },
+ {
+  "topic": "Media",
+  "q": "At a sample rate of 8,000 Hz, which source needs attention to aliasing?",
+  "choices": [
+   "A 6,000 Hz sine",
+   "A 440 Hz band-limited sine"
+  ],
+  "correct": 0,
+  "why": "6,000 Hz is above half the sample rate and folds to a 2,000 Hz sample sequence for this sine model.",
+  "hint": "Compare with half the sample rate."
+ },
+ {
+  "topic": "Media",
+  "q": "What does a toy video delta record store here?",
+  "choices": [
+   "A changed pixel index and its new RGB bytes",
+   "Every possible frame",
+   "Only the filename"
+  ],
+  "correct": 0,
+  "why": "The model applies changed-pixel records to a previous decoded frame. A key frame supplies a full starting image.",
+  "hint": "Inspect changed-pixel records."
+ },
+ {
+  "topic": "Media",
+  "q": "Must delta coding always make a frame smaller?",
+  "choices": [
+   "No",
+   "Yes"
+  ],
+  "correct": 0,
+  "why": "If many pixels change, index-plus-RGB records can cost more than a full RGB frame.",
+  "hint": "Account for per-record overhead."
+ },
+ {
+  "topic": "Media",
+  "q": "Does a .png extension prove that bytes form a valid PNG file?",
+  "choices": [
+   "No",
+   "Yes"
+  ],
+  "correct": 0,
+  "why": "A name is a hint. A PNG has a signature and structured chunks that must also be valid.",
+  "hint": "Names and contents are different."
+ },
+ {
+  "topic": "Media",
+  "q": "Can the same four bytes have different meanings as integer and float?",
+  "choices": [
+   "Yes",
+   "No"
+  ],
+  "correct": 0,
+  "why": "The data type specifies how to interpret the bits. IEEE 754 binary32 and signed integer layouts differ.",
+  "hint": "Keep the bytes fixed in the data lab."
+ },
+ {
+  "topic": "Media",
+  "q": "Is every decimal fraction exactly representable in binary32?",
+  "choices": [
+   "No",
+   "Yes"
+  ],
+  "correct": 0,
+  "why": "Finite binary fractions cannot exactly represent every decimal fraction. A stored 3.14 is typically an approximation.",
+  "hint": "Check the packed binary32 value."
+ }
+]);
 function pickQuestion(){let pool=questions.map((q,i)=>({q,i})).filter(x=>quizTopic==='All topics'||x.q.topic===quizTopic);const fresh=pool.filter(x=>!quizHistory.slice(-5).includes(x.i));if(fresh.length)pool=fresh;pool.sort((x,y)=>{const sx=saved.stats[x.q.topic]||{attempts:0,correct:0},sy=saved.stats[y.q.topic]||{attempts:0,correct:0};return (sx.attempts?sx.correct/sx.attempts:.5)-(sy.attempts?sy.correct/sy.attempts:.5);});const weakest=pool[0].q.topic;const candidates=quizTopic==='All topics'&&Math.random()<.65?pool.filter(x=>x.q.topic===weakest):pool;quizId=candidates[Math.floor(Math.random()*candidates.length)].i;quizHistory.push(quizId);quizSelected=null;quizChecked=false;quizHint=false;}
-function renderPracticeQuestions(){if(quizId<0)pickQuestion();const q=questions[quizId],correct=quizSelected===q.correct;return `<div class="topic-bar" role="group" aria-label="Practice topic">${['All topics','Gates','Circuits','Boolean','Memory','Memory systems','Numbers','ASCII'].map(t=>`<button class="topic-button ${quizTopic===t?'active':''}" data-topic="${t}" aria-pressed="${quizTopic===t}">${t}</button>`).join('')}</div><div class="practice-layout"><section class="card practice-card"><div class="question-meta"><span class="eyebrow">${q.topic} / ${quizChecked?'REVIEW THE REASON':'MAKE YOUR PREDICTION'}</span><span class="question-number">${questions.length} questions in the bank</span></div><h2 class="question-title">${q.q}</h2><p class="question-context">${q.topic==='Memory'?'Assume an ideal rising-edge flip-flop, stable inputs, and no asynchronous controls.':q.topic==='Memory systems'?'Distinguish cell technology, system role, interface, and storage device.':q.topic==='ASCII'?'Use standard 7-bit US-ASCII unless the question explicitly says UTF-8.':q.topic==='Numbers'?'Assume unsigned whole numbers. Subscripts and 0x show the number base.':'Use Boolean values: 0 is false, 1 is true.'}</p>${q.code?`<div class="question-code">${esc(q.code)}</div>`:''}<div class="answer-options" role="group" aria-label="Answer choices">${q.choices.map((c,i)=>`<button class="answer-button ${quizSelected===i?'selected':''} ${quizChecked&&i===q.correct?'correct':''} ${quizChecked&&quizSelected===i&&!correct?'incorrect':''}" data-choice="${i}" aria-pressed="${quizSelected===i}" ${quizChecked?'disabled':''}><span class="answer-letter">${String.fromCharCode(65+i)}</span><span>${esc(c)}</span></button>`).join('')}</div>${quizHint&&!quizChecked?`<p class="hint-line">✧ Hint: ${q.hint}</p>`:''}${quizChecked?`<div class="answer-feedback ${correct?'good':''}" role="status"><strong>${correct?'That’s it. Here’s why.':'A useful mistake. Let’s untangle it.'}</strong>${q.why}</div>`:''}<div class="button-row">${quizChecked?'<button class="primary" data-action="next-question">Next question →</button>':`<button class="primary" data-action="check-answer" ${quizSelected===null?'disabled':''}>Check my answer →</button><button class="text-button" data-action="hint">A little hint</button>`}<span class="spacer"></span><button class="text-button" data-action="study-topic">Explore this topic ↗</button></div></section><aside><section class="card practice-stats"><span class="eyebrow">YOUR PRACTICE SO FAR</span><div class="stats-value">${saved.attempts?Math.round(saved.correct/saved.attempts*100)+'%':'—'}</div><div class="stats-desc">${saved.correct} correct out of ${saved.attempts} checked answers.<br>Practice accuracy, not a mastery grade.</div><div class="topic-stats">${['Gates','Circuits','Boolean','Memory','Memory systems','Numbers','ASCII'].map(t=>{const s=saved.stats[t]||{correct:0,attempts:0};return `<div class="topic-stat"><span>${t}</span><span>${s.correct} / ${s.attempts}</span></div>`;}).join('')}</div><p class="subtle" style="margin:17px 0 0">All-topics mode revisits weaker topics more often. Progress stays in this browser.</p></section><section class="exam-tip"><span class="eyebrow">A SMALL EXAM HABIT</span><h3>Write the middle bits.</h3><p>For expressions, show intermediate gate results. For flip-flops, write Q before and after each active edge. Small steps prevent big slips.</p></section></aside></div>`;}
+function renderPracticeQuestions(){if(quizId<0)pickQuestion();const q=questions[quizId],correct=quizSelected===q.correct;return `<div class="topic-bar" role="group" aria-label="Practice topic">${['All topics','Gates','Circuits','Boolean','Memory','Memory systems','Numbers','Binary','ASCII','Media'].map(t=>`<button class="topic-button ${quizTopic===t?'active':''}" data-topic="${t}" aria-pressed="${quizTopic===t}">${t}</button>`).join('')}</div><div class="practice-layout"><section class="card practice-card"><div class="question-meta"><span class="eyebrow">${q.topic} / ${quizChecked?'REVIEW THE REASON':'MAKE YOUR PREDICTION'}</span><span class="question-number">${questions.length} questions in the bank</span></div><h2 class="question-title">${q.q}</h2><p class="question-context">${q.topic==='Memory'?'Assume an ideal rising-edge flip-flop, stable inputs, and no asynchronous controls.':q.topic==='Memory systems'?'Distinguish cell technology, system role, interface, and storage device.':q.topic==='Binary'?'Use the stated fixed width and two’s complement interpretation.':q.topic==='Media'?'Payload sizes exclude file headers, metadata, padding, and compression unless stated.':q.topic==='ASCII'?'Use standard 7-bit US-ASCII unless the question explicitly says UTF-8.':q.topic==='Numbers'?'Assume unsigned whole numbers. Subscripts and 0x show the number base.':'Use Boolean values: 0 is false, 1 is true.'}</p>${q.code?`<div class="question-code">${esc(q.code)}</div>`:''}<div class="answer-options" role="group" aria-label="Answer choices">${q.choices.map((c,i)=>`<button class="answer-button ${quizSelected===i?'selected':''} ${quizChecked&&i===q.correct?'correct':''} ${quizChecked&&quizSelected===i&&!correct?'incorrect':''}" data-choice="${i}" aria-pressed="${quizSelected===i}" ${quizChecked?'disabled':''}><span class="answer-letter">${String.fromCharCode(65+i)}</span><span>${esc(c)}</span></button>`).join('')}</div>${quizHint&&!quizChecked?`<p class="hint-line">✧ Hint: ${q.hint}</p>`:''}${quizChecked?`<div class="answer-feedback ${correct?'good':''}" role="status"><strong>${correct?'That’s it. Here’s why.':'A useful mistake. Let’s untangle it.'}</strong>${q.why}</div>`:''}<div class="button-row">${quizChecked?'<button class="primary" data-action="next-question">Next question →</button>':`<button class="primary" data-action="check-answer" ${quizSelected===null?'disabled':''}>Check my answer →</button><button class="text-button" data-action="hint">A little hint</button>`}<span class="spacer"></span><button class="text-button" data-action="study-topic">Explore this topic ↗</button></div></section><aside><section class="card practice-stats"><span class="eyebrow">YOUR PRACTICE SO FAR</span><div class="stats-value">${saved.attempts?Math.round(saved.correct/saved.attempts*100)+'%':'—'}</div><div class="stats-desc">${saved.correct} correct out of ${saved.attempts} checked answers.<br>Practice accuracy, not a mastery grade.</div><div class="topic-stats">${['Gates','Circuits','Boolean','Memory','Memory systems','Numbers','Binary','ASCII','Media'].map(t=>{const s=saved.stats[t]||{correct:0,attempts:0};return `<div class="topic-stat"><span>${t}</span><span>${s.correct} / ${s.attempts}</span></div>`;}).join('')}</div><p class="subtle" style="margin:17px 0 0">All-topics mode revisits weaker topics more often. Progress stays in this browser.</p></section><section class="exam-tip"><span class="eyebrow">A SMALL EXAM HABIT</span><h3>Write the middle bits.</h3><p>For expressions, show intermediate gate results. For flip-flops, write Q before and after each active edge. Small steps prevent big slips.</p></section></aside></div>`;}
 function renderPractice(){return window.EmberTraining.render({intro,esc,mark,render,navigate},renderPracticeQuestions);}
-function renderReferenceCore(){return intro('09 / POCKET GUIDE','Keep the <em>essentials close.</em>','A compact reference for your revision. Try each rule in the labs, then test yourself.','09')+
+function renderReferenceCore(){return intro('11 / POCKET GUIDE','Keep the <em>essentials close.</em>','A compact reference for your revision. Try each rule in the labs, then test yourself.','11')+
 `<div class="button-row" style="margin:0 0 20px"><button class="secondary print-button" data-action="print">Print pocket guide ↗</button><span class="subtle">Boolean + means OR; · means AND; ¬ or ′ means NOT; ⊕ means XOR.</span></div><div class="reference-grid"><section class="card reference-card"><span class="eyebrow">GATES / PRESENT INPUTS</span><h2>Four small building blocks.</h2><table class="reference-table"><thead><tr><th>A</th><th>B</th><th>A · B</th><th>A + B</th><th>A ⊕ B</th><th>¬A</th></tr></thead><tbody>${[[0,0],[0,1],[1,0],[1,1]].map(([x,y])=>`<tr><td>${x}</td><td>${y}</td><td>${L.gate('AND',x,y)}</td><td>${L.gate('OR',x,y)}</td><td>${L.gate('XOR',x,y)}</td><td>${1-x}</td></tr>`).join('')}</tbody></table><p><strong>AND:</strong> all inputs must be 1. <strong>OR:</strong> at least one is 1. <strong>Two-input XOR:</strong> exactly one is 1. <strong>NOT:</strong> reverse one bit.</p><p>For three or more inputs, chained XOR is 1 for an odd number of 1s. A truth table with n independent inputs has 2ⁿ rows.</p></section><section class="card reference-card"><span class="eyebrow">MEMORY / NEXT STATE</span><h2>What happens at ↑?</h2><table class="reference-table"><thead><tr><th>Type</th><th>Inputs</th><th>Q next</th></tr></thead><tbody><tr><td>D</td><td>D = 0 / 1</td><td>Copy D</td></tr><tr><td>T</td><td>T = 0 / 1</td><td>Hold / toggle</td></tr><tr><td>JK</td><td>00 / 01 / 10 / 11</td><td>Hold / 0 / 1 / toggle</td></tr><tr><td>SR</td><td>00 / 01 / 10 / 11</td><td>Hold / 0 / 1 / invalid</td></tr></tbody></table><p>↑ means a 0→1 clock edge. Between active edges, these flip-flops hold Q. ¬Q is the complement of a valid Q. “Hold” keeps the old value; “toggle” reverses it.</p><p>The SR table here is <strong>active-high and synchronous</strong>. An active-low NAND SR latch uses a different table. A latch follows inputs during its active enable level; a flip-flop samples on an edge.</p></section><section class="card reference-card"><span class="eyebrow">BOOLEAN / SIMPLIFY</span><h2>A handful of powerful laws.</h2>${laws()}<p>Distributive: A · (B + C) = A · B + A · C.<br>Double negation: ¬¬A = A.<br>Two-input XOR: A ⊕ B = A · ¬B + ¬A · B.</p></section><section class="card reference-card"><span class="eyebrow">YOUR EXAM ROUTINE</span><h2>Give every bit a place.</h2><ol><li><strong>Read the notation.</strong> Check the clock edge and whether inputs are active-high or active-low.</li><li><strong>Group the expression.</strong> Parentheses first, then NOT, then AND, then the remaining operators according to your course. This kit uses AND → XOR → OR.</li><li><strong>Write intermediate results.</strong> Feed them into the next gate.</li><li><strong>For memory, track Q.</strong> Mark the active edges. Update Q only there, using the inputs at that moment.</li><li><strong>Check the corners.</strong> Try all 0s, all 1s, and one changing input. Prove equivalence with all truth-table rows.</li></ol><div class="memory-lesson">Boolean algebra uses 0 and 1 as truth values. It is not ordinary arithmetic: 1 + 1 = 1 when + means OR.</div></section></div>`;}
-function renderReference(){return renderReferenceCore()+window.EmberCircuitUI.guide()+window.EmberNumberUI.guide()+window.EmberMemoryUI.guide()+window.EmberASCIIUI.guide();}
-function render(keepFocus=false){const focus=keepFocus?document.activeElement:null,action=focus?.dataset?.action,gate=focus?.dataset?.gate,ff=focus?.dataset?.ff;main.innerHTML=({gates:renderGates,boolean:renderBoolean,memory:renderMemory,circuit:()=>window.EmberCircuitUI.render({intro,esc,mark,render,navigate,bit}),numbers:()=>window.EmberNumberUI.render({intro,esc,mark,render,navigate}),systems:()=>window.EmberMemoryUI.render({intro,esc,mark,render,navigate,bit}),ascii:()=>window.EmberASCIIUI.render({intro,esc,mark,render,navigate}),practice:renderPractice,reference:renderReference})[view]();document.querySelectorAll('.nav-link').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});if(keepFocus){const q=action?`[data-action="${action}"]`:gate?`[data-gate="${gate}"]`:ff?`[data-ff="${ff}"]`:null;if(q)main.querySelector(q)?.focus({preventScroll:true});}}
-function navigate(v){if(!['gates','circuit','boolean','memory','numbers','systems','ascii','practice','reference'].includes(v))return;view=v;history.replaceState(null,'','#'+v);render();if(innerWidth<=780){const nav=document.querySelector('.sidebar nav'),active=nav.querySelector('.active');nav.scrollLeft=active.offsetLeft-nav.offsetLeft-(nav.clientWidth-active.clientWidth)/2;}window.scrollTo({top:0,behavior:'instant'});}
+function renderReference(){return renderReferenceCore()+window.EmberCircuitUI.guide()+window.EmberNumberUI.guide()+window.EmberMemoryUI.guide()+window.EmberASCIIUI.guide()+window.EmberBinaryUI.guide()+window.EmberMediaUI.guide();}
+function render(keepFocus=false){const focus=keepFocus?document.activeElement:null,action=focus?.dataset?.action,gate=focus?.dataset?.gate,ff=focus?.dataset?.ff;window.EmberSpace.clear();main.innerHTML=({gates:renderGates,boolean:renderBoolean,memory:renderMemory,circuit:()=>window.EmberCircuitUI.render({intro,esc,mark,render,navigate,bit}),numbers:()=>window.EmberNumberUI.render({intro,esc,mark,render,navigate}),systems:()=>window.EmberMemoryUI.render({intro,esc,mark,render,navigate,bit}),ascii:()=>window.EmberASCIIUI.render({intro,esc,mark,render,navigate}),binary:()=>window.EmberBinaryUI.render({intro,esc,mark,render,navigate}),media:()=>window.EmberMediaUI.render({intro,esc,mark,render,navigate}),practice:renderPractice,reference:renderReference})[view]();const scene=window.EmberModels.scene(view,{gateType,a,b,exprAst,exprValues,ffType,ffQ,ffX,ffY,ffClk});if(scene)window.EmberSpace.mount(scene.key||view,scene);window.EmberInputs.mount();document.getElementById('mobile-section').value=view;document.querySelectorAll('.nav-link').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});if(keepFocus){const q=action?`[data-action="${action}"]`:gate?`[data-gate="${gate}"]`:ff?`[data-ff="${ff}"]`:null;if(q)main.querySelector(q)?.focus({preventScroll:true});}}
+function navigate(v){if(!['gates','circuit','boolean','memory','numbers','systems','ascii','binary','media','practice','reference'].includes(v))return;if(view==='media'&&v!=='media')window.EmberMediaUI.stop();view=v;history.replaceState(null,'','#'+v);render();if(innerWidth<=780){const nav=document.querySelector('.sidebar nav'),active=nav.querySelector('.active');nav.scrollLeft=active.offsetLeft-nav.offsetLeft-(nav.clientWidth-active.clientWidth)/2;}window.scrollTo({top:0,behavior:'instant'});}
+document.addEventListener('change',e=>{if(e.target.id==='mobile-section')navigate(e.target.value);});
+document.addEventListener('ember:clear',e=>{if(e.detail.id==='expression'){expression='';exprError='Input cleared. Enter a new expression.';}if(e.detail.id==='comparison'){comparison='';compareResult='';}});
 function solveExpr(source){expression=source;try{exprAst=L.parse(expression);exprError='';compareResult='';mark('boolean');}catch(e){exprError=e.message;}render();}
-function handleAction(action){if(action==='gate-a'||action==='gate-b'){if(action==='gate-a')a=1-a;else b=1-b;mark(gateType);render(true);}else if(action?.startsWith('expr-')){const v=action.slice(5);exprValues[v]=1-exprValues[v];mark('boolean');render(true);}else if(action==='ff-x'||action==='ff-y'){if(action==='ff-x')ffX=1-ffX;else ffY=1-ffY;recordFF();ffMessage='Input changed. No rising edge occurred, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' '+(ffClk?'CLK is high, but staying high is not an edge.':'Raise CLK to sample the inputs.');render(true);}else if(action==='clock'){ffClk=1-ffClk;if(ffClk){const old=ffQ;ffQ=L.flip(ffType,ffQ,ffX,ffY);ffMessage=ffQ===null?(ffType==='SR'&&ffX&&ffY?'S and R are both 1: forbidden input. Q is now unknown in this model.':'Q is still unknown. Use a defined set or reset input at the next ↑ to recover.'):`Rising edge! ${ffType==='D'?'D = '+ffX+' was copied into Q.':old===ffQ?'The rule holds Q at '+ffQ+'.':'Q changed from '+(old===null?'unknown':old)+' to '+ffQ+'.'} Q will hold until the next active edge.`;mark('memory');}else ffMessage='Clock lowered to 0. This is a falling edge, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' The next rise is the sampling event.';recordFF();render(true);}else if(action==='reset-ff'){resetFF();render(true);}else if(action==='check-answer'&&quizSelected!==null&&!quizChecked){quizChecked=true;const q=questions[quizId];saved.attempts++;const ok=quizSelected===q.correct;if(ok)saved.correct++;saved.stats[q.topic]??={attempts:0,correct:0};saved.stats[q.topic].attempts++;if(ok)saved.stats[q.topic].correct++;save();render();}else if(action==='next-question'){pickQuestion();render();}else if(action==='hint'){quizHint=true;render();}else if(action==='study-topic'){navigate({Gates:'gates',Boolean:'boolean',Memory:'memory','Memory systems':'systems',ASCII:'ascii',Numbers:'numbers',Circuits:'circuit'}[questions[quizId].topic]);}else if(action==='print')window.print();}
+function handleAction(action){if(action==='gate-a'||action==='gate-b'){if(action==='gate-a')a=1-a;else b=1-b;mark(gateType);render(true);}else if(action?.startsWith('expr-')){const v=action.slice(5);exprValues[v]=1-exprValues[v];mark('boolean');render(true);}else if(action==='ff-x'||action==='ff-y'){if(action==='ff-x')ffX=1-ffX;else ffY=1-ffY;recordFF();ffMessage='Input changed. No rising edge occurred, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' '+(ffClk?'CLK is high, but staying high is not an edge.':'Raise CLK to sample the inputs.');render(true);}else if(action==='clock'){ffClk=1-ffClk;if(ffClk){const old=ffQ;ffQ=L.flip(ffType,ffQ,ffX,ffY);ffMessage=ffQ===null?(ffType==='SR'&&ffX&&ffY?'S and R are both 1: forbidden input. Q is now unknown in this model.':'Q is still unknown. Use a defined set or reset input at the next ↑ to recover.'):`Rising edge! ${ffType==='D'?'D = '+ffX+' was copied into Q.':old===ffQ?'The rule holds Q at '+ffQ+'.':'Q changed from '+(old===null?'unknown':old)+' to '+ffQ+'.'} Q will hold until the next active edge.`;mark('memory');}else ffMessage='Clock lowered to 0. This is a falling edge, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' The next rise is the sampling event.';recordFF();render(true);}else if(action==='reset-ff'){resetFF();render(true);}else if(action==='check-answer'&&quizSelected!==null&&!quizChecked){quizChecked=true;const q=questions[quizId];saved.attempts++;const ok=quizSelected===q.correct;if(ok)saved.correct++;saved.stats[q.topic]??={attempts:0,correct:0};saved.stats[q.topic].attempts++;if(ok)saved.stats[q.topic].correct++;save();render();}else if(action==='next-question'){pickQuestion();render();}else if(action==='hint'){quizHint=true;render();}else if(action==='study-topic'){navigate({Gates:'gates',Boolean:'boolean',Memory:'memory','Memory systems':'systems',ASCII:'ascii',Binary:'binary',Media:'media',Numbers:'numbers',Circuits:'circuit'}[questions[quizId].topic]);}else if(action==='print')window.print();}
 document.addEventListener('click',e=>{const el=e.target.closest('button,[data-row],[data-expr-row]');if(!el)return;if(el.dataset.view)navigate(el.dataset.view);else if(el.dataset.gate){gateType=el.dataset.gate;gateAnswer=null;render(true);}else if(el.dataset.row){[a,b]=el.dataset.row.split(',').map(Number);b??=0;mark(gateType);render();}else if(el.dataset.gateGuess){gateAnswer=Number(el.dataset.gateGuess);render();}else if(el.dataset.example){solveExpr(el.dataset.example);}else if(el.dataset.exprRow){Object.assign(exprValues,JSON.parse(el.dataset.exprRow));mark('boolean');render();}else if(el.dataset.ff){ffType=el.dataset.ff;resetFF();render(true);}else if(el.dataset.topic){quizTopic=el.dataset.topic;pickQuestion();render();}else if(el.dataset.choice!==undefined&&!quizChecked){quizSelected=Number(el.dataset.choice);render();}else if(el.dataset.action)handleAction(el.dataset.action);});
 main.addEventListener('submit',e=>{e.preventDefault();if(e.target.id==='expression-form')solveExpr(document.getElementById('expression').value);else if(e.target.id==='comparison-form'){comparison=document.getElementById('comparison').value;try{const result=L.equivalent(exprAst,L.parse(comparison));compareResult=result.equal?`<div class="explanation" role="status"><strong>Equivalent.</strong> Both expressions match on all ${result.rows} input combinations.</div>`:`<div class="error" role="status"><strong>Not equivalent.</strong> For ${Object.entries(result.values).map(([k,v])=>k+' = '+v).join(', ')||'these constants'}, the original gives ${result.a}, but your version gives ${result.b}.</div>`;}catch(e){compareResult=`<div class="error" role="alert">${esc(e.message)}</div>`;}render();}});
 main.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-row],[data-expr-row]')){e.preventDefault();e.target.click();}});

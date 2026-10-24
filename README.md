@@ -13,7 +13,7 @@ A warm, interactive study kit for learning digital logic by experimenting.
 - **Number systems:** exact unsigned binary, octal, decimal, and hexadecimal conversion from 0 through 18,446,744,073,709,551,615; 8-, 16-, 32-, and 64-bit views; an interactive byte inspector; three-/four-bit grouping; exact place values; and repeated division.
 - **Memory & storage:** an A–Z atlas of 48 technologies, devices, interfaces, and system concepts. Six workshops illustrate SRAM/DRAM/NAND/ROM cells, addressed bytes, direct-mapped cache, virtual paging, SSD/SD flash translation, and HDD mechanics.
 - **ASCII & text:** all 128 standard codes, control names, searchable base representations, editable character bits, strict ASCII and UTF-8 encoding/decoding, and byte/bit counts.
-- **Training room:** 12 guided experiments that check actual simulated results, 77 explained exam questions, and existing free-response conversion challenges.
+- **Training room:** 16 guided experiments that check actual simulated results, 97 explained exam questions, and existing free-response conversion challenges.
 - **Pocket guide:** printable revision notes and creator attribution.
 
 ## Use it
@@ -42,4 +42,14 @@ The number engine uses BigInt throughout value arithmetic. Number conversion is 
 
 These are deliberately tiny conceptual models, not hardware specifications or timing predictions. Specialist technologies are defined in the atlas; only selected core mechanisms have interactive models. See [SOURCES.md](SOURCES.md) for research references and model assumptions.
 
-The tests include all ASCII codes, invalid UTF-8 sequences, refresh/power loss, cache conflict and page residency, flash garbage collection with live-data preservation, deterministic mixed flash operations, disk access stages, and all twelve mission checks.
+The tests include all ASCII codes, invalid UTF-8 sequences, refresh/power loss, cache conflict and page residency, flash garbage collection with live-data preservation, deterministic mixed flash operations, disk access stages, and all sixteen mission checks.
+
+## Mobile and 3D studio
+
+The mobile-first layer adds a compact lab picker, readable form controls, touch-friendly actions, and Clear buttons on editable text/number fields. Desktop layouts progressively add columns. Clear removes an input without silently replacing the last calculated result.
+
+Every simulation workshop has a shared 3D inspector linked to its current model values: gates, connected circuits, expressions, flip-flops, unsigned numbers, signed arithmetic, memory workshop modes, ASCII/text, and media/data modes. Orbit with a pointer or touch drag; pinch or use zoom buttons; inspect the underside; separate layers; hide covers; select parts. Keyboard arrows rotate, +/− zoom, and R resets. The original diagrams and tables remain available for exact reasoning.
+
+`binary.js` uses exact fixed-width BigInt operations up to 64 bits, with two’s complement, carries, signed overflow, sign extension, shifts, integer division, and bitwise operations. `binary-ui.js` provides worked traces and recall challenges. `media-models.js` and `media-ui.js` supply editable raster pixels, actual quantized PCM playback and WAV export, a reconstructable toy delta-video format, and integer/IEEE-754/text/JSON interpretation.
+
+`space3d.js` projects real 3D meshes using a small dependency-free Canvas renderer; `space-models.js` maps live simulation state into geometry. It does not need WebGL, a GPU library, a model download, or a server. Models are conceptual and labelled accordingly: no measured semiconductor behavior, photorealistic construction, or industrial codec implementation is claimed.

@@ -23,3 +23,19 @@ References checked 24 October 2026. The app links to these sources in its refere
 - **Atlas:** a broad reference of 48 core, specialist, historical, and system concepts. Roles, cell technologies, protocols, and form factors are labelled separately. Specialist entries link to related principles, not exact simulations of every technology ever made.
 - **Text:** ASCII 0–127 only; UTF-8 is a separate strict encoding. All controls including NUL and DEL round-trip without executing terminal actions. Visible control labels and escaped decoded text are display annotations. UTF-8 counts scalar values/code points rather than grapheme clusters. Inputs are limited to 256 encoded bytes for an inspectable workbench. A visible character can span multiple code points.
 - **Training:** mission completion is checked against model results and saved in the current browser. It is not a certified mastery grade. Simulated memory contents reset on reload; mission records and existing quiz statistics remain local.
+
+## Signed arithmetic and media studio
+
+- [Cornell: two’s complement](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html) — fixed-width signed interpretation and invert/add-one negation.
+- [MDN: ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) — browser raster data and RGBA channels.
+- [MDN: AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer) — in-memory PCM sample buffers for Web Audio.
+- [MDN: video processing concepts](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API/Video_processing_concepts) — frame sequences, key/delta concepts, codecs, and timing.
+- [W3C: PNG specification](https://www.w3.org/TR/png-3/#3PNGsignature) — the PNG signature and structured image format.
+
+The signed arithmetic lab accepts explicit widths, uses arbitrary-precision integer arithmetic, and reports exact versus wrapped results. Carry-out is unsigned; subtraction carry means no borrow. Division truncates toward zero. Shift counts 0 through width are an explicit teaching rule. These are not claims about every CPU’s flags, exceptions, or instruction semantics.
+
+Media pixel payloads are packed raw values, excluding row padding and file overhead. Grayscale uses a simple average of encoded channels, not a color-managed luminance transform. Signed PCM is quantized, clipped, and played from the actual sample sequence; the source is a sine wave. There is no antialias/reconstruction filter model. WAV exports mono signed 16-bit PCM containing the current quantized values, including when the educational quantizer uses 4 or 8 bits.
+
+The video model is a custom lossless delta format with 8 × 8 RGB frames. Each changed-pixel record uses one index byte and three RGB bytes, excluding any container overhead. Tests reconstruct every frame from its predecessor. It is not H.264/AV1 and does not model motion compensation or audio muxing. Float interpretation uses JavaScript DataView’s IEEE-754 binary32 conversion. JSON is parsed as data without evaluation.
+
+3D scenes contain spatial meshes, perspective, full orbit, underside views, zoom, layer separation, covers, and selectable components. Values are derived from the actual lab state. Geometry, shading, chip packaging, and temporal spacing are illustrations. The logical and byte-level models remain authoritative; the renderer does not simulate electrons, manufacturing tolerances, analog timing, or actual codec hardware.

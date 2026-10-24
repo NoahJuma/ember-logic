@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f3eb">
   <meta name="author" content="Noah J.G TELTA Student MIUN 2026">
-  <meta name="description" content="Make logic click. A hands-on study kit for seven gate types, ten-gate circuits, Boolean expressions, flip-flops, and exact 64-bit binary/octal/decimal/hex conversions, memory and storage construction, ASCII/UTF-8, guided experiments, and explained exam practice.">
+  <meta name="description" content="Make logic click. A hands-on study kit for seven gate types, ten-gate circuits, Boolean expressions, flip-flops, and exact 64-bit binary/octal/decimal/hex conversions, memory and storage construction, ASCII/UTF-8, guided experiments, two’s complement arithmetic, media representation, and live 3D inspection.">
   <title>Ember Logic — Make logic click</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="numbers.css">
   <link rel="stylesheet" href="circuit.css">
   <link rel="stylesheet" href="learning.css">
+  <link rel="stylesheet" href="studio.css">
   <script src="logic.js" defer></script>
   <script src="numbers.js" defer></script>
   <script src="number-ui.js" defer></script>
@@ -22,25 +23,35 @@
   <script src="ascii-ui.js" defer></script>
   <script src="memory-ui.js" defer></script>
   <script src="training-ui.js" defer></script>
+  <script src="binary.js" defer></script>
+  <script src="media-models.js" defer></script>
+  <script src="binary-ui.js" defer></script>
+  <script src="media-ui.js" defer></script>
+  <script src="space3d.js" defer></script>
+  <script src="space-models.js" defer></script>
+  <script src="inputs.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
 <div class="app-shell">
   <aside class="sidebar">
     <a class="brand" href="#gates" aria-label="Ember Logic home"><span class="brand-symbol">e<span>•</span></span><span>ember<span class="brand-sub">LOGIC LEARNING KIT</span></span></a>
+    <label class="mobile-section-switch">YOUR WORKBENCH<select id="mobile-section" aria-label="Choose a learning lab"><option value="gates">Gate playground</option><option value="circuit">Circuit workbench</option><option value="boolean">Boolean studio</option><option value="memory">Flip-flop lab</option><option value="numbers">Number systems</option><option value="binary">Signed binary & arithmetic</option><option value="systems">Memory & storage</option><option value="ascii">ASCII & text</option><option value="media">Media & data studio</option><option value="practice">Training room</option><option value="reference">Pocket guide</option></select></label>
     <div class="sidebar-label">YOUR WORKBENCH</div>
     <nav aria-label="Study sections">
       <button aria-label="Gate playground" title="Gate playground" data-short="Gates" data-view="gates" class="nav-link active"><span class="nav-icon">⌘</span><span>Gate playground<small>Start with the basics</small></span><span class="nav-arrow">↗</span></button>
       <button aria-label="Circuit workbench" title="Circuit workbench" data-short="Build" data-view="circuit" class="nav-link"><span class="nav-icon">⌁</span><span>Circuit workbench<small>Connect up to 10 gates</small></span></button>
       <button aria-label="Boolean studio" title="Boolean studio" data-short="Boolean" data-view="boolean" class="nav-link"><span class="nav-icon">ƒ</span><span>Boolean studio<small>Untangle expressions</small></span></button>
       <button aria-label="Flip-flop lab" title="Flip-flop lab" data-short="Flips" data-view="memory" class="nav-link"><span class="nav-icon">▤</span><span>Flip-flop lab<small>Meet the flip-flops</small></span></button>
-      <button aria-label="Memory and storage" title="Memory and storage" data-short="Storage" data-view="systems" class="nav-link"><span class="nav-icon">▥</span><span>Memory &amp; storage<small>From a cell to an SSD</small></span></button>
       <button aria-label="Number systems" title="Number systems" data-short="Numbers" data-view="numbers" class="nav-link"><span class="nav-icon">₁₆</span><span>Number systems<small>Four bases · up to 64 bits</small></span></button>
+      <button aria-label="Signed binary" title="Signed binary" data-short="Signed" data-view="binary" class="nav-link"><span class="nav-icon">±</span><span>Signed binary<small>Two’s complement + arithmetic</small></span></button>
+      <button aria-label="Memory and storage" title="Memory and storage" data-short="Storage" data-view="systems" class="nav-link"><span class="nav-icon">▥</span><span>Memory &amp; storage<small>From a cell to an SSD</small></span></button>
       <button aria-label="ASCII and text" title="ASCII and text" data-short="ASCII" data-view="ascii" class="nav-link"><span class="nav-icon">Aa</span><span>ASCII &amp; text<small>Characters become bytes</small></span></button>
+      <button aria-label="Media and data" title="Media and data" data-short="Media" data-view="media" class="nav-link"><span class="nav-icon">◈</span><span>Media and data<small>Images · sound · video · types</small></span></button>
       <button aria-label="Training room" title="Training room" data-short="Train" data-view="practice" class="nav-link"><span class="nav-icon">✧</span><span>Training room<small>Experiments + exam questions</small></span></button>
       <button aria-label="Pocket guide" title="Pocket guide" data-short="Guide" data-view="reference" class="nav-link"><span class="nav-icon">▧</span><span>Pocket guide<small>Your quick reference</small></span></button>
     </nav>
-    <div class="journey-card"><span class="eyebrow">LITTLE STEPS, BIG CLICKS</span><div class="journey-heading"><strong>Your exploration</strong><span id="journey-count">0 / 14</span></div><div class="progress-track"><span id="journey-fill"></span></div><p id="journey-text">Try a gate. Follow a signal.<br>Build your intuition.</p><small>Saved in this browser.</small></div>
+    <div class="journey-card"><span class="eyebrow">LITTLE STEPS, BIG CLICKS</span><div class="journey-heading"><strong>Your exploration</strong><span id="journey-count">0 / 16</span></div><div class="progress-track"><span id="journey-fill"></span></div><p id="journey-text">Try a gate. Follow a signal.<br>Build your intuition.</p><small>Saved in this browser.</small></div>
     <div class="sidebar-bottom"><span class="tiny-orbit"></span> A little curiosity goes a long way.</div>
   </aside>
   <div class="workspace">
@@ -49,7 +60,7 @@
     <footer><span class="creator-credit">Created by <strong>Noah J.G</strong> TELTA Student MIUN 2026.</span><span>0 = false / OFF <b>·</b> 1 = true / ON</span></footer>
   </div>
 </div>
-<dialog id="help-dialog"><button id="close-help" class="dialog-close" aria-label="Close help">×</button><span class="eyebrow">WELCOME TO EMBER</span><h2>Learn it. See it. Try it.</h2><p>Start with <strong>Gate playground</strong>. Flip the input switches and connect each rule to its truth table.</p><p>Build a circuit of up to 10 gates in <strong>Circuit workbench</strong>, choose connections, and trace every intermediate result. Next, use <strong>Boolean studio</strong> to solve expressions one operation at a time. Then visit <strong>Flip-flop lab</strong>: change an input, raise the clock, and watch what Q remembers.</p><p>Explore <strong>Number systems</strong> to compare binary, octal, decimal, and hex, inspect bytes, and practise exact conversions up to 64 bits. Explore <strong>Memory &amp; storage</strong>: inspect cell construction, cache accesses, virtual pages, SSD/SD flash updates, and hard-drive reads. Use <strong>ASCII &amp; text</strong> to inspect all 128 ASCII codes and compare ASCII with UTF-8. Finish with <strong>Training room</strong>: 12 guided experiments plus exam questions. Predict before you reveal. You get an explanation for every answer, and missed topics return more often.</p><div class="note">These are ideal digital models. The memory lab uses rising-edge, synchronous flip-flops; real chips also have timing limits and may have asynchronous controls.</div><button id="start-help" class="primary">Let’s make it click →</button></dialog>
+<dialog id="help-dialog"><button id="close-help" class="dialog-close" aria-label="Close help">×</button><span class="eyebrow">WELCOME TO EMBER</span><h2>Learn it. See it. Try it.</h2><p>Start with <strong>Gate playground</strong>. Flip the input switches and connect each rule to its truth table.</p><p>Build a circuit of up to 10 gates in <strong>Circuit workbench</strong>, choose connections, and trace every intermediate result. Next, use <strong>Boolean studio</strong> to solve expressions one operation at a time. Then visit <strong>Flip-flop lab</strong>: change an input, raise the clock, and watch what Q remembers.</p><p>Explore <strong>Number systems</strong> to compare binary, octal, decimal, and hex, inspect bytes, and practise exact conversions up to 64 bits. Explore <strong>Memory &amp; storage</strong>: inspect cell construction, cache accesses, virtual pages, SSD/SD flash updates, and hard-drive reads. Use <strong>ASCII &amp; text</strong> to inspect all 128 ASCII codes and compare ASCII with UTF-8. Finish with <strong>Training room</strong>: 16 guided experiments plus exam questions. Explore <strong>Signed binary</strong> for two’s complement, overflow, bitwise operations, and carries. In <strong>Media and data</strong>, paint pixels, hear PCM samples, decode frames, and reinterpret bytes. Each simulation has a live 3D inspector: drag to orbit, pinch to zoom, choose Underside, or separate layers. Use Clear beside an input to enter a new value. Predict before you reveal. You get an explanation for every answer, and missed topics return more often.</p><div class="note">These are ideal digital models. The memory lab uses rising-edge, synchronous flip-flops; real chips also have timing limits and may have asynchronous controls.</div><button id="start-help" class="primary">Let’s make it click →</button></dialog>
 <noscript>This interactive kit needs JavaScript enabled.</noscript>
 </body>
 </html>

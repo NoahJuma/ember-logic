@@ -49,5 +49,5 @@
  });
  document.addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&ev.target.matches('g[data-cb-select],tr[data-cb-row]')){ev.preventDefault();ev.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});
  function guide(){return `<section class="card base-guide"><span class="eyebrow">COMBINING GATES / UP TO 10 OPERATIONS</span><h2>Three more gates. Many more circuits.</h2><div class="law-grid"><div class="law"><strong>NAND</strong><code>A NAND B = NOT (A AND B)</code><p>Only 11 produces 0.</p></div><div class="law"><strong>NOR</strong><code>A NOR B = NOT (A OR B)</code><p>Only 00 produces 1.</p></div><div class="law"><strong>XNOR</strong><code>A XNOR B = NOT (A XOR B)</code><p>Matching inputs produce 1.</p></div><div class="law"><strong>Read a circuit</strong><p>Solve each gate after its inputs. Carry intermediate results forward. Each gate, including NOT, is one operation. Inverting output bubbles are part of NAND, NOR, and XNOR.</p></div></div><p>For mixed Boolean expressions, use parentheses. This kit groups AND/NAND before XOR/XNOR before OR/NOR, with equal-precedence operations evaluated left to right. NAND, NOR, and XNOR must not be regrouped as if they were ordinary AND or OR.</p></section>`;}
- window.EmberCircuitUI={render,glyph,guide};
+ window.EmberCircuitUI={render,glyph,guide,getState:()=>state};
 })();
