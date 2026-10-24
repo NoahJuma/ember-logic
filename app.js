@@ -10,7 +10,7 @@ let ffType='D',ffQ=0,ffX=1,ffY=0,ffClk=0,ffEvents=[],ffMessage='Q starts at 0. C
 let quizTopic='All topics',quizId=-1,quizSelected=null,quizChecked=false,quizHint=false,quizHistory=[];
 function save(){try{localStorage.setItem('ember-logic-v1',JSON.stringify(saved));}catch{}updateProgress();}
 function mark(key){saved.visits[key]=true;save();}
-function updateProgress(){const n=['AND','OR','XOR','NOT','NAND','NOR','XNOR','circuit','boolean','memory','numbers'].filter(k=>saved.visits[k]).length;document.getElementById('journey-count').textContent=n+' / 11';document.getElementById('journey-fill').style.width=(n/11*100)+'%';document.getElementById('journey-text').innerHTML=n===11?'Every lab explored.<br>Keep practising to make it stick.':n>0?'You’re connecting the dots.<br>Keep exploring the workbench.':'Try a gate. Follow a signal.<br>Build your intuition.';}
+function updateProgress(){const n=['AND','OR','XOR','NOT','NAND','NOR','XNOR','circuit','boolean','memory','numbers','systems','ascii','training'].filter(k=>saved.visits[k]).length;document.getElementById('journey-count').textContent=n+' / 14';document.getElementById('journey-fill').style.width=(n/14*100)+'%';document.getElementById('journey-text').innerHTML=n===14?'Every lab explored.<br>Keep practising to make it stick.':n>0?'You’re connecting the dots.<br>Keep exploring the workbench.':'Try a gate. Follow a signal.<br>Build your intuition.';}
 function bit(v){return `<span class="table-bit ${v===1?'on':''}">${v===null?'?':v}</span>`;}
 function switchBit(label,value,action){return `<button class="bit-switch" data-action="${action}" aria-label="Toggle input ${label}" aria-pressed="${!!value}"><strong>${label}</strong><span class="switch-track" aria-hidden="true"></span><span class="bit-value">${value}</span></button>`;}
 function intro(k,title,desc,n){return `<section class="page-intro"><div><span class="eyebrow">${k}</span><h1>${title}</h1><p class="intro-text">${desc}</p></div><span class="chapter-label"><b>${n}</b> EXPLORE · UNDERSTAND · PRACTISE</span></section>`;}
@@ -72,16 +72,299 @@ const questions=[
 questions.push(...[{"topic":"Numbers","q":"What is the decimal value of this binary pattern?","code":"0010 1101₂","choices":["25","45","2.13","213"],"correct":1,"why":"The ON bits have weights 32, 8, 4, and 1. Add them: 32 + 8 + 4 + 1 = 45.","hint":"Use the weights of the ON bits."},{"topic":"Numbers","q":"Convert this binary byte to hexadecimal.","code":"1010 1111₂","choices":["0xAF","0xFA","0x15","0x10101111"],"correct":0,"why":"Split into four-bit groups: 1010 = A and 1111 = F. Keep the order: 0xAF.","hint":"One group of four bits becomes one hex digit."},{"topic":"Numbers","q":"How many bits does one hexadecimal digit represent?","choices":["2","4","8","16"],"correct":1,"why":"A hex digit has 16 possible values. Four bits have 2⁴ = 16 possible patterns, so one hex digit represents four bits.","hint":"Find the power of two that equals sixteen."},{"topic":"Numbers","q":"Which decimal value does hex F represent?","choices":["6","10","15","16"],"correct":2,"why":"Hex digits count 0–9, then A=10, B=11, C=12, D=13, E=14, F=15. The next number is 10₁₆ = 16₁₀.","hint":"A starts at ten."},{"topic":"Numbers","q":"Convert this hexadecimal number to decimal.","code":"0x2D","choices":["213","29","45","42"],"correct":2,"why":"2D₁₆ = 2 × 16 + 13 × 1 = 45₁₀. D is the digit for decimal thirteen.","hint":"The left digit has weight sixteen."},{"topic":"Numbers","q":"Which binary pattern represents decimal 16 in eight bits?","choices":["0000 1111","0001 0000","0000 0010","0010 0000"],"correct":1,"why":"16 is 2⁴. Only the bit with weight 16 is ON: 0001 0000.","hint":"The weights from the right are 1, 2, 4, 8, 16…"},{"topic":"Numbers","q":"How many hexadecimal digits are needed to display all eight bits of a byte?","choices":["1","2","4","8"],"correct":1,"why":"Each hex digit represents four bits. Eight bits require two hex digits, including leading zeros when displaying a full byte.","hint":"Divide eight bits by four bits per digit."},{"topic":"Numbers","q":"What happens to the value when leading zeros are added?","code":"101₂ → 0000 0101₂","choices":["It increases","It decreases","It stays the same","It becomes negative"],"correct":2,"why":"Leading zeros contribute zero at higher place values. Both patterns represent decimal 5; the second explicitly displays eight bits.","hint":"A zero contributes nothing to a place-value sum."},{"topic":"Numbers","q":"When converting decimal by repeated division, how do you read the remainders?","choices":["From top to bottom","From bottom to top","Largest first","Ignore zeros"],"correct":1,"why":"The first remainder is the least significant digit. Read the remainders from the last division back to the first, keeping zeros.","hint":"The first remainder belongs on the far right."},{"topic":"Numbers","q":"What is the largest unsigned value that fits in eight bits?","choices":["127","128","255","256"],"correct":2,"why":"Eight bits have 256 patterns, representing 0 through 255. The maximum is 2⁸ − 1 = 255 = 0xFF.","hint":"Count starts at zero."},{"topic":"Numbers","q":"Convert hexadecimal 0x10 to decimal.","choices":["2","10","16","100"],"correct":2,"why":"10₁₆ means 1 × 16 + 0 × 1 = 16₁₀. The written digits need a base to determine their value.","hint":"Hex place values are powers of sixteen."},{"topic":"Numbers","q":"Convert hexadecimal 0xF0 to an eight-bit binary pattern.","choices":["0000 1111","1111 0000","1111 1111","1010 0000"],"correct":1,"why":"F maps to 1111 and 0 maps to 0000. Preserve the digit order to get 1111 0000.","hint":"Translate each hex digit separately into four bits."}]);
 questions.push(...[{"topic":"Gates","q":"What does this NAND gate output?","code":"1 NAND 1 = ?","choices":["0","1"],"correct":0,"why":"First 1 AND 1 = 1. NAND inverts that result, so NOT 1 = 0.","hint":"Compute AND, then reverse it."},{"topic":"Gates","q":"When is a two-input NOR gate ON?","choices":["When at least one input is 1","Only when both inputs are 0","Only when both inputs are 1","When the inputs differ"],"correct":1,"why":"NOR inverts OR. OR is 0 only for 00, so NOR is 1 only for 00.","hint":"NOR means NOT OR."},{"topic":"Gates","q":"What does this XNOR output?","code":"1 XNOR 0 = ?","choices":["0","1"],"correct":0,"why":"The inputs differ, so XOR would give 1. XNOR inverts that result to 0. Matching inputs give XNOR = 1.","hint":"XNOR detects a match."},{"topic":"Circuits","q":"Which connection makes a NAND gate act like NOT A?","choices":["Connect A to both inputs","Connect 0 to both inputs","Connect A and 0","Connect A and NOT A"],"correct":0,"why":"A NAND A = NOT (A AND A) = NOT A. A repeated through both inputs has AND result A, then the bubble reverses it.","hint":"AND of a bit with itself is that bit."},{"topic":"Circuits","q":"How many operations does this expression contain?","code":"(A NAND B) OR NOT C","choices":["1","2","3","4"],"correct":2,"why":"There is one NAND, one NOT, and one OR: three gate operations. A NAND is one gate type, even though its rule can be described as AND followed by inversion.","hint":"Count each named gate, including NOT."},{"topic":"Circuits","q":"Follow these two gates. What is Y?","code":"G1 = A NAND B; Y = G1 OR C; A = 1, B = 1, C = 0","choices":["0","1"],"correct":0,"why":"G1 = 1 NAND 1 = 0. Then Y = 0 OR 0 = 0. Carry the intermediate result forward.","hint":"Solve G1 before the final OR."},{"topic":"Circuits","q":"Can NAND gates alone implement XOR?","choices":["Yes, four NAND gates can do it","No, XOR always needs an OR gate","Only with a flip-flop","Only for input 00"],"correct":0,"why":"NAND is universal. In the NAND-only XOR example, G1=A NAND B, G2=A NAND G1, G3=B NAND G1, and Y=G2 NAND G3 match XOR for every input pair.","hint":"Try the NAND-only XOR preset in the workbench."},{"topic":"Circuits","q":"For A = 0, B = 1, C = 1, are these NAND expressions equivalent?","code":"(A NAND B) NAND C   versus   A NAND (B NAND C)","choices":["Yes, both give 0","Yes, both give 1","No: the first gives 0, the second gives 1","No: the first gives 1, the second gives 0"],"correct":2,"why":"Left: 0 NAND 1 = 1, then 1 NAND 1 = 0. Right: 1 NAND 1 = 0, then 0 NAND 0 = 1. NAND is not associative; parentheses matter.","hint":"Compute the parenthesized pair separately in each expression."}]);
 questions.push(...[{"topic":"Numbers","q":"Which digits are valid in octal?","choices":["0 and 1 only","0 through 7","0 through 8","0 through 9 and A through F"],"correct":1,"why":"Base 8 has eight digits: 0, 1, 2, 3, 4, 5, 6, 7. After 7 comes 10₈.","hint":"A base has that many digits, starting at zero."},{"topic":"Numbers","q":"How many bits does one octal digit represent?","choices":["2","3","4","8"],"correct":1,"why":"8 = 2³, so three bits provide exactly the eight patterns needed for one octal digit.","hint":"Find the power of two that equals eight."},{"topic":"Numbers","q":"Convert this octal number to decimal.","code":"55₈","choices":["45","55","40","25"],"correct":0,"why":"55₈ = 5 × 8 + 5 × 1 = 45₁₀. The left digit has weight eight.","hint":"Octal place values are 1, 8, 64, 512…"},{"topic":"Numbers","q":"Convert this binary pattern to octal.","code":"111 101₂","choices":["75₈","57₈","13₈","65₈"],"correct":0,"why":"Group into threes from the right: 111 = 7 and 101 = 5. The octal result is 75₈, which equals decimal 61.","hint":"Each three-bit group maps to one octal digit."},{"topic":"Numbers","q":"How many bytes are in a 64-bit pattern?","choices":["4","8","16","64"],"correct":1,"why":"One byte contains eight bits, so 64 ÷ 8 = 8 bytes.","hint":"Divide the number of bits by eight."},{"topic":"Numbers","q":"What is the unsigned 64-bit range?","choices":["0 through 2⁶⁴ − 1","0 through 2⁶⁴","−2⁶³ through 2⁶³ − 1","1 through 2⁶⁴"],"correct":0,"why":"Unsigned 64-bit integers start at zero and end at 2⁶⁴ − 1 = 18,446,744,073,709,551,615. The signed range is a different interpretation.","hint":"Count all patterns, starting at zero."},{"topic":"Numbers","q":"A value of 256 is displayed in a 64-bit view. How many bits does the value minimally need?","choices":["8","9","32","64"],"correct":1,"why":"256 = 2⁸, so its binary representation is 100000000: nine bits. A 64-bit display pads it with zeros and occupies eight bytes, while minimum whole-byte storage is two bytes.","hint":"Distinguish the value’s minimum bit count from the chosen display width."}]);
+questions.push(...[
+ {
+  "topic": "Memory systems",
+  "q": "What stores the bit in a common DRAM cell?",
+  "choices": [
+   "A transistor and a capacitor",
+   "A spinning platter",
+   "A laser mark"
+  ],
+  "correct": 0,
+  "why": "The access transistor selects a small capacitor. The stored state needs sense-and-restore and periodic refresh.",
+  "hint": "Think of charge that leaks."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Why does powered SRAM not need periodic DRAM-style refresh?",
+  "choices": [
+   "Feedback maintains its state",
+   "It has infinite capacity",
+   "It uses optical pits"
+  ],
+  "correct": 0,
+  "why": "Cross-coupled inverter feedback maintains the state while power is present. Removing power loses the volatile state.",
+  "hint": "Look at the feedback loop."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Can refresh recover a DRAM value already lost?",
+  "choices": [
+   "Yes, always",
+   "No, write a known value again"
+  ],
+  "correct": 1,
+  "why": "Refresh preserves a still-readable state. It cannot recreate information that is already unknown.",
+  "hint": "Preserving and reconstructing are different."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What does a byte-addressed memory decoder select?",
+  "choices": [
+   "The addressed word or byte location",
+   "Every location at once",
+   "A Unicode font"
+  ],
+  "correct": 0,
+  "why": "Address bits select a location; data bits carry its contents. Write enable controls whether the selected location changes.",
+  "hint": "Address and data have different jobs."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "An address has 2 bits. How many byte locations can it select?",
+  "choices": [
+   "2",
+   "4",
+   "8",
+   "16"
+  ],
+  "correct": 1,
+  "why": "Two independent address bits give 2² = 4 locations, numbered 0–3. The data width can still be 8 bits.",
+  "hint": "Count the possible address patterns."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What makes a cache hit?",
+  "choices": [
+   "A valid matching tag in the selected line",
+   "Any nonempty line",
+   "A disk spinning faster"
+  ],
+  "correct": 0,
+  "why": "The index selects a line, the valid bit and tag identify whether it contains the requested block, and the offset selects the byte.",
+  "hint": "Index alone is insufficient."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Can two addresses repeatedly evict each other from a direct-mapped cache?",
+  "choices": [
+   "Yes, when their blocks map to the same index",
+   "No, caches never evict"
+  ],
+  "correct": 0,
+  "why": "Different tags can share one cache index. Alternating those blocks can cause conflict misses even when other lines are free.",
+  "hint": "Compare the tag and index separately."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What does a TLB cache?",
+  "choices": [
+   "Virtual-to-physical address translations",
+   "Only text characters",
+   "The entire SSD"
+  ],
+  "correct": 0,
+  "why": "A TLB speeds address translation. A TLB miss alone does not necessarily mean the page is absent from RAM or that storage I/O is needed.",
+  "hint": "It helps the address-translation path."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Must every page fault read a page from disk?",
+  "choices": [
+   "Yes",
+   "No"
+  ],
+  "correct": 1,
+  "why": "Some page faults need backing-store I/O; others can be resolved without it, such as demand-zero allocation. The workshop uses a small backed-page model.",
+  "hint": "An OS can resolve different fault causes."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What normally happens when an SSD logical page is updated?",
+  "choices": [
+   "A free physical page is programmed and the map changes",
+   "The same physical NAND page is freely overwritten",
+   "The hard-drive arm moves"
+  ],
+  "correct": 0,
+  "why": "Managed NAND controllers commonly write out of place, invalidate the old page, and later reclaim blocks. Actual page sizes are much larger than this toy model.",
+  "hint": "Follow the logical-to-physical map."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What must NAND garbage collection preserve before erasing a block?",
+  "choices": [
+   "Its still-valid pages",
+   "Only invalid pages",
+   "Nothing"
+  ],
+  "correct": 0,
+  "why": "Still-live data is copied and mappings are updated before the whole victim block is erased. Invalid pages can then be reclaimed.",
+  "hint": "Erasure affects a block, not one chosen live byte."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Which operation returns programmed SLC NAND bits to the erased state?",
+  "choices": [
+   "Block erase",
+   "A normal read",
+   "CPU cache lookup"
+  ],
+  "correct": 0,
+  "why": "NAND reads/programs pages and erases blocks. In the shown SLC convention erased bits read as 1; programming can make them 0.",
+  "hint": "Find the larger erase unit."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "What do ordinary SD cards and SSDs commonly share?",
+  "choices": [
+   "NAND flash and a controller",
+   "Magnetic read heads",
+   "Refresh-only DRAM storage"
+  ],
+  "correct": 0,
+  "why": "Both commonly use managed NAND storage, although controllers, packaging, capabilities, and host interfaces differ.",
+  "hint": "Look inside both device illustrations."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Is M.2 itself a physical memory-cell technology?",
+  "choices": [
+   "Yes",
+   "No, it is a module/connector system"
+  ],
+  "correct": 1,
+  "why": "M.2 describes a physical module/socket system. NVMe is a storage protocol and NAND is a cell/storage technology; these terms are not interchangeable.",
+  "hint": "Separate form factor, protocol, and cells."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Which sequence illustrates an HDD access?",
+  "choices": [
+   "Seek, rotate, transfer",
+   "Refresh, erase, decode",
+   "Cache, Unicode, compile"
+  ],
+  "correct": 0,
+  "why": "The arm positions the head, rotation brings the sector underneath it, and data is transferred. These are conceptual stages, not measured timings.",
+  "hint": "Consider what physically moves."
+ },
+ {
+  "topic": "Memory systems",
+  "q": "Does ECC make volatile RAM retain data without power?",
+  "choices": [
+   "Yes",
+   "No"
+  ],
+  "correct": 1,
+  "why": "ECC adds information for detecting/correcting certain errors, depending on the code. Retention still depends on the underlying memory and power arrangement.",
+  "hint": "Error protection and retention are separate properties."
+ },
+ {
+  "topic": "ASCII",
+  "q": "How many codes are defined by standard US-ASCII?",
+  "choices": [
+   "128",
+   "256",
+   "1,024"
+  ],
+  "correct": 0,
+  "why": "US-ASCII uses 7 meaningful bits: codes 0–127. The high bit is zero when stored in an 8-bit byte.",
+  "hint": "Calculate 2⁷."
+ },
+ {
+  "topic": "ASCII",
+  "q": "What is the ASCII code for uppercase A?",
+  "choices": [
+   "65 / 0x41",
+   "97 / 0x61",
+   "10 / 0x0A"
+  ],
+  "correct": 0,
+  "why": "Uppercase A is decimal 65, hexadecimal 41, octal 101, and the byte 01000001.",
+  "hint": "Find A in the table."
+ },
+ {
+  "topic": "ASCII",
+  "q": "What happens when bit 5 is toggled in ASCII uppercase A?",
+  "choices": [
+   "It becomes lowercase a",
+   "It becomes B",
+   "It becomes NUL"
+  ],
+  "correct": 0,
+  "why": "65 XOR 32 = 97. A is 01000001 and a is 01100001. This bit trick applies to ASCII letter pairs, not arbitrary Unicode letters.",
+  "hint": "Bit 5 has weight 32."
+ },
+ {
+  "topic": "ASCII",
+  "q": "Is the character “7” encoded as byte value 7 in ASCII?",
+  "choices": [
+   "Yes",
+   "No, it is decimal 55"
+  ],
+  "correct": 1,
+  "why": "The digit glyph “7” has ASCII code 55 (0x37). Byte 7 is the BEL control code. Text and a numeric value need different interpretations.",
+  "hint": "Look up the glyph rather than its numeric meaning."
+ },
+ {
+  "topic": "ASCII",
+  "q": "Which ASCII control is decimal 10?",
+  "choices": [
+   "LF (line feed)",
+   "CR (carriage return)",
+   "DEL"
+  ],
+  "correct": 0,
+  "why": "LF = 10 (0x0A), CR = 13 (0x0D), and DEL = 127 (0x7F). Different systems use different newline conventions.",
+  "hint": "The table shows controls by name."
+ },
+ {
+  "topic": "ASCII",
+  "q": "Can strict US-ASCII encode é?",
+  "choices": [
+   "Yes, as one ASCII code",
+   "No; UTF-8 can encode it as C3 A9"
+  ],
+  "correct": 1,
+  "why": "é is outside ASCII. UTF-8 encodes this Unicode scalar as two bytes C3 A9. “Extended ASCII” is ambiguous without a named code page.",
+  "hint": "ASCII ends at 127."
+ },
+ {
+  "topic": "ASCII",
+  "q": "How many stored bits are in UTF-8 bytes C3 A9?",
+  "choices": [
+   "8",
+   "16",
+   "7"
+  ],
+  "correct": 1,
+  "why": "There are two 8-bit bytes, so 16 stored bits. This sequence represents one Unicode scalar, é.",
+  "hint": "Count bytes before multiplying by eight."
+ },
+ {
+  "topic": "ASCII",
+  "q": "Is there one universal “extended ASCII” table for codes 128–255?",
+  "choices": [
+   "Yes",
+   "No, a specific code page must be named"
+  ],
+  "correct": 1,
+  "why": "Different 8-bit code pages assign different characters. Standard ASCII stops at 127; UTF-8 is a separate variable-length encoding.",
+  "hint": "Ask which encoding defines the upper bytes."
+ }
+]);
 function pickQuestion(){let pool=questions.map((q,i)=>({q,i})).filter(x=>quizTopic==='All topics'||x.q.topic===quizTopic);const fresh=pool.filter(x=>!quizHistory.slice(-5).includes(x.i));if(fresh.length)pool=fresh;pool.sort((x,y)=>{const sx=saved.stats[x.q.topic]||{attempts:0,correct:0},sy=saved.stats[y.q.topic]||{attempts:0,correct:0};return (sx.attempts?sx.correct/sx.attempts:.5)-(sy.attempts?sy.correct/sy.attempts:.5);});const weakest=pool[0].q.topic;const candidates=quizTopic==='All topics'&&Math.random()<.65?pool.filter(x=>x.q.topic===weakest):pool;quizId=candidates[Math.floor(Math.random()*candidates.length)].i;quizHistory.push(quizId);quizSelected=null;quizChecked=false;quizHint=false;}
-function renderPractice(){if(quizId<0)pickQuestion();const q=questions[quizId],correct=quizSelected===q.correct;return intro('06 / EXAM PRACTICE','From “I think” to <em>“I know.”</em>','Predict first. Get feedback. Come back stronger on the tricky topics.','06')+
-`<div class="topic-bar" role="group" aria-label="Practice topic">${['All topics','Gates','Circuits','Boolean','Memory','Numbers'].map(t=>`<button class="topic-button ${quizTopic===t?'active':''}" data-topic="${t}" aria-pressed="${quizTopic===t}">${t}</button>`).join('')}</div><div class="practice-layout"><section class="card practice-card"><div class="question-meta"><span class="eyebrow">${q.topic} / ${quizChecked?'REVIEW THE REASON':'MAKE YOUR PREDICTION'}</span><span class="question-number">${questions.length} questions in the bank</span></div><h2 class="question-title">${q.q}</h2><p class="question-context">${q.topic==='Memory'?'Assume an ideal rising-edge flip-flop, stable inputs, and no asynchronous controls.':q.topic==='Numbers'?'Assume unsigned whole numbers. Subscripts and 0x show the number base.':'Use Boolean values: 0 is false, 1 is true.'}</p>${q.code?`<div class="question-code">${esc(q.code)}</div>`:''}<div class="answer-options" role="group" aria-label="Answer choices">${q.choices.map((c,i)=>`<button class="answer-button ${quizSelected===i?'selected':''} ${quizChecked&&i===q.correct?'correct':''} ${quizChecked&&quizSelected===i&&!correct?'incorrect':''}" data-choice="${i}" aria-pressed="${quizSelected===i}" ${quizChecked?'disabled':''}><span class="answer-letter">${String.fromCharCode(65+i)}</span><span>${esc(c)}</span></button>`).join('')}</div>${quizHint&&!quizChecked?`<p class="hint-line">✧ Hint: ${q.hint}</p>`:''}${quizChecked?`<div class="answer-feedback ${correct?'good':''}" role="status"><strong>${correct?'That’s it. Here’s why.':'A useful mistake. Let’s untangle it.'}</strong>${q.why}</div>`:''}<div class="button-row">${quizChecked?'<button class="primary" data-action="next-question">Next question →</button>':`<button class="primary" data-action="check-answer" ${quizSelected===null?'disabled':''}>Check my answer →</button><button class="text-button" data-action="hint">A little hint</button>`}<span class="spacer"></span><button class="text-button" data-action="study-topic">Explore this topic ↗</button></div></section><aside><section class="card practice-stats"><span class="eyebrow">YOUR PRACTICE SO FAR</span><div class="stats-value">${saved.attempts?Math.round(saved.correct/saved.attempts*100)+'%':'—'}</div><div class="stats-desc">${saved.correct} correct out of ${saved.attempts} checked answers.<br>Practice accuracy, not a mastery grade.</div><div class="topic-stats">${['Gates','Circuits','Boolean','Memory','Numbers'].map(t=>{const s=saved.stats[t]||{correct:0,attempts:0};return `<div class="topic-stat"><span>${t}</span><span>${s.correct} / ${s.attempts}</span></div>`;}).join('')}</div><p class="subtle" style="margin:17px 0 0">All-topics mode revisits weaker topics more often. Progress stays in this browser.</p></section><section class="exam-tip"><span class="eyebrow">A SMALL EXAM HABIT</span><h3>Write the middle bits.</h3><p>For expressions, show intermediate gate results. For flip-flops, write Q before and after each active edge. Small steps prevent big slips.</p></section></aside></div>`;}
-function renderReferenceCore(){return intro('07 / POCKET GUIDE','Keep the <em>essentials close.</em>','A compact reference for your revision. Try each rule in the labs, then test yourself.','07')+
+function renderPracticeQuestions(){if(quizId<0)pickQuestion();const q=questions[quizId],correct=quizSelected===q.correct;return `<div class="topic-bar" role="group" aria-label="Practice topic">${['All topics','Gates','Circuits','Boolean','Memory','Memory systems','Numbers','ASCII'].map(t=>`<button class="topic-button ${quizTopic===t?'active':''}" data-topic="${t}" aria-pressed="${quizTopic===t}">${t}</button>`).join('')}</div><div class="practice-layout"><section class="card practice-card"><div class="question-meta"><span class="eyebrow">${q.topic} / ${quizChecked?'REVIEW THE REASON':'MAKE YOUR PREDICTION'}</span><span class="question-number">${questions.length} questions in the bank</span></div><h2 class="question-title">${q.q}</h2><p class="question-context">${q.topic==='Memory'?'Assume an ideal rising-edge flip-flop, stable inputs, and no asynchronous controls.':q.topic==='Memory systems'?'Distinguish cell technology, system role, interface, and storage device.':q.topic==='ASCII'?'Use standard 7-bit US-ASCII unless the question explicitly says UTF-8.':q.topic==='Numbers'?'Assume unsigned whole numbers. Subscripts and 0x show the number base.':'Use Boolean values: 0 is false, 1 is true.'}</p>${q.code?`<div class="question-code">${esc(q.code)}</div>`:''}<div class="answer-options" role="group" aria-label="Answer choices">${q.choices.map((c,i)=>`<button class="answer-button ${quizSelected===i?'selected':''} ${quizChecked&&i===q.correct?'correct':''} ${quizChecked&&quizSelected===i&&!correct?'incorrect':''}" data-choice="${i}" aria-pressed="${quizSelected===i}" ${quizChecked?'disabled':''}><span class="answer-letter">${String.fromCharCode(65+i)}</span><span>${esc(c)}</span></button>`).join('')}</div>${quizHint&&!quizChecked?`<p class="hint-line">✧ Hint: ${q.hint}</p>`:''}${quizChecked?`<div class="answer-feedback ${correct?'good':''}" role="status"><strong>${correct?'That’s it. Here’s why.':'A useful mistake. Let’s untangle it.'}</strong>${q.why}</div>`:''}<div class="button-row">${quizChecked?'<button class="primary" data-action="next-question">Next question →</button>':`<button class="primary" data-action="check-answer" ${quizSelected===null?'disabled':''}>Check my answer →</button><button class="text-button" data-action="hint">A little hint</button>`}<span class="spacer"></span><button class="text-button" data-action="study-topic">Explore this topic ↗</button></div></section><aside><section class="card practice-stats"><span class="eyebrow">YOUR PRACTICE SO FAR</span><div class="stats-value">${saved.attempts?Math.round(saved.correct/saved.attempts*100)+'%':'—'}</div><div class="stats-desc">${saved.correct} correct out of ${saved.attempts} checked answers.<br>Practice accuracy, not a mastery grade.</div><div class="topic-stats">${['Gates','Circuits','Boolean','Memory','Memory systems','Numbers','ASCII'].map(t=>{const s=saved.stats[t]||{correct:0,attempts:0};return `<div class="topic-stat"><span>${t}</span><span>${s.correct} / ${s.attempts}</span></div>`;}).join('')}</div><p class="subtle" style="margin:17px 0 0">All-topics mode revisits weaker topics more often. Progress stays in this browser.</p></section><section class="exam-tip"><span class="eyebrow">A SMALL EXAM HABIT</span><h3>Write the middle bits.</h3><p>For expressions, show intermediate gate results. For flip-flops, write Q before and after each active edge. Small steps prevent big slips.</p></section></aside></div>`;}
+function renderPractice(){return window.EmberTraining.render({intro,esc,mark,render,navigate},renderPracticeQuestions);}
+function renderReferenceCore(){return intro('09 / POCKET GUIDE','Keep the <em>essentials close.</em>','A compact reference for your revision. Try each rule in the labs, then test yourself.','09')+
 `<div class="button-row" style="margin:0 0 20px"><button class="secondary print-button" data-action="print">Print pocket guide ↗</button><span class="subtle">Boolean + means OR; · means AND; ¬ or ′ means NOT; ⊕ means XOR.</span></div><div class="reference-grid"><section class="card reference-card"><span class="eyebrow">GATES / PRESENT INPUTS</span><h2>Four small building blocks.</h2><table class="reference-table"><thead><tr><th>A</th><th>B</th><th>A · B</th><th>A + B</th><th>A ⊕ B</th><th>¬A</th></tr></thead><tbody>${[[0,0],[0,1],[1,0],[1,1]].map(([x,y])=>`<tr><td>${x}</td><td>${y}</td><td>${L.gate('AND',x,y)}</td><td>${L.gate('OR',x,y)}</td><td>${L.gate('XOR',x,y)}</td><td>${1-x}</td></tr>`).join('')}</tbody></table><p><strong>AND:</strong> all inputs must be 1. <strong>OR:</strong> at least one is 1. <strong>Two-input XOR:</strong> exactly one is 1. <strong>NOT:</strong> reverse one bit.</p><p>For three or more inputs, chained XOR is 1 for an odd number of 1s. A truth table with n independent inputs has 2ⁿ rows.</p></section><section class="card reference-card"><span class="eyebrow">MEMORY / NEXT STATE</span><h2>What happens at ↑?</h2><table class="reference-table"><thead><tr><th>Type</th><th>Inputs</th><th>Q next</th></tr></thead><tbody><tr><td>D</td><td>D = 0 / 1</td><td>Copy D</td></tr><tr><td>T</td><td>T = 0 / 1</td><td>Hold / toggle</td></tr><tr><td>JK</td><td>00 / 01 / 10 / 11</td><td>Hold / 0 / 1 / toggle</td></tr><tr><td>SR</td><td>00 / 01 / 10 / 11</td><td>Hold / 0 / 1 / invalid</td></tr></tbody></table><p>↑ means a 0→1 clock edge. Between active edges, these flip-flops hold Q. ¬Q is the complement of a valid Q. “Hold” keeps the old value; “toggle” reverses it.</p><p>The SR table here is <strong>active-high and synchronous</strong>. An active-low NAND SR latch uses a different table. A latch follows inputs during its active enable level; a flip-flop samples on an edge.</p></section><section class="card reference-card"><span class="eyebrow">BOOLEAN / SIMPLIFY</span><h2>A handful of powerful laws.</h2>${laws()}<p>Distributive: A · (B + C) = A · B + A · C.<br>Double negation: ¬¬A = A.<br>Two-input XOR: A ⊕ B = A · ¬B + ¬A · B.</p></section><section class="card reference-card"><span class="eyebrow">YOUR EXAM ROUTINE</span><h2>Give every bit a place.</h2><ol><li><strong>Read the notation.</strong> Check the clock edge and whether inputs are active-high or active-low.</li><li><strong>Group the expression.</strong> Parentheses first, then NOT, then AND, then the remaining operators according to your course. This kit uses AND → XOR → OR.</li><li><strong>Write intermediate results.</strong> Feed them into the next gate.</li><li><strong>For memory, track Q.</strong> Mark the active edges. Update Q only there, using the inputs at that moment.</li><li><strong>Check the corners.</strong> Try all 0s, all 1s, and one changing input. Prove equivalence with all truth-table rows.</li></ol><div class="memory-lesson">Boolean algebra uses 0 and 1 as truth values. It is not ordinary arithmetic: 1 + 1 = 1 when + means OR.</div></section></div>`;}
-function renderReference(){return renderReferenceCore()+window.EmberCircuitUI.guide()+window.EmberNumberUI.guide();}
-function render(keepFocus=false){const focus=keepFocus?document.activeElement:null,action=focus?.dataset?.action,gate=focus?.dataset?.gate,ff=focus?.dataset?.ff;main.innerHTML=({gates:renderGates,boolean:renderBoolean,memory:renderMemory,circuit:()=>window.EmberCircuitUI.render({intro,esc,mark,render,navigate,bit}),numbers:()=>window.EmberNumberUI.render({intro,esc,mark,render,navigate}),practice:renderPractice,reference:renderReference})[view]();document.querySelectorAll('.nav-link').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});if(keepFocus){const q=action?`[data-action="${action}"]`:gate?`[data-gate="${gate}"]`:ff?`[data-ff="${ff}"]`:null;if(q)main.querySelector(q)?.focus({preventScroll:true});}}
-function navigate(v){if(!['gates','circuit','boolean','memory','numbers','practice','reference'].includes(v))return;view=v;history.replaceState(null,'','#'+v);render();window.scrollTo({top:0,behavior:'instant'});}
+function renderReference(){return renderReferenceCore()+window.EmberCircuitUI.guide()+window.EmberNumberUI.guide()+window.EmberMemoryUI.guide()+window.EmberASCIIUI.guide();}
+function render(keepFocus=false){const focus=keepFocus?document.activeElement:null,action=focus?.dataset?.action,gate=focus?.dataset?.gate,ff=focus?.dataset?.ff;main.innerHTML=({gates:renderGates,boolean:renderBoolean,memory:renderMemory,circuit:()=>window.EmberCircuitUI.render({intro,esc,mark,render,navigate,bit}),numbers:()=>window.EmberNumberUI.render({intro,esc,mark,render,navigate}),systems:()=>window.EmberMemoryUI.render({intro,esc,mark,render,navigate,bit}),ascii:()=>window.EmberASCIIUI.render({intro,esc,mark,render,navigate}),practice:renderPractice,reference:renderReference})[view]();document.querySelectorAll('.nav-link').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});if(keepFocus){const q=action?`[data-action="${action}"]`:gate?`[data-gate="${gate}"]`:ff?`[data-ff="${ff}"]`:null;if(q)main.querySelector(q)?.focus({preventScroll:true});}}
+function navigate(v){if(!['gates','circuit','boolean','memory','numbers','systems','ascii','practice','reference'].includes(v))return;view=v;history.replaceState(null,'','#'+v);render();if(innerWidth<=780){const nav=document.querySelector('.sidebar nav'),active=nav.querySelector('.active');nav.scrollLeft=active.offsetLeft-nav.offsetLeft-(nav.clientWidth-active.clientWidth)/2;}window.scrollTo({top:0,behavior:'instant'});}
 function solveExpr(source){expression=source;try{exprAst=L.parse(expression);exprError='';compareResult='';mark('boolean');}catch(e){exprError=e.message;}render();}
-function handleAction(action){if(action==='gate-a'||action==='gate-b'){if(action==='gate-a')a=1-a;else b=1-b;mark(gateType);render(true);}else if(action?.startsWith('expr-')){const v=action.slice(5);exprValues[v]=1-exprValues[v];mark('boolean');render(true);}else if(action==='ff-x'||action==='ff-y'){if(action==='ff-x')ffX=1-ffX;else ffY=1-ffY;recordFF();ffMessage='Input changed. No rising edge occurred, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' '+(ffClk?'CLK is high, but staying high is not an edge.':'Raise CLK to sample the inputs.');render(true);}else if(action==='clock'){ffClk=1-ffClk;if(ffClk){const old=ffQ;ffQ=L.flip(ffType,ffQ,ffX,ffY);ffMessage=ffQ===null?(ffType==='SR'&&ffX&&ffY?'S and R are both 1: forbidden input. Q is now unknown in this model.':'Q is still unknown. Use a defined set or reset input at the next ↑ to recover.'):`Rising edge! ${ffType==='D'?'D = '+ffX+' was copied into Q.':old===ffQ?'The rule holds Q at '+ffQ+'.':'Q changed from '+(old===null?'unknown':old)+' to '+ffQ+'.'} Q will hold until the next active edge.`;mark('memory');}else ffMessage='Clock lowered to 0. This is a falling edge, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' The next rise is the sampling event.';recordFF();render(true);}else if(action==='reset-ff'){resetFF();render(true);}else if(action==='check-answer'&&quizSelected!==null&&!quizChecked){quizChecked=true;const q=questions[quizId];saved.attempts++;const ok=quizSelected===q.correct;if(ok)saved.correct++;saved.stats[q.topic]??={attempts:0,correct:0};saved.stats[q.topic].attempts++;if(ok)saved.stats[q.topic].correct++;save();render();}else if(action==='next-question'){pickQuestion();render();}else if(action==='hint'){quizHint=true;render();}else if(action==='study-topic'){navigate({Gates:'gates',Boolean:'boolean',Memory:'memory',Numbers:'numbers',Circuits:'circuit'}[questions[quizId].topic]);}else if(action==='print')window.print();}
+function handleAction(action){if(action==='gate-a'||action==='gate-b'){if(action==='gate-a')a=1-a;else b=1-b;mark(gateType);render(true);}else if(action?.startsWith('expr-')){const v=action.slice(5);exprValues[v]=1-exprValues[v];mark('boolean');render(true);}else if(action==='ff-x'||action==='ff-y'){if(action==='ff-x')ffX=1-ffX;else ffY=1-ffY;recordFF();ffMessage='Input changed. No rising edge occurred, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' '+(ffClk?'CLK is high, but staying high is not an edge.':'Raise CLK to sample the inputs.');render(true);}else if(action==='clock'){ffClk=1-ffClk;if(ffClk){const old=ffQ;ffQ=L.flip(ffType,ffQ,ffX,ffY);ffMessage=ffQ===null?(ffType==='SR'&&ffX&&ffY?'S and R are both 1: forbidden input. Q is now unknown in this model.':'Q is still unknown. Use a defined set or reset input at the next ↑ to recover.'):`Rising edge! ${ffType==='D'?'D = '+ffX+' was copied into Q.':old===ffQ?'The rule holds Q at '+ffQ+'.':'Q changed from '+(old===null?'unknown':old)+' to '+ffQ+'.'} Q will hold until the next active edge.`;mark('memory');}else ffMessage='Clock lowered to 0. This is a falling edge, so Q '+(ffQ===null?'remains unknown.':'holds at '+ffQ+'.')+' The next rise is the sampling event.';recordFF();render(true);}else if(action==='reset-ff'){resetFF();render(true);}else if(action==='check-answer'&&quizSelected!==null&&!quizChecked){quizChecked=true;const q=questions[quizId];saved.attempts++;const ok=quizSelected===q.correct;if(ok)saved.correct++;saved.stats[q.topic]??={attempts:0,correct:0};saved.stats[q.topic].attempts++;if(ok)saved.stats[q.topic].correct++;save();render();}else if(action==='next-question'){pickQuestion();render();}else if(action==='hint'){quizHint=true;render();}else if(action==='study-topic'){navigate({Gates:'gates',Boolean:'boolean',Memory:'memory','Memory systems':'systems',ASCII:'ascii',Numbers:'numbers',Circuits:'circuit'}[questions[quizId].topic]);}else if(action==='print')window.print();}
 document.addEventListener('click',e=>{const el=e.target.closest('button,[data-row],[data-expr-row]');if(!el)return;if(el.dataset.view)navigate(el.dataset.view);else if(el.dataset.gate){gateType=el.dataset.gate;gateAnswer=null;render(true);}else if(el.dataset.row){[a,b]=el.dataset.row.split(',').map(Number);b??=0;mark(gateType);render();}else if(el.dataset.gateGuess){gateAnswer=Number(el.dataset.gateGuess);render();}else if(el.dataset.example){solveExpr(el.dataset.example);}else if(el.dataset.exprRow){Object.assign(exprValues,JSON.parse(el.dataset.exprRow));mark('boolean');render();}else if(el.dataset.ff){ffType=el.dataset.ff;resetFF();render(true);}else if(el.dataset.topic){quizTopic=el.dataset.topic;pickQuestion();render();}else if(el.dataset.choice!==undefined&&!quizChecked){quizSelected=Number(el.dataset.choice);render();}else if(el.dataset.action)handleAction(el.dataset.action);});
 main.addEventListener('submit',e=>{e.preventDefault();if(e.target.id==='expression-form')solveExpr(document.getElementById('expression').value);else if(e.target.id==='comparison-form'){comparison=document.getElementById('comparison').value;try{const result=L.equivalent(exprAst,L.parse(comparison));compareResult=result.equal?`<div class="explanation" role="status"><strong>Equivalent.</strong> Both expressions match on all ${result.rows} input combinations.</div>`:`<div class="error" role="status"><strong>Not equivalent.</strong> For ${Object.entries(result.values).map(([k,v])=>k+' = '+v).join(', ')||'these constants'}, the original gives ${result.a}, but your version gives ${result.b}.</div>`;}catch(e){compareResult=`<div class="error" role="alert">${esc(e.message)}</div>`;}render();}});
 main.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-row],[data-expr-row]')){e.preventDefault();e.target.click();}});
