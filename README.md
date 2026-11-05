@@ -53,3 +53,9 @@ Every simulation workshop has a shared 3D inspector linked to its current model 
 `binary.js` uses exact fixed-width BigInt operations up to 64 bits, with two’s complement, carries, signed overflow, sign extension, shifts, integer division, and bitwise operations. `binary-ui.js` provides worked traces and recall challenges. `media-models.js` and `media-ui.js` supply editable raster pixels, actual quantized PCM playback and WAV export, a reconstructable toy delta-video format, and integer/IEEE-754/text/JSON interpretation.
 
 `space3d.js` projects real 3D meshes using a small dependency-free Canvas renderer; `space-models.js` maps live simulation state into geometry. It does not need WebGL, a GPU library, a model download, or a server. Models are conceptual and labelled accordingly: no measured semiconductor behavior, photorealistic construction, or industrial codec implementation is claimed.
+
+## Subject hub and mathematics
+
+The home page lets you choose Mathematics or Computer Science. The original logic workbench is at `computer-science.html`. Old home-page links with a workbench section hash redirect there.
+
+Mathematics opens a Chapter 1 linear algebra lab based on the topic order in Howard Anton and Anton Kaul's *Elementary Linear Algebra*, 12th edition. It includes an editable 3D plane intersection and matrix transformation visualizer, original worked practice for all eleven sections, textbook exercise references with selected worked solutions, and configurable quizzes. Written attempts are saved only in the current browser when local storage is available. Quiz problems use self-marking after showing the worked solution.

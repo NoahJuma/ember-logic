@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linear Algebra · Chapter 1 — Ember Study Labs</title>
+  <link rel="stylesheet" href="study.css">
+  <script src="linear-algebra-core.js" defer></script>
+  <script src="linear-algebra-content.js" defer></script>
+  <script src="linear-algebra-textbook.js" defer></script>
+  <script src="linear-algebra.js" defer></script>
+</head>
+<body class="study">
+  <header class="study-top"><a href="./" class="study-brand"><b>e.</b> Ember Study Labs</a><a href="mathematics.html">← Mathematics</a></header>
+  <main class="study-wrap">
+    <section class="study-hero">
+      <p class="kicker">MATHEMATICS / CHAPTER 1</p><h1>Linear <em>Algebra</em></h1>
+      <p>What does an equation look like in 3D? How does a matrix move a point? Turn the models, change the numbers, and follow each calculation.</p>
+    </section>
+    <nav class="chapter-nav" aria-label="Chapter sections">
+      <a href="#lab">01 · 3D lab</a><a href="#practice">02 · Worked practice</a><a href="#book">03 · Textbook</a><a href="#quiz">04 · Quiz</a>
+    </nav>
+
+    <section class="study-section" id="lab">
+      <p class="kicker">01 / EXPERIMENT</p><h2>See the algebra in 3D</h2>
+      <div class="lab-grid">
+        <div class="panel scene-panel">
+          <div class="scene-head">
+            <label for="scene-mode">Choose a model</label>
+            <select id="scene-mode"><option value="planes">Three planes and their solutions</option><option value="transform">A matrix moves a cube</option></select>
+          </div>
+          <svg id="scene" viewBox="0 0 640 440" role="img" aria-label="Three-dimensional model" tabindex="0"><title>Interactive linear algebra model</title></svg>
+          <div class="scene-actions" aria-label="Camera controls">
+            <button type="button" data-camera="left" aria-label="Rotate left">←</button><button type="button" data-camera="right" aria-label="Rotate right">→</button>
+            <button type="button" data-camera="up" aria-label="Tilt up">↑</button><button type="button" data-camera="down" aria-label="Tilt down">↓</button>
+            <button type="button" data-camera="out" aria-label="Zoom out">−</button><button type="button" data-camera="in" aria-label="Zoom in">+</button>
+            <button type="button" data-camera="reset">Reset view</button>
+          </div>
+          <p class="caption">Drag to orbit. You can also use the arrow keys or the camera buttons.</p>
+        </div>
+        <div class="panel lab-controls">
+          <div id="scene-controls"></div>
+          <div id="scene-result" class="scene-result" aria-live="polite"></div>
+          <details id="scene-steps"><summary>Show the calculation</summary><ol id="scene-work" class="steps"></ol></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-section" id="practice">
+      <p class="kicker">02 / WORKED PRACTICE</p><h2>Try it before you reveal it</h2>
+      <p>Choose any Chapter 1 topic. Write your answer or your working, then reveal the solution and compare it line by line.</p>
+      <div class="filter-row"><label for="practice-topic">Chapter topic</label><select id="practice-topic"></select></div>
+      <div id="practice-list" class="exercise-list"></div>
+    </section>
+
+    <section class="study-section" id="book">
+      <p class="kicker">03 / TEXTBOOK COMPANION</p><h2>Work alongside the book</h2>
+      <p>Howard Anton and Anton Kaul, <cite>Elementary Linear Algebra</cite>, 12th edition. Chapter 1 starts on printed page 2 and ends on page 117. Page 118 begins Chapter 2.</p>
+      <div class="filter-row"><label for="book-topic">Exercise set</label><select id="book-topic"></select></div>
+      <p id="book-coverage" class="caption"></p>
+      <div id="book-list" class="exercise-list"></div>
+    </section>
+
+    <section class="study-section" id="quiz">
+      <p class="kicker">04 / SELF-TEST</p><h2>Make a Chapter 1 quiz</h2>
+      <form class="panel quiz-config" id="quiz-form">
+        <label>Difficulty<select id="quiz-level"><option value="1">1 · Easy</option><option value="2">2 · Beginner</option><option value="3">3 · Advanced</option><option value="4">4 · Very advanced</option></select></label>
+        <label>Question type<select id="quiz-type"><option value="mixed">Mixed</option><option value="problems">Problems</option><option value="terms">Terminology</option><option value="language">Mathematical language</option></select></label>
+        <label>Chapter topic<select id="quiz-topic"></select></label>
+        <button class="primary" type="submit">Start quiz</button>
+      </form>
+      <div id="quiz-play" class="panel quiz-play" hidden></div>
+    </section>
+  </main>
+  <footer class="study-footer"><a href="mathematics.html">← Mathematics</a><span>Ember Study Labs</span></footer>
+</body>
+</html>
