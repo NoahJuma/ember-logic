@@ -3,3 +3,13 @@
 @media(max-width:800px){.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.subject-grid{grid-template-columns:1fr}.subject-card{min-height:0}.hero-art{opacity:.36}.study-wrap{width:92%}.scene-actions button{padding:.42rem .65rem}.chapter-nav a{font-size:.82rem}.study-top{padding-inline:4%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.math-key{padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--card);max-width:52rem}
+.math-key summary{color:var(--green);font-weight:700}
+.math-key dt{font-weight:700}
+.math-key dd{margin:0 0 .65rem}
+.exercise[id]{scroll-margin:1rem}
+.worked-result{white-space:pre-wrap}
+.solution-figure{margin:1rem 0 0;max-width:36rem}
+.solution-figure svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fffefb;font:15px system-ui,sans-serif}
+.solution-figure figcaption{color:var(--muted);font-size:.9rem}

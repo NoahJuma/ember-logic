@@ -221,8 +221,12 @@
     const a=points.map(([x,y])=>[...points.map((_,i)=>x**(points.length-i-1)),y]);
     const result=M.solve(a);
     const powers=points.length===3?'a x² + b x + c':'a x³ + b x² + c x + d';
+    const polynomial = result.point.map((value,i)=>{
+      const degree = points.length-i-1;
+      return '('+M.format(value)+')'+(degree===0?'':degree===1?'x':degree===2?'x²':'x³');
+    }).join(' + ');
     add(set,n,{title:'Find the interpolating polynomial',prompt:'Fit '+powers+' through '+points.map(M.vector).join(', ')+'.',
-      answer:'Coefficients in descending order: '+M.vector(result.point),
+      answer:'p(x) = '+polynomial+'\nCoefficients in descending order: '+M.vector(result.point),
       steps:['Substitute each x into each power and put the observed y on the right. Every point gives one row.',...result.steps]});
   }
   fit('1.10','13',[[1,1],[2,2],[3,5]]);
@@ -313,5 +317,10 @@
     'Only 8 is divisible by 4, so z = 3 and y = 2. Then x = 9 − 2 − 3 = 4. Check: 4 + 10 + 30 = 44.');
   fit('review','15',[[1,2],[-1,6],[2,3]]);
 
-  window.EmberTextbook={index,solutions};
+  // Preserve the storage keys used by the original companion before exercises were reordered.
+  const legacyAttempts = Object.fromEntries(Object.entries(solutions).map(([set, entries]) => [
+    set,
+    Object.fromEntries(entries.map(({number}, i) => [number.split('–')[0], i]))
+  ]));
+  window.EmberTextbook={index,solutions,legacyAttempts};
 })();

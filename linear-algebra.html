@@ -8,6 +8,7 @@
   <script src="linear-algebra-core.js" defer></script>
   <script src="linear-algebra-content.js" defer></script>
   <script src="linear-algebra-textbook.js" defer></script>
+  <script src="linear-algebra-solutions.js" defer></script>
   <script src="linear-algebra.js" defer></script>
 </head>
 <body class="study">
@@ -56,7 +57,21 @@
     <section class="study-section" id="book">
       <p class="kicker">03 / TEXTBOOK COMPANION</p><h2>Work alongside the book</h2>
       <p>Howard Anton and Anton Kaul, <cite>Elementary Linear Algebra</cite>, 12th edition. Chapter 1 starts on printed page 2 and ends on page 117. Page 118 begins Chapter 2.</p>
-      <div class="filter-row"><label for="book-topic">Exercise set</label><select id="book-topic"></select></div>
+      <p>Find the exercise in your copy, try it in the answer box, then open <strong>Show worked solution</strong> to compare.</p>
+      <details class="math-key">
+        <summary>New to the notation? Read this first</summary>
+        <dl>
+          <dt>Variable and coefficient</dt><dd>A variable is an unknown number. Its coefficient is the number multiplying it. In 3x, the variable is x and the coefficient is 3.</dd>
+          <dt>Matrix, row and column</dt><dd>A matrix is a grid of numbers. Rows go across and columns go down. A vector is an ordered list of coordinates, often written as a column.</dd>
+          <dt>Augmented matrix</dt><dd>Copy the coefficients of one equation into each row. The last column holds the numbers from the right of the equals sign.</dd>
+          <dt>Pivot and free variable</dt><dd>A pivot is a leading entry used to clear other entries in its column. A free variable has no pivot, so you can choose its value in a consistent system.</dd>
+          <dt>Identity, inverse and transpose</dt><dd>The identity I leaves a vector unchanged. The inverse A⁻¹ undoes A when it exists. The transpose Aᵀ swaps the rows and columns.</dd>
+        </dl>
+      </details>
+      <div class="filter-row">
+        <label for="book-topic">Exercise set</label><select id="book-topic"></select>
+        <label for="book-jump">Jump to exercise</label><select id="book-jump"></select>
+      </div>
       <p id="book-coverage" class="caption"></p>
       <div id="book-list" class="exercise-list"></div>
     </section>

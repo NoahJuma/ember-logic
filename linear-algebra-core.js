@@ -20,10 +20,11 @@
   const apply = (a, v) => a.map(row => dot(row, v));
   const identity = n => Array.from({length:n}, (_, i) => Array.from({length:n}, (_, j) => Number(i === j)));
 
-  function reduce(matrix, variableCount = matrix[0].length) {
+  function reduce(matrix, variableCount = matrix[0].length, above = true) {
     const rows = matrix.map(row => [...row]);
     const pivots = [];
     const steps = [];
+    const operations = [];
     const record = description => steps.push(description + '\n' + matrixText(rows));
     record('Start by writing each equation as a row.');
     for (let col = 0; col < variableCount && pivots.length < rows.length; col++) {
@@ -35,22 +36,25 @@
       if (zero(rows[best][col])) continue;
       if (next !== best) {
         [rows[next], rows[best]] = [rows[best], rows[next]];
+        operations.push({type:"swap", i:next, j:best});
         record('Swap rows ' + (next + 1) + ' and ' + (best + 1) + ' to move a nonzero number into the pivot position.');
       }
       const pivot = rows[next][col];
       if (!zero(pivot - 1)) {
         rows[next] = rows[next].map(x => x / pivot);
+        operations.push({type:"scale", i:next, factor:1/pivot});
         record('Divide row ' + (next + 1) + ' by ' + format(pivot) + ' so the pivot is 1.');
       }
       rows.forEach((row, i) => {
         const factor = row[col];
-        if (i === next || zero(factor)) return;
+        if (i === next || (!above && i < next) || zero(factor)) return;
         rows[i] = row.map((x, j) => x - factor * rows[next][j]);
+        operations.push({type:"add", i, j:next, factor:-factor});
         record('Replace row ' + (i + 1) + ' with row ' + (i + 1) + ' minus (' + format(factor) + ') × row ' + (next + 1) + '. This makes a zero in column ' + (col + 1) + '.');
       });
       pivots.push(col);
     }
-    return {rows, pivots, steps};
+    return {rows, pivots, steps, operations};
   }
 
   function solve(augmented) {
@@ -88,7 +92,7 @@
     return {value, steps};
   }
 
-  const api = {zero, tidy, format, vector, matrixText, dot, multiply, apply, solve, inverse};
+  const api = {reduce, zero, tidy, format, vector, matrixText, dot, multiply, apply, solve, inverse};
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.EmberAlgebra = api;
 })(globalThis);

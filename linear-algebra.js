@@ -20,12 +20,36 @@
     catch { /* The comparison still works without browser storage. */ }
   }
 
-  function exerciseCard(problem,key,label) {
-    return '<article class="exercise"><p class="kicker">'+html(label)+'</p><h3>'+html(problem.title)+'</h3>'+
-      '<p>'+html(problem.prompt)+'</p><label class="attempt-label">Your answer or working<textarea data-attempt="'+key+
+  function quadraticFamily() {
+    const px = x => 56 + (x + .5) * 232;
+    const py = y => 238 - (y + 1.2) * 40;
+    const series = [[-2,'#9d2e42'],[-1,'#805523'],[1,'#226554'],[2,'#365d9f']];
+    const paths = series.map(([t,color]) => {
+      const points = Array.from({length:81},(_,i)=>{
+        const x = -.5 + i/40;
+        return px(x).toFixed(1)+','+py(1 + (1-t)*x + t*x*x).toFixed(1);
+      });
+      return '<polyline points="'+points.join(' ')+'" fill="none" stroke="'+color+'" stroke-width="2.5"/>';
+    }).join('');
+    const markers = [[0,1],[1,2]].map(([x,y])=>
+      '<circle cx="'+px(x)+'" cy="'+py(y)+'" r="4" fill="#302822"/><text x="'+(px(x)+7)+'" y="'+(py(y)-8)+'">('+x+', '+y+')</text>').join('');
+    const legend = series.map(([t,color],i)=>'<text x="'+(65 + i*116)+'" y="268" fill="'+color+'">● t = '+t+'</text>').join('');
+    return '<figure class="solution-figure"><svg viewBox="0 0 570 286" role="img" aria-label="Four quadratic curves for t equal to negative two, negative one, one, and two, all passing through zero comma one and one comma two.">'+
+      '<path d="M56 '+py(0)+' H520 M'+px(0)+' 18 V238" fill="none" stroke="#84756a"/>'+
+      '<text x="530" y="'+(py(0)+4)+'">x</text><text x="'+(px(0)+7)+'" y="22">y</text>'+paths+markers+legend+
+      '</svg><figcaption>Four curves from the same family. The marked points lie on all four.</figcaption></figure>';
+  }
+
+  function exerciseCard(problem,key,label,id='') {
+    const figure = problem.figure === 'quadratic-family' ? quadraticFamily() : '';
+    const source = problem.source ? '<p class="caption"><a href="'+html(problem.source.url)+'">'+html(problem.source.name)+'</a></p>' : '';
+    const target = id ? ' id="'+html(id)+'" tabindex="-1"' : '';
+    return '<article class="exercise"'+target+'><p class="kicker">'+html(label)+'</p><h3>'+html(problem.title)+'</h3>'+
+      '<p>'+html(problem.prompt)+'</p><label class="attempt-label">Your answer or working<textarea data-attempt="'+html(key)+
       '" maxlength="4000" placeholder="Write your reasoning here…">'+html(readAttempt(key))+'</textarea></label>'+
       '<details><summary>Show worked solution</summary><div class="answer"><strong>Your attempt</strong><p class="attempt-copy"></p>'+
-      '<strong>Worked answer</strong><p>'+html(problem.answer)+'</p></div><ol class="steps">'+stepList(problem.steps)+'</ol></details></article>';
+      '<strong>Worked answer</strong><p class="worked-result">'+html(problem.answer)+'</p></div><ol class="steps">'+stepList(problem.steps)+
+      '</ol>'+figure+source+'</details></article>';
   }
   function showAttempt(article) {
     article.querySelector('.attempt-copy').textContent=article.querySelector('textarea').value.trim()||'Your answer will appear here as you type.';
@@ -43,17 +67,31 @@
     $('practice-list').innerHTML=levels.map((label,i)=>exerciseCard(C.makeProblem(topic,i+1),'practice-'+topic+'-'+i,'Level '+(i+1)+' · '+label)).join('');
     $('practice-list').querySelectorAll('article').forEach(showAttempt);
   }
+  const book=window.EmberTextbook;
   function renderBook() {
     const topic=$('book-topic').value;
-    const range=window.EmberTextbook.index[topic];
-    const solutions=window.EmberTextbook.solutions[topic]||[];
-    $('book-coverage').textContent='Printed '+range.pages+' · '+range.exercises+'. '+solutions.length+' worked entries available for this set.';
-    $('book-list').innerHTML=solutions.length ? solutions.map((p,i)=>exerciseCard(p,'book-'+topic+'-'+i,'Textbook · '+p.number)).join('') :
-      '<p class="empty">Use the exercise references above with your copy. The worked practice section has original examples for each topic.</p>';
+    const range=book.index[topic];
+    const rank=number=>number==='TF'?'999':number.replace(/^T/,'1000-');
+    const entries=[...book.solutions[topic]].sort((a,b)=>rank(a.number).localeCompare(rank(b.number),'en',{numeric:true}));
+    $('book-coverage').textContent='Printed '+range.pages+' · '+entries.length+' worked entries. TF means true or false, and T marks a technology exercise.';
+    $('book-jump').innerHTML='<option value="">Choose a number</option>'+entries.map(p=>
+      '<option value="'+html(p.number)+'">'+html(p.number+' · '+p.title)+'</option>').join('');
+    $('book-list').innerHTML=entries.map(p=>{
+      const oldIndex=book.legacyAttempts[topic]?.[p.number];
+      const key=oldIndex===undefined ? 'book:'+topic+':'+p.number : 'book-'+topic+'-'+oldIndex;
+      return exerciseCard(p,key,'Textbook · '+p.number,'textbook-exercise-'+p.number);
+    }).join('');
     $('book-list').querySelectorAll('article').forEach(showAttempt);
   }
   $('practice-topic').addEventListener('change',renderPractice);
   $('book-topic').addEventListener('change',renderBook);
+  $('book-jump').addEventListener('change',event=>{
+    if (!event.target.value) return;
+    const article=$('textbook-exercise-'+event.target.value);
+    article.focus({preventScroll:true});
+    article.scrollIntoView({block:'start'});
+    event.target.value='';
+  });
 
   const presets = {
     planes: [
