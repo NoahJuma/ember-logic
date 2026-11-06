@@ -1,0 +1,117 @@
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.PhysicsContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const lessons=[
+    {id:'nature',section:'1.1',title:'Physics starts with a question',tag:'No equations needed',intro:'Physics is the study of how the physical world behaves. You already do a little physics when you ask why a ball falls or why a bicycle slows down.',steps:[
+      ['Notice','Choose something observable: a toy car rolls farther on one surface than another.'],
+      ['Make a testable guess','Perhaps the surface changes how quickly the car slows down. Keep the car and starting push the same, and change the surface.'],
+      ['Measure, compare, repeat','Measure the travel distance several times. A model is a simplified description that helps predict a result. If reliable results disagree, improve the model or its assumptions.']
+    ],example:'A model is like a map: useful for a purpose, with some details deliberately left out.',check:'If a prediction disagrees with a careful repeatable test, should we change the measurements to fit it?',answer:'No. Recheck the method and assumptions, then revise the model if the disagreement remains.'},
+    {id:'method',section:'1.2',title:'A calm way to solve a problem',tag:'Four small moves',intro:'You do not need to know the answer immediately. Start by making the question smaller.',steps:[
+      ['Identify','Write what you know, with units. Write what you want to find. Sketch the situation.'],
+      ['Set up','Choose a relationship. “Speed” means distance per time, so distance = speed × time. A letter is simply a short name for a quantity: d for distance, t for time.'],
+      ['Calculate','For walking at 2 m/s for 3 s: d = (2 m/s) × (3 s) = 6 m. The seconds cancel.'],
+      ['Check','Is 6 m sensible? Is the unit a distance? If you walked twice as long at the same speed, should the result double? Yes.']
+    ],example:'Read “=” as “has the same value as”. It is a balance, not a command to guess the next step.',check:'For 2 m/s × 3 s, why is the answer in metres?',answer:'“Per second” divides by seconds; multiplying by seconds cancels that division. Only metres remain.'},
+    {id:'units',section:'1.3–1.4',title:'A number needs a measuring stick',tag:'Try the unit machine below',intro:'“The table is 2 long” is incomplete. Two metres and two centimetres are very different. A physical measurement combines a number and a unit.',steps:[
+      ['Meet the units','Metres (m) measure length; kilograms (kg) measure mass; seconds (s) measure time. A prefix changes scale: kilo = 1000, centi = 1/100, milli = 1/1000, micro (µ) = 1/1000000.'],
+      ['Change the label, keep the size','1 m and 100 cm describe the same length. So 2.5 m × (100 cm/1 m) = 250 cm. Multiplying by a conversion factor equal to 1 changes the unit, not the object.'],
+      ['Squares and cubes','A square 1 cm on each side has area 1 cm² = (0.01 m)×(0.01 m) = 0.0001 m². A 1 cm cube occupies 0.000001 m³. Apply the conversion to every length factor.'],
+      ['Read powers of ten','10³ means 10×10×10 = 1000. 10⁻³ means 1/1000. Scientific notation writes a number as a manageable coefficient times a power of ten.']
+    ],example:'“m/s” means metres per second. “m²” means square metres. These symbols describe different kinds of quantities.',check:'Is 1 cm³ equal to 0.01 m³?',answer:'No. Cube the factor: (0.01)³ = 0.000001. Thus 1 cm³ = 0.000001 m³.'},
+    {id:'uncertainty',section:'1.5',title:'Measurements are not infinitely sharp',tag:'Honest precision',intro:'A ruler with millimetre marks cannot justify a result with many decimal places. Uncertainty tells us how closely a measurement is known.',steps:[
+      ['Read a range','12.3 ± 0.1 cm means the reported value is 12.3 cm with a stated uncertainty of 0.1 cm. It describes a scale of uncertainty; its statistical meaning depends on the measurement method.'],
+      ['Separate accuracy and precision','Accuracy is closeness to the right value. Precision is closeness of repeated readings to each other. A faulty scale can be consistently wrong: precise, but inaccurate.'],
+      ['Keep meaningful digits','For multiplication/division, a common introductory rule is to use the fewest significant figures in the measured inputs. 2.0 × 3.14 = 6.28, reported as 6.3.'],
+      ['Round at the end','For addition/subtraction, match the least precise decimal place: 12 + 5.98 = 17.98, reported as 18. Keep extra digits during intermediate calculations. Exact counts and defined conversion factors do not limit precision.']
+    ],example:'0.00450 has three significant figures: 4, 5 and the final 0. The leading zeros only locate the decimal point.',check:'Does repeating a measurement fix an instrument that always reads 2 cm too high?',answer:'No. Repetition can reveal random variation, but a systematic offset needs calibration or another correction.'},
+    {id:'estimates',section:'1.6',title:'Make a useful estimate',tag:'Think in sensible sizes',intro:'Sometimes there is no single exact answer. Estimation uses explicit assumptions to find a sensible scale.',steps:[
+      ['Choose simple assumptions','How many steps in a kilometre? Assume an average step length of 0.70 m.'],
+      ['Build the calculation','A kilometre is 1000 m. Number of steps ≈ 1000/0.70 ≈ 1429.'],
+      ['Report the scale','Say “about 1400 steps”, not “exactly 1428.571”. If step length lies between 0.60 and 0.80 m, the estimate is roughly 1250–1670 steps.'],
+      ['Check what matters','A different step length changes the answer. State that assumption so someone else can improve the estimate. An order of magnitude is a scale expressed in powers of ten.']
+    ],example:'A litre contains many thousands of ordinary water drops, not ten drops and not a trillion. A rough size check can catch a unit mistake.',check:'Must two good estimates always give the same number?',answer:'No. They can use different reasonable assumptions. Compare those assumptions and the scale of the results.'},
+    {id:'arrows',section:'1.7',title:'A vector is an arrow with a job',tag:'Drag the arrow tips in 2D',intro:'“Walk 3 metres” gives an amount. “Walk 3 metres east” gives both amount and direction. We represent the second instruction by a vector arrow.',steps:[
+      ['Separate scalar and vector','A scalar needs an amount and unit, such as 5 s or 20 kg. A vector also needs a direction, such as a displacement or a force. Its magnitude is its nonnegative length.'],
+      ['Add head to tail','Walk 3 m east, then 4 m north. Place the tail of the second arrow at the head of the first. The total displacement goes directly from start to finish.'],
+      ['Length of the shortcut','The two perpendicular legs form a right triangle. Pythagoras says shortcut² = 3² + 4² = 25. The square root reverses squaring, so the shortcut is 5 m.'],
+      ['Reverse an instruction','−A means the same length as A, in the opposite direction. A−B means A+(−B): reverse B, then add.']
+    ],example:'The walking distance is 3+4 = 7 m. The displacement length is 5 m. Distance follows the route; displacement connects the endpoints.',check:'You walk around the block and return to the start. Is your displacement equal to the distance walked?',answer:'No. Your displacement is zero because the endpoints match. The walking distance is positive.',preset:'walk'},
+    {id:'components',section:'1.8',title:'Split one arrow into simple directions',tag:'The arrow’s shadows',intro:'Components are the amounts of an arrow along chosen axes. Think of them as its horizontal, vertical and height instructions.',steps:[
+      ['Choose the axes','For a map: +x is east, +y is north. In 3D add +z upward. Negative x means west; negative y means south; negative z means down.'],
+      ['Read a coordinate tuple','(3,4,0) means 3 units along x, 4 along y and none along z. It is one arrow, not three unrelated answers.'],
+      ['Meet sine and cosine','For an arrow of length L at angle θ from +x: x=Lcosθ and y=Lsinθ. Cosine is the horizontal fraction; sine is the vertical fraction. At 0° all the arrow is horizontal; at 90° all is vertical.'],
+      ['Find an angle safely','For (3,4), tanθ=4/3, so inverse tangent gives θ≈53.1°. Other sign combinations need other quadrants. atan2(y,x) handles those signs correctly. An angle measured from north needs a different conversion.']
+    ],example:'Add components separately: (3,1,0)+(−2,4,0)=(1,5,0). East/west amounts combine with east/west; north/south with north/south.',check:'Does (3,−3,0) equal zero because 3−3=0?',answer:'No. Those components are along different axes. The arrow points southeast and has length √18.',preset:'components'},
+    {id:'unit',section:'1.9',title:'One-unit arrows are building blocks',tag:'Learn î, ĵ and k̂',intro:'A unit vector is an arrow of length 1. It gives a direction without adding a physical size.',steps:[
+      ['Three building blocks','î=(1,0,0), ĵ=(0,1,0), k̂=(0,0,1). They point along the positive x, y and z axes.'],
+      ['Read the notation aloud','3î+4ĵ means “three along x, four along y”. It is another way to write (3,4,0).'],
+      ['Make any nonzero arrow one unit long','The length of (3,4,0) is 5. Divide every entry by 5: (0.6,0.8,0). Check √(0.6²+0.8²)=1.'],
+      ['Keep the exception','The zero vector has no direction and cannot be normalised: division by zero is undefined.']
+    ],example:'(1,1,1) is not a unit vector. Its length is √3 because it has a contribution along all three axes.',check:'What is the unit vector in the direction (0,0,−7)?',answer:'Its length is 7. Divide by 7 to get (0,0,−1): straight down.',preset:'space'},
+    {id:'dot',section:'1.10',title:'Dot product: how much points along?',tag:'A number, not an arrow',intro:'A dot product measures alignment, including scale. It is useful when only the part of one vector along another direction matters.',steps:[
+      ['Multiply matching directions','A·B = AxBx + AyBy + AzBz. For A=(3,4,0) and B=(2,0,0), the result is 3×2+4×0=6.'],
+      ['Connect it to the angle','A·B=|A||B|cosθ. Same direction gives a positive value; perpendicular gives zero; more than 90° apart gives a negative value.'],
+      ['See a projection','The projection of A onto B is the along-B part of A. Its signed length is (A·B)/|B|. Negative means it points opposite B.'],
+      ['A physical example: work','If force F pushes through displacement s, W=F·s. A 10 N force along a 2 m movement does 20 J of work. A perpendicular force contributes zero work for that displacement.']
+    ],example:'Dotting two length vectors gives units of length squared. Dotting force and displacement gives N·m, called joules.',check:'Two nonzero vectors have dot product zero. Must one of them actually be zero?',answer:'No. They can be perpendicular, like (1,0,0) and (0,1,0).',preset:'dot'},
+    {id:'cross',section:'1.10',title:'Cross product: a new perpendicular arrow',tag:'This is where 3D helps',intro:'Two arrows define a flat region. Their cross product points perpendicular to that region, so it naturally needs a third dimension.',steps:[
+      ['Understand its length','|A×B|=|A||B|sinθ. This equals the area of the parallelogram formed by the arrows when both represent lengths. Parallel arrows give zero area.'],
+      ['Choose the correct side','Use your right hand: curl from A toward B through the smaller angle. Your thumb gives A×B. Reversing the order reverses the result.'],
+      ['Start with the axes','î×ĵ=k̂. Thus (3,0,0)×(0,2,0)=(0,0,6). Rotate the 3D view to see the new arrow rise out of the xy-plane.'],
+      ['Calculate with components','A×B=(AyBz−AzBy, AzBx−AxBz, AxBy−AyBx). Each entry is a difference of two products. The result must be perpendicular to both inputs; dot products can check this.']
+    ],example:'Torque r×F describes a force’s turning effect. Its direction marks a rotation axis; it is not the path an object follows.',check:'If A×B points up, which way does B×A point?',answer:'Down, with the same magnitude. Reversing the inputs negates the cross product.',preset:'cross'}
+  ];
+  const glossary=[['Scalar','A quantity described by a number and unit, without a spatial direction.'],['Vector','A quantity with both magnitude and direction.'],['Magnitude |A|','The nonnegative length of a vector.'],['Component Ax','The signed amount of A along the x-axis.'],['Displacement','Final position minus initial position.'],['Resultant','The single vector obtained by adding other vectors.'],['Unit vector','A vector of length 1, used to specify direction.'],['θ (theta)','A common symbol for an angle. Here lab angles start at +x and turn counterclockwise.'],['sin, cos, tan','Ratios associated with angles in right triangles; they connect lengths and directions.'],['√ and ∛','Square root and cube root: operations that undo squaring and cubing.'],['Dot ·','A vector product whose result is a scalar.'],['Cross ×','A vector product whose result is a perpendicular vector in 3D.'],['ρ (rho)','A common symbol for density: mass divided by volume.'],['≈','Approximately equal; rounding or estimation is involved.'],['±','Plus or minus; used to express a stated uncertainty or two algebraic possibilities.'],['AU and ly','Astronomical unit and light-year: both are units of distance.']];
+  // Original self-test questions. Options are shuffled for each session.
+  const quiz=[];
+  function Q(level,type,prompt,options,answer,why){quiz.push({id:'quiz-'+quiz.length,level,type,prompt,options,answer,why});}
+  Q(1,'problems','How many centimetres are in 2.5 m?',['250 cm','25 cm','0.025 cm','2500 cm'],0,'Each metre contains 100 centimetres. Multiply the number of metres by 100: 2.5×100=250 cm.');
+  Q(1,'problems','Walk 3 m east and 4 m north. What is your displacement length?',['5 m','7 m','1 m','12 m'],0,'The legs are perpendicular: length=√(3²+4²)=√25=5 m.');
+  Q(1,'problems','Return to your starting point after walking 40 m. What is your displacement?',['0 m','40 m','80 m','20 m'],0,'Final position minus initial position is zero. The distance walked is still 40 m.');
+  Q(1,'problems','What is 3×10³?',['3000','30','0.003','300'],0,'The exponent 3 means multiply three tens: 10×10×10=1000. Then 3×1000=3000.');
+  Q(1,'terms','Which quantity needs a spatial direction?',['Displacement','Mass','Elapsed time','Temperature'],0,'Displacement needs both an amount and direction; the others are scalars.');
+  Q(1,'terms','What does a vector’s magnitude mean?',['Its length','Its colour','Only its x entry','Its negative direction'],0,'Magnitude is the nonnegative length of the arrow.');
+  Q(1,'terms','A measurement repeats closely but is always too high. It is…',['Precise but inaccurate','Accurate but imprecise','Both necessarily','Neither necessarily'],0,'A tight group of repeated readings is precise. The systematic offset makes it inaccurate.');
+  Q(1,'terms','What does a unit vector have?',['Length 1','Every component equal to 1','No direction','Length 0'],0,'Only the total length must be 1. For example (0.6,0.8,0) is a unit vector.');
+  Q(1,'language','Read “m/s”.',['Metres per second','Metres times seconds','Square metres','Seconds per metre'],0,'The slash means divided by, or “per”.');
+  Q(1,'language','What does a negative x component mean?',['Along the negative x-axis','Negative physical length','Always south','No motion'],0,'The sign specifies direction along the chosen axis; the magnitude stays nonnegative.');
+  Q(1,'language','What does “≈” mean?',['Approximately equal','Exactly identical','Less than','Multiply'],0,'It signals an approximation, such as 22/7≈3.14.');
+  Q(1,'language','Which notation describes area?',['m²','m','m³','m/s'],0,'Area contains two length factors, such as width×height.');
+  Q(2,'problems','What is 1 cm³ in m³?',['10⁻⁶ m³','10⁻² m³','10⁻³ m³','10⁶ m³'],0,'Cube the length factor: (10⁻² m)³=10⁻⁶ m³.');
+  Q(2,'problems','A=(3,−2,0), B=(−1,5,0). Find A+B.',['(2,3,0)','(4,−7,0)','(2,−7,0)','(−3,−10,0)'],0,'Add matching entries: 3+(−1)=2, −2+5=3, z=0.');
+  Q(2,'problems','What is the unit vector along (0,−3,4)?',['(0,−0.6,0.8)','(0,−1,1)','(0,−3,4)','(0,0.6,−0.8)'],0,'Length=√(9+16)=5. Divide each component by 5.');
+  Q(2,'problems','Round 2.0×3.14 to the appropriate significant figures.',['6.3','6.28','6','6.2800'],0,'The product is 6.28, but the measured input 2.0 has only two significant figures.');
+  Q(2,'terms','Which quantity follows the entire route?',['Distance','Displacement','The unit direction','A position difference only'],0,'Distance adds route lengths. Displacement depends only on the two endpoints.');
+  Q(2,'terms','What is the resultant of two vectors?',['Their vector sum','Their two lengths added in every case','Their average angle','Their dot product'],0,'The resultant combines components and includes direction.');
+  Q(2,'terms','A direction cosine is…',['A component of a unit direction vector','A component in metres','Always greater than 1','The vector’s length'],0,'Ax/|A|=cosθx. Because it is a cosine, it lies between −1 and 1.');
+  Q(2,'terms','Why keep guard digits?',['To avoid premature rounding error','To claim extra accuracy','To change units','To avoid checking results'],0,'Keep intermediate digits and round the final result to justified precision.');
+  Q(2,'language','Which is equivalent to A−B?',['A+(−B)','B−A','−(A+B)','A+B'],0,'Subtraction means add the opposite of the vector being subtracted.');
+  Q(2,'language','3î−2ĵ corresponds to…',['(3,−2,0)','(−2,3,0)','(3,2,0)','(1,0,0)'],0,'Coefficients of î, ĵ and k̂ give x, y and z entries.');
+  Q(2,'language','An angle of 30° west of north is what standard angle from +x?',['120°','30°','60°','300°'],0,'Start at north, 90°, then turn 30° toward west: 120°.');
+  Q(2,'language','Which expression has dimensions of volume?',['πr²h','πr³h','2πr','r/h'],0,'r²h contains three factors of length; π is dimensionless.');
+  Q(3,'problems','A=(2,3,0), B=(−3,2,0). What is their dot product?',['0','12','−12','13'],0,'2(−3)+3(2)=−6+6=0, so these nonzero vectors are perpendicular.');
+  Q(3,'problems','Find (2,0,0)×(0,3,0).',['(0,0,6)','(0,0,−6)','6','(2,3,0)'],0,'î×ĵ=k̂; magnitude=2×3=6. The result is a vector.');
+  Q(3,'problems','Start at (4,−2,1), finish at (−1,3,5). What is the displacement?',['(−5,5,4)','(3,1,6)','(5,−5,−4)','(−1,3,5)'],0,'Final minus initial: −1−4=−5; 3−(−2)=5; 5−1=4.');
+  Q(3,'problems','A 10 N force is 60° from a 2 m displacement. What work does it do?',['10 J','20 J','0 J','−10 J'],0,'Only the along-motion part contributes. That part is 10cos60°=5 N. Work = 5 N×2 m=10 J.');
+  Q(3,'terms','What does a negative dot product tell you for nonzero vectors?',['Their angle is greater than 90°','One length is negative','Their cross product must be zero','They are always opposite'],0,'A·B=ABcosθ; a negative cosine implies an obtuse angle, including 180°.');
+  Q(3,'terms','Which describes a cross-product direction?',['Perpendicular to both inputs, by the right-hand rule','Along the larger input','Always upward','Along the sum'],0,'The plane’s normal has two possible signs; input order and the right-hand rule choose one.');
+  Q(3,'terms','A projection of A onto B is…',['The part of A along the line of B','Always A itself','The cross product','Always positive in B’s direction'],0,'Projection=(A·B)/(B·B) B for nonzero B. It can point opposite B.');
+  Q(3,'terms','Can unequal vector lengths cancel with just two arrows?',['No','Yes, if perpendicular','Always','Only in 3D'],0,'A+B=0 implies B=−A, so the lengths must be equal.');
+  Q(3,'language','Which expression is undefined in ordinary vector algebra?',['A×(B·C)','A·(B×C)','A×(B×C)','(A−B)·C'],0,'B·C is a scalar. A cross product requires two vector inputs.');
+  Q(3,'language','For bearing β clockwise from north, which components are correct?',['x=Lsinβ, y=Lcosβ','x=Lcosβ, y=Lsinβ','x=−Lsinβ, y=Lcosβ','x=L, y=β'],0,'At bearing 0°, north means x=0 and y=L. The sine/cosine order must match that test.');
+  Q(3,'language','Which identity always holds?',['A×B=−(B×A)','A×B=B×A','A·B=−(B·A)','|A+B|=|A|+|B|'],0,'The cross product is antisymmetric. Addition of lengths only works directly for parallel same-direction vectors.');
+  Q(3,'language','What are the units of a length vector crossed with a force vector?',['N·m','N/m','m/s','No units'],0,'Multiply the input units. This combination occurs in torque.');
+  Q(4,'problems','Nonzero A and B have dot product −3 and cross magnitude 4. What is their angle?',['126.9°','53.1°','−53.1°','90°'],0,'The dot is negative, so the angle is obtuse. atan2(4,−3)=126.87°.');
+  Q(4,'problems','A=(1,1,1), B=(1,−1,−1). What is cosθ?',['−1/3','1/3','−1','0'],0,'Dot=−1. Both lengths are √3, so divide −1 by √3×√3=3.');
+  Q(4,'problems','A=(1,0,0), B=(1,2,0). C lies in xy, is perpendicular to A, and C·B=6. Find C.',['(0,3,0)','(3,0,0)','(0,6,0)','(6,−3,0)'],0,'A·C=Cx=0. Then B·C=2Cy=6, so Cy=3.');
+  Q(4,'problems','A rectangle is 10.0±0.1 cm by 2.0±0.1 cm. What is its first-order worst-case area uncertainty?',['1.2 cm²','0.2 cm²','0.01 cm²','6 cm²'],0,'ΔA≈WΔL+LΔW=2×0.1+10×0.1=1.2 cm².');
+  Q(4,'terms','If only |A×B| and the nonzero lengths are known, what ambiguity often remains?',['Acute versus supplementary obtuse angle','No angle information at all','Only the zero angle is possible','The lengths must change'],0,'sinθ=sin(180°−θ). The dot-product sign distinguishes the two possibilities.');
+  Q(4,'terms','Why is normalising a zero vector impossible?',['It has no direction and requires division by zero','It is too short to draw accurately','It always points +x','Its length is negative'],0,'A/|A| is undefined when |A|=0. There is no unique direction to preserve.');
+  Q(4,'terms','What does the first-order sum of fractional uncertainties represent here?',['A small worst-case bound for a product','An exact statistical law for every situation','The sum of units','Proof of perfect accuracy'],0,'Worst-case propagation adds small fractional contributions. Independent random uncertainties usually use a quadrature rule.');
+  Q(4,'terms','Three nonzero vector lengths can form a closed path if…',['The longest is no larger than the sum of the other two','The longest exceeds the other two combined','All must be equal','Only two may be nonzero'],0,'This is the triangle condition. Equality permits a collinear closed path.');
+  Q(4,'language','Which relation checks a computed cross product C=A×B?',['A·C=0 and B·C=0','A·C=1 and B·C=1','C=A+B','|C|=|A|+|B|'],0,'A cross product is perpendicular to each input. These are necessary checks, though they do not alone fix its size and sign.');
+  Q(4,'language','What does A×(B×C) equal in general compared with (A×B)×C?',['They need not be equal','They are always equal','They always have equal length','They are always opposites'],0,'Cross multiplication is not associative. For A=B=î and C=ĵ, the first is −ĵ and the second is zero.');
+  Q(4,'language','Which identity is correct for any two 3D vectors?',['|A×B|²+(A·B)²=|A|²|B|²','|A×B|+(A·B)=|A||B|','A·B=A×B','|A×B|=A·B'],0,'Square ABsinθ and ABcosθ, then add; sin²θ+cos²θ=1.');
+  Q(4,'language','For nonzero B, the projection vector of A onto B is…',['[(A·B)/(B·B)]B','(A×B)/|B|','[(A·B)/|A|]A','A+B'],0,'The coefficient gives the required multiple of B. Dotting the leftover A−projection with B gives zero.');
+  return {lessons,glossary,quiz};
+});

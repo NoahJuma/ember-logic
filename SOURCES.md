@@ -39,3 +39,19 @@ Media pixel payloads are packed raw values, excluding row padding and file overh
 The video model is a custom lossless delta format with 8 × 8 RGB frames. Each changed-pixel record uses one index byte and three RGB bytes, excluding any container overhead. Tests reconstruct every frame from its predecessor. It is not H.264/AV1 and does not model motion compensation or audio muxing. Float interpretation uses JavaScript DataView’s IEEE-754 binary32 conversion. JSON is parsed as data without evaluation.
 
 3D scenes contain spatial meshes, perspective, full orbit, underside views, zoom, layer separation, covers, and selectable components. Values are derived from the actual lab state. Geometry, shading, chip packaging, and temporal spacing are illustrations. The logical and byte-level models remain authoritative; the renderer does not simulate electrons, manufacturing tolerances, analog timing, or actual codec hardware.
+
+## Physics · Chapter 1
+
+Source: Hugh D. Young and Roger A. Freedman, *University Physics with Modern Physics in SI Units*, 15th edition, Pearson (2019), the user-supplied textbook. Chapter 1, “Units, Physical Quantities, and Vectors,” occupies printed pages 29–61 (PDF pages 31–63). The chapter-end question sets are on printed pages 54–61.
+
+The site contains original explanations and worked solutions keyed to all 94 numbered exercises/problems, 26 discussion questions, eight key-example variations and the bridging roof problem. Task prompts are summarised; textbook page images and the book itself are not published. The diagrams and quizzes are original code and SVG. Internal “Test Your Understanding” checkpoints in the narrative are not separately indexed in this answer bank; the beginner lessons include their own understanding checks.
+
+Source-sensitive details were checked against rendered pages: micro-units, vector signs, the orientations in Figures E1.21, E1.22, E1.33, E1.37 and P1.56, sample B’s micrograms in 1.87, the alveolar units and graph, and the distinct distances in 1.23 versus 1.57. Guided-practice numerical results are tested against the printed answer key. The site’s solutions are independently developed, not an official publisher solution manual.
+
+The vector lab uses right-handed coordinates and an orthographic 3D view. In map examples, x points east, y north, and z up. Standard angles are counterclockwise from +x; compass bearings are clockwise from north. The cross-product arrow is scaled for visual clarity because it has product units; its actual components and magnitude are reported separately. A 2D view of a 3D vector is explicitly an xy projection. Route examples preserve their fixed textbook legs; other presets permit editing every component.
+
+Estimation questions state their geometric and numerical assumptions. Nutrition and traction examples calculate the supplied textbook quantities. Uncertainty in 1.52 is treated as a first-order worst-case bound, with exact endpoint checks. The midnight interpretation in 1.89 distinguishes the textbook’s simplified geometry from actual local horizon visibility. Vector decimals include guard digits; users should round measured results to justified precision.
+
+Attempts are stored only in the current browser under an independent `ember-physics:` prefix. Written reasoning is not automatically graded. Vector checks compare all three components with a rounding tolerance, and the unit-normal question accepts either normal direction. Revealing a quiz solution counts as viewed, not correct.
+
+Validation: `npm ci && npm test`. Pure numerical tests check conversions, identities, route closure, textbook signs and guided answers. DOM tests run the actual page controllers in jsdom, including disclosure, storage, vector checking, fullscreen lifecycle, pointer events and quiz scoring. They do not replace visual testing or real mobile touch and native-dialog testing.

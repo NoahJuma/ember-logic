@@ -2,7 +2,17 @@
 
 **Created by Noah J.G TELTA Student MIUN 2026.**
 
-A warm, interactive study kit for learning digital logic and linear algebra by experimenting. The home page lets visitors choose a subject.
+A warm, interactive study kit for learning computer science, mathematics and physics by experimenting. The home page lets visitors choose a subject.
+
+## Physics
+
+Open `physics.html` for Chapter 1 of Young and Freedman, *University Physics with Modern Physics in SI Units*, 15th edition (2019): units, physical quantities and vectors. Ten beginner lessons introduce the concepts, notation and calculations. A unit machine explains length, area and volume conversions; a block-cube experiment shows why area and volume scale differently.
+
+The answer bank contains 129 worked entries: numbered problems 1.1–1.94, discussion questions Q1.1–Q1.26, eight guided variations and the bridging roof problem. Each has an optional writing area and an independent hidden solution. Vector answers accept components or a dragged 2D arrow, offer feedback, and retain the user's attempt when the solution is revealed. Both normal directions are accepted for 1.84. Writing is not automatically graded. Attempts are saved locally under `ember-physics:` when storage is available.
+
+The vector lab supports addition, subtraction, components, unit vectors, dot products, projection, cross products and textbook routes. Edit exact components or sliders; drag arrow tips in 2D; orbit, pan and pinch in 3D. A full-screen dialog and collapsible controls give the scene room on a phone. Camera buttons and keyboard arrows, +/− and 0 provide alternatives. The cross-product direction arrow uses a display scale; its actual magnitude and product units are stated separately. The 48 original quiz questions cover problems, terminology and mathematical language across four levels. Revealing a solution is recorded as viewed rather than correct.
+
+The site remains a static app with no runtime package dependencies. Install the development-only DOM test dependency with `npm ci`, then run all tests with `npm test`. Numerical checks and jsdom interaction tests do not replace visual inspection in a real browser or testing on a physical phone. See [SOURCES.md](SOURCES.md) for textbook scope and modelling assumptions.
 
 ## Linear algebra
 
@@ -42,7 +52,7 @@ Boolean expressions use explicit operators and this precedence: parentheses, NOT
 
 The conversion checks exhaust all values from 0 to 65,535 across all four bases, then cover large unsigned 64-bit boundaries and representative patterns. Logic-gate, flip-flop, and browser interaction checks also pass.
 
-Run all checks with `node --test tests/*.test.cjs`. They cover all seven gate truth tables, the ten-operation limit, mixed-gate grouping, prevention of feedback loops, NAND-only XOR, arithmetic sum/carry for both adders, randomly branched circuits, and regression checks for memory and number conversions.
+Run all checks with `npm ci && npm test`. They cover all seven gate truth tables, the ten-operation limit, mixed-gate grouping, prevention of feedback loops, NAND-only XOR, arithmetic sum/carry for both adders, randomly branched circuits, and regression checks for memory and number conversions, as well as the mathematics and physics sections.
 
 The number engine uses BigInt throughout value arithmetic. Number conversion is limited to individual digits, byte values (0–255), bit counts, and display positions. The number tests exhaust all 65,536 low values across all four bases, then test exact large boundary values, deterministic 64-bit samples, all individual bit toggles, byte order, octal alignment, invalid input, and overflow rejection. Signed values and fractions are outside the unsigned integer lab; text encoding has its own workshop.
 
@@ -66,6 +76,6 @@ Every simulation workshop has a shared 3D inspector linked to its current model 
 
 ## Subject hub and mathematics
 
-The home page lets you choose Mathematics or Computer Science. The original logic workbench is at `computer-science.html`. Old home-page links with a workbench section hash redirect there.
+The home page lets you choose Mathematics, Computer Science or Physics. The original logic workbench is at `computer-science.html`. Old home-page links with a workbench section hash redirect there.
 
 Mathematics opens a Chapter 1 linear algebra lab based on the topic order in Howard Anton and Anton Kaul's *Elementary Linear Algebra*, 12th edition. It includes an editable 3D plane intersection and matrix transformation visualizer, original worked practice for all eleven sections, worked solutions for every numbered exercise, true/false set, technology exercise, and supplementary exercise in Chapter 1, and configurable quizzes. Written attempts are saved only in the current browser when local storage is available. Quiz problems use self-marking after showing the worked solution.
