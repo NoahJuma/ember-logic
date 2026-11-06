@@ -13,3 +13,93 @@
 .solution-figure{margin:1rem 0 0;max-width:36rem}
 .solution-figure svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fffefb;font:15px system-ui,sans-serif}
 .solution-figure figcaption{color:var(--muted);font-size:.9rem}
+
+/* Optional writing and an independent solution disclosure. */
+.exercise-choice{margin-bottom:1rem!important}
+.attempt-panel,.solution-panel{border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem;margin:.6rem 0;background:#fffefb}
+.exercise summary{min-height:28px;line-height:1.5}
+.attempt-panel summary span{font-weight:400;color:var(--muted)}
+.attempt-panel textarea{min-height:8rem}
+.solution-panel h4{font-size:1rem;margin:1.2rem 0 .5rem}
+.solution-guide{background:var(--paper);border-radius:8px;padding:.75rem;margin:.8rem 0}
+.solution-guide summary{font-size:.95rem}
+.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.2rem}
+.comparison>div{min-width:0}
+.solution-panel .steps li{padding:.3rem .2rem .6rem;max-width:80ch}
+.compare-help{border-top:1px solid var(--line);padding-top:1rem;margin-top:1rem}
+.save-status{min-height:1.5em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* The lab keeps the geometry large; exact values live in a separate drawer. */
+.lab-workspace{--lab-ink:#edf5fc;--lab-muted:#b3c6d6;--lab-line:#334d61;background:#101e2e;color:var(--lab-ink);border:1px solid var(--lab-line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr);grid-template-rows:auto auto minmax(500px,65svh);margin-top:1.5rem;isolation:isolate}
+.lab-toolbar{grid-column:1/-1;display:flex;justify-content:space-between;gap:.6rem;align-items:center;padding:1rem;background:#172b3e;border-bottom:1px solid var(--lab-line)}
+.lab-toolbar select{min-width:0;background:#172b3e;color:#f0f6ff;border-color:#668195;font-weight:650;max-width:calc(100% - 110px)}
+.lab-toolbar button{white-space:nowrap;background:#b8f0da;color:#103a30;border-color:#b8f0da}
+.lab-workspace button,.lab-workspace select,.lab-workspace summary{min-height:44px}
+.lab-presets{grid-column:1/-1;display:flex;gap:.5rem;padding:.65rem 1rem;overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid var(--lab-line)}
+.lab-presets button{flex:none;background:transparent;color:var(--lab-muted);border:1px solid var(--lab-line);border-radius:30px;padding:.45rem .9rem}
+.lab-presets button[aria-pressed=true]{background:#2b5e60;border-color:#7be0c9;color:#fff}
+.scene-stage{position:relative;min-width:0;min-height:0;background:radial-gradient(ellipse at 42% 45%,#1b3547,#101e2e 75%);overflow:hidden}
+.scene-stage #scene{display:block;width:100%;height:100%;min-height:0;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.scene-stage #scene:active{cursor:grabbing}
+.scene-stage svg text{font:600 13px system-ui,sans-serif;paint-order:stroke;stroke:#101e2e;stroke-width:3px;stroke-linejoin:round}
+.scene-stage svg .axis-tick{font-size:10px;opacity:.85;stroke-width:2px}
+.scene-orientation{position:absolute;top:12px;left:14px;display:flex;gap:6px;pointer-events:none;font-weight:700;font-size:.85rem}
+.scene-orientation span{background:#172b3ee8;border-radius:6px;padding:3px 9px}
+.axis-x{color:#ff8b92}.axis-y{color:#8ce8b0}.axis-z{color:#8bbcff}
+.scene-camera{position:absolute;top:12px;right:10px;display:grid;grid-template-columns:44px 44px;gap:5px}
+.scene-camera button{padding:0;background:#172b3ee8;color:#e9f6ff;border:1px solid #557082;border-radius:9px;font-size:1.2rem;touch-action:manipulation}
+.scene-camera button[data-camera=fit],.scene-camera button[data-camera=reset]{grid-column:1/-1;font-size:.8rem;min-height:40px}
+.scene-gesture{position:absolute;bottom:10px;left:0;width:100%;margin:0;padding:0 .5rem;text-align:center;pointer-events:none;font-size:.75rem;color:var(--lab-muted)}
+.scene-dock{overflow:auto;min-height:0;min-width:0;background:#172b3e;border-left:1px solid var(--lab-line);overscroll-behavior:contain}
+.scene-dock>summary{position:sticky;top:0;z-index:2;background:#203c50;padding:.8rem 1rem;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.scene-dock>summary::-webkit-details-marker{display:none}
+.scene-dock>summary::after{content:'+';font-size:1.3rem}
+.scene-dock[open]>summary::after{content:'−'}
+.dock-hint{font-size:.7rem;line-height:1.2;color:var(--lab-muted);font-weight:400;margin-left:auto}
+.scene-dock-body{padding:.9rem 1rem 1.2rem}
+.scene-dock .scene-result{background:none;border:0;padding:0;margin:0 0 1rem;font-size:.9rem;color:var(--lab-muted)}
+.scene-dock .scene-result p{margin-bottom:.65rem}
+.plane-equations{display:grid;gap:.25rem;font:12px/1.7 ui-monospace,monospace;overflow-wrap:anywhere}
+.plane-equations b{display:inline-block;margin-right:.3rem}
+.tracked-point{color:#ffe59a}
+.scene-dock select,.scene-dock input[type=number]{background:#101e2e;color:#edf5fc;border-color:#668195}
+.scene-dock select{margin-left:.5rem}
+.scene-dock .caption{color:var(--lab-muted);font-size:.78rem}
+.scene-slider{display:grid;grid-template-columns:1fr auto;gap:.45rem;margin:1rem 0 .5rem;font-size:.9rem}
+.scene-slider output{font:600 .9rem ui-monospace,monospace;color:#a6f1dc}
+.scene-slider input{grid-column:1/-1;display:block;width:100%;height:36px;margin:0;accent-color:#7be0c9;cursor:pointer;touch-action:pan-y}
+.scene-more,.scene-calculations{border-top:1px solid var(--lab-line);margin-top:.8rem;padding-top:.35rem}
+.scene-more summary,.scene-calculations summary{font-size:.86rem;line-height:1.4;padding:.6rem 0;color:#d8eaf5}
+.scene-dock .secondary{background:#244458;color:#eef7ff;border-color:#557082;font-size:.85rem}
+.scene-play-row{display:flex;gap:.5rem}
+.plane-toggles{display:flex;flex-wrap:wrap;gap:.7rem;font-size:.85rem}
+.plane-toggles label,.grid-toggle{display:flex;align-items:center;gap:.35rem;min-height:44px}
+.grid-toggle{font-size:.85rem;margin-top:.5rem;color:var(--lab-muted)}
+.scene-dock input[type=checkbox]{width:20px;height:20px;accent-color:#7be0c9}
+.scene-dock .steps{font-size:.85rem}
+.lab-workspace :focus-visible{outline-color:#ffe59a}
+#lab-fullscreen{inset:0;box-sizing:border-box;width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;padding:0;border:0;background:#101e2e;color:#edf5fc;overflow:hidden}
+#lab-fullscreen::backdrop{background:#101e2e}
+#lab-fullscreen .lab-workspace{margin:0;border:0;border-radius:0;height:100%;grid-template-rows:auto auto minmax(0,1fr);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+@media(max-width:800px){
+  .lab-workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(330px,65svh) auto;margin-inline:calc((100vw - 100%)/-2);border-radius:0}
+  .scene-dock{border-left:0;border-top:1px solid var(--lab-line);max-height:55svh}
+  .lab-toolbar{padding:.65rem .7rem}.lab-toolbar select{font-size:.85rem}.lab-toolbar button{padding:.5rem .65rem;font-size:.85rem}
+  .lab-presets{padding:.5rem .7rem}.lab-presets button{font-size:.8rem;padding:.4rem .8rem}
+  #lab-fullscreen .lab-workspace{margin:0;grid-template-rows:auto auto minmax(0,1fr) auto}
+  #lab-fullscreen .scene-dock{max-height:38vh;max-height:38dvh}
+  .scene-dock>summary{padding:.6rem .8rem;font-size:.88rem}
+  .scene-dock-body{padding:.7rem .9rem 1rem}
+  .scene-camera{grid-template-columns:44px 44px;right:8px;top:8px;gap:4px}
+  .scene-camera button{min-height:44px}
+  .scene-camera button[data-camera=fit],.scene-camera button[data-camera=reset]{min-height:44px}
+}
+@media(max-height:500px) and (orientation:landscape){
+  #lab-fullscreen .lab-workspace{grid-template-columns:minmax(0,1.4fr) minmax(250px,1fr);grid-template-rows:auto auto minmax(0,1fr)}
+  #lab-fullscreen .scene-dock{max-height:none;border-left:1px solid var(--lab-line)}
+  #lab-fullscreen .scene-camera{grid-template-columns:38px 38px;gap:2px}
+  #lab-fullscreen .scene-camera button{min-height:34px}
+  #lab-fullscreen .lab-toolbar{padding:.25rem .6rem}
+  #lab-fullscreen .lab-presets{padding:.2rem .6rem}
+}

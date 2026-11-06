@@ -23,7 +23,7 @@
     (solutions[set]??=[]).push({number,...problem});
   }
   function note(set,number,title,answer,...steps) {
-    add(set,number,{title,prompt:'Find exercise '+number+' in your copy of the textbook and try it first.',answer,steps});
+    add(set,number,{title,prompt:'Use exercise '+number+' in your copy of the textbook. Write your own answer or open the worked solution directly.',answer,steps});
   }
   const one=(...args)=>note('1.1',...args);
 

@@ -9,6 +9,8 @@
   <script src="linear-algebra-content.js" defer></script>
   <script src="linear-algebra-textbook.js" defer></script>
   <script src="linear-algebra-solutions.js" defer></script>
+  <script src="linear-algebra-learning.js" defer></script>
+  <script src="linear-algebra-scene.js" defer></script>
   <script src="linear-algebra.js" defer></script>
 </head>
 <body class="study">
@@ -24,32 +26,43 @@
 
     <section class="study-section" id="lab">
       <p class="kicker">01 / EXPERIMENT</p><h2>See the algebra in 3D</h2>
-      <div class="lab-grid">
-        <div class="panel scene-panel">
-          <div class="scene-head">
-            <label for="scene-mode">Choose a model</label>
-            <select id="scene-mode"><option value="planes">Three planes and their solutions</option><option value="transform">A matrix moves a cube</option></select>
+      <p>Start with an example, then move it with your fingers. A point is a position; a plane is a flat sheet; a matrix is a rule that moves points.</p>
+      <div id="lab-home">
+        <div id="lab-workspace" class="lab-workspace">
+          <div class="lab-toolbar">
+            <label class="sr-only" for="scene-mode">Choose a model</label>
+            <select id="scene-mode"><option value="planes">Where planes meet</option><option value="transform">How a matrix moves space</option></select>
+            <button type="button" id="scene-fullscreen" class="primary">⛶ Full screen</button>
           </div>
-          <svg id="scene" viewBox="0 0 640 440" role="img" aria-label="Three-dimensional model" tabindex="0"><title>Interactive linear algebra model</title></svg>
-          <div class="scene-actions" aria-label="Camera controls">
-            <button type="button" data-camera="left" aria-label="Rotate left">←</button><button type="button" data-camera="right" aria-label="Rotate right">→</button>
-            <button type="button" data-camera="up" aria-label="Tilt up">↑</button><button type="button" data-camera="down" aria-label="Tilt down">↓</button>
-            <button type="button" data-camera="out" aria-label="Zoom out">−</button><button type="button" data-camera="in" aria-label="Zoom in">+</button>
-            <button type="button" data-camera="reset">Reset view</button>
+          <div class="lab-presets" id="scene-examples" aria-label="Choose an example"></div>
+          <div class="scene-stage">
+            <svg id="scene" role="img" aria-label="Interactive 3D model. Drag to rotate; pinch to zoom. Arrow keys rotate; plus and minus zoom." tabindex="0"><title>Interactive linear algebra model</title></svg>
+            <div class="scene-orientation" aria-hidden="true"><span class="axis-x">x</span><span class="axis-y">y</span><span class="axis-z">z</span></div>
+            <div class="scene-camera" aria-label="Camera controls">
+              <button type="button" data-camera="in" aria-label="Zoom in">+</button><button type="button" data-camera="out" aria-label="Zoom out">−</button>
+              <button type="button" data-camera="left" aria-label="Rotate left">↶</button><button type="button" data-camera="right" aria-label="Rotate right">↷</button>
+              <button type="button" data-camera="up" aria-label="Tilt up">↑</button><button type="button" data-camera="down" aria-label="Tilt down">↓</button>
+              <button type="button" data-camera="fit">Fit</button><button type="button" data-camera="reset">Reset view</button>
+            </div>
+            <p class="scene-gesture">1 finger: rotate · 2 fingers: zoom &amp; move</p>
           </div>
-          <p class="caption">Drag to orbit. You can also use the arrow keys or the camera buttons.</p>
-        </div>
-        <div class="panel lab-controls">
-          <div id="scene-controls"></div>
-          <div id="scene-result" class="scene-result" aria-live="polite"></div>
-          <details id="scene-steps"><summary>Show the calculation</summary><ol id="scene-work" class="steps"></ol></details>
+          <details class="scene-dock" id="scene-dock" open>
+            <summary><span id="scene-summary">Explore the model</span><span class="dock-hint">Controls &amp; explanation</span></summary>
+            <div class="scene-dock-body">
+              <div id="scene-result" class="scene-result"></div>
+              <div id="scene-controls"></div>
+              <details class="scene-calculations"><summary>Show the mathematics, step by step</summary><ol id="scene-work" class="steps"></ol></details>
+            </div>
+          </details>
+          <p id="scene-announcement" class="sr-only" role="status" aria-live="polite"></p>
         </div>
       </div>
+      <dialog id="lab-fullscreen" aria-label="Full-screen linear algebra lab"></dialog>
     </section>
 
     <section class="study-section" id="practice">
       <p class="kicker">02 / WORKED PRACTICE</p><h2>Try it before you reveal it</h2>
-      <p>Choose any Chapter 1 topic. Write your answer or your working, then reveal the solution and compare it line by line.</p>
+      <p>Choose a topic, then choose <strong>Write my answer</strong> or open <strong>Show worked solution</strong> directly. You can keep both open and compare line by line.</p>
       <div class="filter-row"><label for="practice-topic">Chapter topic</label><select id="practice-topic"></select></div>
       <div id="practice-list" class="exercise-list"></div>
     </section>
@@ -57,7 +70,7 @@
     <section class="study-section" id="book">
       <p class="kicker">03 / TEXTBOOK COMPANION</p><h2>Work alongside the book</h2>
       <p>Howard Anton and Anton Kaul, <cite>Elementary Linear Algebra</cite>, 12th edition. Chapter 1 starts on printed page 2 and ends on page 117. Page 118 begins Chapter 2.</p>
-      <p>Find the exercise in your copy, try it in the answer box, then open <strong>Show worked solution</strong> to compare.</p>
+      <p>Find the exercise in your copy. Choose <strong>Write my answer</strong> to practise, or <strong>Show worked solution</strong> to read immediately. Writing an answer is optional. Each solution includes a “Need the basics?” explanation.</p>
       <details class="math-key">
         <summary>New to the notation? Read this first</summary>
         <dl>

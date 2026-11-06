@@ -6,7 +6,7 @@
   let set;
   function add(number,title,answer,...steps) {
     const id = String(number);
-    const exercise = {number:id,title,answer,steps,prompt:'Try exercise '+id+' in your copy of the textbook first.'};
+    const exercise = {number:id,title,answer,steps,prompt:'Use exercise '+id+' in your copy of the textbook. Write your own answer or open the worked solution directly.'};
     const rows = solutions[set];
     const previous = rows.findIndex(row=>row.number===id);
     if (previous<0) rows.push(exercise);
@@ -43,7 +43,9 @@
         const rest=row.slice(j+1,count).flatMap((n,k)=>M.zero(n)?[]:['('+M.format(n)+')'+named[j+k+1]]);
         const rhs=M.format(row[count]);
         steps.push('The row gives '+named[j]+' = '+rhs+(rest.length?' − ('+rest.join(' + ')+')':'')+'. Substitute the values or expressions already found below it.');
+        if (!free.length) steps.push('Substitution: '+named[j]+' = '+rhs+row.slice(j+1,count).flatMap((n,k)=>M.zero(n)?[]:[' − ('+M.format(n)+' × '+M.format(answer.point[j+k+1])+')']).join('')+' = '+M.format(answer.point[j])+'.');
       });
+      steps.push(...answer.steps.filter(step=>/^(There |Row \d+:|Set all parameters|Check the family:|Check original equation)/.test(step)));
     }
     add(number,'Gaussian elimination and back-substitution',C.solutionText(answer),...steps);
   }
@@ -57,7 +59,7 @@
     });
     add(number,title,cases.map((s,i)=>'Column '+(i+1)+': '+C.solutionText(s)).join('\n'),
       'Keep the coefficients on the left. Append every right-hand side as a separate column and perform the same operation on each complete row.',
-      ...r.steps.slice(1),'Read each right-hand column separately. A zero coefficient row with a nonzero number means no solution for that column. Otherwise use the pivot rows to read the coordinates or their formulas.');
+      ...r.steps,'Read each right-hand column separately. A zero coefficient row with a nonzero number means no solution for that column. Otherwise use the pivot rows to read the coordinates or their formulas.');
   }
   function byInverse(number,a,b) {
     const r=M.inverse(a), out=M.apply(r.value,b);
@@ -610,7 +612,7 @@
         if(v&&w){
           if(v[0].length===w.length){
             value=M.multiply(v,w);
-            action='Multiply rows by columns. For the top-left entry, add '+v[0].map((num,j)=>'('+M.format(num)+' × '+M.format(w[j][0])+')').join(' + ')+'.';
+            action='Multiply rows by columns.\n'+v.flatMap((row,i)=>w[0].map((_,j)=>'Entry ('+(i+1)+','+(j+1)+'): '+row.map((num,k)=>'('+M.format(num)+' × '+M.format(w[k][j])+')').join(' + ')+' = '+M.format(value[i][j])+'.')).join('\n');
           } else action='The first matrix has '+v[0].length+' columns, but the second has '+w.length+' rows. These counts must match.';
         }
       }

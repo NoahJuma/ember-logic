@@ -2,7 +2,17 @@
 
 **Created by Noah J.G TELTA Student MIUN 2026.**
 
-A warm, interactive study kit for learning digital logic by experimenting.
+A warm, interactive study kit for learning digital logic and linear algebra by experimenting. The home page lets visitors choose a subject.
+
+## Linear algebra
+
+Open `linear-algebra.html` for the Chapter 1 companion to Anton and Kaul, *Elementary Linear Algebra*, 12th edition. The 436 worked entries cover the numbered, true-or-false, technology and supplementary exercises. Keep the textbook alongside the companion for the original questions and diagrams.
+
+Each card has independent **Write my answer** and **Show worked solution** disclosures. Writing is optional and stays editable after revealing the solution. Attempts are saved in the current browser when storage is available; they do not sync to another device and are not automatically graded. Existing saved-answer keys are retained. Topic introductions explain notation and basic methods. Row-reduction solutions show each changed entry and checks against the original equations. Numerical outputs may be rounded.
+
+The 3D lab has a full-screen workspace with a collapsible controls drawer. Drag with one finger to rotate; use two fingers to zoom and move the view. Camera buttons and keyboard arrows, +/−, Home and F provide alternatives. Plane sliders control distance and tilt; transformation examples animate stretching, rotation, shear, reflection and flattening. A tracked point connects the model to its coordinate calculation. The planes are clipped to a finite viewing box; hiding a plane only changes the drawing, not the system of equations. Rotation is interpolated by angle; other transformations use a straight matrix transition from the identity.
+
+`linear-algebra-learning.js` handles answer cards, storage and topic introductions. `linear-algebra-scene.js` handles geometry and interaction. Tests cover exercise coverage, independent answer choices, storage failure, numerical residuals, geometry, and controller events using test doubles. These automated checks do not replace a browser or real-device layout and touch review.
 
 ## Inside the kit
 
