@@ -204,7 +204,10 @@
     const el=e.target,id=el.id;
     if(el.type!=='range')return;stopMotion();setRange(id,Number(el.value));
     if(id==='scene-progress')state.progress=Number(el.value);
-    if(id==='scene-angle'){state.angle=Number(el.value);custom();}
+    if(id==='scene-angle'){
+      state.angle=Number(el.value);state.target=transformAt(state.target,1,state.angle);custom();
+      state.target.forEach((row,i)=>workspace.querySelectorAll('[data-row="'+i+'"]').forEach(input=>{input.value=M.tidy(row[Number(input.dataset.col)]);}));
+    }
     if(id.startsWith('scene-point-'))state.point[Number(id.slice(-1))]=Number(el.value);
     if(['scene-distance','scene-azimuth','scene-elevation'].includes(id)) {
       const row=state.values[state.plane],norm=Math.hypot(...row.slice(0,3));

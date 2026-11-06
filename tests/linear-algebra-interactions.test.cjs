@@ -14,9 +14,9 @@ function sceneFixture() {
       for(const [key,value] of Object.entries(attributes))if(key.startsWith('data-'))this.dataset[key.slice(5).replace(/-([a-z])/g,(_,c)=>c.toUpperCase())]=value;
       if(id)nodes.set(id,this);else anonymous.push(this);
     }
-    set innerHTML(value){this._html=value;for(const m of value.matchAll(/<(input|select|output|button)\b([^>]*)>/g)){
+    set innerHTML(value){this._html=value;for(let i=anonymous.length-1;i>=0;i--)if(anonymous[i].owner===this)anonymous.splice(i,1);for(const m of value.matchAll(/<(input|select|output|button)\b([^>]*)>/g)){
       const attrs={};for(const a of m[2].matchAll(/([\w-]+)(?:="([^"]*)")?/g))attrs[a[1]]=a[2]??'';
-      const el=new Element(attrs.id||'',attrs);el.tag=m[1];
+      const el=new Element(attrs.id||'',attrs);el.tag=m[1];el.owner=this;
     }}
     get innerHTML(){return this._html;}
     addEventListener(type,fn){(this.listeners[type]??=[]).push(fn);}
@@ -75,6 +75,8 @@ test('3D controls update the actual model and keep full-screen entry and exit us
   assert.match(n('scene-result').innerHTML,/output \(2, 1, 1\/2\)/);
   f.example(1);f.input('scene-angle',180);f.input('scene-progress',50);
   assert.match(n('scene-result').innerHTML,/output \(-1, 1, 1\)/);
+  const rotationEntry=n('lab-workspace').querySelectorAll('[data-row="0"]').filter(el=>el.dataset.col==='0').at(-1);
+  assert.equal(Number(rotationEntry.value),-1);
   f.example(4);
   assert.match(n('scene-result').innerHTML,/output \(1, 1, 0\)/);
   n('scene-controls').emit('click',{target:n('scene-play')});f.flush(1750);
