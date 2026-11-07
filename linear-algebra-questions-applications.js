@@ -411,11 +411,11 @@ Referenced result from Exercise 26: B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A�
     'The special choice t=0 gives the straight line p(x)=x+1. It passes through the points but has degree 1, so exclude it when the question asks for second-degree polynomials.'
   ], '(a) p(x)=tx²+(1−t)x+1, where t is any nonzero real number.\n(b) Four examples to sketch are p(x)=−2x²+3x+1, p(x)=−x²+2x+1, p(x)=x²+1, and p(x)=2x²−x+1. Their four sketches are shown with the solution.');
   teach('1.10', '18', [
-    'Choose one practical problem: estimating the temperature at points inside a thin metal plate whose boundary temperatures are known. The task is to find many unknown temperatures at once.',
-    'Use a uniform square grid. Under a steady, source-free heat model, each interior temperature is approximated by the average of its four neighboring temperatures. If the unknown temperature is T and the neighbors are N,S,E,W, write 4T−N−S−E−W=0.',
-    'Write one such equation for every interior point. Insert known boundary temperatures as constants. When neighboring temperatures are also unknown, keep their letters in the same system.',
-    'Solve the equations together, using elimination or a numerical linear-system solver. The model produces an approximate temperature map. A finer grid gives more equations and can improve the approximation.',
-    'Source checked: Technical University of Denmark, “The Poisson Problem,” describes a grid-based heat model and a five-point averaging formula. The paragraph below is an original explanation of its source-free case.'
+    'Choose a steady-temperature plate with no internal heat source. Let T be one unknown interior temperature.',
+    'Put a uniform square grid over the plate. Name the four neighboring temperatures N,S,E,W; their average is (N+S+E+W)/4.',
+    'Set T equal to that average, then multiply by 4: 4T−N−S−E−W=0. Write one equation per interior point.',
+    'Insert known boundary temperatures, keep other temperatures as unknowns, and solve all equations together.',
+    'Source: Technical University of Denmark, “The Poisson Problem.” The original paragraph below explains its source-free case.'
   ], 'Linear systems can help estimate temperatures inside a thin metal plate. Engineers divide the plate into a square grid and treat each interior temperature as an unknown. When the temperature has settled and there is no internal heat source, a simple model makes each interior value the average of its four neighbors. This produces one linear equation per interior point. Known boundary temperatures provide the constants, while neighboring unknown temperatures connect the equations. Solving the whole system gives an approximate temperature map that can help reveal where the plate will be hottest or coolest.');
   teach('1.10', 'TF', [
     'Part (a): the word “any” makes the statement too broad. A tank can be filling, so 10 liters per minute may enter while only 6 leave; the other 4 are stored. Equal inflow and outflow requires a steady network with no accumulation or uncounted source or sink. Therefore (a) is false.',
