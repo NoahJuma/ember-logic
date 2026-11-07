@@ -1,0 +1,19 @@
+.math-question{margin:1.25rem 0 1.5rem;max-width:84ch;min-width:0}
+.math-question h4{margin:0 0 .75rem;color:var(--accent);font-size:1rem}
+.math-question h5{margin:0 0 .5rem;font-size:.95rem}
+.math-question-copy p,.math-question-reference p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;font-variant-numeric:tabular-nums}
+.math-question-copy p:last-child,.math-question-reference p:last-child{margin-bottom:0}
+.math-matrix-lines{display:block;max-width:100%;overflow-x:auto;white-space:pre;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92em;line-height:1.7;margin:.5rem 0;font-variant-numeric:tabular-nums}
+.math-question-reference{background:#f4eee4;border:1px solid var(--line);border-radius:10px;padding:1rem;margin:1rem 0}
+.math-question-figure{margin:1.25rem 0;padding:1rem;background:white;border:1px solid var(--line);border-radius:10px;max-width:100%}
+.math-question-figure img{display:block;height:auto;max-width:100%;margin:auto}
+.math-question-figure figcaption{font-size:.85rem;color:var(--muted);line-height:1.8;margin-top:.7rem}
+.math-question-figure figcaption a{display:inline-block;padding:.4rem 0;color:var(--accent)}
+.math-question-figure details{font-size:.85rem;margin-top:.5rem}.math-question-figure details p{margin:.6rem 0 0}
+.math-step-label{display:block;font-size:.85rem;color:var(--accent);margin-bottom:.4rem}
+.steps li:has(>.math-step-label){list-style:none}.steps li>.math-step-label+p{margin:0;white-space:pre-wrap;line-height:1.8}
+.solution-panel .math-worked-steps{padding:0;margin:1rem 0 1.5rem}
+.solution-panel .math-worked-steps li{padding:1rem;margin:0 0 .8rem;max-width:84ch;background:#f7f1e9;border-left:3px solid #bb8b6d;border-radius:0 9px 9px 0}
+.math-final-comparison{margin-top:1.5rem}.math-final-answer{min-width:0}.math-final-answer h4{margin:.3rem 0 .7rem;color:var(--green)}
+.math-final-answer .worked-result{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8}
+@media(max-width:520px){.math-question-figure{padding:.65rem}.solution-panel .math-worked-steps li{padding:.8rem}.math-question-copy p{font-size:.95rem}}

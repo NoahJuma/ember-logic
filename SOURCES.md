@@ -57,3 +57,13 @@ Estimation questions state their geometric and numerical assumptions. Nutrition 
 Attempts are stored only in the current browser under an independent `ember-physics:` prefix. Written reasoning is not automatically graded. Vector checks compare all three components with a rounding tolerance, and the unit-normal question accepts either normal direction. Revealing a quiz solution counts as viewed, not correct.
 
 Validation: `npm ci && npm test`. Pure numerical tests check conversions, identities, route closure, textbook signs and guided answers. DOM tests run the actual page controllers in jsdom, including disclosure, storage, vector checking, fullscreen lifecycle, pointer events and quiz scoring. They do not replace visual testing or real mobile touch and native-dialog testing.
+
+## Mathematics · Linear algebra, Chapter 1
+
+Source questions: Howard Anton and Anton Kaul, *Elementary Linear Algebra*, 12th edition, the user-supplied `MAT1503_-_Prescribed_book.pdf`. Chapter 1 covers systems of linear equations and matrices. The answer bank contains 437 entries across sections 1.1–1.11 and the supplementary exercises, including true/false groups and technology problems. Question numbering and existing saved-answer identifiers are retained.
+
+At the user's request, the full question wording, subparts, systems, matrices and relevant tables are included. Mathematical notation and line wrapping are normalized for the screen. Information needed from referenced questions, examples and theorems is identified alongside the question. Required figures are cropped from the supplied book and stored as embedded PNG images in standalone SVGs under `assets/mathematics/questions/`, with captions and text descriptions. The complete PDF and full textbook pages are not published.
+
+The solutions are independently written teaching explanations, not a publisher's solution manual. Numbered steps explain the operation, its purpose and intermediate calculations; checks use the original equations or matrix identities where applicable. The final result appears after the steps. Where a printed statement is ambiguous or mathematically false, the explanation distinguishes the literal statement from a possible intended version rather than presenting a false proof.
+
+Row reduction uses numerical pivoting and a zero tolerance of 10⁻⁹. Display formatting favors small rational values when close within that tolerance, otherwise rounded decimals; small nonzero displayed values retain significant digits. Technology exercises may need calculus, which is identified in the explanation. Written attempts are optional and saved in the current browser under the existing `ember-linear-algebra:` keys; comparison does not automatically grade a learner's reasoning.

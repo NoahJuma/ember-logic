@@ -3,7 +3,18 @@
   const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   // Preserve each matrix row on its own line, including older hand-written solutions.
   const readable = text => String(text).replace(/\][ \t]+\[/g, ']\n[');
-  const steps = items => items.flatMap(item => item.split(/(?<=\.)\s+(?=[a-z](?: and [a-z])?:\s)/)).map(item => '<li>'+escape(readable(item))+'</li>').join('');
+  // Keep consecutive matrix rows aligned and independently scrollable on a phone.
+  const mathText = text => escape(readable(text)).replace(/(^|\n)((?:(?:\([a-z]\)[ \t]*)?\[[^\]\n]*\](?:\n|$)){2,})/g,(_,before,rows)=>before+'<span class="math-matrix-lines">'+rows+'</span>');
+  const steps = items => items.flatMap(item => item.split(/(?<=\.)\s+(?=[a-z](?: and [a-z])?:\s)/)).map((item,i) => '<li><strong class="math-step-label">Step '+(i+1)+'</strong><p>'+mathText(item)+'</p></li>').join('');
+  function question(problem) {
+    const content=readable(problem.prompt).split(/\n\s*\n/).map(p=>'<p>'+mathText(p)+'</p>').join('');
+    const figures=(problem.questionFigures||[]).map(f=>{
+      const src='assets/mathematics/questions/'+f.file;
+      return '<figure class="math-question-figure"><a href="'+escape(src)+'" target="_blank" rel="noopener" aria-label="Open '+escape(f.caption)+' at full size"><img src="'+escape(src)+'" alt="'+escape(f.alt)+'" loading="lazy" decoding="async"></a><figcaption>'+escape(f.caption)+' · <a href="'+escape(src)+'" target="_blank" rel="noopener">Open diagram ↗</a></figcaption><details><summary>Read the diagram description</summary><p>'+escape(f.alt)+'</p></details></figure>';
+    }).join('');
+    const reference=problem.questionReference?'<aside class="math-question-reference"><h5>Referenced information</h5><p>'+mathText(problem.questionReference)+'</p></aside>':'';
+    return '<section class="math-question" aria-label="'+(problem.textbookQuestion?'Full textbook question':'Question')+'"><h4>'+(problem.textbookQuestion?'Question from the book':'Question')+'</h4><div class="math-question-copy">'+content+'</div>'+figures+reference+'</section>';
+  }
   const guides = {
     '1.1': ['Equations are balance statements',
       'An unknown is a number we want to find. In 2x + y = 7, 2x means 2 × x. An answer must make every equation true at the same time.',
@@ -69,25 +80,25 @@
     try { storage.setItem('ember-linear-algebra:'+key,value); return true; } catch { return false; }
   }
   function card(problem,key,label,topic,attempt='',id='',extra='') {
-    const inputId='attempt-'+key.replace(/[^a-z0-9-]/gi,'-');
+    const inputId='attempt-'+Array.from(key,c=>/[a-z0-9]/i.test(c)?c:'_'+c.codePointAt(0).toString(16)+'_').join('');
     return '<article class="exercise"'+(id?' id="'+escape(id)+'" tabindex="-1"':'')+'><p class="kicker">'+escape(label)+'</p><h3>'+escape(problem.title)+'</h3>'+
-      '<p>'+escape(readable(problem.prompt))+'</p><p class="caption exercise-choice">Choose either option. You do not need to enter an answer to see the solution.</p>'+
+      question(problem)+'<p class="caption exercise-choice">Choose either option. You do not need to enter an answer to see the solution.</p>'+
       '<details class="attempt-panel"'+(attempt?' open':'')+'><summary>Write my answer <span>(optional)</span></summary>'+
       '<label class="attempt-label" for="'+inputId+'">Your answer and working</label><textarea id="'+inputId+'" data-attempt="'+escape(key)+'" rows="5" maxlength="20000" placeholder="Write your answer, calculations, or questions here…">'+escape(attempt)+'</textarea>'+
       '<p class="caption save-status" role="status">'+(attempt?'Your saved answer is restored.':'Your writing is saved on this browser when storage is available.')+'</p></details>'+
       '<details class="solution-panel"><summary>Show worked solution</summary>'+guide(topic)+
-      '<div class="answer comparison"><div class="attempt-comparison"'+(attempt.trim()?'':' hidden')+'><strong>Your answer</strong><p class="attempt-copy">'+escape(attempt)+'</p></div>'+
-      '<div><strong>Worked answer</strong><p class="worked-result">'+escape(readable(problem.answer))+'</p></div></div>'+
-      '<h4>Follow the reasoning</h4><ol class="steps">'+steps(problem.steps)+'</ol>'+extra+
+      '<h4>Our solution, step by step</h4><ol class="steps math-worked-steps" role="list">'+steps(problem.steps)+'</ol>'+extra+
       '<div class="compare-help"><strong>How to check your work</strong><p>Compare one step at a time. Check the signs, the order of the variables, and every part of the question. Different methods or parameter names can give the same correct answer. Substitute your result into the original question when possible.</p>'+
-      '<p class="caption">This is a comparison space. Your written answer is not automatically graded. You can edit it while the solution is open.</p></div></details></article>';
+      '<p class="caption">This is a comparison space. Your written answer is not automatically graded. You can edit it while the solution is open.</p></div>'+
+      '<div class="answer comparison math-final-comparison"><div class="attempt-comparison"'+(attempt.trim()?'':' hidden')+'><strong>Your answer</strong><p class="attempt-copy">'+escape(attempt)+'</p></div>'+
+      '<section class="math-final-answer"><h4>The final answer is…</h4><p class="worked-result">'+mathText(problem.answer)+'</p></section></div></details></article>';
   }
   function syncAttempt(article) {
     const value=article.querySelector('textarea').value;
     article.querySelector('.attempt-copy').textContent=value;
     article.querySelector('.attempt-comparison').hidden=!value.trim();
   }
-  const api={escape,readable,steps,guides,guide,read,save,card,syncAttempt};
+  const api={escape,readable,mathText,steps,question,guides,guide,read,save,card,syncAttempt};
   if (typeof module==='object' && module.exports) module.exports=api;
   else root.EmberLearning=api;
 })(globalThis);

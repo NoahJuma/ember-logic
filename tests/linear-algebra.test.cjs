@@ -14,7 +14,7 @@ for (const name of scripts.slice(0,-1)) vm.runInContext(source(name), chapter, {
 const {solutions,legacyAttempts} = chapter.EmberTextbook;
 const {multiply,reduce,solve} = chapter.EmberAlgebra;
 const expected = {
-  '1.1':[27,2], '1.2':[43,2], '1.3':[36,1], '1.4':[58,3], '1.5':[33,1], '1.6':[24,2],
+  '1.1':[27,2], '1.2':[43,2], '1.3':[36,2], '1.4':[58,3], '1.5':[33,1], '1.6':[24,2],
   '1.7':[47,1], '1.8':[50,0], '1.9':[29,1], '1.10':[18,4], '1.11':[11,1], review:[29,0]
 };
 
@@ -59,15 +59,35 @@ test('Gaussian elimination stops at echelon form and Gauss–Jordan clears above
 
 test('selected computed solutions agree with the textbook key and the circuit balances', () => {
   const answer=(set,n)=>solutions[set].find(p=>p.number===n).answer;
-  assert.equal(answer('1.2','37'),'(1, -6, 2, 10)');
+  const polynomial=answer('1.2','37').replaceAll('−','-');
+  const coefficients=['a','b','c','d'].map(name=>Number(polynomial.match(new RegExp(name+'\\s*=\\s*(-?\\d+)'))?.[1]));
+  assert.deepEqual(coefficients,[1,-6,2,10]);
+  for(const [x,y]of [[0,10],[1,7],[3,-11],[4,-14]]){
+    assert.equal(coefficients[0]*x**3+coefficients[1]*x**2+coefficients[2]*x+coefficients[3],y);
+  }
   assert.match(answer('1.3','7'),/^a: \(67, 41, 41\)/);
   assert.match(answer('1.4','19'),/\[41  15\]  \[30  11\]/);
   assert.equal(answer('1.5','15'),'[7/2  0  -3]  [-1  1  0]  [0  -1  1]');
-  assert.match(answer('1.8','27'),/\(2, 6, 1\)/);
-  assert.match(answer('1.10','5'),/\(13\/5, -2\/5, 11\/5\)/);
-  assert.match(answer('1.10','7'),/\(1\/2, 0, 0, 1\/2, 1\/2, 1\/2\)/);
+  assert.match(answer('1.8','27'),/T\(x\)\s*=\s*\[2\]\s*\[6\]\s*\[1\]/);
+  const circuit=answer('1.10','5').replaceAll('−','-');
+  const currents=['I₁','I₂','I₃'].map(name=>{
+    const fraction=circuit.match(new RegExp(name+'\\s*=\\s*(-?\\d+)/(\\d+)'));
+    assert.ok(fraction,'Missing '+name+' current');return Number(fraction[1])/Number(fraction[2]);
+  });
+  assert.deepEqual(currents,[13/5,-2/5,11/5]);
+  const [i1,i2,i3]=currents;
+  assert.ok(Math.abs(i1+i2-i3)<1e-10);
+  assert.ok(Math.abs((2*i1-6)-2*i2)<1e-10);
+  assert.ok(Math.abs((8-4*i3)-2*i2)<1e-10);
+  assert.match(answer('1.10','7'),/I₁=I₄=I₅=I₆=1\/2/);
+  assert.match(answer('1.10','7'),/I₂=I₃=0/);
   assert.equal(JSON.stringify(multiply([[1,4],[-2,3],[1,-2]],[[0,2],[1,1]])),'[[4,6],[3,-1],[-2,0]]');
-  assert.match(answer('review','16'),/\(1, -4, -5\)/);
+  const quadratic=answer('review','16').replaceAll('−','-');
+  const [a,b,c]=['a','b','c'].map(name=>Number(quadratic.match(new RegExp(name+'\\s*=\\s*(-?\\d+)'))?.[1]));
+  assert.deepEqual([a,b,c],[1,-4,-5]);
+  assert.equal(a*(-1)**2+b*(-1)+c,0);
+  assert.equal(a*2**2+b*2+c,-9);
+  assert.equal(2*a*2+b,0);
 });
 
 test('every exercise offers independent writing and solution choices with a topic introduction', () => {
@@ -84,7 +104,7 @@ test('every exercise offers independent writing and solution choices with a topi
     assert.ok(L.guides[topic]);
     count++;
   }
-  assert.equal(count,436);
+  assert.equal(count,437);
 });
 
 test('written attempts round-trip, reopen for editing and cannot inject HTML', () => {

@@ -10,6 +10,9 @@
       const p = Math.round(n * d);
       if (Math.abs(n - p / d) < EPS) return p + '/' + d;
     }
+    // Five decimal places can erase small, meaningful coefficients. Keep six
+    // significant digits for these values; the solver's zero tolerance remains unchanged.
+    if (Math.abs(n) < 1e-4) return String(Number(n.toPrecision(6)));
     return String(tidy(n));
   }
   const vector = v => '(' + v.map(format).join(', ') + ')';
@@ -31,24 +34,28 @@
     record('Start with the matrix below. Read one row at a time, from left to right.' +
       (variableCount < rows[0].length ? ' The bar separates the coefficient columns on the left from the extra column(s) on the right.' : ' There are no extra right-hand columns here.'));
     steps.push('A row operation must change every entry in that row, including anything after the bar. Swapping rows, dividing a row by a nonzero number, or adding a multiple of another row can all be undone. They keep the same solutions. A pivot is the entry we use to clear a column.');
+    steps.push(above ? 'Our goal is reduced row echelon form: make each pivot 1, then make every other entry in its column 0. Each completed pivot column singles out one variable.' : 'Our goal is row echelon form: make each pivot 1 and clear the entries below it. We leave the entries above it for now; back-substitution will use the lower equations first.');
     for (let col = 0; col < variableCount && pivots.length < rows.length; col++) {
       const next = pivots.length;
       let best = next;
       for (let i = next + 1; i < rows.length; i++) {
         if (Math.abs(rows[i][col]) > Math.abs(rows[best][col])) best = i;
       }
-      if (zero(rows[best][col])) continue;
+      if (zero(rows[best][col])) {
+        steps.push('In column ' + (col + 1) + ', every entry from row ' + (next + 1) + ' down is zero. There is no pivot to use here, so move to the next column. A column without a pivot may give a free variable if the whole system is consistent.');
+        continue;
+      }
       if (next !== best) {
         [rows[next], rows[best]] = [rows[best], rows[next]];
         operations.push({type:"swap", i:next, j:best});
-        record('Swap rows ' + (next + 1) + ' and ' + (best + 1) + ' to move a nonzero number into the pivot position.');
+        record('Swap rows ' + (next + 1) + ' and ' + (best + 1) + ' to use ' + format(rows[next][col]) + ' as the pivot in column ' + (col + 1) + '. It has the largest absolute value (size ignoring its sign) among the available entries. Exchanging the order of equations does not change their solutions.');
       }
       const pivot = rows[next][col];
       if (!zero(pivot - 1)) {
         const before = [...rows[next]];
         rows[next] = rows[next].map(x => x / pivot);
         operations.push({type:"scale", i:next, factor:1/pivot});
-        record('Divide row ' + (next + 1) + ' by ' + format(pivot) + ' so the pivot is 1.\n' +
+        record('Divide row ' + (next + 1) + ' by ' + format(pivot) + ' so the pivot is 1. A coefficient of 1 means one copy of that variable. Divide every entry, including the right side, to keep the equation balanced.\n' +
           before.map((n, j) => 'Entry ' + (j + 1) + ': (' + format(n) + ') ÷ (' + format(pivot) + ') = ' + format(rows[next][j])).join('; ') + '.\nThe matrix is now:');
       }
       rows.forEach((row, i) => {
@@ -56,7 +63,8 @@
         if (i === next || (!above && i < next) || zero(factor)) return;
         rows[i] = row.map((x, j) => x - factor * rows[next][j]);
         operations.push({type:"add", i, j:next, factor:-factor});
-        record('Replace row ' + (i + 1) + ' with row ' + (i + 1) + ' minus (' + format(factor) + ') × row ' + (next + 1) + '. This makes a zero in column ' + (col + 1) + '.\n' +
+        record('Replace row ' + (i + 1) + ' with row ' + (i + 1) + ' minus (' + format(factor) + ') × row ' + (next + 1) + '. This makes a zero in column ' + (col + 1) + ': (' + format(factor) + ') − (' + format(factor) + ') × 1 = 0.' +
+          (factor < 0 ? ' Subtracting a negative multiple means adding: here we add ' + format(-factor) + ' times row ' + (next + 1) + '.' : '') + '\n' +
           row.map((n, j) => 'Entry ' + (j + 1) + ': (' + format(n) + ') − (' + format(factor) + ') × (' + format(rows[next][j]) + ') = ' + format(rows[i][j])).join('; ') + '.\nThe matrix is now:');
       });
       pivots.push(col);
@@ -72,6 +80,9 @@
       steps.push('A row says 0 = ' + format(contradiction[n]) + '. This is impossible, so no point satisfies every equation.');
       return {kind:'none', steps};
     }
+    rows.forEach((row,i)=>{
+      if (row.every(zero)) steps.push('Row ' + (i + 1) + ' contains only zeros, so it says 0 = 0. This is always true and adds no new condition. It does not mean that every unknown must be zero.');
+    });
     const point = Array(n).fill(0);
     pivots.forEach((p, i) => { point[p] = rows[i][n]; });
     const basis = Array.from({length:n}, (_, i) => i).filter(i => !pivots.includes(i)).map(i => {
@@ -91,6 +102,7 @@
         '. Add the starting vector to any weighted sum of these directions. Parameter names such as s, t or t1 are only labels; renaming them does not change the solutions.');
       steps.push('Check the family: the original coefficient matrix times the starting vector gives ' + vector(augmented.map(row => dot(row.slice(0,n), point))) +
         ', the original right-hand side. Multiplying it by each direction gives the zero vector, so any choice of parameters keeps the equations true.');
+      basis.forEach((direction,i)=>steps.push('Check direction t' + (i + 1) + ': multiply the original coefficient matrix by ' + vector(direction) + ' to obtain ' + vector(augmented.map(row=>dot(row.slice(0,n),direction))) + '. Adding any multiple of this direction changes every equation’s left side by 0, so the required totals stay the same.'));
     } else {
       steps.push('Read the right-hand column. Each pivot row now fixes one unknown: ' + point.map((v,i) => 'variable ' + (i + 1) + ' = ' + format(v)).join(', ') + '. In the original variable order, the solution is ' + vector(point) + '.');
       augmented.forEach((row, i) => steps.push('Check original equation ' + (i + 1) + ': ' + row.slice(0,n).map((v,j) => '(' + format(v) + ' × ' + format(point[j]) + ')').join(' + ') +
@@ -105,9 +117,11 @@
     const augmented = matrix.map((row, i) => [...row, ...identity(n)[i]]);
     const {rows, pivots, steps} = reduce(augmented, n);
     steps[0] = 'Put the identity matrix to the right of the original matrix. The identity has 1 on its main diagonal and 0 elsewhere. The bar separates A from I. Apply every row operation to both sides of the bar.\n' + matrixBlock(augmented,n);
+    steps.splice(1,0,'Why this works: call the combined effect of all row operations E. Applying them to [A | I] gives [EA | EI]. If the left block becomes I, then EA = I. The right block is EI = E, so it records the matrix that undoes A: its inverse.');
     const value = pivots.length === n ? rows.map(row => row.slice(n)) : null;
     steps.push(value ? 'The left side is now the identity. The right side records how to undo A, so it is A⁻¹:\n' + matrixBlock(value) : 'A pivot is missing on the left. We cannot turn A into the identity, so this matrix has no inverse (it is singular).');
     if (value) steps.push('Check by multiplying the original matrix by this inverse. The result should be the identity:\n' + matrixBlock(multiply(matrix,value)));
+    if (value) steps.push('Check the reverse order too: A⁻¹A must also equal I. This confirms that the inverse restores the original coordinates in either order:\n' + matrixBlock(multiply(value,matrix)));
     return {value, steps};
   }
 
