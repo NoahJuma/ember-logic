@@ -2,6 +2,27 @@
 
 Created by Noah J.G TELTA Student MIUN 2026.
 
+## Mathematics and physics video references
+
+The video collection was checked on 7 November 2026. `study-video-data.js` records each exact video URL, publisher/teacher, original title, spoken language, topic mapping and source page. It includes 37 mathematics resources and 22 physics resources (36 English and 23 Swedish). Titles and short bilingual viewing suggestions are editorial guidance; changing the interface language does not change the video's audio. No claim is made about subtitle availability or the length of a video unless stated by its source.
+
+Mathematics selections cover sections 1.1–1.11 of Anton and Kaul, including elimination, matrix operations, elementary matrices, inverses, solution structure, special matrices, transformations, composition, applications and Leontief models. Separate application links address interpolation/curve fitting, network flows, electrical circuits and chemical balancing. Three calculus prerequisites are clearly separated from the core linear algebra topics and offered where a technology or review question calls for them.
+
+Physics selections cover the ten beginner lessons corresponding to Young and Freedman's Chapter 1: scientific method, problem-solving, units and dimensions, measurement uncertainty, estimation, vectors, components, unit vectors, dot products and cross products. Spoken Swedish is available for many topics; numerical problem-solving and Fermi estimation currently use explicitly labelled English resources.
+
+Primary sources include:
+
+- [Linköping University, TATA24: Axel's video catalogue](https://courses.mai.liu.se/GU/TATA24/Kursmaterial/Axel/) and the course's Tomas Sjödin videos: Swedish matrix, system and transformation explanations.
+- [Mathispower4u's linear algebra video index](https://mathispower4u.com/linear-alg.php): worked matrix procedures and applications.
+- [3Blue1Brown](https://www.3blue1brown.com/topics/linear-algebra): geometric explanations of transformations, inverses, dot products and cross products.
+- [MIT OpenCourseWare, 8.01SC Classical Mechanics](https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/): vector foundations, components and unit vectors.
+- [Khan Academy](https://www.khanacademy.org/): specific video lessons on significant figures, scientific method, interpolation and the calculus prerequisites.
+- Creator teaching pages and publisher video metadata for Flipping Physics, TED-Ed, Jonas Månsson, Lars Filipsson, Tomas Rönnåbakk Sverin, Magnus Hummelgård, Jimmy Gustafsson, Johan Falk, PS fysik and the other individual teachers credited on each link. The catalogue preserves their exact per-video source URLs.
+
+Verification used the creator's catalogue, published description or transcript to establish topic relevance, and direct HTTP/video metadata checks to confirm the resource identity and availability. Direct university MP4 links returned video content types; YouTube identities were checked with YouTube's oEmbed metadata. The videos were not all watched from beginning to end. Metadata and link checks do not guarantee future availability or playback on every device.
+
+The study pages do not embed, copy or auto-play these videos. Optional help is outside the hidden solutions, links open in a new tab, and drafts remain on the original study page. Videos teach a relevant method or concept; they are not represented as the publisher's solutions to each specific textbook question. DOM tests check topic coverage, useful routing, accessible external links, language changes, and preservation of drafts, vector attempts and disclosure state.
+
 ## Computer science · Data Storage, Chapter 1
 
 Source: J. Glenn Brookshear and Dennis Brylow, *Computer Science: An Overview*, 13th edition, Global Edition, Pearson (2020), the user-supplied textbook. Chapter 1 begins on page 39; sections 1.1–1.10 occupy pages 40–101, review problems pages 102–107, and social discussion questions pages 107–108. The answer bank includes all 63 numbered section exercises, all 61 review problems and all seven discussion questions. English question wording follows the supplied book, with readable line breaks and mathematical symbols. Necessary question diagrams are cropped from the supplied PDF and embedded in standalone SVG files under `assets/computer-science/questions/`; Swedish versions translate the prose labels while preserving the circuit topology. The NAND-only solution diagram is an original redraw. The original PDF and full textbook pages are not published. Swedish questions and figure labels are translations. The ten lessons, worked solutions, interactive experiments and 120 quiz questions are original teaching material, not a publisher-issued solution manual or translation.

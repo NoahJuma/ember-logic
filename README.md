@@ -4,6 +4,16 @@
 
 A warm, interactive study kit for learning computer science, mathematics and physics by experimenting. The home page lets visitors choose a subject.
 
+## Video help for mathematics and physics
+
+Both Chapter 1 pages include a **Videos** collection and optional **Need another explanation? Watch a video** panels beside the questions. Video help is available before opening a worked answer. Physics lessons also include matching videos, and mathematics practice cards use the same topic recommendations as the textbook questions.
+
+The collection contains 59 verified resources: 37 for mathematics and 22 for physics, including 23 Swedish and 36 English videos or specific video lesson pages. It covers all eleven linear algebra sections and all ten physics lessons. A small, clearly labelled calculus prerequisite group supports the mathematics technology and review exercises. Application questions distinguish curve fitting, network flow, circuits and chemical balancing; vector questions distinguish components, unit vectors, dot products and cross products.
+
+Every link names the teacher or publisher, identifies the spoken language, and explains what to practise. The page language determines the guidance and preferred ordering; it does not dub or translate external videos. Swedish alternatives are preferred when available, and English-only help is explicitly labelled. Links open in a new tab and do not start video downloads or embedded players on the study page. Written work and open help panels survive language changes.
+
+`study-video-data.js` stores the curated catalogue and source pages. `study-videos.js` selects relevant resources and renders both page collections; `study-videos.css` provides the responsive cards. Sources and video identity/availability were checked on 7 November 2026 using publisher pages, transcripts and video metadata. The videos teach relevant concepts and methods; they are not recordings of the solutions to each exact textbook problem. External resources can change availability. See [SOURCES.md](SOURCES.md).
+
 ## Computer science · Chapter 1
 
 Open `computer-science.html` for **Data Storage**, Chapter 1 of Brookshear and Brylow, *Computer Science: An Overview*, 13th Global Edition (2020). Ten short lessons follow sections 1.1–1.10: bits, memory, storage, information encoding, binary numbers, signed integers, fractions, programming, compression and error control. Every lesson includes a worked example, a check of understanding and a link to a relevant experiment.

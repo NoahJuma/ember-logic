@@ -6,6 +6,7 @@
   <meta name="description" data-i18n-content="description" content="Learn physics from the beginning: units, measurements and vectors. Interactive 2D and 3D experiments, worked Chapter 1 answers and four quiz levels.">
   <title>Physics · Chapter 1 — Ember Study Labs</title>
   <link rel="stylesheet" href="study.css">
+  <link rel="stylesheet" href="study-videos.css?v=videos1">
   <link rel="stylesheet" href="physics.css?v=sv1">
   <script src="physics-i18n.js?v=sv1" defer></script>
   <script src="physics-core.js?v=sv1" defer></script>
@@ -19,7 +20,9 @@
   <script src="physics-sv-book-3.js?v=sv1" defer></script>
   <script src="physics-language.js?v=sv1" defer></script>
   <script src="physics-lab.js?v=sv1" defer></script>
-  <script src="physics.js" defer></script>
+  <script src="study-video-data.js?v=videos1" defer></script>
+  <script src="study-videos.js?v=videos1" defer></script>
+  <script src="physics.js?v=videos1" defer></script>
 </head>
 <body class="study physics">
   <header class="study-top"><a href="./" class="study-brand"><b>e.</b> Ember Study Labs</a><div class="physics-header-actions"><label class="physics-language"><span data-i18n="language">Language</span><select id="physics-language" aria-label="Choose language" data-i18n-aria-label="chooseLanguage"><option value="sv" lang="sv">Svenska</option><option value="en" lang="en" selected>English</option></select></label><a href="./" data-i18n="allSubjects">← All subjects</a></div></header>
@@ -31,7 +34,7 @@
       <div class="hero-links"><a class="primary" href="#learn" data-i18n="startBeginning">Start from the beginning →</a><a class="secondary" href="#lab" data-i18n="tryLab">Try the vector lab</a></div>
       <div class="physics-orbit" aria-hidden="true"><span>x</span><span>y</span><span>z</span></div>
     </section>
-    <nav class="chapter-nav" aria-label="Chapter sections" data-i18n-aria-label="chapterSections"><a href="#learn" data-i18n="navLearn">01 · Learn</a><a href="#measure" data-i18n="navMeasure">02 · Measure</a><a href="#lab" data-i18n="navLab">03 · Vector lab</a><a href="#book" data-i18n="navBook">04 · Worked answers</a><a href="#quiz" data-i18n="navQuiz">05 · Quiz</a></nav>
+    <nav class="chapter-nav" aria-label="Chapter sections" data-i18n-aria-label="chapterSections"><a href="#learn" data-i18n="navLearn">01 · Learn</a><a href="#measure" data-i18n="navMeasure">02 · Measure</a><a href="#lab" data-i18n="navLab">03 · Vector lab</a><a href="#book" data-i18n="navBook">04 · Worked answers</a><a href="#quiz" data-i18n="navQuiz">05 · Quiz</a><a href="#videos" id="study-video-nav">06 · Video help</a></nav>
     <section id="learn" class="study-section">
       <p class="kicker" data-i18n="learnKicker">01 / BUILD YOUR UNDERSTANDING</p><h2 data-i18n="learnTitle">One idea at a time</h2>
       <p data-i18n="learnIntro">Read a short explanation, try its experiment, then check your understanding. No previous knowledge is assumed.</p>
@@ -90,6 +93,7 @@
       <div id="physics-quiz" class="panel quiz-play" hidden></div>
     </section>
     <noscript><p class="answer" lang="sv">Aktivera JavaScript för att använda språkvalet, lektionerna, lösningarna och quizet.</p><p class="answer" lang="en">Please enable JavaScript to use the language selector, interactive lessons, worked answers and quizzes.</p></noscript>
+    <section id="videos" class="study-section"><div id="study-video-library"></div></section>
   </main>
   <footer class="study-footer"><span data-i18n="creator">Ember Study Labs · Created by Noah Juma Gul</span><a href="SOURCES.md" data-i18n="sources">Sources &amp; approach</a></footer>
 </body>

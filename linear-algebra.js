@@ -3,6 +3,13 @@
   const M=window.EmberAlgebra,C=window.EmberChapter,L=window.EmberLearning,book=window.EmberTextbook;
   const tr=(en,sv)=>window.EmberMathI18n?.t(en,sv)??en;
   const $=id=>document.getElementById(id),html=L.escape,stepList=items=>L.steps(items);
+  function renderVideos(){
+    const host=$('study-video-library');if(!host)return;
+    const state=new Map(Array.from(host.querySelectorAll('details'),(node,i)=>[node.dataset.videoKey||String(i),node.open]));
+    host.innerHTML=window.StudyVideos?.renderLibrary('math',window.EmberMathI18n?.language||'en')||'';
+    host.querySelectorAll('details').forEach((node,i)=>{node.open=state.get(node.dataset.videoKey||String(i))??false;});
+    $('study-video-nav').textContent=tr('05 · Video help','05 · Videohjälp');
+  }
   const drafts=new Map();
   function readAttempt(key){if(drafts.has(key))return drafts.get(key);try{return L.read(localStorage,key);}catch{return '';}}
   function saveAttempt(key,value){drafts.set(key,value);try{return L.save(localStorage,key,value);}catch{return false;}}
@@ -121,10 +128,10 @@
     for(const article of document.querySelectorAll('#practice-list>article,#book-list>article')){const input=article.querySelector('textarea[data-attempt]');drafts.set(input.dataset.attempt,input.value);panels.set(input.dataset.attempt,Array.from(article.querySelectorAll('details'),d=>d.open));}
     const active=document.activeElement,focusId=active?.id,selection=active?.tagName==='TEXTAREA'?[active.selectionStart,active.selectionEnd]:null;
     if(!quiz.hidden&&!completed){const form=$('quiz-answer');if(form){const data=new FormData(form);if(form.elements.attempt)current.draft=form.elements.attempt.value;if(!current.revealed)current.choice=data.get('choice');}}
-    topicOptions();renderPractice();renderBook();
+    topicOptions();renderPractice();renderBook();renderVideos();
     for(const article of document.querySelectorAll('#practice-list>article,#book-list>article')){const input=article.querySelector('textarea[data-attempt]'),saved=panels.get(input.dataset.attempt);if(saved)article.querySelectorAll('details').forEach((d,i)=>{d.open=saved[i]??false;});}
     if(!quiz.hidden)displayQuestion(false);
     if(focusId&&$(focusId)){const node=$(focusId);node.focus({preventScroll:true});if(selection&&node.setSelectionRange)node.setSelectionRange(...selection);}
   });
-  topicOptions();renderPractice();renderBook();
+  topicOptions();renderPractice();renderBook();renderVideos();
 })();
