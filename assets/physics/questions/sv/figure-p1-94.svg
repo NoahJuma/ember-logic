@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="375" viewBox="0 0 620 375" role="img" aria-labelledby="title desc">
+<title id="title">Figur P1.94: lungvolym och alveolvolym</title><desc id="desc">Punktdiagram med samma sex datapunkter som i läroboksfiguren. Den vågräta axeln visar total lungvolym i 10⁻⁶ m³. Den lodräta axeln visar genomsnittlig alveolvolym i 10⁶ µm³. Axelskalor och punkternas relativa lägen är bevarade.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 L2.5 4 Z" fill="#007fae"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18232b;font-size:20px}.small{font-size:17px}.route{fill:none;stroke:#007fae;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#39434a;stroke-width:1.5}.point{fill:#db147c}</style>
+<rect width="620" height="375" fill="#ffffff"/>
+<path class="guide" d="M75.200 280H558.050 M110 53.750V310.000"/>
+<path class="guide" d="M110 242.500H121"/><text x="95" y="249.500" text-anchor="end">1</text>
+<path class="guide" d="M110 205.000H121"/><text x="95" y="212.000" text-anchor="end">2</text>
+<path class="guide" d="M110 167.500H121"/><text x="95" y="174.500" text-anchor="end">3</text>
+<path class="guide" d="M110 129.375H121"/><text x="95" y="136.375" text-anchor="end">4</text>
+<path class="guide" d="M110 91.625H121"/><text x="95" y="98.625" text-anchor="end">5</text>
+<path class="guide" d="M110 53.750H121"/><text x="95" y="60.750" text-anchor="end">6</text>
+<text x="98" y="306" text-anchor="end">0</text>
+<path class="guide" d="M191.925 280V267"/><text x="191.925" y="310" text-anchor="middle">500</text>
+<path class="guide" d="M273.850 280V267"/><text x="273.850" y="310" text-anchor="middle">1000</text>
+<path class="guide" d="M355.050 280V267"/><text x="355.050" y="310" text-anchor="middle">1500</text>
+<path class="guide" d="M436.250 280V267"/><text x="436.250" y="310" text-anchor="middle">2000</text>
+<path class="guide" d="M518.175 280V267"/><text x="518.175" y="310" text-anchor="middle">2500</text>
+<circle cx="273.850" cy="91.625" r="6.5" fill="#18232b"/>
+<circle cx="290.815" cy="129.375" r="6.5" fill="#18232b"/>
+<circle cx="321.700" cy="139.625" r="6.5" fill="#18232b"/>
+<circle cx="355.050" cy="106.250" r="6.5" fill="#18232b"/>
+<circle cx="426.535" cy="113.375" r="6.5" fill="#18232b"/>
+<circle cx="500.485" cy="129.375" r="6.5" fill="#18232b"/>
+<text x="338" y="350" text-anchor="middle">Total lungvolym (10⁻⁶ m³)</text>
+<text text-anchor="middle" transform="translate(31 165) rotate(-90)">Genomsnittlig alveolvolym</text>
+<text text-anchor="middle" transform="translate(59 165) rotate(-90)">(10⁶ µm³)</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="440" viewBox="0 0 380 440" role="img" aria-labelledby="title desc">
+<title id="title">Figur P1.62: förflyttningar mellan schweiziska städer</title><desc id="desc">Vägen går från Bern till Zürich, 101 km med bäringen 52°; vidare till Lugano, 165 km med bäringen 170°; och sedan till Sion, 124 km med bäringen 282°. Bäringarna mäts medurs från norr.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 L2.5 4 Z" fill="#007fae"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18232b;font-size:20px}.small{font-size:17px}.route{fill:none;stroke:#007fae;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#39434a;stroke-width:1.5}.point{fill:#db147c}</style>
+<rect width="380" height="440" fill="#f7f3d8"/>
+<text x="24" y="34" font-size="24" font-weight="bold">SCHWEIZ</text>
+<path class="route" d="M100.000 190.000L219.384 96.727"/>
+<path d="M219.384 96.727 L211.430 109.287 L205.273 101.406 Z" fill="#007fae"/>
+<path class="route" d="M219.384 96.727L262.362 340.467"/>
+<path d="M262.362 340.467 L255.006 327.548 L264.855 325.812 Z" fill="#007fae"/>
+<path class="route" d="M262.362 340.467L80.426 301.796"/>
+<path d="M80.426 301.796 L95.160 299.816 L93.081 309.597 Z" fill="#007fae"/>
+<circle class="point" cx="100.000" cy="190.000" r="6"/>
+<circle class="point" cx="219.384" cy="96.727" r="6"/>
+<circle class="point" cx="262.362" cy="340.467" r="6"/>
+<circle class="point" cx="80.426" cy="301.796" r="6"/>
+<text x="48" y="178">Bern</text><text x="237" y="90">Zürich</text><text x="244" y="370">Lugano</text><text x="45" y="284">Sion</text>
+<text x="119" y="108">101 km</text><text x="144" y="133">52°</text>
+<text x="265" y="219">165 km</text><text x="279" y="245">170°</text>
+<text x="139" y="281">124 km</text><text x="155" y="305">282°</text><g class="guide"><path d="M37 371H83 M60 394V348"/><path d="M57 354L60 348L63 354"/><circle cx="60" cy="371" r="8"/></g>
+<g class="small" text-anchor="middle"><text x="60" y="338">N</text><text x="60" y="414">S</text><text x="23" y="377">V</text><text x="97" y="377">Ö</text></g>
+</svg>

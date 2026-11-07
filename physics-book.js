@@ -113,7 +113,7 @@
     'sin 0° = 0, so A×A is the zero vector. Parallel arrows span no area.'
   ],'A·A = |A|²; A×A = (0,0,0).');
   q(20,'Keep the direction, make length one','vectors','Why does A/|A| define a unit vector? What is its x direction cosine?',[
-    'For nonzero A, divide every component by its positive length. Every part shrinks by the same factor.',
+    'For nonzero A, divide every component by its positive length. Every component is scaled by the same positive factor, so the direction is unchanged.',
     'The new length is |A|/|A| = 1; its direction is unchanged.',
     'Dotting this unit vector with î = (1,0,0) picks out Ax/|A|. The right triangle for the x component gives Ax/|A| = cos θ.'
   ],'A/|A| is a unit vector in A’s direction; its x component is cos θ.');
@@ -649,5 +649,14 @@
   byId('1.62').answer=`(a) Return distance ≈ ${f(norm(back62))} km.\n(b) Bearing ≈ ${f(P.bearing(back62))}° clockwise from north.\nComponents: ${t(back62)} km.`;
   byId('1.68').answer=`(a) Straight-line distance ≈ ${f(norm(store))} km.\n(b) Saturday: 2.00 km. Sunday: ${f(.8+norm(sundayLast))} km. Saturday is about ${f(2-.8-norm(sundayLast))} km longer.`;
   byId('VP1.10.4').answer=`(a) Fy = 14.8 N.\n(b) Angle ≈ ${f(angle([-12,14.8,0],[4,5,0]))}°.`;
+  for(const [id,quadrant,signs]of [
+    ['VP1.7.1','IV','The x-component is positive and the y-component is negative'],
+    ['VP1.7.2','I','Both the x- and y-components are positive'],
+    ['VP1.7.3','III','Both the x- and y-components are negative'],
+    ['VP1.7.4','III','Both the x- and y-components are negative']
+  ]){
+    byId(id).steps.push(`${signs}, so the direction lies in quadrant ${quadrant}. This explicitly answers the quadrant part of the question.`);
+    byId(id).answer+=`; quadrant ${quadrant}.`;
+  }
   return {items,topics,fig22,fig33,fig37};
 });

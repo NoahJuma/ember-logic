@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="400" viewBox="0 0 620 400" role="img" aria-labelledby="title desc">
+<title id="title">Figur E1.21: tre delsträckor</title><desc id="desc">Vägen går från Start 2.6 km norrut, sedan 4.0 km österut och slutligen 3.1 km i riktningen 45° norr om öster till Mål. Kompassen visar norr, söder, väster och öster.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 L2.5 4 Z" fill="#007fae"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18232b;font-size:20px}.small{font-size:17px}.route{fill:none;stroke:#007fae;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#39434a;stroke-width:1.5}.point{fill:#db147c}</style>
+<rect width="620" height="400" fill="#e6efdf"/>
+
+<path d="M140 380V184H380L549.522 14.478" fill="none" stroke="#8b9690" stroke-width="24"/>
+<path d="M140 380V184H380L549.522 14.478" fill="none" stroke="white" stroke-width="21"/>
+<path class="guide" d="M380 184H477" stroke-dasharray="8 5"/>
+<path class="guide" d="M430 184A50 50 0 0 0 415.355 148.645"/>
+<text x="436" y="169">45°</text>
+<path class="route" d="M140 340V184H380L511.522 52.478"/>
+<path d="M140.000 255.000 L145.000 269.000 L135.000 269.000 Z" fill="#007fae"/><path d="M273.000 184.000 L259.000 189.000 L259.000 179.000 Z" fill="#007fae"/><path d="M453.000 111.000 L446.636 124.435 L439.565 117.364 Z" fill="#007fae"/>
+<circle class="point" cx="140" cy="340" r="5"/><circle class="point" cx="511.522" cy="52.478" r="5"/>
+<text class="label" x="82" y="357">Start</text><text class="label" x="476" y="33">Mål</text>
+<text class="label" text-anchor="middle" transform="translate(113 264) rotate(-90)">2.6 km</text>
+<text class="label" x="260" y="162" text-anchor="middle">4.0 km</text>
+<text class="label" text-anchor="middle" transform="translate(433 112) rotate(-45)">3.1 km</text>
+<g class="guide"><path d="M506 302H564 M535 331V273"/><path d="M532 279L535 273L538 279"/><circle cx="535" cy="302" r="8"/></g>
+<g class="small" text-anchor="middle"><text x="535" y="263">N</text><text x="535" y="351">S</text><text x="492" y="308">V</text><text x="578" y="308">Ö</text></g>
+</svg>

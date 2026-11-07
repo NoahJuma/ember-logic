@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="585" height="315" viewBox="0 0 585 315" role="img" aria-labelledby="title desc">
+<title id="title">Figur P1.60: segelbåtens väg</title><desc id="desc">Första delsträckan går 2.00 km österut. Nästa går 3.50 km i riktningen 45.0° söder om öster. Den tredje går åt nordost till Mål, som ligger 5.80 km rakt öster om Start.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 L2.5 4 Z" fill="#007fae"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18232b;font-size:20px}.small{font-size:17px}.route{fill:none;stroke:#007fae;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#39434a;stroke-width:1.5}.point{fill:#db147c}</style>
+<rect width="585" height="315" fill="#ffffff"/>
+
+<path class="guide" d="M150 74V111 M440 74V111 M150 94H440"/>
+<path class="guide" d="M162 88L150 94L162 100 M428 88L440 94L428 100"/>
+<rect x="243" y="78" width="105" height="28" fill="white"/>
+<text x="295" y="100" text-anchor="middle">5.80 km</text>
+<text x="150" y="57" text-anchor="middle">Start</text><text x="440" y="57" text-anchor="middle">Mål</text>
+<path class="guide" d="M250 135H340" stroke-dasharray="8 5"/>
+<path class="guide" d="M293 135A43 43 0 0 1 280.406 165.406"/>
+<text x="306" y="164">45.0°</text>
+<path class="route" d="M150 135H250"/>
+<path class="route" d="M250 135L373.744 258.744"/>
+<path class="route" d="M373.744 258.744L440 135"/>
+<path d="M240.000 135.000 L226.000 140.000 L226.000 130.000 Z" fill="#007fae"/><path d="M373.744 258.744 L360.309 252.380 L367.380 245.309 Z" fill="#007fae"/><path d="M440.000 135.000 L437.800 149.702 L428.984 144.982 Z" fill="#007fae"/>
+<circle class="point" cx="150" cy="135" r="5"/><circle class="point" cx="440" cy="135" r="5"/>
+<text x="200" y="163" text-anchor="middle">2.00 km</text>
+<text x="250" y="232">3.50 km</text>
+<text x="445" y="218">Tredje</text><text x="445" y="243">delsträckan</text>
+<g class="guide"><path d="M39 140H87 M63 164V116"/><path d="M60 122L63 116L66 122"/><circle cx="63" cy="140" r="8"/></g>
+<g class="small" text-anchor="middle"><text x="63" y="106">N</text><text x="63" y="184">S</text><text x="25" y="146">V</text><text x="101" y="146">Ö</text></g>
+</svg>

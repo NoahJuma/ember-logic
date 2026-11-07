@@ -3,86 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn physics from the beginning: units, measurements and vectors. Interactive 2D and 3D experiments, worked Chapter 1 answers and four quiz levels.">
+  <meta name="description" data-i18n-content="description" content="Learn physics from the beginning: units, measurements and vectors. Interactive 2D and 3D experiments, worked Chapter 1 answers and four quiz levels.">
   <title>Physics · Chapter 1 — Ember Study Labs</title>
   <link rel="stylesheet" href="study.css">
-  <link rel="stylesheet" href="physics.css">
-  <script src="physics-core.js" defer></script>
-  <script src="physics-content.js" defer></script>
-  <script src="physics-questions.js" defer></script>
-  <script src="physics-book.js" defer></script>
-  <script src="physics-lab.js" defer></script>
+  <link rel="stylesheet" href="physics.css?v=sv1">
+  <script src="physics-i18n.js?v=sv1" defer></script>
+  <script src="physics-core.js?v=sv1" defer></script>
+  <script src="physics-content.js?v=sv1" defer></script>
+  <script src="physics-questions.js?v=sv1" defer></script>
+  <script src="physics-book.js?v=sv1" defer></script>
+  <script src="physics-sv-ui.js?v=sv1" defer></script>
+  <script src="physics-sv-content.js?v=sv1" defer></script>
+  <script src="physics-sv-book-1.js?v=sv1" defer></script>
+  <script src="physics-sv-book-2.js?v=sv1" defer></script>
+  <script src="physics-sv-book-3.js?v=sv1" defer></script>
+  <script src="physics-language.js?v=sv1" defer></script>
+  <script src="physics-lab.js?v=sv1" defer></script>
   <script src="physics.js" defer></script>
 </head>
 <body class="study physics">
-  <header class="study-top"><a href="./" class="study-brand"><b>e.</b> Ember Study Labs</a><a href="./">← All subjects</a></header>
+  <header class="study-top"><a href="./" class="study-brand"><b>e.</b> Ember Study Labs</a><div class="physics-header-actions"><label class="physics-language"><span data-i18n="language">Language</span><select id="physics-language" aria-label="Choose language" data-i18n-aria-label="chooseLanguage"><option value="sv" lang="sv">Svenska</option><option value="en" lang="en" selected>English</option></select></label><a href="./" data-i18n="allSubjects">← All subjects</a></div></header>
   <main class="study-wrap">
     <section class="study-hero physics-hero">
-      <p class="kicker">PHYSICS / CHAPTER 1</p>
-      <h1>Small steps.<br><em>A world of motion.</em></h1>
-      <p>Start with a measuring stick and an arrow. Learn how physicists describe size, direction and space — even if you have never studied physics or mathematics.</p>
-      <div class="hero-links"><a class="primary" href="#learn">Start from the beginning →</a><a class="secondary" href="#lab">Try the vector lab</a></div>
+      <p class="kicker" data-i18n="heroKicker">PHYSICS / CHAPTER 1</p>
+      <h1 data-i18n="heroTitle">Small steps.<br><em>A world of motion.</em></h1>
+      <p data-i18n="heroIntro">Start with a measuring stick and an arrow. Learn how physicists describe size, direction and space — even if you have never studied physics or mathematics.</p>
+      <div class="hero-links"><a class="primary" href="#learn" data-i18n="startBeginning">Start from the beginning →</a><a class="secondary" href="#lab" data-i18n="tryLab">Try the vector lab</a></div>
       <div class="physics-orbit" aria-hidden="true"><span>x</span><span>y</span><span>z</span></div>
     </section>
-    <nav class="chapter-nav" aria-label="Chapter sections"><a href="#learn">01 · Learn</a><a href="#measure">02 · Measure</a><a href="#lab">03 · Vector lab</a><a href="#book">04 · Worked answers</a><a href="#quiz">05 · Quiz</a></nav>
+    <nav class="chapter-nav" aria-label="Chapter sections" data-i18n-aria-label="chapterSections"><a href="#learn" data-i18n="navLearn">01 · Learn</a><a href="#measure" data-i18n="navMeasure">02 · Measure</a><a href="#lab" data-i18n="navLab">03 · Vector lab</a><a href="#book" data-i18n="navBook">04 · Worked answers</a><a href="#quiz" data-i18n="navQuiz">05 · Quiz</a></nav>
     <section id="learn" class="study-section">
-      <p class="kicker">01 / BUILD YOUR UNDERSTANDING</p><h2>One idea at a time</h2>
-      <p>Read a short explanation, try its experiment, then check your understanding. No previous knowledge is assumed.</p>
+      <p class="kicker" data-i18n="learnKicker">01 / BUILD YOUR UNDERSTANDING</p><h2 data-i18n="learnTitle">One idea at a time</h2>
+      <p data-i18n="learnIntro">Read a short explanation, try its experiment, then check your understanding. No previous knowledge is assumed.</p>
       <div class="lesson-layout">
-        <nav id="lesson-nav" class="lesson-nav" aria-label="Choose a lesson"></nav>
+        <nav id="lesson-nav" class="lesson-nav" aria-label="Choose a lesson" data-i18n-aria-label="chooseLesson"></nav>
         <article id="lesson" class="panel lesson" aria-live="polite"></article>
       </div>
-      <details class="math-key physics-glossary"><summary>A friendly guide to the symbols and words</summary><dl id="glossary"></dl></details>
+      <details class="math-key physics-glossary"><summary data-i18n="glossary">A friendly guide to the symbols and words</summary><dl id="glossary"></dl></details>
     </section>
     <section id="measure" class="study-section">
-      <p class="kicker">02 / THE UNIT MACHINE</p><h2>Same size. Different unit.</h2>
-      <p>Change the unit without changing the object. Then switch from length to area or volume and watch the conversion factor change.</p>
+      <p class="kicker" data-i18n="measureKicker">02 / THE UNIT MACHINE</p><h2 data-i18n="measureTitle">Same size. Different unit.</h2>
+      <p data-i18n="measureIntro">Change the unit without changing the object. Then switch from length to area or volume and watch the conversion factor change.</p>
       <div class="measurement-grid">
         <div class="panel unit-machine">
-          <div class="filter-row"><label for="unit-power">What are we measuring?</label><select id="unit-power"><option value="1">Length — one direction</option><option value="2">Area — two directions</option><option value="3">Volume — three directions</option></select></div>
-          <div class="unit-inputs"><label>Amount<input id="unit-value" type="number" min="0" max="1000000000000" step="any" value="1"></label><label>From<select id="unit-from"></select></label><span aria-hidden="true">→</span><label>To<select id="unit-to"></select></label></div>
+          <div class="filter-row"><label for="unit-power" data-i18n="whatMeasure">What are we measuring?</label><select id="unit-power"><option value="1" data-i18n="length">Length — one direction</option><option value="2" data-i18n="area">Area — two directions</option><option value="3" data-i18n="volume">Volume — three directions</option></select></div>
+          <div class="unit-inputs"><label><span data-i18n="amount">Amount</span><input id="unit-value" type="number" min="0" max="1000000000000" step="any" value="1"></label><label><span data-i18n="from">From</span><select id="unit-from"></select></label><span aria-hidden="true">→</span><label><span data-i18n="to">To</span><select id="unit-to"></select></label></div>
           <div id="unit-result" class="answer" role="status"></div><ol id="unit-steps" class="steps"></ol>
         </div>
         <div class="panel scale-experiment">
-          <h3>What if you double the size?</h3><p>Imagine a cube made of small blocks. The edge length is measured in blocks.</p>
-          <label for="cube-size">Blocks along each edge: <output id="cube-size-label">2</output></label><input id="cube-size" type="range" min="1" max="5" step="1" value="2">
-          <svg id="cube-picture" viewBox="0 0 360 250" role="img" aria-label="Cube showing edge length, face area and volume"></svg>
+          <h3 data-i18n="cubeTitle">What if you double the size?</h3><p data-i18n="cubeIntro">Imagine a cube made of small blocks. The edge length is measured in blocks.</p>
+          <label for="cube-size"><span data-i18n="cubeBlocks">Blocks along each edge: </span><output id="cube-size-label">2</output></label><input id="cube-size" type="range" min="1" max="5" step="1" value="2">
+          <svg id="cube-picture" viewBox="0 0 360 250" role="img" aria-label="Cube showing edge length, face area and volume" data-i18n-aria-label="cubeAlt"></svg>
           <p id="cube-result" class="caption" role="status"></p>
         </div>
       </div>
     </section>
     <section id="lab" class="study-section">
-      <p class="kicker">03 / TOUCH THE IDEA</p><h2>Make the arrows make sense</h2>
-      <p>Begin in 2D. Drag an arrow’s round tip or change its components. Use 3D to explore height, perpendicular directions and cross products.</p>
+      <p class="kicker" data-i18n="labKicker">03 / TOUCH THE IDEA</p><h2 data-i18n="labTitle">Make the arrows make sense</h2>
+      <p data-i18n="labIntro">Begin in 2D. Drag an arrow’s round tip or change its components. Use 3D to explore height, perpendicular directions and cross products.</p>
       <div id="physics-lab-home"><div id="physics-lab" class="physics-lab"></div></div>
-      <dialog id="physics-fullscreen" aria-label="Full-screen physics vector lab"></dialog>
+      <dialog id="physics-fullscreen" aria-label="Full-screen physics vector lab" data-i18n-aria-label="fullscreenAlt"></dialog>
     </section>
     <section id="book" class="study-section">
-      <p class="kicker">04 / YOUR TEXTBOOK COMPANION</p><h2>Try it, then see every step</h2>
-      <p>Young &amp; Freedman, <cite>University Physics with Modern Physics in SI Units</cite>, 15th edition (2019). Chapter 1: <strong>Units, Physical Quantities, and Vectors</strong>, printed pages 29–61.</p>
-      <p>All 94 numbered problems, 26 discussion questions, eight guided variations and the roof problem, with their full question text and the diagrams, tables and referenced values needed to work on them. Open a solution to follow Step 1, Step 2 and onwards, with the final answer at the end.</p>
+      <p class="kicker" data-i18n="bookKicker">04 / YOUR TEXTBOOK COMPANION</p><h2 data-i18n="bookTitle">Try it, then see every step</h2>
+      <p data-i18n="bookSource">Young &amp; Freedman, <cite>University Physics with Modern Physics in SI Units</cite>, 15th edition (2019). Chapter 1: <strong>Units, Physical Quantities, and Vectors</strong>, printed pages 29–61.</p>
+      <p data-i18n="bookIntro">All 94 numbered problems, 26 discussion questions, eight guided variations and the roof problem, with their full question text and the diagrams, tables and referenced values needed to work on them. Open a solution to follow Step 1, Step 2 and onwards, with the final answer at the end.</p>
+      <p class="caption" data-i18n="translationNote">The Swedish version translates the questions and our explanations. Exercise numbers, values and formulas stay the same in both languages.</p>
       <div class="book-filters panel">
-        <label>Exercise set<select id="physics-set"><option value="numbered">Numbered problems 1.1–1.94</option><option value="discussion">Discussion Q1.1–Q1.26</option><option value="guided">Guided variations &amp; roof</option><option value="all">All questions</option></select></label>
-        <label>Topic<select id="physics-topic"><option value="all">All topics</option></select></label>
-        <label>Find a question<input id="physics-search" type="search" placeholder="e.g. 1.66, cross product, density"></label>
+        <label><span data-i18n="exerciseSet">Exercise set</span><select id="physics-set"><option value="numbered" data-i18n="numbered">Numbered problems 1.1–1.94</option><option value="discussion" data-i18n="discussion">Discussion Q1.1–Q1.26</option><option value="guided" data-i18n="guided">Guided variations &amp; roof</option><option value="all" data-i18n="allQuestions">All questions</option></select></label>
+        <label><span data-i18n="topic">Topic</span><select id="physics-topic"><option value="all" data-i18n="allTopics">All topics</option></select></label>
+        <label><span data-i18n="findQuestion">Find a question</span><input id="physics-search" type="search" placeholder="e.g. 1.66, cross product, density" data-i18n-placeholder="searchPlaceholder"></label>
       </div>
       <p id="physics-count" class="caption" role="status"></p>
       <div id="physics-exercises" class="exercise-list"></div>
-      <div class="book-pagination"><button id="physics-prev" class="secondary" type="button">← Previous</button><span id="physics-page"></span><button id="physics-next" class="secondary" type="button">Next →</button></div>
-      <p class="caption">Your written answers and vector attempts are saved on this browser when storage is available. Vector checks compare components with a small rounding tolerance. Written reasoning is for side-by-side comparison and is not automatically graded.</p>
+      <div class="book-pagination"><button id="physics-prev" class="secondary" type="button" data-i18n="previous">← Previous</button><span id="physics-page"></span><button id="physics-next" class="secondary" type="button" data-i18n="next">Next →</button></div>
+      <p class="caption" data-i18n="answerStorage">Your written answers and vector attempts are saved on this browser when storage is available. Vector checks compare components with a small rounding tolerance. Written reasoning is for side-by-side comparison and is not automatically graded.</p>
     </section>
     <section id="quiz" class="study-section">
-      <p class="kicker">05 / TEST YOUR UNDERSTANDING</p><h2>Choose your challenge</h2>
-      <p>Original Chapter 1 questions on calculations, terminology and mathematical language. Each answer comes with an explanation.</p>
+      <p class="kicker" data-i18n="quizKicker">05 / TEST YOUR UNDERSTANDING</p><h2 data-i18n="quizTitle">Choose your challenge</h2>
+      <p data-i18n="quizIntro">Original Chapter 1 questions on calculations, terminology and mathematical language. Each answer comes with an explanation.</p>
       <form id="physics-quiz-form" class="panel quiz-config">
-        <label>Difficulty<select id="physics-level"><option value="1">1 · Easy</option><option value="2">2 · Beginner</option><option value="3">3 · Advanced</option><option value="4">4 · Very advanced</option></select></label>
-        <label>Question type<select id="physics-quiz-type"><option value="mixed">Mixed</option><option value="problems">Problems</option><option value="terms">Terminology</option><option value="language">Mathematical language</option></select></label>
-        <button class="primary" type="submit">Start a quiz</button>
+        <label><span data-i18n="difficulty">Difficulty</span><select id="physics-level"><option value="1" data-i18n="level1">1 · Easy</option><option value="2" data-i18n="level2">2 · Beginner</option><option value="3" data-i18n="level3">3 · Advanced</option><option value="4" data-i18n="level4">4 · Very advanced</option></select></label>
+        <label><span data-i18n="questionType">Question type</span><select id="physics-quiz-type"><option value="mixed" data-i18n="mixed">Mixed</option><option value="problems" data-i18n="problems">Problems</option><option value="terms" data-i18n="terms">Terminology</option><option value="language" data-i18n="mathLanguage">Mathematical language</option></select></label>
+        <button class="primary" type="submit" data-i18n="startQuiz">Start a quiz</button>
       </form>
       <div id="physics-quiz" class="panel quiz-play" hidden></div>
     </section>
-    <noscript><p class="answer">Please enable JavaScript to use the interactive lessons, worked answers and quizzes.</p></noscript>
+    <noscript><p class="answer" lang="sv">Aktivera JavaScript för att använda språkvalet, lektionerna, lösningarna och quizet.</p><p class="answer" lang="en">Please enable JavaScript to use the language selector, interactive lessons, worked answers and quizzes.</p></noscript>
   </main>
-  <footer class="study-footer"><span>Ember Study Labs · Created by Noah Juma Gul</span><a href="SOURCES.md">Sources &amp; approach</a></footer>
+  <footer class="study-footer"><span data-i18n="creator">Ember Study Labs · Created by Noah Juma Gul</span><a href="SOURCES.md" data-i18n="sources">Sources &amp; approach</a></footer>
 </body>
 </html>
