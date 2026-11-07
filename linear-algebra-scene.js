@@ -1,5 +1,7 @@
 (function (root) {
   'use strict';
+  const tr=(en,sv)=>root.EmberMathI18n?.t(en,sv)??en;
+  const localize=value=>root.EmberMathI18n?.localize(value)??value;
   const M = root.EmberAlgebra || (typeof require==='function' ? require('./linear-algebra-core.js') : null);
   const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
   const cube=Array.from({length:8},(_,i)=>[i&1,(i>>1)&1,(i>>2)&1]);
@@ -49,17 +51,17 @@
   const colors=['#ffb86b','#65e5d7','#c8acff'],axisColors=['#ff8b92','#8ce8b0','#8bbcff'];
   const presets={
     planes:[
-      {name:'One point',values:[[1,1,1,3],[1,-1,0,0],[0,1,1,2]],hint:'Three sheets meet at one point. That point makes all three equations true.'},
-      {name:'A line',values:[[1,0,0,1],[0,1,0,1],[1,1,0,2]],hint:'All three sheets share the highlighted line. Every point on that line is a solution.'},
-      {name:'Same plane',values:[[0,0,1,1],[0,0,2,2],[0,0,-1,-1]],hint:'These three equations describe the same sheet. Every point on it is a solution.'},
-      {name:'No solution',values:[[1,0,0,-1],[1,0,0,1],[0,1,1,0]],hint:'Two sheets are parallel and separated. No point can lie on all three.'}
+      {name:tr('One point',"En punkt"),values:[[1,1,1,3],[1,-1,0,0],[0,1,1,2]],hint:tr('Three sheets meet at one point. That point makes all three equations true.',"Tre plana skivor möts i en punkt. Den punkten gör alla tre ekvationerna sanna.")},
+      {name:tr('A line',"En linje"),values:[[1,0,0,1],[0,1,0,1],[1,1,0,2]],hint:tr('All three sheets share the highlighted line. Every point on that line is a solution.',"Alla tre plana skivor delar den markerade linjen. Varje punkt på linjen är en lösning.")},
+      {name:tr('Same plane',"Samma plan"),values:[[0,0,1,1],[0,0,2,2],[0,0,-1,-1]],hint:tr('These three equations describe the same sheet. Every point on it is a solution.',"Dessa tre ekvationer beskriver samma plana skiva. Varje punkt på den är en lösning.")},
+      {name:tr('No solution',"Ingen lösning"),values:[[1,0,0,-1],[1,0,0,1],[0,1,1,0]],hint:tr('Two sheets are parallel and separated. No point can lie on all three.',"Två plana skivor är parallella och åtskilda. Ingen punkt kan ligga på alla tre.")}
     ],
     transform:[
-      {name:'Stretch',values:[[2,0,0],[0,1,0],[0,0,.5]],hint:'Double the x coordinate and halve z. Watch the unit cube become wider and shorter.'},
-      {name:'Rotate',values:[[0,-1,0],[1,0,0],[0,0,1]],angle:90,hint:'Turn around the z-axis. The cube keeps its shape and size while its coordinates change.'},
-      {name:'Shear',values:[[1,1,0],[0,1,0],[0,0,1]],hint:'Add y to x. Points with larger y slide farther sideways; the cube becomes slanted.'},
-      {name:'Reflect',values:[[-1,0,0],[0,1,0],[0,0,1]],hint:'Change x to −x, crossing the yz mirror. Halfway through this transition the cube is flat; at 100% it is a reflection.'},
-      {name:'Flatten',values:[[1,0,0],[0,1,0],[0,0,0]],hint:'At 100%, set z to zero. A whole 3D cube becomes a flat square, so the original heights cannot be recovered.'}
+      {name:tr('Stretch',"Sträck"),values:[[2,0,0],[0,1,0],[0,0,.5]],hint:tr('Double the x coordinate and halve z. Watch the unit cube become wider and shorter.',"Fördubbla x-koordinaten och halvera z. Se hur enhetskuben blir bredare och lägre.")},
+      {name:tr('Rotate',"Rotera"),values:[[0,-1,0],[1,0,0],[0,0,1]],angle:90,hint:tr('Turn around the z-axis. The cube keeps its shape and size while its coordinates change.',"Rotera runt z-axeln. Kuben behåller sin form och storlek medan koordinaterna ändras.")},
+      {name:tr('Shear',"Skjuva"),values:[[1,1,0],[0,1,0],[0,0,1]],hint:tr('Add y to x. Points with larger y slide farther sideways; the cube becomes slanted.',"Addera y till x. Punkter med större y förskjuts längre åt sidan, så kuben blir sned.")},
+      {name:tr('Reflect',"Spegla"),values:[[-1,0,0],[0,1,0],[0,0,1]],hint:tr('Change x to −x, crossing the yz mirror. Halfway through this transition the cube is flat; at 100% it is a reflection.',"Ändra x till −x och passera genom spegelplanet yz. Halvvägs genom denna övergång är kuben platt; vid 100% är den speglad.")},
+      {name:tr('Flatten',"Platta till"),values:[[1,0,0],[0,1,0],[0,0,0]],hint:tr('At 100%, set z to zero. A whole 3D cube becomes a flat square, so the original heights cannot be recovered.',"Vid 100% sätts z till noll. En hel 3D-kub blir en platt kvadrat, så de ursprungliga höjderna kan inte återskapas.")}
     ]
   };
   const initialCamera={yaw:-.57,pitch:.43,zoom:1,panX:0,panY:0};
@@ -67,9 +69,9 @@
     visible:[true,true,true],point:[1,1,1],width:640,height:480,grid:true};
   let motion=0,frame=0,drag=new Map(),geometryResult;
   function equation(row) {return row.slice(0,3).map((v,i)=>'('+M.format(v)+')'+['x','y','z'][i]).join(' + ')+' = '+M.format(row[3]);}
-  function hint() {return state.preset===null?'Custom values: read the result below and compare it with what you see.':presets[state.mode][state.preset].hint;}
+  function hint() {return state.preset===null?tr('Custom values: read the result below and compare it with what you see.',"Egna värden: läs resultatet nedan och jämför med det du ser."):localize(presets[state.mode][state.preset].hint);}
   function examples() {
-    $('scene-examples').innerHTML=presets[state.mode].map((p,i)=>'<button type="button" data-preset="'+i+'" aria-pressed="'+(i===state.preset)+'">'+esc(p.name)+'</button>').join('');
+    $('scene-examples').innerHTML=presets[state.mode].map((p,i)=>'<button type="button" data-preset="'+i+'" aria-pressed="'+(i===state.preset)+'">'+esc(localize(p.name))+'</button>').join('');
   }
   function range(id,label,min,max,step,value) {
     if(id==='scene-distance'){min=Math.min(min,Math.floor(value));max=Math.max(max,Math.ceil(value));}
@@ -81,24 +83,24 @@
     let simple;
     if(planes) {
       const distance=norm?row[3]/norm:0,azimuth=norm?Math.atan2(row[1],row[0])*180/Math.PI:0,elevation=norm?Math.asin(clamp(row[2]/norm,-1,1))*180/Math.PI:90;
-      simple='<label for="scene-plane">Move this plane</label><select id="scene-plane">'+colors.map((_,i)=>'<option value="'+i+'"'+(i===state.plane?' selected':'')+'>'+['Orange','Teal','Purple'][i]+' · Plane '+(i+1)+'</option>').join('')+'</select>'+
-        range('scene-distance','Slide the plane',-6,6,.05,distance)+
-        '<p class="caption">Move the selected sheet without turning it. Its distance is measured along its perpendicular direction.</p>'+
-        '<details class="scene-more"><summary>Tilt or isolate a plane</summary>'+range('scene-azimuth','Turn sideways (degrees)',-180,180,1,azimuth)+range('scene-elevation','Tilt upward (degrees)',-90,90,1,elevation)+
-        '<div class="plane-toggles">'+colors.map((c,i)=>'<label><input type="checkbox" data-plane-visible="'+i+'"'+(state.visible[i]?' checked':'')+'><span style="color:'+c+'">●</span> Plane '+(i+1)+'</label>').join('')+'</div><p class="caption">Hiding a sheet only changes the view. All three equations still count in the solution.</p></details>';
+      simple=tr('<label for="scene-plane">Move this plane</label><select id="scene-plane">',"<label for=\"scene-plane\">Flytta detta plan</label><select id=\"scene-plane\">")+colors.map((_,i)=>'<option value="'+i+'"'+(i===state.plane?' selected':'')+'>'+[tr('Orange',"Orange"),tr('Teal',"Turkos"),tr('Purple',"Lila")][i]+tr(' · Plane '," · Plan ")+(i+1)+'</option>').join('')+'</select>'+
+        range('scene-distance',tr('Slide the plane',"Förskjut planet"),-6,6,.05,distance)+
+        tr('<p class="caption">Move the selected sheet without turning it. Its distance is measured along its perpendicular direction.</p>',"<p class=\"caption\">Flytta den valda plana skivan utan att vrida den. Avståndet mäts i riktningen vinkelrätt mot planet.</p>")+
+        tr('<details class="scene-more"><summary>Tilt or isolate a plane</summary>',"<details class=\"scene-more\"><summary>Luta eller visa ett plan separat</summary>")+range('scene-azimuth',tr('Turn sideways (degrees)',"Vrid åt sidan (grader)"),-180,180,1,azimuth)+range('scene-elevation',tr('Tilt upward (degrees)',"Luta uppåt (grader)"),-90,90,1,elevation)+
+        '<div class="plane-toggles">'+colors.map((c,i)=>'<label><input type="checkbox" data-plane-visible="'+i+'"'+(state.visible[i]?' checked':'')+'><span style="color:'+c+tr('">●</span> Plane ',"\">●</span> Plan ")+(i+1)+'</label>').join('')+tr('</div><p class="caption">Hiding a sheet only changes the view. All three equations still count in the solution.</p></details>',"</div><p class=\"caption\">Att dölja en skiva ändrar bara vad som visas. Alla tre ekvationerna räknas fortfarande med i lösningen.</p></details>");
     } else {
-      simple=range('scene-progress','Apply the change (%)',0,100,1,state.progress)+
-        '<div class="scene-play-row"><button class="secondary" id="scene-play" type="button">▶ Play once</button><button class="secondary" id="scene-start" type="button">Back to 0%</button></div>'+
-        '<p class="caption">0% shows the starting cube. 100% shows the selected transformation. Orange dashes mark the original; teal marks the result.</p>'+
-        (state.angle!==null?range('scene-angle','Rotation angle (degrees)',-180,180,1,state.angle):'')+
-        '<details class="scene-more"><summary>Move the point being tracked</summary>'+state.point.map((v,i)=>range('scene-point-'+i,['Point x','Point y','Point z'][i],-3,3,.1,v)).join('')+'</details>';
+      simple=range('scene-progress',tr('Apply the change (%)',"Utför förändringen (%)"),0,100,1,state.progress)+
+        tr('<div class="scene-play-row"><button class="secondary" id="scene-play" type="button">▶ Play once</button><button class="secondary" id="scene-start" type="button">Back to 0%</button></div>',"<div class=\"scene-play-row\"><button class=\"secondary\" id=\"scene-play\" type=\"button\">▶ Spela en gång</button><button class=\"secondary\" id=\"scene-start\" type=\"button\">Tillbaka till 0%</button></div>")+
+        tr('<p class="caption">0% shows the starting cube. 100% shows the selected transformation. Orange dashes mark the original; teal marks the result.</p>',"<p class=\"caption\">0% visar den ursprungliga kuben. 100% visar den valda avbildningen. Orange streck markerar ursprunget; turkos visar resultatet.</p>")+
+        (state.angle!==null?range('scene-angle',tr('Rotation angle (degrees)',"Rotationsvinkel (grader)"),-180,180,1,state.angle):'')+
+        tr('<details class="scene-more"><summary>Move the point being tracked</summary>',"<details class=\"scene-more\"><summary>Flytta punkten som följs</summary>")+state.point.map((v,i)=>range('scene-point-'+i,[tr('Point x',"Punktens x"),tr('Point y',"Punktens y"),tr('Point z',"Punktens z")][i],-3,3,.1,v)).join('')+'</details>';
     }
-    const columns=planes?['x','y','z','Right side']:['x','y','z'];
+    const columns=planes?['x','y','z',tr('Right side',"Högerled")]:['x','y','z'];
     const edit=planes?state.values:state.target;
-    $('scene-controls').innerHTML=simple+'<details class="scene-more"><summary>Edit exact '+(planes?'equations':'target matrix')+'</summary><p class="caption">'+
-      (planes?'Each row is ax + by + cz = d. Change one coefficient at a time.':'Each row calculates one new coordinate. A custom matrix uses a straight transition from the identity.')+'</p><div class="matrix-edit '+(planes?'':'transform')+'">'+
-      columns.map(x=>'<span class="caption">'+x+'</span>').join('')+edit.map((r,i)=>r.map((n,j)=>'<input type="number" min="-10" max="10" step="any" data-row="'+i+'" data-col="'+j+'" aria-label="Row '+(i+1)+' '+columns[j]+'" value="'+M.tidy(n)+'">').join('')).join('')+'</div></details>'+
-      '<label class="grid-toggle"><input id="scene-grid" type="checkbox"'+(state.grid?' checked':'')+'> Show coordinate grid</label>';
+    $('scene-controls').innerHTML=simple+tr('<details class="scene-more"><summary>Edit exact ',"<details class=\"scene-more\"><summary>Redigera ")+(planes?tr('equations',"exakta ekvationer"):tr('target matrix',"exakt målmatris"))+'</summary><p class="caption">'+
+      (planes?tr('Each row is ax + by + cz = d. Change one coefficient at a time.',"Varje rad är ax + by + cz = d. Ändra en koefficient i taget."):tr('Each row calculates one new coordinate. A custom matrix uses a straight transition from the identity.',"Varje rad beräknar en ny koordinat. En egen matris använder en linjär övergång från identitetsmatrisen."))+'</p><div class="matrix-edit '+(planes?'':'transform')+'">'+
+      columns.map(x=>'<span class="caption">'+x+'</span>').join('')+edit.map((r,i)=>r.map((n,j)=>'<input type="number" min="-10" max="10" step="any" data-row="'+i+'" data-col="'+j+tr('" aria-label="Row ',"\" aria-label=\"Rad ")+(i+1)+' '+columns[j]+'" value="'+M.tidy(n)+'">').join('')).join('')+'</div></details>'+
+      '<label class="grid-toggle"><input id="scene-grid" type="checkbox"'+(state.grid?' checked':'')+tr('> Show coordinate grid</label>',"> Visa koordinatnät</label>");
   }
   const p=v=>project(v,state,state.width,state.height);
   const coord=v=>{const a=p(v);return a.x.toFixed(2)+','+a.y.toFixed(2);};
@@ -135,30 +137,30 @@
         edges.map(([i,j])=>line(mapped[i],mapped[j],colors[1],2.5)).join('');
       const mappedPoint=M.apply(state.values,state.point);
       highlights+=line([0,0,0],state.point,colors[0],2,'stroke-dasharray="4 4"')+line([0,0,0],mappedPoint,'#ffe59a',3)+
-        point(state.point,colors[0],'Input '+M.vector(state.point))+point(mappedPoint,'#ffe59a','Output '+M.vector(mappedPoint));
+        point(state.point,colors[0],tr('Input ',"Inpunkt ")+M.vector(state.point))+point(mappedPoint,'#ffe59a',tr('Output ',"Utpunkt ")+M.vector(mappedPoint));
     }
     const origin=p([0,0,0]);
-    scene.innerHTML='<title>'+esc(state.mode==='planes'?'Three planes: '+$('scene-summary').textContent:'A matrix transforming a cube and a tracked point')+'</title><defs>'+axisColors.map((c,i)=>'<marker id="axis-arrow-'+i+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="'+c+'"/></marker>').join('')+'</defs>'+grid+objects+axes+highlights+
+    scene.innerHTML='<title>'+esc(state.mode==='planes'?tr('Three planes: ',"Tre plan: ")+$('scene-summary').textContent:tr('A matrix transforming a cube and a tracked point',"En matris som avbildar en kub och en punkt som följs"))+'</title><defs>'+axisColors.map((c,i)=>'<marker id="axis-arrow-'+i+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="'+c+'"/></marker>').join('')+'</defs>'+grid+objects+axes+highlights+
       '<circle cx="'+origin.x+'" cy="'+origin.y+'" r="3" fill="#eaf2f7"/><text x="'+(origin.x-15)+'" y="'+(origin.y+20)+'" fill="#c1d0db">0</text>';
   }
   function update(announce=false) {
     let title,explanation,steps;
     if(state.mode==='planes') {
       const result=M.solve(state.values);geometryResult=result;steps=result.steps;
-      title=result.kind==='one'?'One shared point':result.kind==='none'?'No common solution':['','A shared line','A shared plane','Every point works'][result.basis.length];
-      explanation=result.kind==='one'?'The highlighted point '+M.vector(result.point)+' satisfies every equation.':result.kind==='none'?'There is no point that belongs to all three sheets.':'There are infinitely many solutions. '+(result.basis.length===3?'Every row says 0 = 0.':'Every point on the highlighted intersection satisfies all three equations.');
+      title=result.kind==='one'?tr('One shared point',"En gemensam punkt"):result.kind==='none'?tr('No common solution',"Ingen gemensam lösning"):['',tr('A shared line',"En gemensam linje"),tr('A shared plane',"Ett gemensamt plan"),tr('Every point works',"Varje punkt fungerar")][result.basis.length];
+      explanation=result.kind==='one'?tr('The highlighted point ',"Den markerade punkten ")+M.vector(result.point)+tr(' satisfies every equation.'," uppfyller varje ekvation."):result.kind==='none'?tr('There is no point that belongs to all three sheets.',"Det finns ingen punkt som tillhör alla tre plana skivorna."):tr('There are infinitely many solutions. ',"Det finns oändligt många lösningar. ")+(result.basis.length===3?tr('Every row says 0 = 0.',"Varje rad säger 0 = 0."):tr('Every point on the highlighted intersection satisfies all three equations.',"Varje punkt i den markerade skärningen uppfyller alla tre ekvationerna."));
       const outside=state.values.some(r=>Math.hypot(...r.slice(0,3))>1e-9&&!clipPlane(r).length);
-      if(outside)explanation+=' A plane is outside the displayed −3 to 3 box. Slide it closer to see it.';
-      if(result.kind==='one'&&result.point.some(n=>Math.abs(n)>3))explanation+=' The intersection lies outside that box; use Fit to find the point.';
+      if(outside)explanation+=tr(' A plane is outside the displayed −3 to 3 box. Slide it closer to see it.'," Ett plan ligger utanför den visade rutan från −3 till 3. Förskjut det närmare för att se det.");
+      if(result.kind==='one'&&result.point.some(n=>Math.abs(n)>3))explanation+=tr(' The intersection lies outside that box; use Fit to find the point.'," Skärningspunkten ligger utanför den rutan. Använd Anpassa för att hitta punkten.");
       $('scene-result').innerHTML='<p>'+esc(hint())+'</p><p>'+esc(explanation)+'</p><div class="plane-equations">'+state.values.map((r,i)=>'<span><b style="color:'+colors[i]+'">'+(i+1)+'</b> '+esc(equation(r))+'</span>').join('')+'</div>';
     } else {
       state.values=transformAt(state.target,state.progress/100,state.angle);
       const out=M.apply(state.values,state.point);
-      title=state.progress===0?'Start: no change yet':'Transformation · '+Math.round(state.progress)+'%';
-      explanation='Input '+M.vector(state.point)+' → output '+M.vector(out)+'.';
-      steps=['Read the current matrix one row at a time. Multiply each row by the input coordinates.\n'+M.matrixBlock(state.values),
-        ...state.values.map((row,i)=>['New x','New y','New z'][i]+' = '+row.map((n,j)=>'('+M.format(n)+' × '+M.format(state.point[j])+')').join(' + ')+' = '+M.format(out[i])+'.'),
-        'Apply that same rule to every point of the cube. The origin stays fixed: multiplying a zero coordinate column always gives zero.'];
+      title=state.progress===0?tr('Start: no change yet',"Start: ingen förändring ännu"):tr('Transformation · ',"Avbildning · ")+Math.round(state.progress)+'%';
+      explanation=tr('Input ',"Inpunkt ")+M.vector(state.point)+tr(' → output '," → utpunkt ")+M.vector(out)+'.';
+      steps=[tr('Read the current matrix one row at a time. Multiply each row by the input coordinates.\n',"Läs den aktuella matrisen en rad i taget. Multiplicera varje rad med inpunktens koordinater.\n")+M.matrixBlock(state.values),
+        ...state.values.map((row,i)=>[tr('New x',"Nytt x"),tr('New y',"Nytt y"),tr('New z',"Nytt z")][i]+' = '+row.map((n,j)=>'('+M.format(n)+' × '+M.format(state.point[j])+')').join(' + ')+' = '+M.format(out[i])+'.'),
+        tr('Apply that same rule to every point of the cube. The origin stays fixed: multiplying a zero coordinate column always gives zero.',"Använd samma regel på varje punkt i kuben. Origo ligger kvar: en kolumn med bara nollor ger alltid noll vid matrismultiplikation.")];
       $('scene-result').innerHTML='<p>'+esc(hint())+'</p><p class="tracked-point">'+esc(explanation)+'</p>';
     }
     $('scene-summary').textContent=title;
@@ -166,7 +168,7 @@
     if(announce)$('scene-announcement').textContent=title+'. '+explanation;
     draw();
   }
-  function stopMotion() {if(motion)cancelAnimationFrame(motion);motion=0;const button=$('scene-play');if(button)button.textContent='▶ Play once';}
+  function stopMotion() {if(motion)cancelAnimationFrame(motion);motion=0;const button=$('scene-play');if(button)button.textContent=tr('▶ Play once',"▶ Spela en gång");}
   function preset(index) {
     stopMotion();state.preset=index;
     const example=presets[state.mode][index];state.values=structuredClone(example.values);state.target=structuredClone(example.values);
@@ -242,7 +244,7 @@
     if(e.target.id!=='scene-play')return;
     if(motion){stopMotion();return;}
     if(root.matchMedia?.('(prefers-reduced-motion: reduce)').matches){state.progress=100;setRange('scene-progress',100);update(true);return;}
-    const start=performance.now();e.target.textContent='Pause';
+    const start=performance.now();e.target.textContent=tr('Pause',"Pausa");
     const tick=now=>{state.progress=clamp((now-start)/35,0,100);setRange('scene-progress',state.progress);update();
       if(state.progress<100)motion=requestAnimationFrame(tick);else {motion=0;stopMotion();update(true);}};
     motion=requestAnimationFrame(tick);
@@ -266,16 +268,48 @@
   let previousOverflow='';
   function closeFullscreen() {
     stopMotion();$('lab-home').append(workspace);document.body.style.overflow=previousOverflow;
-    $('scene-fullscreen').textContent='⛶ Full screen';$('scene-fullscreen').setAttribute('aria-expanded','false');resize();$('scene-fullscreen').focus();
+    $('scene-fullscreen').textContent=tr('⛶ Full screen',"⛶ Helskärm");$('scene-fullscreen').setAttribute('aria-expanded','false');resize();$('scene-fullscreen').focus();
   }
   $('scene-fullscreen').setAttribute('aria-expanded','false');
   $('scene-fullscreen').addEventListener('click',()=>{
     if(dialog.open){dialog.close();return;}
     previousOverflow=document.body.style.overflow;dialog.append(workspace);dialog.showModal();document.body.style.overflow='hidden';
-    $('scene-fullscreen').textContent='✕ Exit';$('scene-fullscreen').setAttribute('aria-expanded','true');resize();$('scene-fullscreen').focus();
+    $('scene-fullscreen').textContent=tr('✕ Exit',"✕ Avsluta");$('scene-fullscreen').setAttribute('aria-expanded','true');resize();$('scene-fullscreen').focus();
   });
   dialog.addEventListener('close',closeFullscreen);
   document.addEventListener('visibilitychange',()=>{if(document.hidden){stopMotion();drag.clear();}});
+  function refreshLanguage() {
+    // Rebuild only the translated controls. The model, camera and animation
+    // remain live, including an exact-number edit that has not been committed.
+    const controlsRoot=$('scene-controls');
+    const identify=el=>el.id?'#'+el.id:el.dataset.row!==undefined?
+      '[data-row="'+el.dataset.row+'"][data-col="'+el.dataset.col+'"]':
+      el.dataset.planeVisible!==undefined?'[data-plane-visible="'+el.dataset.planeVisible+'"]':
+      el.dataset.preset!==undefined?'[data-preset="'+el.dataset.preset+'"]':null;
+    const inputs=Array.from(controlsRoot.querySelectorAll('input,select'),el=>({
+      selector:identify(el),value:el.value,checked:el.checked
+    }));
+    const opened=Array.from(controlsRoot.querySelectorAll('details'),el=>el.open);
+    const active=document.activeElement;
+    const focused=workspace.contains(active)?identify(active):null;
+    const selection=focused&&typeof active.selectionStart==='number'?
+      [active.selectionStart,active.selectionEnd,active.selectionDirection]:null;
+    examples();controls();update(true);
+    for(const input of inputs){
+      const el=input.selector&&controlsRoot.querySelector(input.selector);
+      if(el){el.value=input.value;if(input.checked!==undefined)el.checked=input.checked;}
+    }
+    controlsRoot.querySelectorAll('details').forEach((el,i)=>{el.open=opened[i]??false;});
+    const play=$('scene-play');if(play)play.textContent=motion?tr('Pause','Pausa'):tr('▶ Play once','▶ Spela en gång');
+    $('scene-fullscreen').textContent=dialog.open?tr('✕ Exit','✕ Avsluta'):tr('⛶ Full screen','⛶ Helskärm');
+    scene.setAttribute('aria-label',tr('Interactive 3D model. Drag to rotate; pinch to zoom. Arrow keys rotate; plus and minus zoom.','Interaktiv 3D-modell. Dra för att rotera; nyp för att zooma. Piltangenterna roterar; plus och minus zoomar.'));
+    if(focused){
+      const el=workspace.querySelector(focused);
+      if(el){el.focus({preventScroll:true});if(selection)try{el.setSelectionRange(...selection);}catch{}}
+    }
+  }
+  api.refreshLanguage=refreshLanguage;
+  document.addEventListener('mathlanguagechange',refreshLanguage);
   new ResizeObserver(resize).observe(scene);
   root.addEventListener('resize',resize);
   preset(0);resize();

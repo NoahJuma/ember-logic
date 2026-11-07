@@ -1,77 +1,79 @@
-(function (root) {
+(globalThis.EmberMathI18n?.register || ((_id,build)=>build()))('learning',()=>{
+  const root=globalThis;
   'use strict';
+  const tr=(en,sv)=>root.EmberMathI18n?.t(en,sv)??en;
   const escape = text => String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   // Preserve each matrix row on its own line, including older hand-written solutions.
   const readable = text => String(text).replace(/\][ \t]+\[/g, ']\n[');
   // Keep consecutive matrix rows aligned and independently scrollable on a phone.
   const mathText = text => escape(readable(text)).replace(/(^|\n)((?:(?:\([a-z]\)[ \t]*)?\[[^\]\n]*\](?:\n|$)){2,})/g,(_,before,rows)=>before+'<span class="math-matrix-lines">'+rows+'</span>');
-  const steps = items => items.flatMap(item => item.split(/(?<=\.)\s+(?=[a-z](?: and [a-z])?:\s)/)).map((item,i) => '<li><strong class="math-step-label">Step '+(i+1)+'</strong><p>'+mathText(item)+'</p></li>').join('');
+  const steps = items => items.flatMap(item => item.split(/(?<=\.)\s+(?=[a-z](?: and [a-z])?:\s)/)).map((item,i) => tr('<li><strong class="math-step-label">Step ',"<li><strong class=\"math-step-label\">Steg ")+(i+1)+'</strong><p>'+mathText(item)+'</p></li>').join('');
   function question(problem) {
     const content=readable(problem.prompt).split(/\n\s*\n/).map(p=>'<p>'+mathText(p)+'</p>').join('');
     const figures=(problem.questionFigures||[]).map(f=>{
-      const src='assets/mathematics/questions/'+f.file;
-      return '<figure class="math-question-figure"><a href="'+escape(src)+'" target="_blank" rel="noopener" aria-label="Open '+escape(f.caption)+' at full size"><img src="'+escape(src)+'" alt="'+escape(f.alt)+'" loading="lazy" decoding="async"></a><figcaption>'+escape(f.caption)+' · <a href="'+escape(src)+'" target="_blank" rel="noopener">Open diagram ↗</a></figcaption><details><summary>Read the diagram description</summary><p>'+escape(f.alt)+'</p></details></figure>';
+      const src='assets/mathematics/questions/'+(root.EmberMathI18n?.language==='sv'?'sv/':'')+f.file;
+      return '<figure class="math-question-figure"><a href="'+escape(src)+tr('" target="_blank" rel="noopener" aria-label="Open ',"\" target=\"_blank\" rel=\"noopener\" aria-label=\"Öppna ")+escape(f.caption)+tr(' at full size"><img src="'," i full storlek\"><img src=\"")+escape(src)+'" alt="'+escape(f.alt)+'" loading="lazy" decoding="async"></a><figcaption>'+escape(f.caption)+' · <a href="'+escape(src)+tr('" target="_blank" rel="noopener">Open diagram ↗</a></figcaption><details><summary>Read the diagram description</summary><p>',"\" target=\"_blank\" rel=\"noopener\">Öppna figuren ↗</a></figcaption><details><summary>Läs figurens beskrivning</summary><p>")+escape(f.alt)+'</p></details></figure>';
     }).join('');
-    const reference=problem.questionReference?'<aside class="math-question-reference"><h5>Referenced information</h5><p>'+mathText(problem.questionReference)+'</p></aside>':'';
-    return '<section class="math-question" aria-label="'+(problem.textbookQuestion?'Full textbook question':'Question')+'"><h4>'+(problem.textbookQuestion?'Question from the book':'Question')+'</h4><div class="math-question-copy">'+content+'</div>'+figures+reference+'</section>';
+    const reference=problem.questionReference?tr('<aside class="math-question-reference"><h5>Referenced information</h5><p>',"<aside class=\"math-question-reference\"><h5>Information som uppgiften hänvisar till</h5><p>")+mathText(problem.questionReference)+'</p></aside>':'';
+    return '<section class="math-question" aria-label="'+(problem.textbookQuestion?tr('Full textbook question',"Hela uppgiften från boken"):tr('Question',"Uppgift"))+'"><h4>'+(problem.textbookQuestion?tr('Question from the book',"Uppgift från boken"):tr('Question',"Uppgift"))+'</h4><div class="math-question-copy">'+content+'</div>'+figures+reference+'</section>';
   }
   const guides = {
-    '1.1': ['Equations are balance statements',
-      'An unknown is a number we want to find. In 2x + y = 7, 2x means 2 × x. An answer must make every equation true at the same time.',
-      'Keep an equation balanced: add, subtract, multiply or divide both sides by the same number (never divide by zero). For 2x + 3 = 7: subtract 3 to get 2x = 4, then divide by 2 to get x = 2.',
-      'A parameter names a number you may choose freely. For x + y = 5, let y = t and write x = 5 − t. Choosing t = 2 gives (3,2); choosing t = 0 gives (5,0). Both work.'],
-    '1.2': ['Turn a difficult system into an easier one',
-      'A row is an equation written using only its coefficients. For 2x + 3y = 8, write [2  3 | 8]. The bar means “the equals sign goes here.”',
-      'R₂ ← R₂ − 2R₁ means replace row 2 using its old entries minus twice row 1. For R₁ = [1 2 | 3] and R₂ = [2 5 | 8], calculate [2−2×1, 5−2×2 | 8−2×3] = [0 1 | 2]. This says y = 2.',
-      'Work upward: x + 2y = 3 becomes x + 4 = 3, so x = −1. Check both original equations. A row saying 0 = 1 means no solution; 0 = 0 adds no restriction.',
-      'Gaussian elimination clears below each pivot, then solves upward. Gauss–Jordan also clears above pivots so the answers can be read directly.'],
-    '1.3': ['Read a matrix as a table of numbers',
-      'The size m × n means m rows and n columns. Entry (i,j) means row i, column j, counting from 1. Addition and subtraction combine matching positions.',
-      'For AB, A’s column count must equal B’s row count. One output entry uses one row of A and one column of B: [2 3] times [4 5] as a column gives 2×4 + 3×5 = 23.',
-      'Aᵀ means transpose: turn rows into columns. tr(A) means trace: add the main diagonal of a square matrix. For [2 3], [4 5], the trace is 2 + 5 = 7.'],
-    '1.4': ['An inverse undoes a matrix',
-      'I is the identity matrix: multiplying by I changes nothing. A⁻¹ is the inverse: AA⁻¹ = A⁻¹A = I. It is not obtained by taking the reciprocal of every entry.',
-      'For rows [a b], [c d], calculate ad − bc. If this is zero there is no inverse. Otherwise the inverse has rows [d −b], [−c a], all divided by ad − bc.',
-      'Order matters: AB can differ from BA. To undo AB, undo A first and then B, so (AB)⁻¹ = B⁻¹A⁻¹. Powers mean repeated matrix multiplication; a constant in a matrix polynomial multiplies I.'],
-    '1.5': ['Record reversible row changes',
-      'An elementary matrix comes from making exactly one allowed row operation on I. Multiplying it on the left of A makes that same row change in A.',
-      'To find A⁻¹, write [A | I]. Apply every operation across the whole row. If the left side becomes I, the right side is A⁻¹. If the left side cannot become I, the inverse does not exist.',
-      'Undo a swap by swapping again. Undo multiplication by 3 by dividing by 3. Undo adding twice another row by subtracting twice that row. Undo a sequence from last to first.'],
-    '1.6': ['Connect equations to invertibility',
-      'Ax = b is a compact way to write several equations. A contains coefficients, x contains unknowns, and b contains the required totals. Ax = 0 is called homogeneous and always allows x = 0.',
-      'If A is square and invertible, multiplying both sides by A⁻¹ gives x = A⁻¹b. Every b then has exactly one answer.',
-      'A singular matrix has no inverse. A singular system can have infinitely many answers or none, depending on b. Check for a contradiction before choosing free variables.'],
-    '1.7': ['Use the pattern of entries',
-      'The main diagonal runs from top left to bottom right. Diagonal matrices are zero everywhere else. Upper triangular means zero below that diagonal; lower triangular means zero above it.',
-      'A triangular matrix has an inverse exactly when all diagonal entries are nonzero. For a diagonal matrix, invert by taking just the diagonal reciprocals.',
-      'Symmetric means reflected positions match: aᵢⱼ = aⱼᵢ. Skew-symmetric means they are opposites, so every diagonal entry is zero. Check the pairs one by one.'],
-    '1.8': ['A matrix is a rule for moving coordinates',
-      'A point (x,y,z) tells you how far to travel along the x, y and z axes. A transformation takes input coordinates and produces output coordinates.',
-      'Each matrix row calculates one output. For [2 0], [0 3], the point (1,2) becomes (2×1 + 0×2, 0×1 + 3×2) = (2,6).',
-      'A basis vector has one coordinate equal to 1 and the others 0. Its image is the corresponding matrix column. ℝ² means all real coordinate pairs; ℝ³ means all real triples.',
-      'A matrix transformation preserves addition and scaling. In particular it sends zero to zero. Passing only the zero test is not enough to prove a map is linear.'],
-    '1.9': ['Follow the actions in order',
-      'In T₂(T₁(x)), do the inside action T₁ first. If A represents T₁ and B represents T₂, the combined matrix is BA.',
-      'For example, start at (1,2). Double x to get (2,2), then swap coordinates to get (2,2). Reverse the actions: swap to (2,1), then double x to get (4,1). The order changes the result.',
-      'An inverse restores the original input. A rotation can be undone by turning back. A projection discards a coordinate, so many inputs become the same output and cannot be recovered uniquely.'],
-    '1.10': ['Translate a real situation into equations',
-      'First name each unknown and its unit. For a network with no accumulation, incoming flow equals outgoing flow at each junction. Write one equation per balance.',
-      'For a circuit, balance current at junctions and voltage around loops. For a chemical reaction, count each element separately on both sides. Negative flow means the true direction is opposite your chosen arrow.',
-      'To fit a curve, the unknowns are its coefficients. For y = ax² + bx + c, the known point (2,5) gives 4a + 2b + c = 5. Repeat for each point, then solve the equations.',
-      'Some technology exercises also use calculus. A derivative measures slope or rate of change; an integral measures accumulated area. Those extra rules are identified in their worked solutions.'],
-    '1.11': ['Production must cover two kinds of demand',
-      'A sector supplies goods to other sectors as well as outside customers. x is total production, Cx is internal use, and d is outside demand.',
-      'So x = Cx + d. Subtract Cx from both sides and factor x: (I − C)x = d. If I − C is invertible, x = (I − C)⁻¹d.',
-      'In a one-sector example, 20% is used internally and customers need 80 units: x = 0.2x + 80, so 0.8x = 80 and x = 100. Check: 20 internal units + 80 outside units = 100.'],
-    review: ['Choose a method before calculating',
-      'For equations, isolate unknowns using reversible row operations. For matrix products, check sizes and multiply rows by columns. For inverse questions, look for a product equal to I.',
-      'A proof explains why a claim holds for every allowed case. A counterexample is one allowed case that makes a claim false. Testing one numerical example cannot prove a general claim.',
-      'Σ means “add the listed terms.” For example, Σ from k=1 to 3 of aₖbₖ means a₁b₁ + a₂b₂ + a₃b₃. An index such as i or j labels a row or column.',
-      'The derivative exercises use calculus: differentiate each entry, use the product rule, and retain matrix factor order. Review those rules before attempting that group.']
+    '1.1': [tr('Equations are balance statements',"Ekvationer beskriver en balans"),
+      tr('An unknown is a number we want to find. In 2x + y = 7, 2x means 2 × x. An answer must make every equation true at the same time.',"En obekant är ett tal som vi vill bestämma. I 2x + y = 7 betyder 2x samma sak som 2 × x. Ett svar måste göra alla ekvationer sanna samtidigt."),
+      tr('Keep an equation balanced: add, subtract, multiply or divide both sides by the same number (never divide by zero). For 2x + 3 = 7: subtract 3 to get 2x = 4, then divide by 2 to get x = 2.',"Behåll ekvationens balans: addera, subtrahera, multiplicera eller dividera båda leden med samma tal. Dividera aldrig med noll. För 2x + 3 = 7: subtrahera 3 för att få 2x = 4 och dividera sedan med 2 för att få x = 2."),
+      tr('A parameter names a number you may choose freely. For x + y = 5, let y = t and write x = 5 − t. Choosing t = 2 gives (3,2); choosing t = 0 gives (5,0). Both work.',"En parameter är en beteckning för ett tal som du får välja fritt. För x + y = 5 kan vi sätta y = t och skriva x = 5 − t. Valet t = 2 ger (3,2), och valet t = 0 ger (5,0). Båda fungerar.")],
+    '1.2': [tr('Turn a difficult system into an easier one',"Gör ett svårt system enklare"),
+      tr('A row is an equation written using only its coefficients. For 2x + 3y = 8, write [2  3 | 8]. The bar means “the equals sign goes here.”',"En rad är en ekvation där vi bara skriver koefficienterna och högerledet. För 2x + 3y = 8 skriver vi [2  3 | 8]. Strecket markerar var likhetstecknet hör hemma."),
+      tr('R₂ ← R₂ − 2R₁ means replace row 2 using its old entries minus twice row 1. For R₁ = [1 2 | 3] and R₂ = [2 5 | 8], calculate [2−2×1, 5−2×2 | 8−2×3] = [0 1 | 2]. This says y = 2.',"R₂ ← R₂ − 2R₁ betyder att rad 2 ersätts med sina gamla element minus två gånger rad 1. För R₁ = [1 2 | 3] och R₂ = [2 5 | 8] beräknar vi [2−2×1, 5−2×2 | 8−2×3] = [0 1 | 2]. Detta säger y = 2."),
+      tr('Work upward: x + 2y = 3 becomes x + 4 = 3, so x = −1. Check both original equations. A row saying 0 = 1 means no solution; 0 = 0 adds no restriction.',"Arbeta uppåt: x + 2y = 3 blir x + 4 = 3, så x = −1. Kontrollera båda ursprungliga ekvationerna. En rad som säger 0 = 1 innebär att lösning saknas. Raden 0 = 0 tillför inget villkor."),
+      tr('Gaussian elimination clears below each pivot, then solves upward. Gauss–Jordan also clears above pivots so the answers can be read directly.',"Gausselimination skapar nollor under varje pivot och löser sedan systemet nedifrån och upp. Gauss–Jordan skapar även nollor ovanför pivoterna, så att svaren kan avläsas direkt.")],
+    '1.3': [tr('Read a matrix as a table of numbers',"Läs en matris som en tabell med tal"),
+      tr('The size m × n means m rows and n columns. Entry (i,j) means row i, column j, counting from 1. Addition and subtraction combine matching positions.',"Storleken m × n betyder m rader och n kolumner. Element (i,j) betyder rad i, kolumn j, där vi räknar från 1. Vid addition och subtraktion använder vi elementen på motsvarande platser."),
+      tr('For AB, A’s column count must equal B’s row count. One output entry uses one row of A and one column of B: [2 3] times [4 5] as a column gives 2×4 + 3×5 = 23.',"För AB måste antalet kolumner i A vara lika med antalet rader i B. Ett element i resultatet beräknas med en rad ur A och en kolumn ur B: [2 3] gånger [4 5] skriven som kolumn ger 2×4 + 3×5 = 23."),
+      tr('Aᵀ means transpose: turn rows into columns. tr(A) means trace: add the main diagonal of a square matrix. For [2 3], [4 5], the trace is 2 + 5 = 7.',"Aᵀ betyder transponat: gör rader till kolumner. tr(A) betyder spår: addera elementen på huvuddiagonalen i en kvadratisk matris. För raderna [2 3], [4 5] är spåret 2 + 5 = 7.")],
+    '1.4': [tr('An inverse undoes a matrix',"En invers gör matrisens verkan ogjord"),
+      tr('I is the identity matrix: multiplying by I changes nothing. A⁻¹ is the inverse: AA⁻¹ = A⁻¹A = I. It is not obtained by taking the reciprocal of every entry.',"I är enhetsmatrisen: multiplikation med I ändrar ingenting. A⁻¹ är inversen: AA⁻¹ = A⁻¹A = I. Den beräknas inte genom att ersätta varje element med dess inversa tal."),
+      tr('For rows [a b], [c d], calculate ad − bc. If this is zero there is no inverse. Otherwise the inverse has rows [d −b], [−c a], all divided by ad − bc.',"För raderna [a b], [c d] beräknar vi ad − bc. Om resultatet är noll saknas invers. Annars har inversen raderna [d −b], [−c a], där alla element divideras med ad − bc."),
+      tr('Order matters: AB can differ from BA. To undo AB, undo A first and then B, so (AB)⁻¹ = B⁻¹A⁻¹. Powers mean repeated matrix multiplication; a constant in a matrix polynomial multiplies I.',"Ordningen spelar roll: AB kan skilja sig från BA. För att göra AB ogjord måste vi först göra A ogjord och sedan B. Därför gäller (AB)⁻¹ = B⁻¹A⁻¹. Potenser betyder upprepad matrismultiplikation. En konstant i ett matrispolynom multipliceras med I.")],
+    '1.5': [tr('Record reversible row changes',"Dokumentera radändringar som kan göras ogjorda"),
+      tr('An elementary matrix comes from making exactly one allowed row operation on I. Multiplying it on the left of A makes that same row change in A.',"En elementärmatris fås genom att utföra exakt en tillåten radoperation på I. Multiplikation med denna matris till vänster om A utför samma radändring på A."),
+      tr('To find A⁻¹, write [A | I]. Apply every operation across the whole row. If the left side becomes I, the right side is A⁻¹. If the left side cannot become I, the inverse does not exist.',"För att bestämma A⁻¹ skriver vi [A | I]. Utför varje operation över hela raden. Om vänster sida blir I är höger sida A⁻¹. Om vänster sida inte kan bli I finns ingen invers."),
+      tr('Undo a swap by swapping again. Undo multiplication by 3 by dividing by 3. Undo adding twice another row by subtracting twice that row. Undo a sequence from last to first.',"Gör ett radbyte ogjort genom att byta tillbaka. Gör multiplikation med 3 ogjord genom att dividera med 3. Om du har lagt till två gånger en annan rad, subtrahera två gånger samma rad. Gör en följd av operationer ogjord i omvänd ordning, från sista till första.")],
+    '1.6': [tr('Connect equations to invertibility',"Koppla ekvationer till inverterbarhet"),
+      tr('Ax = b is a compact way to write several equations. A contains coefficients, x contains unknowns, and b contains the required totals. Ax = 0 is called homogeneous and always allows x = 0.',"Ax = b är ett kompakt sätt att skriva flera ekvationer. A innehåller koefficienterna, x de obekanta och b de totalsummor som ska uppnås. Ax = 0 kallas homogent och har alltid lösningen x = 0."),
+      tr('If A is square and invertible, multiplying both sides by A⁻¹ gives x = A⁻¹b. Every b then has exactly one answer.',"Om A är kvadratisk och inverterbar ger multiplikation från vänster med A⁻¹ på båda sidor x = A⁻¹b. För varje b finns då exakt ett svar."),
+      tr('A singular matrix has no inverse. A singular system can have infinitely many answers or none, depending on b. Check for a contradiction before choosing free variables.',"En singulär matris saknar invers. Ett system med singulär matris kan ha oändligt många svar eller inga alls, beroende på b. Kontrollera om det finns en motsägelse innan du väljer fria variabler.")],
+    '1.7': [tr('Use the pattern of entries',"Använd mönstret i matrisens element"),
+      tr('The main diagonal runs from top left to bottom right. Diagonal matrices are zero everywhere else. Upper triangular means zero below that diagonal; lower triangular means zero above it.',"Huvuddiagonalen går från övre vänstra hörnet till nedre högra hörnet. En diagonalmatris har nollor överallt utanför den. Övre triangulär betyder nollor under huvuddiagonalen. Undre triangulär betyder nollor ovanför den."),
+      tr('A triangular matrix has an inverse exactly when all diagonal entries are nonzero. For a diagonal matrix, invert by taking just the diagonal reciprocals.',"En triangulär matris har en invers precis när alla diagonalelement är skilda från noll. För en diagonalmatris byter vi varje diagonalelement mot dess inversa tal och behåller nollorna utanför diagonalen."),
+      tr('Symmetric means reflected positions match: aᵢⱼ = aⱼᵢ. Skew-symmetric means they are opposites, so every diagonal entry is zero. Check the pairs one by one.',"Symmetrisk betyder att spegelvända positioner har samma värde: aᵢⱼ = aⱼᵢ. Skevsymmetrisk betyder att motsvarande element är varandras motsatser: aᵢⱼ = −aⱼᵢ. Då måste varje diagonalelement vara noll. Kontrollera paren ett i taget.")],
+    '1.8': [tr('A matrix is a rule for moving coordinates',"En matris är en regel som flyttar koordinater"),
+      tr('A point (x,y,z) tells you how far to travel along the x, y and z axes. A transformation takes input coordinates and produces output coordinates.',"En punkt (x,y,z) anger hur långt du går längs x-, y- och z-axeln. En avbildning tar emot koordinater och ger nya koordinater som resultat."),
+      tr('Each matrix row calculates one output. For [2 0], [0 3], the point (1,2) becomes (2×1 + 0×2, 0×1 + 3×2) = (2,6).',"Varje matrisrad beräknar en resultatkoordinat. Med raderna [2 0], [0 3] blir punkten (1,2) till (2×1 + 0×2, 0×1 + 3×2) = (2,6)."),
+      tr('A basis vector has one coordinate equal to 1 and the others 0. Its image is the corresponding matrix column. ℝ² means all real coordinate pairs; ℝ³ means all real triples.',"En standardbasvektor har en koordinat som är 1 och övriga som är 0. Dess bild är motsvarande kolumn i matrisen. ℝ² betyder alla reella koordinatpar och ℝ³ alla reella koordinattripplar."),
+      tr('A matrix transformation preserves addition and scaling. In particular it sends zero to zero. Passing only the zero test is not enough to prove a map is linear.',"En matrisavbildning bevarar addition och skalning. Den avbildar särskilt nollvektorn på nollvektorn. Att bara klara nolltestet räcker dock inte för att bevisa att en avbildning är linjär.")],
+    '1.9': [tr('Follow the actions in order',"Följ åtgärderna i rätt ordning"),
+      tr('In T₂(T₁(x)), do the inside action T₁ first. If A represents T₁ and B represents T₂, the combined matrix is BA.',"I T₂(T₁(x)) gör du den inre avbildningen T₁ först. Om A representerar T₁ och B representerar T₂ är den sammansatta matrisen BA."),
+      tr('For example, start at (1,2). Double x to get (2,2), then swap coordinates to get (2,2). Reverse the actions: swap to (2,1), then double x to get (4,1). The order changes the result.',"Börja exempelvis i (1,2). Dubbla x för att få (2,2), byt sedan koordinaternas plats och få (2,2). Gör åtgärderna i omvänd ordning: byt till (2,1) och dubbla sedan x för att få (4,1). Ordningen ändrar resultatet."),
+      tr('An inverse restores the original input. A rotation can be undone by turning back. A projection discards a coordinate, so many inputs become the same output and cannot be recovered uniquely.',"En invers återställer den ursprungliga indatan. En rotation kan göras ogjord genom att rotera tillbaka. En projektion kan ta bort en koordinat. Då får många olika indata samma resultat och ursprunget kan inte återskapas entydigt.")],
+    '1.10': [tr('Translate a real situation into equations',"Översätt en verklig situation till ekvationer"),
+      tr('First name each unknown and its unit. For a network with no accumulation, incoming flow equals outgoing flow at each junction. Write one equation per balance.',"Börja med att namnge varje obekant och dess enhet. I ett nätverk utan ansamling är inflödet lika med utflödet vid varje knutpunkt. Skriv en ekvation för varje balans."),
+      tr('For a circuit, balance current at junctions and voltage around loops. For a chemical reaction, count each element separately on both sides. Negative flow means the true direction is opposite your chosen arrow.',"I en elektrisk krets balanserar du strömmen vid knutpunkterna och spänningen runt slutna slingor. I en kemisk reaktion räknar du varje grundämne för sig på båda sidor. Ett negativt flöde betyder att den verkliga riktningen är motsatt den pil du valt."),
+      tr('To fit a curve, the unknowns are its coefficients. For y = ax² + bx + c, the known point (2,5) gives 4a + 2b + c = 5. Repeat for each point, then solve the equations.',"När vi anpassar en kurva är det koefficienterna som är obekanta. För y = ax² + bx + c ger den kända punkten (2,5) ekvationen 4a + 2b + c = 5. Upprepa för varje punkt och lös sedan ekvationerna."),
+      tr('Some technology exercises also use calculus. A derivative measures slope or rate of change; an integral measures accumulated area. Those extra rules are identified in their worked solutions.',"Vissa datoruppgifter använder också matematisk analys. En derivata beskriver lutning eller förändringstakt. En integral beskriver ackumulerad, tecknad area. Dessa extra regler förklaras i lösningarna till de berörda uppgifterna.")],
+    '1.11': [tr('Production must cover two kinds of demand',"Produktionen måste täcka två slags efterfrågan"),
+      tr('A sector supplies goods to other sectors as well as outside customers. x is total production, Cx is internal use, and d is outside demand.',"En sektor levererar varor till andra sektorer och till externa kunder. x är total produktion, Cx är intern förbrukning och d är extern efterfrågan."),
+      tr('So x = Cx + d. Subtract Cx from both sides and factor x: (I − C)x = d. If I − C is invertible, x = (I − C)⁻¹d.',"Alltså gäller x = Cx + d. Subtrahera Cx från båda sidor och bryt ut x: (I − C)x = d. Om I − C är inverterbar får vi x = (I − C)⁻¹d."),
+      tr('In a one-sector example, 20% is used internally and customers need 80 units: x = 0.2x + 80, so 0.8x = 80 and x = 100. Check: 20 internal units + 80 outside units = 100.',"I ett exempel med en sektor används 20% internt och kunderna behöver 80 enheter: x = 0.2x + 80. Då blir 0.8x = 80 och x = 100. Kontroll: 20 interna enheter + 80 externa enheter = 100.")],
+    review: [tr('Choose a method before calculating',"Välj en metod innan du räknar"),
+      tr('For equations, isolate unknowns using reversible row operations. For matrix products, check sizes and multiply rows by columns. For inverse questions, look for a product equal to I.',"För ekvationer isolerar du de obekanta med radoperationer som kan göras ogjorda. För matrisprodukter kontrollerar du dimensionerna och multiplicerar rader med kolumner. För inversuppgifter söker du en produkt som blir I."),
+      tr('A proof explains why a claim holds for every allowed case. A counterexample is one allowed case that makes a claim false. Testing one numerical example cannot prove a general claim.',"Ett bevis förklarar varför ett påstående gäller i alla tillåtna fall. Ett motexempel är ett tillåtet fall som gör påståendet falskt. Ett enda numeriskt exempel kan inte bevisa ett allmänt påstående."),
+      tr('Σ means “add the listed terms.” For example, Σ from k=1 to 3 of aₖbₖ means a₁b₁ + a₂b₂ + a₃b₃. An index such as i or j labels a row or column.',"Σ betyder att de angivna termerna ska adderas. Exempelvis betyder Σ från k=1 till 3 av aₖbₖ samma sak som a₁b₁ + a₂b₂ + a₃b₃. Ett index som i eller j anger en rad eller kolumn."),
+      tr('The derivative exercises use calculus: differentiate each entry, use the product rule, and retain matrix factor order. Review those rules before attempting that group.',"Derivatauppgifterna använder matematisk analys: derivera varje element, använd produktregeln och behåll matrisfaktorernas ordning. Repetera dessa regler innan du börjar med den gruppen.")]
   };
   function guide(topic) {
     const [title,...items] = guides[topic] || guides.review;
-    return '<details class="solution-guide"><summary>Need the basics? '+escape(title)+'</summary><ol class="steps">'+steps(items)+'</ol></details>';
+    return tr('<details class="solution-guide"><summary>Need the basics? ',"<details class=\"solution-guide\"><summary>Behöver du grunderna? ")+escape(title)+'</summary><ol class="steps">'+steps(items)+'</ol></details>';
   }
   function read(storage,key) {
     try { return storage.getItem('ember-linear-algebra:'+key) || ''; } catch { return ''; }
@@ -82,16 +84,16 @@
   function card(problem,key,label,topic,attempt='',id='',extra='') {
     const inputId='attempt-'+Array.from(key,c=>/[a-z0-9]/i.test(c)?c:'_'+c.codePointAt(0).toString(16)+'_').join('');
     return '<article class="exercise"'+(id?' id="'+escape(id)+'" tabindex="-1"':'')+'><p class="kicker">'+escape(label)+'</p><h3>'+escape(problem.title)+'</h3>'+
-      question(problem)+'<p class="caption exercise-choice">Choose either option. You do not need to enter an answer to see the solution.</p>'+
-      '<details class="attempt-panel"'+(attempt?' open':'')+'><summary>Write my answer <span>(optional)</span></summary>'+
-      '<label class="attempt-label" for="'+inputId+'">Your answer and working</label><textarea id="'+inputId+'" data-attempt="'+escape(key)+'" rows="5" maxlength="20000" placeholder="Write your answer, calculations, or questions here…">'+escape(attempt)+'</textarea>'+
-      '<p class="caption save-status" role="status">'+(attempt?'Your saved answer is restored.':'Your writing is saved on this browser when storage is available.')+'</p></details>'+
-      '<details class="solution-panel"><summary>Show worked solution</summary>'+guide(topic)+
-      '<h4>Our solution, step by step</h4><ol class="steps math-worked-steps" role="list">'+steps(problem.steps)+'</ol>'+extra+
-      '<div class="compare-help"><strong>How to check your work</strong><p>Compare one step at a time. Check the signs, the order of the variables, and every part of the question. Different methods or parameter names can give the same correct answer. Substitute your result into the original question when possible.</p>'+
-      '<p class="caption">This is a comparison space. Your written answer is not automatically graded. You can edit it while the solution is open.</p></div>'+
-      '<div class="answer comparison math-final-comparison"><div class="attempt-comparison"'+(attempt.trim()?'':' hidden')+'><strong>Your answer</strong><p class="attempt-copy">'+escape(attempt)+'</p></div>'+
-      '<section class="math-final-answer"><h4>The final answer is…</h4><p class="worked-result">'+mathText(problem.answer)+'</p></section></div></details></article>';
+      question(problem)+tr('<p class="caption exercise-choice">Choose either option. You do not need to enter an answer to see the solution.</p>',"<p class=\"caption exercise-choice\">Välj det alternativ du vill. Du behöver inte skriva ett svar för att se lösningen.</p>")+
+      '<details class="attempt-panel"'+(attempt?' open':'')+tr('><summary>Write my answer <span>(optional)</span></summary>',"><summary>Skriv mitt svar <span>(valfritt)</span></summary>")+
+      '<label class="attempt-label" for="'+inputId+tr('">Your answer and working</label><textarea id="',"\">Ditt svar och dina beräkningar</label><textarea id=\"")+inputId+'" data-attempt="'+escape(key)+tr('" rows="5" maxlength="20000" placeholder="Write your answer, calculations, or questions here…">',"\" rows=\"5\" maxlength=\"20000\" placeholder=\"Skriv ditt svar, dina beräkningar eller dina frågor här…\">")+escape(attempt)+'</textarea>'+
+      '<p class="caption save-status" role="status">'+(attempt?tr('Your saved answer is restored.',"Ditt sparade svar har återställts."):tr('Your writing is saved on this browser when storage is available.',"Det du skriver sparas i denna webbläsare när lagring är tillgänglig."))+'</p></details>'+
+      tr('<details class="solution-panel"><summary>Show worked solution</summary>',"<details class=\"solution-panel\"><summary>Visa stegvis lösning</summary>")+guide(topic)+
+      tr('<h4>Our solution, step by step</h4><ol class="steps math-worked-steps" role="list">',"<h4>Vår lösning, steg för steg</h4><ol class=\"steps math-worked-steps\" role=\"list\">")+steps(problem.steps)+'</ol>'+extra+
+      tr('<div class="compare-help"><strong>How to check your work</strong><p>Compare one step at a time. Check the signs, the order of the variables, and every part of the question. Different methods or parameter names can give the same correct answer. Substitute your result into the original question when possible.</p>',"<div class=\"compare-help\"><strong>Så kontrollerar du ditt arbete</strong><p>Jämför ett steg i taget. Kontrollera tecknen, variablernas ordning och varje del av uppgiften. Olika metoder eller parameternamn kan ge samma korrekta svar. Sätt in ditt resultat i den ursprungliga uppgiften när det är möjligt.</p>")+
+      tr('<p class="caption">This is a comparison space. Your written answer is not automatically graded. You can edit it while the solution is open.</p></div>',"<p class=\"caption\">Här kan du jämföra dina lösningar. Ditt skrivna svar rättas inte automatiskt. Du kan ändra det medan lösningen är öppen.</p></div>")+
+      '<div class="answer comparison math-final-comparison"><div class="attempt-comparison"'+(attempt.trim()?'':' hidden')+tr('><strong>Your answer</strong><p class="attempt-copy">',"><strong>Ditt svar</strong><p class=\"attempt-copy\">")+escape(attempt)+'</p></div>'+
+      tr('<section class="math-final-answer"><h4>The final answer is…</h4><p class="worked-result">',"<section class=\"math-final-answer\"><h4>Det slutliga svaret är…</h4><p class=\"worked-result\">")+mathText(problem.answer)+'</p></section></div></details></article>';
   }
   function syncAttempt(article) {
     const value=article.querySelector('textarea').value;
@@ -101,4 +103,4 @@
   const api={escape,readable,mathText,steps,question,guides,guide,read,save,card,syncAttempt};
   if (typeof module==='object' && module.exports) module.exports=api;
   else root.EmberLearning=api;
-})(globalThis);
+});

@@ -8,7 +8,7 @@ const chapter = vm.createContext({});
 chapter.window = chapter;
 const source = name => fs.readFileSync(path.join(__dirname, '..', name), 'utf8');
 const page = source('linear-algebra.html');
-const scripts = [...page.matchAll(/<script src="(linear-algebra[^"]+)"/g)].map(([,name]) => name);
+const scripts = [...page.matchAll(/<script src="(linear-algebra[^"]+)"/g)].map(([,name]) => name.split('?')[0]);
 for (const name of scripts.slice(0,-1)) vm.runInContext(source(name), chapter, {filename:name});
 
 const {solutions,legacyAttempts} = chapter.EmberTextbook;

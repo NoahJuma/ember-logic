@@ -1,5 +1,6 @@
-(() => {
+(window.EmberMathI18n?.register || ((_id, build) => build()))('questions-structure', () => {
   'use strict';
+  const tr = (en, sv) => window.EmberMathI18n?.t(en, sv) ?? en;
   const sets={'1.5':{},'1.6':{},'1.7':{}};
   const mat=rows=>rows.map(row=>'[ '+row.join('   ')+' ]').join('\n');
   const named=(name,rows)=>name+' =\n'+mat(rows);
@@ -10,20 +11,20 @@
   const p7=(n,text,extra)=>put('1.7',n,text,extra);
   const diag=entries=>entries.map((entry,i)=>entries.map((_,j)=>i===j?entry:0));
 
-  const elementary='Determine whether the given matrix is elementary.';
+  const elementary=tr('Determine whether the given matrix is elementary.', "Avgör om den givna matrisen är en elementärmatris.");
   p5(1,elementary+'\n\n'+parts([
     mat([[1,0],[-5,1]]),mat([[-5,1],[1,0]]),mat([[1,1,0],[0,0,1],[0,0,0]]),mat([[2,0,0,2],[0,1,0,0],[0,0,1,0],[0,0,0,1]])
   ]));
   p5(2,elementary+'\n\n'+parts([
     mat([[1,0],[0,'√3']]),mat([[0,0,1],[0,1,0],[1,0,0]]),mat([[1,0,0],[0,1,9],[0,0,1]]),mat([[-1,0,0],[0,0,1],[0,1,0]])
   ]),{steps:[
-    'An elementary matrix must come from the identity by exactly one reversible row operation. The identity has 1 on its main diagonal and 0 elsewhere.',
-    '(a) In I₂, multiply row 2 by √3. This gives exactly the displayed matrix. The multiplier is nonzero, so this is an allowed elementary operation.',
-    '(b) In I₃, interchange rows 1 and 3. Row 2 stays unchanged, and the result is the given matrix.',
-    '(c) In I₃, replace row 2 by row 2 + 9 × row 3. Only the entry in row 2, column 3 changes, from 0 to 9.',
-    '(d) Swapping rows 2 and 3 does not change the first row. Multiplying row 1 by −1 does not swap the other rows. Both changes are required, so one elementary operation cannot produce this matrix.'
+    tr('An elementary matrix must come from the identity by exactly one reversible row operation. The identity has 1 on its main diagonal and 0 elsewhere.', "En elementärmatris måste kunna fås från enhetsmatrisen med exakt en reversibel radoperation. Enhetsmatrisen har 1 på huvuddiagonalen och 0 på alla andra platser."),
+    tr('(a) In I₂, multiply row 2 by √3. This gives exactly the displayed matrix. The multiplier is nonzero, so this is an allowed elementary operation.', "(a) Multiplicera rad 2 i I₂ med √3. Då får vi precis den visade matrisen. Faktorn är skild från noll, så detta är en tillåten elementär radoperation."),
+    tr('(b) In I₃, interchange rows 1 and 3. Row 2 stays unchanged, and the result is the given matrix.', "(b) Byt plats på rad 1 och rad 3 i I₃. Rad 2 är oförändrad, och resultatet är den givna matrisen."),
+    tr('(c) In I₃, replace row 2 by row 2 + 9 × row 3. Only the entry in row 2, column 3 changes, from 0 to 9.', "(c) Ersätt rad 2 i I₃ med rad 2 + 9 × rad 3. Bara elementet på rad 2, kolumn 3 ändras, från 0 till 9."),
+    tr('(d) Swapping rows 2 and 3 does not change the first row. Multiplying row 1 by −1 does not swap the other rows. Both changes are required, so one elementary operation cannot produce this matrix.', "(d) Ett byte mellan rad 2 och rad 3 ändrar inte den första raden. Att multiplicera rad 1 med −1 byter inte plats på de andra raderna. Båda ändringarna behövs, så en enda elementär radoperation kan inte ge denna matris.")
   ]});
-  const restore='Find a row operation and the corresponding elementary matrix that will restore the given elementary matrix to the identity matrix.';
+  const restore=tr('Find a row operation and the corresponding elementary matrix that will restore the given elementary matrix to the identity matrix.', "Hitta en radoperation och motsvarande elementärmatris som återställer den givna elementärmatrisen till enhetsmatrisen.");
   p5(3,restore+'\n\n'+parts([
     mat([[1,-3],[0,1]]),mat([[-7,0,0],[0,1,0],[0,0,1]]),mat([[1,0,0],[0,1,0],[-5,0,1]]),mat([[0,0,1,0],[0,1,0,0],[1,0,0,0],[0,0,0,1]])
   ]));
@@ -31,7 +32,7 @@
     mat([[1,0],[-3,1]]),mat([[1,0,0],[0,1,0],[0,0,3]]),mat([[0,0,0,1],[0,1,0,0],[0,0,1,0],[1,0,0,0]]),mat([[1,0,'−1/7',0],[0,1,0,0],[0,0,1,0],[0,0,0,1]])
   ]));
   const firstA=[[-1,-2,5,-1],[3,-6,-6,-6]],secondA=[[2,-1,0,-4,-4],[1,-3,-1,5,3],[2,0,1,3,-1]],thirdA=[[1,4],[2,5],[3,6]];
-  const apply='An elementary matrix E and a matrix A are given. Identify the row operation corresponding to E and verify that the product EA results from applying the row operation to A.';
+  const apply=tr('An elementary matrix E and a matrix A are given. Identify the row operation corresponding to E and verify that the product EA results from applying the row operation to A.', "En elementärmatris E och en matris A är givna. Ange vilken radoperation E motsvarar och kontrollera att produkten EA är resultatet av att utföra den radoperationen på A.");
   p5(5,apply+'\n\n'+parts([
     named('E',[[0,1],[1,0]])+'\n'+named('A',firstA),
     named('E',[[1,0,0],[0,1,0],[0,-3,1]])+'\n'+named('A',secondA),
@@ -42,16 +43,16 @@
     named('E',[[1,0,0],[-4,1,0],[0,0,1]])+'\n'+named('A',secondA),
     named('E',[[1,0,0],[0,5,0],[0,0,1]])+'\n'+named('A',thirdA)
   ]));
-  const commonElementary='Use the following matrices and find an elementary matrix E that satisfies the stated equation.\n\n'+[
+  const commonElementary=tr('Use the following matrices and find an elementary matrix E that satisfies the stated equation.\n\n', "Använd följande matriser och hitta en elementärmatris E som uppfyller den angivna ekvationen.\n\n")+[
     named('A',[[3,4,1],[2,-7,-1],[8,1,5]]),named('B',[[8,1,5],[2,-7,-1],[3,4,1]]),
     named('C',[[3,4,1],[2,-7,-1],[2,-7,3]]),named('D',[[8,1,5],[-6,21,3],[3,4,1]]),named('F',[[8,1,5],[8,1,1],[3,4,1]])
   ].join('\n\n');
   p5(7,commonElementary+'\n\n'+parts(['EA = B','EB = A','EA = C','EC = A']));
   p5(8,commonElementary+'\n\n'+parts(['EB = D','ED = B','EB = F','EF = B']));
-  const twoInverse='First use Theorem 1.4.5 and then use the inversion algorithm to find A⁻¹, if it exists.';
-  const inverseRule='Theorem 1.4.5: for A = [a b; c d], the inverse exists exactly when ad − bc ≠ 0, and A⁻¹ = (1/(ad − bc))[d −b; −c a]. The inversion algorithm row-reduces [A | I] to [I | A⁻¹], when possible.';
+  const twoInverse=tr('First use Theorem 1.4.5 and then use the inversion algorithm to find A⁻¹, if it exists.', "Använd först sats 1.4.5 och sedan inversalgoritmen för att bestämma A⁻¹, om inversen finns.");
+  const inverseRule=tr('Theorem 1.4.5: for A = [a b; c d], the inverse exists exactly when ad − bc ≠ 0, and A⁻¹ = (1/(ad − bc))[d −b; −c a]. The inversion algorithm row-reduces [A | I] to [I | A⁻¹], when possible.', "Sats 1.4.5: för A = [a b; c d] finns inversen precis när ad − bc ≠ 0, och A⁻¹ = (1/(ad − bc))[d −b; −c a]. Inversalgoritmen radreducerar [A | I] till [I | A⁻¹], när det är möjligt.");
   for(const [id,a]of [['9a',[[1,4],[2,7]]],['9b',[[2,-4],[-4,8]]],['10a',[[1,-5],[3,-16]]],['10b',[[6,4],[-3,-2]]]])p5(id,twoInverse+'\n\n('+id.at(-1)+') '+named('A',a),{reference:inverseRule});
-  const invert='Use the inversion algorithm to find the inverse of the matrix (if the inverse exists).';
+  const invert=tr('Use the inversion algorithm to find the inverse of the matrix (if the inverse exists).', "Använd inversalgoritmen för att bestämma matrisens invers, om inversen finns.");
   p5(11,invert+'\n\n'+parts([mat([[1,2,3],[2,5,3],[1,0,8]]),mat([[-1,3,-4],[2,4,1],[-4,2,-9]])]));
   p5(12,invert+'\n\n'+parts([mat([['1/5','1/5','−2/5'],['1/5','1/5','1/10'],['1/5','−4/5','1/10']]),mat([['1/5','1/5','−2/5'],['2/5','−3/5','−3/10'],['1/5','−4/5','1/10']])]));
   [
@@ -62,95 +63,95 @@
     [[2,-4,0,0],[1,2,12,0],[0,0,2,0],[0,-1,-4,-5]],
     [[0,0,2,0],[1,0,0,1],[0,-1,3,0],[2,1,5,-3]]
   ].forEach((a,i)=>p5(i+13,invert+'\n\n'+mat(a)));
-  const parameterInverse='Find the inverse of each of the following 4 × 4 matrices, where k₁, k₂, k₃, k₄, and k are all nonzero.';
+  const parameterInverse=tr('Find the inverse of each of the following 4 × 4 matrices, where k₁, k₂, k₃, k₄, and k are all nonzero.', "Bestäm inversen till var och en av följande 4 × 4-matriser, där k₁, k₂, k₃, k₄ och k alla är skilda från noll.");
   p5(19,parameterInverse+'\n\n'+parts([mat(diag(['k₁','k₂','k₃','k₄'])),mat([['k',1,0,0],[0,1,0,0],[0,0,'k',1],[0,0,0,1]])]),{answer:parts([
     mat(diag(['1/k₁','1/k₂','1/k₃','1/k₄'])),
     mat([['1/k','−1/k',0,0],[0,1,0,0],[0,0,'1/k','−1/k'],[0,0,0,1]])
   ]),steps:[
-    'An inverse undoes a matrix’s action. Call the input x=(x₁,x₂,x₃,x₄) and the output y=Ax. Solve these output equations for x to discover the inverse.',
-    '(a) A diagonal matrix gives y₁=k₁x₁, y₂=k₂x₂, y₃=k₃x₃ and y₄=k₄x₄. Since each kᵢ is nonzero, divide to obtain xᵢ=yᵢ/kᵢ. Therefore the inverse has reciprocals on its diagonal and zeros elsewhere.',
-    '(b) The first two equations are y₁=kx₁+x₂ and y₂=x₂. Read x₂=y₂ from the second equation, then substitute in the first: x₁=(y₁−y₂)/k.',
-    'The last two equations repeat the same pattern: y₃=kx₃+x₄ and y₄=x₄. Thus x₄=y₄ and x₃=(y₃−y₄)/k.',
-    'Read each row of the inverse from the coefficients of y₁,y₂,y₃,y₄ in these formulas. For example x₁=(1/k)y₁−(1/k)y₂ gives the first row [1/k −1/k 0 0]. The full matrices are below.',
-    'Check part (b) by substitution: k×((y₁−y₂)/k)+y₂=y₁, and similarly for coordinates 3 and 4. Both coordinate pairs are recovered, so the displayed matrix undoes A.'
+    tr('An inverse undoes a matrix’s action. Call the input x=(x₁,x₂,x₃,x₄) and the output y=Ax. Solve these output equations for x to discover the inverse.', "En invers upphäver det som en matris gör. Kalla indata x=(x₁,x₂,x₃,x₄) och utdata y=Ax. Lös dessa ekvationer för x för att få fram inversen."),
+    tr('(a) A diagonal matrix gives y₁=k₁x₁, y₂=k₂x₂, y₃=k₃x₃ and y₄=k₄x₄. Since each kᵢ is nonzero, divide to obtain xᵢ=yᵢ/kᵢ. Therefore the inverse has reciprocals on its diagonal and zeros elsewhere.', "(a) En diagonalmatris ger y₁=k₁x₁, y₂=k₂x₂, y₃=k₃x₃ och y₄=k₄x₄. Eftersom varje kᵢ är skilt från noll kan vi dividera och få xᵢ=yᵢ/kᵢ. Inversen har därför de reciproka värdena på diagonalen och nollor på övriga platser."),
+    tr('(b) The first two equations are y₁=kx₁+x₂ and y₂=x₂. Read x₂=y₂ from the second equation, then substitute in the first: x₁=(y₁−y₂)/k.', "(b) De första två ekvationerna är y₁=kx₁+x₂ och y₂=x₂. Läs av x₂=y₂ från den andra ekvationen och sätt sedan in det i den första: x₁=(y₁−y₂)/k."),
+    tr('The last two equations repeat the same pattern: y₃=kx₃+x₄ and y₄=x₄. Thus x₄=y₄ and x₃=(y₃−y₄)/k.', "De sista två ekvationerna följer samma mönster: y₃=kx₃+x₄ och y₄=x₄. Alltså är x₄=y₄ och x₃=(y₃−y₄)/k."),
+    tr('Read each row of the inverse from the coefficients of y₁,y₂,y₃,y₄ in these formulas. For example x₁=(1/k)y₁−(1/k)y₂ gives the first row [1/k −1/k 0 0]. The full matrices are below.', "Läs av varje rad i inversen från koefficienterna framför y₁,y₂,y₃,y₄ i dessa formler. Till exempel ger x₁=(1/k)y₁−(1/k)y₂ den första raden [1/k −1/k 0 0]. De fullständiga matriserna visas nedan."),
+    tr('Check part (b) by substitution: k×((y₁−y₂)/k)+y₂=y₁, and similarly for coordinates 3 and 4. Both coordinate pairs are recovered, so the displayed matrix undoes A.', "Kontrollera del (b) genom insättning: k×((y₁−y₂)/k)+y₂=y₁, och på samma sätt för koordinaterna 3 och 4. Båda koordinatparen återställs, så den visade matrisen upphäver A:s verkan.")
   ]});
   p5(20,parameterInverse+'\n\n'+parts([mat([[0,0,0,'k₁'],[0,0,'k₂',0],[0,'k₃',0,0],['k₄',0,0,0]]),mat([['k',0,0,0],[1,'k',0,0],[0,1,'k',0],[0,0,1,'k']])]),{answer:parts([
     mat([[0,0,0,'1/k₄'],[0,0,'1/k₃',0],[0,'1/k₂',0,0],['1/k₁',0,0,0]]),
     mat([['1/k',0,0,0],['−1/k²','1/k',0,0],['1/k³','−1/k²','1/k',0],['−1/k⁴','1/k³','−1/k²','1/k']])
   ]),steps:[
-    'To find an inverse, write y=Ax and solve for the original coordinates x. Every division below is allowed because all the given k-values are nonzero.',
-    '(a) The equations are y₁=k₁x₄, y₂=k₂x₃, y₃=k₃x₂, y₄=k₄x₁. Therefore x₁=y₄/k₄, x₂=y₃/k₃, x₃=y₂/k₂ and x₄=y₁/k₁. This explains both the reversed order and the reciprocals in the displayed inverse.',
-    '(b) Start at the top: y₁=kx₁ gives x₁=y₁/k. The next row is y₂=x₁+kx₂, so x₂=(y₂−x₁)/k=−y₁/k²+y₂/k.',
-    'The third row gives x₃=(y₃−x₂)/k. Substitute the expression just found: x₃=y₁/k³−y₂/k²+y₃/k. Each substitution reverses the preceding signs and adds one more factor k in the denominators.',
-    'The fourth row gives x₄=(y₄−x₃)/k=−y₁/k⁴+y₂/k³−y₃/k²+y₄/k. Read the coefficients of the four y-values into the four rows of the inverse.',
-    'Check the cancellation in row 3: x₂+kx₃=(−y₁/k²+y₂/k)+(y₁/k²−y₂/k+y₃)=y₃. The other rows cancel in the same way, verifying the inverse.'
+    tr('To find an inverse, write y=Ax and solve for the original coordinates x. Every division below is allowed because all the given k-values are nonzero.', "För att hitta en invers skriver vi y=Ax och löser ut de ursprungliga koordinaterna x. Alla divisioner nedan är tillåtna eftersom samtliga givna k-värden är skilda från noll."),
+    tr('(a) The equations are y₁=k₁x₄, y₂=k₂x₃, y₃=k₃x₂, y₄=k₄x₁. Therefore x₁=y₄/k₄, x₂=y₃/k₃, x₃=y₂/k₂ and x₄=y₁/k₁. This explains both the reversed order and the reciprocals in the displayed inverse.', "(a) Ekvationerna är y₁=k₁x₄, y₂=k₂x₃, y₃=k₃x₂, y₄=k₄x₁. Därför är x₁=y₄/k₄, x₂=y₃/k₃, x₃=y₂/k₂ och x₄=y₁/k₁. Detta förklarar både den omvända ordningen och de reciproka värdena i den visade inversen."),
+    tr('(b) Start at the top: y₁=kx₁ gives x₁=y₁/k. The next row is y₂=x₁+kx₂, so x₂=(y₂−x₁)/k=−y₁/k²+y₂/k.', "(b) Börja överst: y₁=kx₁ ger x₁=y₁/k. Nästa rad är y₂=x₁+kx₂, så x₂=(y₂−x₁)/k=−y₁/k²+y₂/k."),
+    tr('The third row gives x₃=(y₃−x₂)/k. Substitute the expression just found: x₃=y₁/k³−y₂/k²+y₃/k. Each substitution reverses the preceding signs and adds one more factor k in the denominators.', "Den tredje raden ger x₃=(y₃−x₂)/k. Sätt in uttrycket vi just hittade: x₃=y₁/k³−y₂/k²+y₃/k. Varje insättning vänder de föregående tecknen och lägger till ytterligare en faktor k i nämnarna."),
+    tr('The fourth row gives x₄=(y₄−x₃)/k=−y₁/k⁴+y₂/k³−y₃/k²+y₄/k. Read the coefficients of the four y-values into the four rows of the inverse.', "Den fjärde raden ger x₄=(y₄−x₃)/k=−y₁/k⁴+y₂/k³−y₃/k²+y₄/k. Läs av koefficienterna framför de fyra y-värdena och skriv dem som inversens fyra rader."),
+    tr('Check the cancellation in row 3: x₂+kx₃=(−y₁/k²+y₂/k)+(y₁/k²−y₂/k+y₃)=y₃. The other rows cancel in the same way, verifying the inverse.', "Kontrollera att termerna tar ut varandra i rad 3: x₂+kx₃=(−y₁/k²+y₂/k)+(y₁/k²−y₂/k+y₃)=y₃. Samma sak sker i de andra raderna, vilket bekräftar inversen.")
   ]});
-  const cValues='Find all values of c, if any, for which the given matrix is invertible.';
+  const cValues=tr('Find all values of c, if any, for which the given matrix is invertible.', "Bestäm alla värden på c, om några finns, för vilka den givna matrisen är inverterbar.");
   p5(21,cValues+'\n\n'+mat([['c','c','c'],[1,'c','c'],[1,1,'c']]),{steps:[
-    'A matrix is invertible when its action can be undone. Reversible row operations preserve this property, so simplify the matrix without dividing by any expression involving c.',
-    'Replace row 1 by row 1−row 2. Entry by entry this gives [c−1 0 0]. Rows 2 and 3 are still unchanged at this point.',
-    'Now replace row 2 by row 2−row 3, giving [0 c−1 0]. The matrix is now [c−1 0 0; 0 c−1 0; 1 1 c].',
-    'This is lower triangular: every entry above the main diagonal is zero. A triangular square matrix is invertible exactly when every diagonal entry is nonzero. Here the diagonal is c−1,c−1,c.',
-    'Require c−1≠0 and c≠0, giving c≠1 and c≠0. For every other real c the transformed matrix is invertible, so the original is too. At c=1 or c=0 a diagonal entry vanishes and no inverse exists.'
+    tr('A matrix is invertible when its action can be undone. Reversible row operations preserve this property, so simplify the matrix without dividing by any expression involving c.', "En matris är inverterbar när dess verkan kan upphävas. Reversibla radoperationer bevarar denna egenskap, så vi förenklar matrisen utan att dividera med något uttryck som innehåller c."),
+    tr('Replace row 1 by row 1−row 2. Entry by entry this gives [c−1 0 0]. Rows 2 and 3 are still unchanged at this point.', "Ersätt rad 1 med rad 1−rad 2. Element för element ger detta [c−1 0 0]. Rad 2 och rad 3 är fortfarande oförändrade."),
+    tr('Now replace row 2 by row 2−row 3, giving [0 c−1 0]. The matrix is now [c−1 0 0; 0 c−1 0; 1 1 c].', "Ersätt nu rad 2 med rad 2−rad 3, vilket ger [0 c−1 0]. Matrisen är nu [c−1 0 0; 0 c−1 0; 1 1 c]."),
+    tr('This is lower triangular: every entry above the main diagonal is zero. A triangular square matrix is invertible exactly when every diagonal entry is nonzero. Here the diagonal is c−1,c−1,c.', "Detta är en undertriangulär matris: varje element ovanför huvuddiagonalen är noll. En triangulär kvadratisk matris är inverterbar precis när varje diagonalelement är skilt från noll. Här är diagonalen c−1,c−1,c."),
+    tr('Require c−1≠0 and c≠0, giving c≠1 and c≠0. For every other real c the transformed matrix is invertible, so the original is too. At c=1 or c=0 a diagonal entry vanishes and no inverse exists.', "Kräv att c−1≠0 och c≠0, vilket ger c≠1 och c≠0. För alla andra reella c är den omformade matrisen inverterbar, och då är även den ursprungliga matrisen inverterbar. Vid c=1 eller c=0 blir ett diagonalelement noll och ingen invers finns.")
   ]});
   p5(22,cValues+'\n\n'+mat([['c',1,0],[1,'c',1],[0,1,'c']]));
-  [ [[-3,1],[2,2]], [[1,0],[-5,2]], [[1,0,-2],[0,4,3],[0,0,1]], [[1,1,0],[1,1,1],[0,1,1]] ].forEach((a,i)=>p5(i+23,'Express the matrix and its inverse as products of elementary matrices.\n\n'+mat(a)));
-  const rowEq='Show that the matrices A and B are row equivalent by finding a sequence of elementary row operations that produces B from A, and then use that result to find a matrix C such that CA = B.';
+  [ [[-3,1],[2,2]], [[1,0],[-5,2]], [[1,0,-2],[0,4,3],[0,0,1]], [[1,1,0],[1,1,1],[0,1,1]] ].forEach((a,i)=>p5(i+23,tr('Express the matrix and its inverse as products of elementary matrices.\n\n', "Skriv matrisen och dess invers som produkter av elementärmatriser.\n\n")+mat(a)));
+  const rowEq=tr('Show that the matrices A and B are row equivalent by finding a sequence of elementary row operations that produces B from A, and then use that result to find a matrix C such that CA = B.', "Visa att matriserna A och B är radekvivalenta genom att hitta en följd av elementära radoperationer som omvandlar A till B. Använd sedan resultatet för att hitta en matris C sådan att CA = B.");
   p5(27,rowEq+'\n\n'+named('A',[[1,2,3],[1,4,1],[2,1,9]])+'\n\n'+named('B',[[1,0,5],[0,2,-2],[1,1,4]]));
   p5(28,rowEq+'\n\n'+named('A',[[2,1,0],[-1,1,0],[3,0,-1]])+'\n\n'+named('B',[[6,9,4],[-5,-1,0],[-1,-2,-1]]));
-  p5(29,'Show that if\n'+named('A',[[1,0,0],[0,1,0],['a','b','c']])+'\nis an elementary matrix, then at least one entry in the third row must be zero.',{steps:[
-    'An elementary matrix is obtained from the identity by one row operation: swap two rows, multiply one row by a nonzero number, or add a multiple of one row to another. Start with identity rows [1 0 0], [0 1 0], [0 0 1].',
-    'The first two rows in A remain exactly as in the identity. A row swap would change at least one of them, so a swap cannot produce the displayed A.',
-    'If the operation scales row 3 by a nonzero number t, the last row becomes [0 0 t]. Both a and b are zero. An operation leaving the whole identity unchanged also leaves zeros in that row.',
-    'If it adds t times row 1 to row 3, the last row becomes [t 0 1], so b=0. If it adds t times row 2 to row 3, the last row becomes [0 t 1], so a=0.',
-    'These exhaust the allowed ways one operation can change only row 3. Each produces at least one zero in that row, which proves the claim.'
+  p5(29,tr('Show that if\n', "Visa att om\n")+named('A',[[1,0,0],[0,1,0],['a','b','c']])+tr('\nis an elementary matrix, then at least one entry in the third row must be zero.', "\när en elementärmatris, måste minst ett element i den tredje raden vara noll."),{steps:[
+    tr('An elementary matrix is obtained from the identity by one row operation: swap two rows, multiply one row by a nonzero number, or add a multiple of one row to another. Start with identity rows [1 0 0], [0 1 0], [0 0 1].', "En elementärmatris fås från enhetsmatrisen genom en radoperation: byt plats på två rader, multiplicera en rad med ett tal skilt från noll eller addera en multipel av en rad till en annan. Börja med enhetsmatrisens rader [1 0 0], [0 1 0], [0 0 1]."),
+    tr('The first two rows in A remain exactly as in the identity. A row swap would change at least one of them, so a swap cannot produce the displayed A.', "De första två raderna i A är precis som i enhetsmatrisen. Ett radbyte skulle ändra minst en av dem, så ett byte kan inte ge den visade matrisen A."),
+    tr('If the operation scales row 3 by a nonzero number t, the last row becomes [0 0 t]. Both a and b are zero. An operation leaving the whole identity unchanged also leaves zeros in that row.', "Om operationen multiplicerar rad 3 med ett tal t skilt från noll, blir den sista raden [0 0 t]. Både a och b är noll. En operation som lämnar hela enhetsmatrisen oförändrad lämnar också kvar nollor i den raden."),
+    tr('If it adds t times row 1 to row 3, the last row becomes [t 0 1], so b=0. If it adds t times row 2 to row 3, the last row becomes [0 t 1], so a=0.', "Om operationen adderar t gånger rad 1 till rad 3 blir den sista raden [t 0 1], så b=0. Om den adderar t gånger rad 2 till rad 3 blir den sista raden [0 t 1], så a=0."),
+    tr('These exhaust the allowed ways one operation can change only row 3. Each produces at least one zero in that row, which proves the claim.', "Detta täcker alla tillåtna sätt som en enda operation kan ändra enbart rad 3 på. Varje sätt ger minst en nolla i den raden, vilket bevisar påståendet.")
   ]});
-  p5(30,'Show that\n'+named('A',[[0,'a',0,0,0],['b',0,'c',0,0],[0,'d',0,'e',0],[0,0,'f',0,'g'],[0,0,0,'h',0]])+'\nis not invertible for any values of the entries.',{steps:[
-    'To show that A has no inverse, it is enough to find a nonzero vector x with Ax = 0. An invertible matrix could only send x = 0 to zero.',
-    'Try x = (u,0,v,0,w). Multiplication gives Ax = (0, bu + cv, 0, fv + gw, 0). The entries a,d,e,h have disappeared because they multiply zero coordinates.',
-    'We need bu + cv = 0 and fv + gw = 0. These are two homogeneous equations in the three unknowns u,v,w. At most two variables can have pivots, so at least one variable is free.',
-    'Choose a nonzero free parameter and solve for the pivot variables. This produces a nonzero x with Ax = 0, whatever values a through h have. Therefore A is never invertible.'
+  p5(30,tr('Show that\n', "Visa att\n")+named('A',[[0,'a',0,0,0],['b',0,'c',0,0],[0,'d',0,'e',0],[0,0,'f',0,'g'],[0,0,0,'h',0]])+tr('\nis not invertible for any values of the entries.', "\ninte är inverterbar oavsett vilka värden elementen har."),{steps:[
+    tr('To show that A has no inverse, it is enough to find a nonzero vector x with Ax = 0. An invertible matrix could only send x = 0 to zero.', "För att visa att A saknar invers räcker det att hitta en vektor x skild från noll sådan att Ax = 0. En inverterbar matris kan bara skicka x = 0 till noll."),
+    tr('Try x = (u,0,v,0,w). Multiplication gives Ax = (0, bu + cv, 0, fv + gw, 0). The entries a,d,e,h have disappeared because they multiply zero coordinates.', "Pröva x = (u,0,v,0,w). Multiplikationen ger Ax = (0, bu + cv, 0, fv + gw, 0). Elementen a,d,e,h har försvunnit eftersom de multipliceras med koordinater som är noll."),
+    tr('We need bu + cv = 0 and fv + gw = 0. These are two homogeneous equations in the three unknowns u,v,w. At most two variables can have pivots, so at least one variable is free.', "Vi behöver bu + cv = 0 och fv + gw = 0. Detta är två homogena ekvationer med de tre obekanta u,v,w. Högst två variabler kan ha pivotelement, så minst en variabel är fri."),
+    tr('Choose a nonzero free parameter and solve for the pivot variables. This produces a nonzero x with Ax = 0, whatever values a through h have. Therefore A is never invertible.', "Välj en fri parameter skild från noll och lös ut pivotvariablerna. Detta ger en vektor x skild från noll med Ax = 0, oavsett värdena på a till h. Därför är A aldrig inverterbar.")
   ]});
-  p5(31,'Prove that if A and B are m × n matrices, then A and B are row equivalent if and only if A and B have the same reduced row echelon form.',{steps:[
-    '“If and only if” asks for two directions. Row equivalent means that a finite sequence of reversible elementary row operations changes one matrix into the other.',
-    'First assume A is row equivalent to B. Perform the A-to-B operations, then reduce B. This gives a reduced row echelon form of A as well. The reduced row echelon form is unique, so both matrices have the same one.',
-    'Conversely, suppose both reduce to the same matrix R. Reduce A to R. Then reverse, from last to first, the operations that reduced B to R.',
-    'This gives a valid sequence A → R → B. Thus A and B are row equivalent. Both directions are proved.'
+  p5(31,tr('Prove that if A and B are m × n matrices, then A and B are row equivalent if and only if A and B have the same reduced row echelon form.', "Bevisa att om A och B är m × n-matriser, är de radekvivalenta om och endast om de har samma reducerade trappstegsform."),{steps:[
+    tr('“If and only if” asks for two directions. Row equivalent means that a finite sequence of reversible elementary row operations changes one matrix into the other.', "”Om och endast om” kräver bevis i två riktningar. Radekvivalenta betyder att en ändlig följd av reversibla elementära radoperationer omvandlar den ena matrisen till den andra."),
+    tr('First assume A is row equivalent to B. Perform the A-to-B operations, then reduce B. This gives a reduced row echelon form of A as well. The reduced row echelon form is unique, so both matrices have the same one.', "Anta först att A är radekvivalent med B. Utför operationerna från A till B och reducera sedan B. Detta ger också en reducerad trappstegsform för A. Den reducerade trappstegsformen är entydig, så båda matriserna har samma form."),
+    tr('Conversely, suppose both reduce to the same matrix R. Reduce A to R. Then reverse, from last to first, the operations that reduced B to R.', "Anta omvänt att båda reduceras till samma matris R. Reducera A till R. Utför sedan de omvända operationerna som reducerade B till R, från den sista till den första."),
+    tr('This gives a valid sequence A → R → B. Thus A and B are row equivalent. Both directions are proved.', "Detta ger en giltig följd A → R → B. Alltså är A och B radekvivalenta. Båda riktningarna är bevisade.")
   ]});
-  p5(32,'Prove that if A is an invertible matrix and B is row equivalent to A, then B is also invertible.',{steps:[
-    'Row equivalence means B = Eₖ⋯E₂E₁A, where each E is the elementary matrix for one row operation.',
-    'Every elementary operation can be undone: undo a swap with the same swap, undo a nonzero scale with its reciprocal, and undo adding a multiple by subtracting it. Therefore each E has an inverse.',
-    'The given matrix A also has an inverse. To undo B, undo all its factors in reverse order: B⁻¹ = A⁻¹E₁⁻¹E₂⁻¹⋯Eₖ⁻¹.',
-    'Multiplying B by this proposed inverse cancels adjacent inverse pairs and leaves I. The product in the other order also gives I, so B is invertible.'
+  p5(32,tr('Prove that if A is an invertible matrix and B is row equivalent to A, then B is also invertible.', "Bevisa att om A är inverterbar och B är radekvivalent med A, så är även B inverterbar."),{steps:[
+    tr('Row equivalence means B = Eₖ⋯E₂E₁A, where each E is the elementary matrix for one row operation.', "Radekvivalens betyder B = Eₖ⋯E₂E₁A, där varje E är elementärmatrisen för en radoperation."),
+    tr('Every elementary operation can be undone: undo a swap with the same swap, undo a nonzero scale with its reciprocal, and undo adding a multiple by subtracting it. Therefore each E has an inverse.', "Varje elementär operation kan upphävas: upphäv ett byte med samma byte, upphäv multiplikation med ett tal skilt från noll genom att multiplicera med dess reciproka värde och upphäv addition av en multipel genom att subtrahera den. Därför har varje E en invers."),
+    tr('The given matrix A also has an inverse. To undo B, undo all its factors in reverse order: B⁻¹ = A⁻¹E₁⁻¹E₂⁻¹⋯Eₖ⁻¹.', "Den givna matrisen A har också en invers. För att upphäva B upphäver vi alla dess faktorer i omvänd ordning: B⁻¹ = A⁻¹E₁⁻¹E₂⁻¹⋯Eₖ⁻¹."),
+    tr('Multiplying B by this proposed inverse cancels adjacent inverse pairs and leaves I. The product in the other order also gives I, so B is invertible.', "När B multipliceras med denna föreslagna invers tar angränsande inverspar ut varandra och lämnar I. Produkten i den andra ordningen ger också I, så B är inverterbar.")
   ]});
-  p5(33,'Prove that if B is obtained from A by performing a sequence of elementary row operations, then there is a second sequence of elementary row operations, which when applied to B recovers A.',{steps:[
-    'List the operations in the order they were used: O₁, O₂, …, Oₖ. Starting at A, operation O₁ acts first and Oₖ acts last.',
-    'Every operation has an allowed reverse operation. Swap the same two rows again; divide by a nonzero scaling factor; or subtract the multiple that was added.',
-    'Start from B and undo Oₖ first. This recovers the matrix just before the last change. Undo Oₖ₋₁ next, then keep going backward.',
-    'After undoing O₁, every change has been reversed and the matrix is A again. This constructs the required second sequence.'
+  p5(33,tr('Prove that if B is obtained from A by performing a sequence of elementary row operations, then there is a second sequence of elementary row operations, which when applied to B recovers A.', "Bevisa att om B fås från A genom en följd av elementära radoperationer, finns en andra följd av elementära radoperationer som återställer A när den utförs på B."),{steps:[
+    tr('List the operations in the order they were used: O₁, O₂, …, Oₖ. Starting at A, operation O₁ acts first and Oₖ acts last.', "Lista operationerna i den ordning de användes: O₁, O₂, …, Oₖ. Med utgångspunkt i A verkar O₁ först och Oₖ sist."),
+    tr('Every operation has an allowed reverse operation. Swap the same two rows again; divide by a nonzero scaling factor; or subtract the multiple that was added.', "Varje operation har en tillåten omvänd operation. Byt samma två rader igen, dividera med skalningsfaktorn som är skild från noll eller subtrahera den multipel som adderades."),
+    tr('Start from B and undo Oₖ first. This recovers the matrix just before the last change. Undo Oₖ₋₁ next, then keep going backward.', "Börja med B och upphäv Oₖ först. Då återfår vi matrisen som fanns precis före den sista ändringen. Upphäv sedan Oₖ₋₁ och fortsätt bakåt."),
+    tr('After undoing O₁, every change has been reversed and the matrix is A again. This constructs the required second sequence.', "När O₁ har upphävts har alla ändringar återställts och matrisen är A igen. Detta konstruerar den sökta andra följden.")
   ]});
-  p5('TF','In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n\n'+parts([
-    'The product of two elementary matrices of the same size must be an elementary matrix.',
-    'Every elementary matrix is invertible.',
-    'If A and B are row equivalent, and if B and C are row equivalent, then A and C are row equivalent.',
-    'If A is an n × n matrix that is not invertible, then the linear system Ax = 0 has infinitely many solutions.',
-    'If A is an n × n matrix that is not invertible, then the matrix obtained by interchanging two rows of A cannot be invertible.',
-    'If A is invertible and a multiple of the first row of A is added to the second row, then the resulting matrix is invertible.',
-    'An expression of an invertible matrix A as a product of elementary matrices is unique.'
+  p5('TF',tr('In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n\n', "Avgör i delarna (a)–(g) om påståendet är sant eller falskt och motivera ditt svar.\n\n")+parts([
+    tr('The product of two elementary matrices of the same size must be an elementary matrix.', "Produkten av två elementärmatriser av samma storlek måste vara en elementärmatris."),
+    tr('Every elementary matrix is invertible.', "Varje elementärmatris är inverterbar."),
+    tr('If A and B are row equivalent, and if B and C are row equivalent, then A and C are row equivalent.', "Om A och B är radekvivalenta och B och C är radekvivalenta, så är A och C radekvivalenta."),
+    tr('If A is an n × n matrix that is not invertible, then the linear system Ax = 0 has infinitely many solutions.', "Om A är en n × n-matris som inte är inverterbar, så har det linjära systemet Ax = 0 oändligt många lösningar."),
+    tr('If A is an n × n matrix that is not invertible, then the matrix obtained by interchanging two rows of A cannot be invertible.', "Om A är en n × n-matris som inte är inverterbar, kan matrisen som fås genom att byta plats på två rader i A inte vara inverterbar."),
+    tr('If A is invertible and a multiple of the first row of A is added to the second row, then the resulting matrix is invertible.', "Om A är inverterbar och en multipel av den första raden i A adderas till den andra raden, så är den resulterande matrisen inverterbar."),
+    tr('An expression of an invertible matrix A as a product of elementary matrices is unique.', "En framställning av en inverterbar matris A som en produkt av elementärmatriser är entydig.")
   ]),{steps:[
-    '(a) False. E₁ = diag(2,1) scales row 1 and E₂ = diag(1,3) scales row 2. Each is elementary, but E₁E₂ = diag(2,3) changes both rows and cannot result from one elementary operation on I₂.',
-    '(b) True. A row operation can always be undone by another allowed row operation. Their elementary matrices multiply to I, giving the inverse.',
-    '(c) True. First use the operations changing A into B, then use those changing B into C. Their combined list changes A into C.',
-    '(d) True. The homogeneous system always has x = 0. A singular square coefficient matrix has fewer pivots than variables, so at least one free parameter can take infinitely many real values.',
-    '(e) True. If the swapped matrix had an inverse, swapping back would also preserve invertibility, making A invertible. That contradicts the hypothesis.',
-    '(f) True. The row change is reversible: subtract the same multiple to undo it. Multiplication by an invertible elementary matrix preserves invertibility.',
-    '(g) False. Insert an elementary matrix E followed by E⁻¹ into a product. Since EE⁻¹ = I, the product stays A, but its factorization is different.'
+    tr('(a) False. E₁ = diag(2,1) scales row 1 and E₂ = diag(1,3) scales row 2. Each is elementary, but E₁E₂ = diag(2,3) changes both rows and cannot result from one elementary operation on I₂.', "(a) Falskt. E₁ = diag(2,1) multiplicerar rad 1 med en faktor och E₂ = diag(1,3) multiplicerar rad 2 med en faktor. Var och en är elementär, men E₁E₂ = diag(2,3) ändrar båda raderna och kan inte fås genom en enda elementär operation på I₂."),
+    tr('(b) True. A row operation can always be undone by another allowed row operation. Their elementary matrices multiply to I, giving the inverse.', "(b) Sant. En radoperation kan alltid upphävas av en annan tillåten radoperation. Produkten av deras elementärmatriser är I, vilket ger inversen."),
+    tr('(c) True. First use the operations changing A into B, then use those changing B into C. Their combined list changes A into C.', "(c) Sant. Använd först operationerna som ändrar A till B och sedan dem som ändrar B till C. Deras sammanlagda följd ändrar A till C."),
+    tr('(d) True. The homogeneous system always has x = 0. A singular square coefficient matrix has fewer pivots than variables, so at least one free parameter can take infinitely many real values.', "(d) Sant. Det homogena systemet har alltid lösningen x = 0. En singulär kvadratisk koefficientmatris har färre pivotelement än variabler, så minst en fri parameter kan anta oändligt många reella värden."),
+    tr('(e) True. If the swapped matrix had an inverse, swapping back would also preserve invertibility, making A invertible. That contradicts the hypothesis.', "(e) Sant. Om matrisen efter bytet hade en invers skulle ett byte tillbaka också bevara inverterbarheten, vilket skulle göra A inverterbar. Det motsäger förutsättningen."),
+    tr('(f) True. The row change is reversible: subtract the same multiple to undo it. Multiplication by an invertible elementary matrix preserves invertibility.', "(f) Sant. Radändringen är reversibel: subtrahera samma multipel för att upphäva den. Multiplikation med en inverterbar elementärmatris bevarar inverterbarheten."),
+    tr('(g) False. Insert an elementary matrix E followed by E⁻¹ into a product. Since EE⁻¹ = I, the product stays A, but its factorization is different.', "(g) Falskt. Sätt in en elementärmatris E följd av E⁻¹ i en produkt. Eftersom EE⁻¹ = I är produkten fortfarande A, men faktoriseringen är annorlunda.")
   ]});
-  const blockFormula='If S = D − CA⁻¹B, the stated inverse is the block matrix\n[ A⁻¹ + A⁻¹BS⁻¹CA⁻¹    −A⁻¹BS⁻¹ ]\n[ −S⁻¹CA⁻¹                  S⁻¹      ],\nprovided A⁻¹ and S⁻¹ exist.';
-  p5('T1','It can be proved that if the partitioned matrix\n[ A   B ]\n[ C   D ]\nis invertible, then its inverse is\n[ A⁻¹ + A⁻¹B(D − CA⁻¹B)⁻¹CA⁻¹    −A⁻¹B(D − CA⁻¹B)⁻¹ ]\n[ −(D − CA⁻¹B)⁻¹CA⁻¹                  (D − CA⁻¹B)⁻¹       ]\nprovided that all of the inverses on the right side exist. Use this result to find the inverse of the matrix\n'+mat([[1,2,1,0],[0,-1,0,1],[0,0,2,0],[0,0,3,3]]));
+  const blockFormula=tr('If S = D − CA⁻¹B, the stated inverse is the block matrix\n[ A⁻¹ + A⁻¹BS⁻¹CA⁻¹    −A⁻¹BS⁻¹ ]\n[ −S⁻¹CA⁻¹                  S⁻¹      ],\nprovided A⁻¹ and S⁻¹ exist.', "Om S = D − CA⁻¹B, är den angivna inversen blockmatrisen\n[ A⁻¹ + A⁻¹BS⁻¹CA⁻¹    −A⁻¹BS⁻¹ ]\n[ −S⁻¹CA⁻¹                  S⁻¹      ],\nförutsatt att A⁻¹ och S⁻¹ finns.");
+  p5('T1',tr('It can be proved that if the partitioned matrix\n[ A   B ]\n[ C   D ]\nis invertible, then its inverse is\n[ A⁻¹ + A⁻¹B(D − CA⁻¹B)⁻¹CA⁻¹    −A⁻¹B(D − CA⁻¹B)⁻¹ ]\n[ −(D − CA⁻¹B)⁻¹CA⁻¹                  (D − CA⁻¹B)⁻¹       ]\nprovided that all of the inverses on the right side exist. Use this result to find the inverse of the matrix\n', "Det kan bevisas att om den blockindelade matrisen\n[ A   B ]\n[ C   D ]\när inverterbar, så är dess invers\n[ A⁻¹ + A⁻¹B(D − CA⁻¹B)⁻¹CA⁻¹    −A⁻¹B(D − CA⁻¹B)⁻¹ ]\n[ −(D − CA⁻¹B)⁻¹CA⁻¹                  (D − CA⁻¹B)⁻¹       ]\nförutsatt att alla inverser i högerledet finns. Använd resultatet för att bestämma inversen till matrisen\n")+mat([[1,2,1,0],[0,-1,0,1],[0,0,2,0],[0,0,3,3]]));
 
-  const byInverse='Solve the system by inverting the coefficient matrix and using Theorem 1.6.2.';
-  const theorem162='Theorem 1.6.2: if A is an invertible n × n matrix, the system Ax = b has the unique solution x = A⁻¹b.';
+  const byInverse=tr('Solve the system by inverting the coefficient matrix and using Theorem 1.6.2.', "Lös systemet genom att invertera koefficientmatrisen och använda sats 1.6.2.");
+  const theorem162=tr('Theorem 1.6.2: if A is an invertible n × n matrix, the system Ax = b has the unique solution x = A⁻¹b.', "Sats 1.6.2: om A är en inverterbar n × n-matris, har systemet Ax = b den entydiga lösningen x = A⁻¹b.");
   const systems6=[
     'x₁ + x₂ = 2\n5x₁ + 6x₂ = 9',
     '4x₁ − 3x₂ = −3\n2x₁ − 5x₂ = 9',
@@ -163,19 +164,19 @@
   ];
   systems6.forEach((system,i)=>p6(i+1,byInverse+'\n\n'+system,{reference:theorem162}));
   Object.assign(sets['1.6']['2'],{answer:'x₁ = −3, x₂ = −3.',steps:[
-    'Write the equations as Ax=b, with A=[4 −3; 2 −5], x=(x₁,x₂), and b=(−3,9). Keep the minus sign on the first right-hand side.',
-    'Find A⁻¹ using the 2 × 2 formula. First compute ad−bc=4×(−5)−(−3)×2=−20+6=−14. This is nonzero, so the inverse exists.',
-    'Swap the diagonal entries of A and change the signs of the other two entries. Divide the resulting matrix by −14: A⁻¹=(1/−14)[−5 3; −2 4]=[5/14 −3/14; 1/7 −2/7].',
-    'Multiply Ax=b on the left by A⁻¹. Since A⁻¹A=I, this isolates x=A⁻¹b. The first coordinate is x₁=(5/14)×(−3)−(3/14)×9=(−15−27)/14=−3.',
-    'The second coordinate is x₂=(1/7)×(−3)−(2/7)×9=(−3−18)/7=−3.',
-    'Check both original equations: 4×(−3)−3×(−3)=−12+9=−3, and 2×(−3)−5×(−3)=−6+15=9. Both right-hand sides agree.'
+    tr('Write the equations as Ax=b, with A=[4 −3; 2 −5], x=(x₁,x₂), and b=(−3,9). Keep the minus sign on the first right-hand side.', "Skriv ekvationerna som Ax=b, med A=[4 −3; 2 −5], x=(x₁,x₂) och b=(−3,9). Behåll minustecknet framför det första högerledet."),
+    tr('Find A⁻¹ using the 2 × 2 formula. First compute ad−bc=4×(−5)−(−3)×2=−20+6=−14. This is nonzero, so the inverse exists.', "Bestäm A⁻¹ med formeln för en 2 × 2-matris. Beräkna först ad−bc=4×(−5)−(−3)×2=−20+6=−14. Detta är skilt från noll, så inversen finns."),
+    tr('Swap the diagonal entries of A and change the signs of the other two entries. Divide the resulting matrix by −14: A⁻¹=(1/−14)[−5 3; −2 4]=[5/14 −3/14; 1/7 −2/7].', "Byt plats på diagonalelementen i A och byt tecken på de andra två elementen. Dividera den nya matrisen med −14: A⁻¹=(1/−14)[−5 3; −2 4]=[5/14 −3/14; 1/7 −2/7]."),
+    tr('Multiply Ax=b on the left by A⁻¹. Since A⁻¹A=I, this isolates x=A⁻¹b. The first coordinate is x₁=(5/14)×(−3)−(3/14)×9=(−15−27)/14=−3.', "Multiplicera Ax=b från vänster med A⁻¹. Eftersom A⁻¹A=I får vi x=A⁻¹b. Den första koordinaten är x₁=(5/14)×(−3)−(3/14)×9=(−15−27)/14=−3."),
+    tr('The second coordinate is x₂=(1/7)×(−3)−(2/7)×9=(−3−18)/7=−3.', "Den andra koordinaten är x₂=(1/7)×(−3)−(2/7)×9=(−3−18)/7=−3."),
+    tr('Check both original equations: 4×(−3)−3×(−3)=−12+9=−3, and 2×(−3)−5×(−3)=−6+15=9. Both right-hand sides agree.', "Kontrollera båda ursprungliga ekvationerna: 4×(−3)−3×(−3)=−12+9=−3 och 2×(−3)−5×(−3)=−6+15=9. Båda högerleden stämmer.")
   ]});
-  const together='Solve the linear systems. Using the given values for the b’s solve the systems together by reducing an appropriate augmented matrix to reduced row echelon form.';
+  const together=tr('Solve the linear systems. Using the given values for the b’s solve the systems together by reducing an appropriate augmented matrix to reduced row echelon form.', "Lös de linjära systemen. Använd de givna b-värdena och lös systemen samtidigt genom att reducera en lämplig utökad matris till reducerad trappstegsform.");
   p6(9,together+'\n\nx₁ − 5x₂ = b₁\n3x₁ + 2x₂ = b₂\n(i) b₁ = 1, b₂ = 4\n(ii) b₁ = −2, b₂ = 5');
   p6(10,together+'\n\n−x₁ + 4x₂ + x₃ = b₁\nx₁ + 9x₂ − 2x₃ = b₂\n6x₁ + 4x₂ − 8x₃ = b₃\n(i) b₁ = 0, b₂ = 1, b₃ = 0\n(ii) b₁ = −3, b₂ = 4, b₃ = −5');
   p6(11,together+'\n\n4x₁ − 7x₂ = b₁\nx₁ + 2x₂ = b₂\n(i) b₁ = 0, b₂ = 1\n(ii) b₁ = −4, b₂ = 6\n(iii) b₁ = −1, b₂ = 3\n(iv) b₁ = −5, b₂ = 1');
   p6(12,together+'\n\nx₁ + 3x₂ + 5x₃ = b₁\n−x₁ − 2x₂ = b₂\n2x₁ + 5x₂ + 4x₃ = b₃\n(i) b₁ = 1, b₂ = 0, b₃ = −1\n(ii) b₁ = 0, b₂ = 1, b₃ = 1\n(iii) b₁ = −1, b₂ = −1, b₃ = 0');
-  const consistency='Determine conditions on the bᵢ’s, if any, in order to guarantee that the linear system is consistent.';
+  const consistency=tr('Determine conditions on the bᵢ’s, if any, in order to guarantee that the linear system is consistent.', "Bestäm vilka villkor på bᵢ-värdena, om några behövs, som garanterar att det linjära systemet är konsistent.");
   [
     'x₁ + 3x₂ = b₁\n−2x₁ + x₂ = b₂',
     '6x₁ − 4x₂ = b₁\n3x₁ − 2x₂ = b₂',
@@ -184,128 +185,128 @@
     'x₁ − x₂ + 3x₃ + 2x₄ = b₁\n−2x₁ + x₂ + 5x₃ + x₄ = b₂\n−3x₁ + 2x₂ + 2x₃ − x₄ = b₃\n4x₁ − 3x₂ + x₃ + 3x₄ = b₄'
   ].forEach((system,i)=>p6(i+13,consistency+'\n\n'+system));
   sets['1.6']['13'].steps=[
-    'Consistent means that at least one pair (x₁,x₂) satisfies both equations. We look for any restriction the right-hand sides must obey.',
-    'Add twice equation 1 to equation 2. On the left, −2x₁+2x₁ cancels and x₂+6x₂=7x₂. The new equation is 7x₂=b₂+2b₁.',
-    'Divide by 7: x₂=(b₂+2b₁)/7. Substitute into equation 1 to obtain x₁=b₁−3x₂=(b₁−3b₂)/7.',
-    'These formulas are defined for every real b₁ and b₂, because we only divide by the nonzero number 7. Thus there are no restrictions: every right-hand side gives a solution.'
+    tr('Consistent means that at least one pair (x₁,x₂) satisfies both equations. We look for any restriction the right-hand sides must obey.', "Konsistent betyder att minst ett par (x₁,x₂) uppfyller båda ekvationerna. Vi söker eventuella begränsningar som högerleden måste uppfylla."),
+    tr('Add twice equation 1 to equation 2. On the left, −2x₁+2x₁ cancels and x₂+6x₂=7x₂. The new equation is 7x₂=b₂+2b₁.', "Addera två gånger ekvation 1 till ekvation 2. I vänsterledet tar −2x₁+2x₁ ut varandra och x₂+6x₂=7x₂. Den nya ekvationen är 7x₂=b₂+2b₁."),
+    tr('Divide by 7: x₂=(b₂+2b₁)/7. Substitute into equation 1 to obtain x₁=b₁−3x₂=(b₁−3b₂)/7.', "Dividera med 7: x₂=(b₂+2b₁)/7. Sätt in i ekvation 1 för att få x₁=b₁−3x₂=(b₁−3b₂)/7."),
+    tr('These formulas are defined for every real b₁ and b₂, because we only divide by the nonzero number 7. Thus there are no restrictions: every right-hand side gives a solution.', "Dessa formler är definierade för alla reella b₁ och b₂, eftersom vi bara dividerar med talet 7, som är skilt från noll. Det finns alltså inga begränsningar: varje högerled ger en lösning.")
   ];
   sets['1.6']['14'].steps=[
-    'Compare the left sides: 6x₁−4x₂ is exactly twice 3x₁−2x₂. Two equations describing the same left-hand quantity must also have matching right-hand quantities.',
-    'Subtract twice equation 2 from equation 1. All variable terms cancel, leaving 0=b₁−2b₂. Therefore consistency requires b₁=2b₂.',
-    'If that condition fails, the equations contradict each other. If it holds, the first equation adds no new requirement.',
-    'To check sufficiency, choose any real t for x₂. Equation 2 then gives x₁=(b₂+2t)/3. This satisfies both equations whenever b₁=2b₂, so the stated condition is both necessary and sufficient.'
+    tr('Compare the left sides: 6x₁−4x₂ is exactly twice 3x₁−2x₂. Two equations describing the same left-hand quantity must also have matching right-hand quantities.', "Jämför vänsterleden: 6x₁−4x₂ är exakt två gånger 3x₁−2x₂. Två ekvationer som beskriver samma storhet i vänsterledet måste också ha motsvarande storheter i högerledet."),
+    tr('Subtract twice equation 2 from equation 1. All variable terms cancel, leaving 0=b₁−2b₂. Therefore consistency requires b₁=2b₂.', "Subtrahera två gånger ekvation 2 från ekvation 1. Alla variabeltermer tar ut varandra och kvar blir 0=b₁−2b₂. Konsistens kräver därför b₁=2b₂."),
+    tr('If that condition fails, the equations contradict each other. If it holds, the first equation adds no new requirement.', "Om villkoret inte gäller motsäger ekvationerna varandra. Om det gäller tillför den första ekvationen inget nytt krav."),
+    tr('To check sufficiency, choose any real t for x₂. Equation 2 then gives x₁=(b₂+2t)/3. This satisfies both equations whenever b₁=2b₂, so the stated condition is both necessary and sufficient.', "För att kontrollera att villkoret är tillräckligt väljer vi valfritt reellt t för x₂. Ekvation 2 ger då x₁=(b₂+2t)/3. Detta uppfyller båda ekvationerna när b₁=2b₂, så villkoret är både nödvändigt och tillräckligt.")
   ];
   sets['1.6']['15'].steps=[
-    'Subtract the left side of equation 2 from that of equation 1: (x₁−2x₂+5x₃)−(4x₁−5x₂+8x₃)=−3x₁+3x₂−3x₃. This is exactly the third left side.',
-    'The right sides must follow the same subtraction. Thus equation 3 can agree with the first two only when b₃=b₁−b₂.',
-    'We also need to check that the first two equations can always be solved. Subtract four times equation 1 from equation 2 to get 3x₂−12x₃=b₂−4b₁.',
-    'Choose x₃=t freely. Then x₂=4t+(b₂−4b₁)/3, and equation 1 gives x₁=b₁+2x₂−5t. These choices work for every b₁,b₂.',
-    'With b₃=b₁−b₂, the third equation is automatically satisfied. Without that equality it is contradictory. Therefore this is the only required condition.'
+    tr('Subtract the left side of equation 2 from that of equation 1: (x₁−2x₂+5x₃)−(4x₁−5x₂+8x₃)=−3x₁+3x₂−3x₃. This is exactly the third left side.', "Subtrahera vänsterledet i ekvation 2 från vänsterledet i ekvation 1: (x₁−2x₂+5x₃)−(4x₁−5x₂+8x₃)=−3x₁+3x₂−3x₃. Detta är exakt det tredje vänsterledet."),
+    tr('The right sides must follow the same subtraction. Thus equation 3 can agree with the first two only when b₃=b₁−b₂.', "Högerleden måste följa samma subtraktion. Ekvation 3 kan därför stämma med de första två endast när b₃=b₁−b₂."),
+    tr('We also need to check that the first two equations can always be solved. Subtract four times equation 1 from equation 2 to get 3x₂−12x₃=b₂−4b₁.', "Vi behöver också kontrollera att de första två ekvationerna alltid kan lösas. Subtrahera fyra gånger ekvation 1 från ekvation 2 för att få 3x₂−12x₃=b₂−4b₁."),
+    tr('Choose x₃=t freely. Then x₂=4t+(b₂−4b₁)/3, and equation 1 gives x₁=b₁+2x₂−5t. These choices work for every b₁,b₂.', "Välj x₃=t fritt. Då är x₂=4t+(b₂−4b₁)/3, och ekvation 1 ger x₁=b₁+2x₂−5t. Dessa val fungerar för alla b₁,b₂."),
+    tr('With b₃=b₁−b₂, the third equation is automatically satisfied. Without that equality it is contradictory. Therefore this is the only required condition.', "Med b₃=b₁−b₂ är den tredje ekvationen automatiskt uppfylld. Utan den likheten blir den motsägelsefull. Detta är därför det enda villkor som behövs.")
   ];
   sets['1.6']['16'].steps=[
-    'We check whether eliminating the variables creates a contradiction such as 0=1. Add four times equation 1 to equation 2: −3x₂−2x₃=b₂+4b₁.',
-    'Subtract the original equation 2 from the original equation 3: 2x₂+2x₃=b₃−b₂. Keep both of these new equations.',
-    'Multiply the first new equation by 2 and the second by 3, then add. The x₂ terms cancel, leaving 2x₃=8b₁−b₂+3b₃.',
-    'Divide by 2 to find x₃. Then the second new equation gives x₂=(b₃−b₂)/2−x₃. Finally equation 1 gives x₁=b₁+2x₂+x₃.',
-    'All divisions used nonzero fixed numbers. These steps therefore produce a solution for every b₁,b₂,b₃. There are no restrictions on the right-hand sides.'
+    tr('We check whether eliminating the variables creates a contradiction such as 0=1. Add four times equation 1 to equation 2: −3x₂−2x₃=b₂+4b₁.', "Vi undersöker om eliminering av variablerna ger en motsägelse, till exempel 0=1. Addera fyra gånger ekvation 1 till ekvation 2: −3x₂−2x₃=b₂+4b₁."),
+    tr('Subtract the original equation 2 from the original equation 3: 2x₂+2x₃=b₃−b₂. Keep both of these new equations.', "Subtrahera den ursprungliga ekvation 2 från den ursprungliga ekvation 3: 2x₂+2x₃=b₃−b₂. Behåll båda dessa nya ekvationer."),
+    tr('Multiply the first new equation by 2 and the second by 3, then add. The x₂ terms cancel, leaving 2x₃=8b₁−b₂+3b₃.', "Multiplicera den första nya ekvationen med 2 och den andra med 3, och addera sedan. x₂-termerna tar ut varandra och kvar blir 2x₃=8b₁−b₂+3b₃."),
+    tr('Divide by 2 to find x₃. Then the second new equation gives x₂=(b₃−b₂)/2−x₃. Finally equation 1 gives x₁=b₁+2x₂+x₃.', "Dividera med 2 för att bestämma x₃. Den andra nya ekvationen ger sedan x₂=(b₃−b₂)/2−x₃. Slutligen ger ekvation 1 att x₁=b₁+2x₂+x₃."),
+    tr('All divisions used nonzero fixed numbers. These steps therefore produce a solution for every b₁,b₂,b₃. There are no restrictions on the right-hand sides.', "Alla divisioner gjordes med fasta tal skilda från noll. Stegen ger därför en lösning för alla b₁,b₂,b₃. Det finns inga begränsningar på högerleden.")
   ];
   sets['1.6']['17'].steps=[
-    'Compare entire left sides, keeping every coefficient. Equation 3 has the left side of equation 2 minus that of equation 1; equation 4 has twice the left side of equation 1 minus that of equation 2.',
-    'Consequently their right sides must satisfy b₃=b₂−b₁ and b₄=2b₁−b₂. If either equality fails, that equation contradicts the first two.',
-    'To see that there are no additional restrictions, add twice equation 1 to equation 2. This gives −x₂+11x₃+5x₄=b₂+2b₁.',
-    'Choose x₃=s and x₄=t freely. Then x₂=11s+5t−b₂−2b₁, and equation 1 gives x₁=b₁+x₂−3s−2t. Thus the first two equations can always be solved.',
-    'When the two conditions on b₃,b₄ hold, these same values also satisfy equations 3 and 4. The conditions are therefore necessary and sufficient.'
+    tr('Compare entire left sides, keeping every coefficient. Equation 3 has the left side of equation 2 minus that of equation 1; equation 4 has twice the left side of equation 1 minus that of equation 2.', "Jämför hela vänsterleden och behåll varje koefficient. Vänsterledet i ekvation 3 är vänsterledet i ekvation 2 minus vänsterledet i ekvation 1. Ekvation 4 har två gånger vänsterledet i ekvation 1 minus vänsterledet i ekvation 2."),
+    tr('Consequently their right sides must satisfy b₃=b₂−b₁ and b₄=2b₁−b₂. If either equality fails, that equation contradicts the first two.', "Därför måste deras högerled uppfylla b₃=b₂−b₁ och b₄=2b₁−b₂. Om någon av likheterna inte gäller motsäger den ekvationen de första två."),
+    tr('To see that there are no additional restrictions, add twice equation 1 to equation 2. This gives −x₂+11x₃+5x₄=b₂+2b₁.', "För att se att inga ytterligare begränsningar behövs adderar vi två gånger ekvation 1 till ekvation 2. Detta ger −x₂+11x₃+5x₄=b₂+2b₁."),
+    tr('Choose x₃=s and x₄=t freely. Then x₂=11s+5t−b₂−2b₁, and equation 1 gives x₁=b₁+x₂−3s−2t. Thus the first two equations can always be solved.', "Välj x₃=s och x₄=t fritt. Då är x₂=11s+5t−b₂−2b₁, och ekvation 1 ger x₁=b₁+x₂−3s−2t. De första två ekvationerna kan alltså alltid lösas."),
+    tr('When the two conditions on b₃,b₄ hold, these same values also satisfy equations 3 and 4. The conditions are therefore necessary and sufficient.', "När de två villkoren på b₃,b₄ gäller uppfyller samma värden också ekvationerna 3 och 4. Villkoren är därför nödvändiga och tillräckliga.")
   ];
-  p6(18,'Consider the matrices\n'+named('A',[[2,1,2],[2,2,-2],[3,1,1]])+'\nand\n'+named('x',[['x₁'],['x₂'],['x₃']])+'\n\n(a) Show that the equation Ax = x can be rewritten as (A − I)x = 0 and use this result to solve Ax = x for x.\n(b) Solve Ax = 4x.');
-  p6(19,'Solve the matrix equation for X.\n\n'+mat([[1,-1,1],[2,3,0],[0,2,-1]])+'\n× X =\n'+mat([[2,-1,5,7,8],[4,0,-3,0,1],[3,5,-7,2,1]]));
-  p6(20,'Solve the matrix equation for X.\n\n'+mat([[-2,0,1],[0,-1,-1],[1,1,-4]])+'\n× X =\n'+mat([[4,3,2,1],[6,7,8,9],[1,3,7,9]]));
-  p6(21,'Let Ax = 0 be a homogeneous system of n linear equations in n unknowns that has only the trivial solution. Prove that if k is any positive integer, then the system Aᵏx = 0 also has only the trivial solution.',{steps:[
-    'The trivial solution means x = 0. The assumption says that whenever Ay = 0, the vector y must be zero; A cannot send a nonzero vector to zero.',
-    'Suppose Aᵏx = 0. For k ≥ 1, group the product as A(Aᵏ⁻¹x) = 0. The assumption forces Aᵏ⁻¹x = 0.',
-    'Repeat the same argument, removing one factor A at a time. Eventually Ax = 0 forces x = 0. For k = 1 this is already the given assumption.',
-    'Finally, x = 0 does satisfy Aᵏx = 0. It is therefore the only solution, as required.'
+  p6(18,tr('Consider the matrices\n', "Betrakta matriserna\n")+named('A',[[2,1,2],[2,2,-2],[3,1,1]])+tr('\nand\n', "\noch\n")+named('x',[['x₁'],['x₂'],['x₃']])+tr('\n\n(a) Show that the equation Ax = x can be rewritten as (A − I)x = 0 and use this result to solve Ax = x for x.\n(b) Solve Ax = 4x.', "\n\n(a) Visa att ekvationen Ax = x kan skrivas om som (A − I)x = 0 och använd resultatet för att lösa Ax = x med avseende på x.\n(b) Lös Ax = 4x."));
+  p6(19,tr('Solve the matrix equation for X.\n\n', "Lös matrisekvationen med avseende på X.\n\n")+mat([[1,-1,1],[2,3,0],[0,2,-1]])+'\n× X =\n'+mat([[2,-1,5,7,8],[4,0,-3,0,1],[3,5,-7,2,1]]));
+  p6(20,tr('Solve the matrix equation for X.\n\n', "Lös matrisekvationen med avseende på X.\n\n")+mat([[-2,0,1],[0,-1,-1],[1,1,-4]])+'\n× X =\n'+mat([[4,3,2,1],[6,7,8,9],[1,3,7,9]]));
+  p6(21,tr('Let Ax = 0 be a homogeneous system of n linear equations in n unknowns that has only the trivial solution. Prove that if k is any positive integer, then the system Aᵏx = 0 also has only the trivial solution.', "Låt Ax = 0 vara ett homogent system med n linjära ekvationer och n obekanta som bara har den triviala lösningen. Bevisa att systemet Aᵏx = 0 också bara har den triviala lösningen för varje positivt heltal k."),{steps:[
+    tr('The trivial solution means x = 0. The assumption says that whenever Ay = 0, the vector y must be zero; A cannot send a nonzero vector to zero.', "Den triviala lösningen betyder x = 0. Förutsättningen säger att när Ay = 0 måste vektorn y vara noll. A kan inte skicka en vektor skild från noll till noll."),
+    tr('Suppose Aᵏx = 0. For k ≥ 1, group the product as A(Aᵏ⁻¹x) = 0. The assumption forces Aᵏ⁻¹x = 0.', "Anta att Aᵏx = 0. För k ≥ 1 grupperar vi produkten som A(Aᵏ⁻¹x) = 0. Förutsättningen tvingar då Aᵏ⁻¹x = 0."),
+    tr('Repeat the same argument, removing one factor A at a time. Eventually Ax = 0 forces x = 0. For k = 1 this is already the given assumption.', "Upprepa samma argument och ta bort en faktor A i taget. Till slut medför Ax = 0 att x = 0. För k = 1 är detta redan den givna förutsättningen."),
+    tr('Finally, x = 0 does satisfy Aᵏx = 0. It is therefore the only solution, as required.', "Slutligen uppfyller x = 0 verkligen Aᵏx = 0. Det är därför den enda lösningen, vilket skulle visas.")
   ]});
-  p6(22,'Let Ax = 0 be a homogeneous system of n linear equations in n unknowns, and let Q be an invertible n × n matrix. Prove that Ax = 0 has only the trivial solution if and only if (QA)x = 0 has only the trivial solution.',{steps:[
-    'We will show that the two systems have exactly the same solutions. Multiplying by an invertible matrix should not lose information, because multiplication by its inverse undoes the change.',
-    'Take any x satisfying Ax = 0. Multiply by Q on the left: Q(Ax) = Q0 = 0, so (QA)x = 0.',
-    'Now take any x satisfying (QA)x = 0. Multiply by Q⁻¹: Q⁻¹QAx = Q⁻¹0. Since Q⁻¹Q = I, this becomes Ax = 0.',
-    'Each solution of either system is a solution of the other. Hence one has only x = 0 exactly when the other does.'
+  p6(22,tr('Let Ax = 0 be a homogeneous system of n linear equations in n unknowns, and let Q be an invertible n × n matrix. Prove that Ax = 0 has only the trivial solution if and only if (QA)x = 0 has only the trivial solution.', "Låt Ax = 0 vara ett homogent system med n linjära ekvationer och n obekanta, och låt Q vara en inverterbar n × n-matris. Bevisa att Ax = 0 bara har den triviala lösningen om och endast om (QA)x = 0 bara har den triviala lösningen."),{steps:[
+    tr('We will show that the two systems have exactly the same solutions. Multiplying by an invertible matrix should not lose information, because multiplication by its inverse undoes the change.', "Vi ska visa att de två systemen har exakt samma lösningar. Multiplikation med en inverterbar matris ska inte förlora information, eftersom multiplikation med dess invers upphäver ändringen."),
+    tr('Take any x satisfying Ax = 0. Multiply by Q on the left: Q(Ax) = Q0 = 0, so (QA)x = 0.', "Ta ett godtyckligt x som uppfyller Ax = 0. Multiplicera från vänster med Q: Q(Ax) = Q0 = 0, så (QA)x = 0."),
+    tr('Now take any x satisfying (QA)x = 0. Multiply by Q⁻¹: Q⁻¹QAx = Q⁻¹0. Since Q⁻¹Q = I, this becomes Ax = 0.', "Ta nu ett godtyckligt x som uppfyller (QA)x = 0. Multiplicera med Q⁻¹: Q⁻¹QAx = Q⁻¹0. Eftersom Q⁻¹Q = I blir detta Ax = 0."),
+    tr('Each solution of either system is a solution of the other. Hence one has only x = 0 exactly when the other does.', "Varje lösning till något av systemen är en lösning till det andra. Därför har det ena bara lösningen x = 0 precis när det andra har det.")
   ]});
-  p6(23,'Let Ax = b be any consistent system of linear equations, and let x₁ be a fixed solution. Prove that every solution to the system can be written in the form x = x₁ + x₀, where x₀ is a solution to Ax = 0. Prove also that every matrix of this form is a solution.',{steps:[
-    '“Consistent” means at least one solution exists. We are given one such vector x₁, so Ax₁ = b. Here the subscript in x₁ labels a whole solution vector, not one coordinate.',
-    'Take any other solution x. Subtract the known solution and call the difference x₀ = x − x₁.',
-    'Use distribution: Ax₀ = A(x − x₁) = Ax − Ax₁ = b − b = 0. Thus x₀ solves the homogeneous system, and rearranging its definition gives x = x₁ + x₀.',
-    'For the reverse direction, choose any x₀ with Ax₀ = 0. Then A(x₁ + x₀) = Ax₁ + Ax₀ = b + 0 = b.',
-    'So every original solution has the stated form, and every vector of that form is an original solution. Adding a homogeneous solution moves between valid answers.'
+  p6(23,tr('Let Ax = b be any consistent system of linear equations, and let x₁ be a fixed solution. Prove that every solution to the system can be written in the form x = x₁ + x₀, where x₀ is a solution to Ax = 0. Prove also that every matrix of this form is a solution.', "Låt Ax = b vara ett godtyckligt konsistent linjärt ekvationssystem och låt x₁ vara en bestämd lösning. Bevisa att varje lösning till systemet kan skrivas på formen x = x₁ + x₀, där x₀ är en lösning till Ax = 0. Bevisa också att varje matris på denna form är en lösning."),{steps:[
+    tr('“Consistent” means at least one solution exists. We are given one such vector x₁, so Ax₁ = b. Here the subscript in x₁ labels a whole solution vector, not one coordinate.', "”Konsistent” betyder att minst en lösning finns. Vi har en sådan vektor x₁, så Ax₁ = b. Här betecknar indexet i x₁ en hel lösningsvektor, inte en enskild koordinat."),
+    tr('Take any other solution x. Subtract the known solution and call the difference x₀ = x − x₁.', "Ta en annan godtycklig lösning x. Subtrahera den kända lösningen och kalla skillnaden x₀ = x − x₁."),
+    tr('Use distribution: Ax₀ = A(x − x₁) = Ax − Ax₁ = b − b = 0. Thus x₀ solves the homogeneous system, and rearranging its definition gives x = x₁ + x₀.', "Använd distributiva lagen: Ax₀ = A(x − x₁) = Ax − Ax₁ = b − b = 0. Alltså löser x₀ det homogena systemet, och om vi ordnar om definitionen får vi x = x₁ + x₀."),
+    tr('For the reverse direction, choose any x₀ with Ax₀ = 0. Then A(x₁ + x₀) = Ax₁ + Ax₀ = b + 0 = b.', "För den omvända riktningen väljer vi ett godtyckligt x₀ med Ax₀ = 0. Då är A(x₁ + x₀) = Ax₁ + Ax₀ = b + 0 = b."),
+    tr('So every original solution has the stated form, and every vector of that form is an original solution. Adding a homogeneous solution moves between valid answers.', "Varje ursprunglig lösning har alltså den angivna formen, och varje vektor på den formen är en ursprunglig lösning. Genom att addera en homogen lösning kan vi gå från ett giltigt svar till ett annat.")
   ]});
-  p6(24,'Use part (a) of Theorem 1.6.3 to prove part (b).',{reference:'Theorem 1.6.3: let A be square. (a) If B is square and BA = I, then B = A⁻¹. (b) If B is square and AB = I, then B = A⁻¹.',steps:[
-    'Assume AB = I, which is the hypothesis of part (b). The goal is to prove that B is the inverse of A.',
-    'Apply part (a) with the names exchanged: view B as the matrix and A as its left inverse. Because AB = I, part (a) says A = B⁻¹.',
-    'The equation A = B⁻¹ means that both AB = I and BA = I hold. Therefore B undoes A from either side.',
-    'By the definition of inverse, B = A⁻¹. This proves part (b) using part (a).'
+  p6(24,tr('Use part (a) of Theorem 1.6.3 to prove part (b).', "Använd del (a) i sats 1.6.3 för att bevisa del (b)."),{reference:tr('Theorem 1.6.3: let A be square. (a) If B is square and BA = I, then B = A⁻¹. (b) If B is square and AB = I, then B = A⁻¹.', "Sats 1.6.3: låt A vara kvadratisk. (a) Om B är kvadratisk och BA = I, så är B = A⁻¹. (b) Om B är kvadratisk och AB = I, så är B = A⁻¹."),steps:[
+    tr('Assume AB = I, which is the hypothesis of part (b). The goal is to prove that B is the inverse of A.', "Anta att AB = I, vilket är förutsättningen i del (b). Målet är att bevisa att B är inversen till A."),
+    tr('Apply part (a) with the names exchanged: view B as the matrix and A as its left inverse. Because AB = I, part (a) says A = B⁻¹.', "Använd del (a) med namnen utbytta: betrakta B som matrisen och A som dess vänsterinvers. Eftersom AB = I säger del (a) att A = B⁻¹."),
+    tr('The equation A = B⁻¹ means that both AB = I and BA = I hold. Therefore B undoes A from either side.', "Ekvationen A = B⁻¹ betyder att både AB = I och BA = I gäller. Därför upphäver B verkan av A från båda sidor."),
+    tr('By the definition of inverse, B = A⁻¹. This proves part (b) using part (a).', "Enligt definitionen av invers är B = A⁻¹. Därmed har vi bevisat del (b) med hjälp av del (a).")
   ]});
-  p6('TF','In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n\n'+parts([
-    'It is impossible for a system of linear equations to have exactly two solutions.',
-    'If A is a square matrix, and if the linear system Ax = b has a unique solution, then the linear system Ax = c also must have a unique solution.',
-    'If A and B are n × n matrices such that AB = Iₙ, then BA = Iₙ.',
-    'If A and B are row equivalent matrices, then the linear systems Ax = 0 and Bx = 0 have the same solution set.',
-    'Let A be an n × n matrix and S is an n × n invertible matrix. If x is a solution to the system (S⁻¹AS)x = b, then Sx is a solution to the system Ay = Sb.',
-    'Let A be an n × n matrix. The linear system Ax = 4x has a unique solution if and only if A − 4I is an invertible matrix.',
-    'Let A and B be n × n matrices. If A or B (or both) are not invertible, then neither is AB.'
+  p6('TF',tr('In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n\n', "Avgör i delarna (a)–(g) om påståendet är sant eller falskt och motivera ditt svar.\n\n")+parts([
+    tr('It is impossible for a system of linear equations to have exactly two solutions.', "Det är omöjligt för ett linjärt ekvationssystem att ha exakt två lösningar."),
+    tr('If A is a square matrix, and if the linear system Ax = b has a unique solution, then the linear system Ax = c also must have a unique solution.', "Om A är en kvadratisk matris och det linjära systemet Ax = b har en entydig lösning, måste också det linjära systemet Ax = c ha en entydig lösning."),
+    tr('If A and B are n × n matrices such that AB = Iₙ, then BA = Iₙ.', "Om A och B är n × n-matriser sådana att AB = Iₙ, så är BA = Iₙ."),
+    tr('If A and B are row equivalent matrices, then the linear systems Ax = 0 and Bx = 0 have the same solution set.', "Om A och B är radekvivalenta matriser, har de linjära systemen Ax = 0 och Bx = 0 samma lösningsmängd."),
+    tr('Let A be an n × n matrix and S is an n × n invertible matrix. If x is a solution to the system (S⁻¹AS)x = b, then Sx is a solution to the system Ay = Sb.', "Låt A vara en n × n-matris och S en inverterbar n × n-matris. Om x är en lösning till systemet (S⁻¹AS)x = b, så är Sx en lösning till systemet Ay = Sb."),
+    tr('Let A be an n × n matrix. The linear system Ax = 4x has a unique solution if and only if A − 4I is an invertible matrix.', "Låt A vara en n × n-matris. Det linjära systemet Ax = 4x har en entydig lösning om och endast om A − 4I är en inverterbar matris."),
+    tr('Let A and B be n × n matrices. If A or B (or both) are not invertible, then neither is AB.', "Låt A och B vara n × n-matriser. Om A eller B, eller båda, inte är inverterbara, så är inte heller AB inverterbar.")
   ]),{steps:[
-    '(a) True. If u and v are distinct solutions, every u + t(v − u) also works: its image is b + t(b − b) = b. Different real t give infinitely many solutions, so there cannot be exactly two.',
-    '(b) True. A unique solution means the square coefficient matrix has a pivot in every variable column. Therefore A is invertible, and the new right side c has exactly one solution A⁻¹c.',
-    '(c) True. For square matrices, Theorem 1.6.3 makes a one-sided inverse a two-sided inverse. Thus B = A⁻¹ and BA = Iₙ.',
-    '(d) True. Elementary row operations preserve equations and can be reversed. Applying the same operations to the zero right-hand side keeps it zero, so the homogeneous solution sets agree.',
-    '(e) True. Multiply S⁻¹ASx = b on the left by S. The inverse pair cancels, giving A(Sx) = Sb. Thus y = Sx satisfies the claimed equation.',
-    '(f) True. Rewrite the equation as (A − 4I)x = 0. It always has x = 0. That solution is unique exactly when the square coefficient matrix A − 4I is invertible.',
-    '(g) True. If AB were invertible, Bx = 0 would imply ABx = 0 and hence x = 0, making B invertible. Then A = (AB)B⁻¹ would also be invertible. Thus a noninvertible factor prevents an invertible product.'
+    tr('(a) True. If u and v are distinct solutions, every u + t(v − u) also works: its image is b + t(b − b) = b. Different real t give infinitely many solutions, so there cannot be exactly two.', "(a) Sant. Om u och v är olika lösningar fungerar också varje u + t(v − u): dess bild är b + t(b − b) = b. Olika reella t ger oändligt många lösningar, så det kan inte finnas exakt två."),
+    tr('(b) True. A unique solution means the square coefficient matrix has a pivot in every variable column. Therefore A is invertible, and the new right side c has exactly one solution A⁻¹c.', "(b) Sant. En entydig lösning betyder att den kvadratiska koefficientmatrisen har ett pivotelement i varje variabelkolumn. Därför är A inverterbar, och det nya högerledet c har exakt en lösning A⁻¹c."),
+    tr('(c) True. For square matrices, Theorem 1.6.3 makes a one-sided inverse a two-sided inverse. Thus B = A⁻¹ and BA = Iₙ.', "(c) Sant. För kvadratiska matriser säger sats 1.6.3 att en ensidig invers också är en tvåsidig invers. Alltså är B = A⁻¹ och BA = Iₙ."),
+    tr('(d) True. Elementary row operations preserve equations and can be reversed. Applying the same operations to the zero right-hand side keeps it zero, so the homogeneous solution sets agree.', "(d) Sant. Elementära radoperationer bevarar ekvationerna och kan upphävas. Om samma operationer utförs på högerledet noll förblir det noll, så de homogena lösningsmängderna är lika."),
+    tr('(e) True. Multiply S⁻¹ASx = b on the left by S. The inverse pair cancels, giving A(Sx) = Sb. Thus y = Sx satisfies the claimed equation.', "(e) Sant. Multiplicera S⁻¹ASx = b från vänster med S. Inversparet tar ut varandra och ger A(Sx) = Sb. Därför uppfyller y = Sx den angivna ekvationen."),
+    tr('(f) True. Rewrite the equation as (A − 4I)x = 0. It always has x = 0. That solution is unique exactly when the square coefficient matrix A − 4I is invertible.', "(f) Sant. Skriv om ekvationen som (A − 4I)x = 0. Den har alltid lösningen x = 0. Den lösningen är entydig precis när den kvadratiska koefficientmatrisen A − 4I är inverterbar."),
+    tr('(g) True. If AB were invertible, Bx = 0 would imply ABx = 0 and hence x = 0, making B invertible. Then A = (AB)B⁻¹ would also be invertible. Thus a noninvertible factor prevents an invertible product.', "(g) Sant. Om AB vore inverterbar skulle Bx = 0 medföra ABx = 0 och därmed x = 0, vilket gör B inverterbar. Då skulle också A = (AB)B⁻¹ vara inverterbar. En icke-inverterbar faktor hindrar alltså produkten från att vara inverterbar.")
   ]});
-  p6('T1','Colors in print media, on computer monitors, and on television screens are implemented using what are called “color models.” For example, in the RGB model, colors are created by mixing percentages of red (R), green (G), and blue (B), and in the YIQ model (used in TV broadcasting), colors are created by mixing percentages of luminescence (Y) with percentages of a chrominance factor (I) and a chrominance factor (Q). The conversion from the RGB model to the YIQ model is accomplished by the matrix equation\n'+mat([['Y'],['I'],['Q']])+'\n=\n'+mat([['.299','.587','.114'],['.596','−.275','−.321'],['.212','−.523','.311']])+'\n×\n'+mat([['R'],['G'],['B']])+'\n\nWhat matrix would you use to convert the YIQ model to the RGB model?');
-  p6('T2','Let\n'+named('A',[[1,-2,2],[4,5,1],[0,3,-1]])+'\n\n'+named('B₁',[[0],[1],[7]])+'\n\n'+named('B₂',[[11],[5],[3]])+'\n\n'+named('B₃',[[1],[-4],[2]])+'\n\nSolve the linear systems Ax = B₁, Ax = B₂, Ax = B₃ using the method of Example 2.',{reference:'Example 2 solves systems sharing A by reducing the single augmented matrix [A | B₁ | B₂ | B₃]. Every row operation is applied to all right-hand-side columns. Read each solution from its own column after reduction.'});
+  p6('T1',tr('Colors in print media, on computer monitors, and on television screens are implemented using what are called “color models.” For example, in the RGB model, colors are created by mixing percentages of red (R), green (G), and blue (B), and in the YIQ model (used in TV broadcasting), colors are created by mixing percentages of luminescence (Y) with percentages of a chrominance factor (I) and a chrominance factor (Q). The conversion from the RGB model to the YIQ model is accomplished by the matrix equation\n', "Färger i tryckta medier, på datorskärmar och på TV-skärmar återges med så kallade färgmodeller. I RGB-modellen skapas till exempel färger genom att blanda andelar av rött (R), grönt (G) och blått (B). I YIQ-modellen, som används vid TV-sändningar, skapas färger genom att blanda andelar av luminans (Y) med andelar av krominansfaktorerna I och Q. Omvandlingen från RGB-modellen till YIQ-modellen görs med matrisekvationen\n")+mat([['Y'],['I'],['Q']])+'\n=\n'+mat([['.299','.587','.114'],['.596','−.275','−.321'],['.212','−.523','.311']])+'\n×\n'+mat([['R'],['G'],['B']])+tr('\n\nWhat matrix would you use to convert the YIQ model to the RGB model?', "\n\nVilken matris skulle du använda för att omvandla YIQ-modellen till RGB-modellen?"));
+  p6('T2',tr('Let\n', "Låt\n")+named('A',[[1,-2,2],[4,5,1],[0,3,-1]])+'\n\n'+named('B₁',[[0],[1],[7]])+'\n\n'+named('B₂',[[11],[5],[3]])+'\n\n'+named('B₃',[[1],[-4],[2]])+tr('\n\nSolve the linear systems Ax = B₁, Ax = B₂, Ax = B₃ using the method of Example 2.', "\n\nLös de linjära systemen Ax = B₁, Ax = B₂, Ax = B₃ med metoden i exempel 2."),{reference:tr('Example 2 solves systems sharing A by reducing the single augmented matrix [A | B₁ | B₂ | B₃]. Every row operation is applied to all right-hand-side columns. Read each solution from its own column after reduction.', "Exempel 2 löser system med samma A genom att reducera en enda utökad matris [A | B₁ | B₂ | B₃]. Varje radoperation utförs på alla högerledskolumner. Läs av varje lösning ur dess egen kolumn efter reduktionen.")});
 
-  const classify='Classify the matrix as upper triangular, lower triangular, or diagonal, and decide by inspection whether the matrix is invertible. Recall that a diagonal matrix is both upper and lower triangular, so there may be more than one answer in some parts.';
+  const classify=tr('Classify the matrix as upper triangular, lower triangular, or diagonal, and decide by inspection whether the matrix is invertible. Recall that a diagonal matrix is both upper and lower triangular, so there may be more than one answer in some parts.', "Klassificera matrisen som övertriangulär, undertriangulär eller diagonal, och avgör direkt genom att titta på den om den är inverterbar. Kom ihåg att en diagonalmatris är både övertriangulär och undertriangulär, så vissa delar kan ha fler än ett svar.");
   p7(1,classify+'\n\n'+parts([mat([[2,1],[0,3]]),mat([[0,0],[4,0]]),mat(diag([-1,2,'1/5'])),mat([[3,-2,7],[0,0,3],[0,0,8]])]),{steps:[
-    'The main diagonal runs from top left to bottom right. Upper triangular means all entries below it are zero; lower triangular means all entries above it are zero. Diagonal means both conditions hold.',
-    '(a) The entry below the diagonal is 0, so the matrix is upper triangular. Its diagonal entries 2 and 3 are nonzero, so it is invertible.',
-    '(b) The entry above the diagonal is 0, so it is lower triangular. Its two diagonal entries are 0, so it is not invertible.',
-    '(c) All entries off the diagonal are zero. It is diagonal, upper triangular and lower triangular. The diagonal is (−1,2,1/5); none is zero, so the matrix is invertible.',
-    '(d) All entries below the diagonal are zero, so it is upper triangular. The diagonal (3,0,8) contains zero, so it is not invertible. A zero anywhere else would not be enough to draw this conclusion; the diagonal is what matters.'
+    tr('The main diagonal runs from top left to bottom right. Upper triangular means all entries below it are zero; lower triangular means all entries above it are zero. Diagonal means both conditions hold.', "Huvuddiagonalen går från övre vänstra till nedre högra hörnet. Övertriangulär betyder att alla element under den är noll. Undertriangulär betyder att alla element över den är noll. Diagonal betyder att båda villkoren gäller."),
+    tr('(a) The entry below the diagonal is 0, so the matrix is upper triangular. Its diagonal entries 2 and 3 are nonzero, so it is invertible.', "(a) Elementet under diagonalen är 0, så matrisen är övertriangulär. Diagonalelementen 2 och 3 är skilda från noll, så den är inverterbar."),
+    tr('(b) The entry above the diagonal is 0, so it is lower triangular. Its two diagonal entries are 0, so it is not invertible.', "(b) Elementet ovanför diagonalen är 0, så den är undertriangulär. Dess två diagonalelement är 0, så den är inte inverterbar."),
+    tr('(c) All entries off the diagonal are zero. It is diagonal, upper triangular and lower triangular. The diagonal is (−1,2,1/5); none is zero, so the matrix is invertible.', "(c) Alla element utanför diagonalen är noll. Matrisen är diagonal, övertriangulär och undertriangulär. Diagonalen är (−1,2,1/5). Inget av talen är noll, så matrisen är inverterbar."),
+    tr('(d) All entries below the diagonal are zero, so it is upper triangular. The diagonal (3,0,8) contains zero, so it is not invertible. A zero anywhere else would not be enough to draw this conclusion; the diagonal is what matters.', "(d) Alla element under diagonalen är noll, så den är övertriangulär. Diagonalen (3,0,8) innehåller noll, så den är inte inverterbar. En nolla på någon annan plats skulle inte räcka för denna slutsats. Det är diagonalen som är avgörande.")
   ]});
   p7(2,classify+'\n\n'+parts([mat([[4,0],[1,7]]),mat([[0,-3],[0,0]]),mat(diag([4,'3/5',-2])),mat([[3,0,0],[3,1,0],[7,0,0]])]),{steps:[
-    'Look above and below the main diagonal separately. Then use the triangular-matrix rule: an inverse exists exactly when every diagonal entry is nonzero.',
-    '(a) The upper-right entry is 0, so this is lower triangular. Both diagonal entries 4 and 7 are nonzero; it is invertible.',
-    '(b) The lower-left entry is 0, so this is upper triangular. Its diagonal is (0,0), so it is singular, meaning it has no inverse.',
-    '(c) Only diagonal entries can be nonzero, so it is diagonal and both upper and lower triangular. The entries 4,3/5,−2 are nonzero, so it is invertible.',
-    '(d) Entries above the diagonal are zero, so this is lower triangular. The last diagonal entry is 0, so it is singular.'
+    tr('Look above and below the main diagonal separately. Then use the triangular-matrix rule: an inverse exists exactly when every diagonal entry is nonzero.', "Titta var för sig ovanför och under huvuddiagonalen. Använd sedan regeln för triangulära matriser: en invers finns precis när varje diagonalelement är skilt från noll."),
+    tr('(a) The upper-right entry is 0, so this is lower triangular. Both diagonal entries 4 and 7 are nonzero; it is invertible.', "(a) Elementet uppe till höger är 0, så matrisen är undertriangulär. Båda diagonalelementen 4 och 7 är skilda från noll. Den är inverterbar."),
+    tr('(b) The lower-left entry is 0, so this is upper triangular. Its diagonal is (0,0), so it is singular, meaning it has no inverse.', "(b) Elementet nere till vänster är 0, så matrisen är övertriangulär. Diagonalen är (0,0), så den är singulär, vilket betyder att den saknar invers."),
+    tr('(c) Only diagonal entries can be nonzero, so it is diagonal and both upper and lower triangular. The entries 4,3/5,−2 are nonzero, so it is invertible.', "(c) Bara diagonalelementen kan vara skilda från noll, så matrisen är diagonal och både övertriangulär och undertriangulär. Elementen 4,3/5,−2 är skilda från noll, så den är inverterbar."),
+    tr('(d) Entries above the diagonal are zero, so this is lower triangular. The last diagonal entry is 0, so it is singular.', "(d) Elementen ovanför diagonalen är noll, så matrisen är undertriangulär. Det sista diagonalelementet är 0, så den är singulär.")
   ]});
-  const productText=factors=>'Find the product by inspection.\n\n'+factors.map(mat).join('\n×\n');
+  const productText=factors=>tr('Find the product by inspection.\n\n', "Bestäm produkten direkt genom att titta på matriserna.\n\n")+factors.map(mat).join('\n×\n');
   p7(3,productText([diag([3,-1,2]),[[2,1],[-4,1],[2,5]]]));
   p7(4,productText([[[1,2,-5],[-3,-1,0]],diag([-4,3,2])]));
   p7(5,productText([diag([5,2,-3]),[[-3,2,0,4,-4],[1,-5,3,0,3],[-6,2,2,2,2]]]));
   p7(6,productText([diag([2,-1,4]),[[4,-1,3],[1,2,0],[-5,1,-2]],diag([-3,5,2])]));
-  [[1,-2],[-6,3,5],['1/2','1/3','1/4'],[-2,-4,-3,2]].forEach((d,i)=>p7(i+7,'Find A², A⁻², and A⁻ᵏ (where k is any integer) by inspection.\n\n'+named('A',diag(d)),{steps:[
-    'A diagonal matrix acts separately on each coordinate. When it multiplies another diagonal matrix, each diagonal entry multiplies only the entry in the same position. Every off-diagonal entry remains zero.',
-    'For A², square each diagonal entry: '+d.map(v=>'('+v+')²').join(', ')+'. In particular, squaring a negative number gives a positive number because its two minus signs cancel.',
-    'Every given diagonal entry is nonzero, so the inverse exists. To find A⁻¹, replace each diagonal entry d by 1/d; that reciprocal undoes multiplication by d.',
-    'Now square the inverse to obtain A⁻²: its diagonal entries are '+d.map(v=>'1/('+v+')²').join(', ')+'. For a fraction, taking its reciprocal swaps numerator and denominator before squaring.',
-    'For any integer k, the same rule gives A⁻ᵏ=diag('+d.map(v=>'1/('+v+')ᵏ').join(', ')+'). If k=0 this gives I; if k is negative the expression is an ordinary positive power of A. Keep the parentheses around negative bases.'
+  [[1,-2],[-6,3,5],['1/2','1/3','1/4'],[-2,-4,-3,2]].forEach((d,i)=>p7(i+7,tr('Find A², A⁻², and A⁻ᵏ (where k is any integer) by inspection.\n\n', "Bestäm A², A⁻² och A⁻ᵏ, där k är ett godtyckligt heltal, direkt genom att titta på matrisen.\n\n")+named('A',diag(d)),{steps:[
+    tr('A diagonal matrix acts separately on each coordinate. When it multiplies another diagonal matrix, each diagonal entry multiplies only the entry in the same position. Every off-diagonal entry remains zero.', "En diagonalmatris verkar på varje koordinat för sig. När den multipliceras med en annan diagonalmatris multipliceras varje diagonalelement bara med elementet på samma plats. Varje element utanför diagonalen förblir noll."),
+    tr('For A², square each diagonal entry: ', "För A² kvadrerar vi varje diagonalelement: ")+d.map(v=>'('+v+')²').join(', ')+tr('. In particular, squaring a negative number gives a positive number because its two minus signs cancel.', ". I synnerhet ger kvadrering av ett negativt tal ett positivt tal, eftersom de två minustecknen tar ut varandra."),
+    tr('Every given diagonal entry is nonzero, so the inverse exists. To find A⁻¹, replace each diagonal entry d by 1/d; that reciprocal undoes multiplication by d.', "Varje givet diagonalelement är skilt från noll, så inversen finns. För att få A⁻¹ ersätter vi varje diagonalelement d med 1/d. Det reciproka värdet upphäver multiplikation med d."),
+    tr('Now square the inverse to obtain A⁻²: its diagonal entries are ', "Kvadrera nu inversen för att få A⁻². Dess diagonalelement är ")+d.map(v=>'1/('+v+')²').join(', ')+tr('. For a fraction, taking its reciprocal swaps numerator and denominator before squaring.', ". För ett bråk betyder det reciproka värdet att täljare och nämnare byter plats före kvadreringen."),
+    tr('For any integer k, the same rule gives A⁻ᵏ=diag(', "För varje heltal k ger samma regel A⁻ᵏ=diag(")+d.map(v=>'1/('+v+')ᵏ').join(', ')+tr('). If k=0 this gives I; if k is negative the expression is an ordinary positive power of A. Keep the parentheses around negative bases.', "). Om k=0 får vi I. Om k är negativt är uttrycket en vanlig positiv potens av A. Behåll parenteserna runt negativa baser.")
   ]}));
-  p7(11,'Compute the product by inspection.\n\n'+[diag([1,0,3]),diag([2,5,0]),diag([0,2,1])].map(mat).join('\n×\n'));
-  p7(12,'Compute the product by inspection.\n\n'+[diag([-1,2,4]),diag([3,5,7]),diag([5,-2,3])].map(mat).join('\n×\n'));
-  p7(13,'Compute the indicated quantity.\n\n'+mat([[1,0],[0,-1]])+'\nraised to the power 39.',{steps:[
-    'The matrix is diagonal. When diagonal matrices multiply, each diagonal entry multiplies only the entry in its own position, so raise 1 and −1 to the 39th power separately.',
-    'The first diagonal entry is 1³⁹ = 1, because every factor equals 1.',
-    'For (−1)³⁹, group 38 factors into 19 pairs. Every pair gives (−1)(−1) = 1. One unpaired −1 remains, so the result is −1.',
-    'Keep zeros off the diagonal. The resulting matrix is [1 0; 0 −1]. As a check, two applications of this sign-flip matrix undo each other, so an odd number of applications leaves one sign flip.'
+  p7(11,tr('Compute the product by inspection.\n\n', "Beräkna produkten direkt genom att titta på matriserna.\n\n")+[diag([1,0,3]),diag([2,5,0]),diag([0,2,1])].map(mat).join('\n×\n'));
+  p7(12,tr('Compute the product by inspection.\n\n', "Beräkna produkten direkt genom att titta på matriserna.\n\n")+[diag([-1,2,4]),diag([3,5,7]),diag([5,-2,3])].map(mat).join('\n×\n'));
+  p7(13,tr('Compute the indicated quantity.\n\n', "Beräkna det angivna uttrycket.\n\n")+mat([[1,0],[0,-1]])+tr('\nraised to the power 39.', "\nupphöjd till 39."),{steps:[
+    tr('The matrix is diagonal. When diagonal matrices multiply, each diagonal entry multiplies only the entry in its own position, so raise 1 and −1 to the 39th power separately.', "Matrisen är diagonal. När diagonalmatriser multipliceras multipliceras varje diagonalelement bara med elementet på samma plats. Upphöj därför 1 och −1 till potensen 39 var för sig."),
+    tr('The first diagonal entry is 1³⁹ = 1, because every factor equals 1.', "Det första diagonalelementet är 1³⁹ = 1, eftersom varje faktor är 1."),
+    tr('For (−1)³⁹, group 38 factors into 19 pairs. Every pair gives (−1)(−1) = 1. One unpaired −1 remains, so the result is −1.', "För (−1)³⁹ grupperar vi 38 faktorer i 19 par. Varje par ger (−1)(−1) = 1. En ensam −1 återstår, så resultatet är −1."),
+    tr('Keep zeros off the diagonal. The resulting matrix is [1 0; 0 −1]. As a check, two applications of this sign-flip matrix undo each other, so an odd number of applications leaves one sign flip.', "Behåll nollor utanför diagonalen. Matrisen blir [1 0; 0 −1]. Som kontroll kan vi tänka att två tillämpningar av denna teckenbytande matris upphäver varandra. Ett udda antal tillämpningar lämnar alltså kvar ett teckenbyte.")
   ]});
-  p7(14,'Compute the indicated quantity.\n\n'+mat([[1,0],[0,-1]])+'\nraised to the power 1000.',{steps:[
-    'For a diagonal matrix, take the power of each diagonal entry separately and leave all off-diagonal entries zero.',
-    'Compute 1¹⁰⁰⁰ = 1. In (−1)¹⁰⁰⁰, group the 1000 negative factors into 500 pairs.',
-    'Each pair is (−1)(−1) = 1, so (−1)¹⁰⁰⁰ = 1. Therefore both diagonal entries become 1.',
-    'The answer is I₂ = [1 0; 0 1]. This makes sense: reversing the sign of the second coordinate an even number of times restores the original coordinate.'
+  p7(14,tr('Compute the indicated quantity.\n\n', "Beräkna det angivna uttrycket.\n\n")+mat([[1,0],[0,-1]])+tr('\nraised to the power 1000.', "\nupphöjd till 1000."),{steps:[
+    tr('For a diagonal matrix, take the power of each diagonal entry separately and leave all off-diagonal entries zero.', "För en diagonalmatris beräknar vi potensen av varje diagonalelement var för sig och låter alla element utanför diagonalen förbli noll."),
+    tr('Compute 1¹⁰⁰⁰ = 1. In (−1)¹⁰⁰⁰, group the 1000 negative factors into 500 pairs.', "Beräkna 1¹⁰⁰⁰ = 1. I (−1)¹⁰⁰⁰ grupperar vi de 1000 negativa faktorerna i 500 par."),
+    tr('Each pair is (−1)(−1) = 1, so (−1)¹⁰⁰⁰ = 1. Therefore both diagonal entries become 1.', "Varje par är (−1)(−1) = 1, så (−1)¹⁰⁰⁰ = 1. Båda diagonalelementen blir därför 1."),
+    tr('The answer is I₂ = [1 0; 0 1]. This makes sense: reversing the sign of the second coordinate an even number of times restores the original coordinate.', "Svaret är I₂ = [1 0; 0 1]. Detta är rimligt: om vi byter tecken på den andra koordinaten ett jämnt antal gånger återfår vi den ursprungliga koordinaten.")
   ]});
-  const symbolicProduct='Use what you have learned in this section about multiplying by diagonal matrices to compute the product by inspection.';
+  const symbolicProduct=tr('Use what you have learned in this section about multiplying by diagonal matrices to compute the product by inspection.', "Använd det du har lärt dig i detta avsnitt om multiplikation med diagonalmatriser för att beräkna produkten direkt genom att titta på matriserna.");
   p7(15,symbolicProduct+'\n\n'+parts([
     mat(diag(['a','b','c']))+'\n×\n'+mat([['u','v'],['w','x'],['y','z']]),
     mat([['r','s','t'],['u','v','w'],['x','y','z']])+'\n×\n'+mat(diag(['a','b','c']))
@@ -315,29 +316,29 @@
     mat(diag(['a','b','c']))+'\n×\n'+mat([['r','s','t'],['u','v','w'],['x','y','z']])
   ]));
   sets['1.7']['15'].steps=[
-    'A diagonal factor on the left scales rows. A diagonal factor on the right scales columns. This follows from row-by-column multiplication: the diagonal factor has only one possible nonzero entry in each row or column.',
-    '(a) Multiply row 1 by a: [u v] becomes [au av]. Multiply row 2 by b: [w x] becomes [bw bx]. Multiply row 3 by c: [y z] becomes [cy cz].',
-    '(b) Here the diagonal factor is on the right. Multiply column 1 by a, column 2 by b, and column 3 by c. The resulting rows are [ra sb tc], [ua vb wc], [xa yb zc].',
-    'Check the top-right entry in (b): row [r s t] times column [0 0 c] gives r×0+s×0+t×c=tc, confirming the column rule.'
+    tr('A diagonal factor on the left scales rows. A diagonal factor on the right scales columns. This follows from row-by-column multiplication: the diagonal factor has only one possible nonzero entry in each row or column.', "En diagonalfaktor till vänster skalar raderna. En diagonalfaktor till höger skalar kolumnerna. Detta följer av multiplikation rad för kolumn: diagonalfaktorn har bara ett möjligt element skilt från noll i varje rad eller kolumn."),
+    tr('(a) Multiply row 1 by a: [u v] becomes [au av]. Multiply row 2 by b: [w x] becomes [bw bx]. Multiply row 3 by c: [y z] becomes [cy cz].', "(a) Multiplicera rad 1 med a: [u v] blir [au av]. Multiplicera rad 2 med b: [w x] blir [bw bx]. Multiplicera rad 3 med c: [y z] blir [cy cz]."),
+    tr('(b) Here the diagonal factor is on the right. Multiply column 1 by a, column 2 by b, and column 3 by c. The resulting rows are [ra sb tc], [ua vb wc], [xa yb zc].', "(b) Här står diagonalfaktorn till höger. Multiplicera kolumn 1 med a, kolumn 2 med b och kolumn 3 med c. Raderna blir [ra sb tc], [ua vb wc], [xa yb zc]."),
+    tr('Check the top-right entry in (b): row [r s t] times column [0 0 c] gives r×0+s×0+t×c=tc, confirming the column rule.', "Kontrollera elementet uppe till höger i (b): raden [r s t] gånger kolumnen [0 0 c] ger r×0+s×0+t×c=tc, vilket bekräftar kolumnregeln.")
   ];
   sets['1.7']['16'].steps=[
-    'Locate the diagonal factor before multiplying: on the right it scales columns; on the left it scales rows.',
-    '(a) The factor diag(a,b) is on the right. The first column (u,w,y) becomes (au,aw,ay); the second column (v,x,z) becomes (bv,bx,bz). Therefore the rows are [au bv], [aw bx], [ay bz].',
-    '(b) The factor diag(a,b,c) is on the left. Multiply [r s t] by a, [u v w] by b, and [x y z] by c. The rows become [ar as at], [bu bv bw], [cx cy cz].',
-    'Check dimensions: part (a) remains 3 × 2 and part (b) remains 3 × 3. Diagonal scaling changes entries but does not change the number of rows or columns.'
+    tr('Locate the diagonal factor before multiplying: on the right it scales columns; on the left it scales rows.', "Lokalisera diagonalfaktorn före multiplikationen: till höger skalar den kolumnerna, till vänster skalar den raderna."),
+    tr('(a) The factor diag(a,b) is on the right. The first column (u,w,y) becomes (au,aw,ay); the second column (v,x,z) becomes (bv,bx,bz). Therefore the rows are [au bv], [aw bx], [ay bz].', "(a) Faktorn diag(a,b) står till höger. Den första kolumnen (u,w,y) blir (au,aw,ay), och den andra kolumnen (v,x,z) blir (bv,bx,bz). Raderna blir därför [au bv], [aw bx], [ay bz]."),
+    tr('(b) The factor diag(a,b,c) is on the left. Multiply [r s t] by a, [u v w] by b, and [x y z] by c. The rows become [ar as at], [bu bv bw], [cx cy cz].', "(b) Faktorn diag(a,b,c) står till vänster. Multiplicera [r s t] med a, [u v w] med b och [x y z] med c. Raderna blir [ar as at], [bu bv bw], [cx cy cz]."),
+    tr('Check dimensions: part (a) remains 3 × 2 and part (b) remains 3 × 3. Diagonal scaling changes entries but does not change the number of rows or columns.', "Kontrollera dimensionerna: del (a) är fortfarande 3 × 2 och del (b) fortfarande 3 × 3. Diagonal skalning ändrar elementen men inte antalet rader eller kolumner.")
   ];
-  const completeSym='Create a symmetric matrix by substituting appropriate numbers for the ×’s.';
+  const completeSym=tr('Create a symmetric matrix by substituting appropriate numbers for the ×’s.', "Skapa en symmetrisk matris genom att ersätta ×-symbolerna med lämpliga tal.");
   p7(17,completeSym+'\n\n'+parts([mat([[2,-1],['×',3]]),mat([[1,'×','×','×'],[3,1,'×','×'],[7,-8,0,'×'],[2,-3,9,0]])]),{steps:[
-    'In a symmetric matrix, the entry in row i, column j equals the entry in row j, column i. These positions are mirror partners across the main diagonal.',
-    '(a) The entry above the diagonal is −1. Put −1 in the missing position below it. The completed rows are [2 −1] and [−1 3].',
-    '(b) Read the given entries below the diagonal and copy them to their partners above it: a₁₂ = 3, a₁₃ = 7, a₁₄ = 2, a₂₃ = −8, a₂₄ = −3, a₃₄ = 9.',
-    'The completed rows are [1 3 7 2], [3 1 −8 −3], [7 −8 0 9], [2 −3 9 0]. Check that each column now matches the corresponding row. The original diagonal entries stay unchanged.'
+    tr('In a symmetric matrix, the entry in row i, column j equals the entry in row j, column i. These positions are mirror partners across the main diagonal.', "I en symmetrisk matris är elementet på rad i, kolumn j lika med elementet på rad j, kolumn i. Dessa platser är varandras spegelbilder över huvuddiagonalen."),
+    tr('(a) The entry above the diagonal is −1. Put −1 in the missing position below it. The completed rows are [2 −1] and [−1 3].', "(a) Elementet ovanför diagonalen är −1. Sätt −1 på den saknade platsen nedanför. De färdiga raderna är [2 −1] och [−1 3]."),
+    tr('(b) Read the given entries below the diagonal and copy them to their partners above it: a₁₂ = 3, a₁₃ = 7, a₁₄ = 2, a₂₃ = −8, a₂₄ = −3, a₃₄ = 9.', "(b) Läs av de givna elementen under diagonalen och kopiera dem till deras spegelplatser ovanför: a₁₂ = 3, a₁₃ = 7, a₁₄ = 2, a₂₃ = −8, a₂₄ = −3, a₃₄ = 9."),
+    tr('The completed rows are [1 3 7 2], [3 1 −8 −3], [7 −8 0 9], [2 −3 9 0]. Check that each column now matches the corresponding row. The original diagonal entries stay unchanged.', "De färdiga raderna är [1 3 7 2], [3 1 −8 −3], [7 −8 0 9], [2 −3 9 0]. Kontrollera att varje kolumn nu stämmer med motsvarande rad. De ursprungliga diagonalelementen förblir oförändrade.")
   ]});
   p7(18,completeSym+'\n\n'+parts([mat([[0,'×'],[3,0]]),mat([[1,7,-3,2],['×',4,5,-7],['×','×',1,-6],['×','×','×',3]])]),{steps:[
-    'Use aᵢⱼ = aⱼᵢ: every entry must match its reflected partner across the diagonal.',
-    '(a) The lower-left entry is 3, so fill the upper-right entry with 3. This gives rows [0 3] and [3 0].',
-    '(b) Copy 7,−3,2 from row 1 into the first column below the diagonal. Next copy 5,−7 from row 2 into column 2 below the diagonal. Finally copy −6 from row 3 into the remaining position.',
-    'The completed rows are [1 7 −3 2], [7 4 5 −7], [−3 5 1 −6], [2 −7 −6 3]. Check one pair at a time, including the negative signs.'
+    tr('Use aᵢⱼ = aⱼᵢ: every entry must match its reflected partner across the diagonal.', "Använd aᵢⱼ = aⱼᵢ: varje element måste stämma med sin spegelbild över diagonalen."),
+    tr('(a) The lower-left entry is 3, so fill the upper-right entry with 3. This gives rows [0 3] and [3 0].', "(a) Elementet nere till vänster är 3, så fyll i 3 uppe till höger. Detta ger raderna [0 3] och [3 0]."),
+    tr('(b) Copy 7,−3,2 from row 1 into the first column below the diagonal. Next copy 5,−7 from row 2 into column 2 below the diagonal. Finally copy −6 from row 3 into the remaining position.', "(b) Kopiera 7,−3,2 från rad 1 till första kolumnen under diagonalen. Kopiera sedan 5,−7 från rad 2 till kolumn 2 under diagonalen. Kopiera slutligen −6 från rad 3 till den återstående platsen."),
+    tr('The completed rows are [1 7 −3 2], [7 4 5 −7], [−3 5 1 −6], [2 −7 −6 3]. Check one pair at a time, including the negative signs.', "De färdiga raderna är [1 7 −3 2], [7 4 5 −7], [−3 5 1 −6], [2 −7 −6 3]. Kontrollera ett par i taget, inklusive minustecknen.")
   ]});
   [
     [[0,6,-1],[0,7,-4],[0,0,-2]], [[-1,2,4],[0,3,0],[0,0,5]],
@@ -345,195 +346,195 @@
     [[2,0,0,0],[-3,-1,0,0],[-4,-6,0,0],[0,3,8,-5]]
   ].forEach((a,i)=>{
     const d=a.map((row,j)=>row[j]),upper=i<2,zero=d.includes(0);
-    p7(i+19,'Determine by inspection whether the matrix is invertible.\n\n'+mat(a),{steps:[
-      'This matrix is '+(upper?'upper':'lower')+' triangular: every entry '+(upper?'below':'above')+' the main diagonal is zero. The main diagonal runs from the upper-left corner to the lower-right corner.',
-      'Read its diagonal entries: '+d.join(', ')+'. For a triangular square matrix, an inverse exists exactly when each diagonal entry is nonzero. Nonzero diagonal entries allow a pivot for every variable, so successive substitution can undo the matrix’s action.',
-      zero?'Here the diagonal contains 0. Thus the matrix does not have a pivot for every variable and cannot be inverted. It is singular, which means “has no inverse.”':'Every diagonal entry is nonzero. Negative entries are allowed; only zero would fail the rule. Therefore the matrix is invertible.'
+    p7(i+19,tr('Determine by inspection whether the matrix is invertible.\n\n', "Avgör direkt genom att titta på matrisen om den är inverterbar.\n\n")+mat(a),{steps:[
+      tr('This matrix is ', "Denna matris är ")+(upper?tr('upper', "över"):tr('lower', "under"))+tr(' triangular: every entry ', "triangulär: varje element ")+(upper?tr('below', "under"):tr('above', "över"))+tr(' the main diagonal is zero. The main diagonal runs from the upper-left corner to the lower-right corner.', " huvuddiagonalen är noll. Huvuddiagonalen går från övre vänstra till nedre högra hörnet."),
+      tr('Read its diagonal entries: ', "Läs av diagonalelementen: ")+d.join(', ')+tr('. For a triangular square matrix, an inverse exists exactly when each diagonal entry is nonzero. Nonzero diagonal entries allow a pivot for every variable, so successive substitution can undo the matrix’s action.', ". För en triangulär kvadratisk matris finns en invers precis när varje diagonalelement är skilt från noll. Diagonalelement skilda från noll ger ett pivotelement för varje variabel, så successiv substitution kan upphäva matrisens verkan."),
+      zero?tr('Here the diagonal contains 0. Thus the matrix does not have a pivot for every variable and cannot be inverted. It is singular, which means “has no inverse.”', "Här innehåller diagonalen 0. Matrisen har därför inte ett pivotelement för varje variabel och kan inte inverteras. Den är singulär, vilket betyder att den saknar invers."):tr('Every diagonal entry is nonzero. Negative entries are allowed; only zero would fail the rule. Therefore the matrix is invertible.', "Varje diagonalelement är skilt från noll. Negativa element är tillåtna. Det är bara noll som inte uppfyller regeln. Därför är matrisen inverterbar.")
     ]});
   });
-  p7(23,'Find the diagonal entries of AB by inspection.\n\n'+named('A',[[3,2,6],[0,1,-2],[0,0,-1]])+'\n\n'+named('B',[[-1,2,7],[0,5,3],[0,0,6]]),{steps:[
-    'Both factors are upper triangular. For such factors, a diagonal entry of AB is the product of the corresponding diagonal entries of A and B.',
-    'At position (1,1), the row-column calculation is 3×(−1) + 2×0 + 6×0 = −3.',
-    'At position (2,2), it is 0×2 + 1×5 + (−2)×0 = 5.',
-    'At position (3,3), it is 0×7 + 0×3 + (−1)×6 = −6. Thus the diagonal entries are −3,5,−6; there is no need to calculate the other entries.'
+  p7(23,tr('Find the diagonal entries of AB by inspection.\n\n', "Bestäm diagonalelementen i AB direkt genom att titta på matriserna.\n\n")+named('A',[[3,2,6],[0,1,-2],[0,0,-1]])+'\n\n'+named('B',[[-1,2,7],[0,5,3],[0,0,6]]),{steps:[
+    tr('Both factors are upper triangular. For such factors, a diagonal entry of AB is the product of the corresponding diagonal entries of A and B.', "Båda faktorerna är övertriangulära. För sådana faktorer är ett diagonalelement i AB produkten av motsvarande diagonalelement i A och B."),
+    tr('At position (1,1), the row-column calculation is 3×(−1) + 2×0 + 6×0 = −3.', "På plats (1,1) är beräkningen rad för kolumn 3×(−1) + 2×0 + 6×0 = −3."),
+    tr('At position (2,2), it is 0×2 + 1×5 + (−2)×0 = 5.', "På plats (2,2) är den 0×2 + 1×5 + (−2)×0 = 5."),
+    tr('At position (3,3), it is 0×7 + 0×3 + (−1)×6 = −6. Thus the diagonal entries are −3,5,−6; there is no need to calculate the other entries.', "På plats (3,3) är den 0×7 + 0×3 + (−1)×6 = −6. Diagonalelementen är alltså −3,5,−6. Vi behöver inte beräkna de andra elementen.")
   ]});
-  p7(24,'Find the diagonal entries of AB by inspection.\n\n'+named('A',[[4,0,0],[-2,0,0],[-3,0,7]])+'\n\n'+named('B',[[6,0,0],[1,5,0],[3,2,6]]),{steps:[
-    'Both matrices are lower triangular. In the row-column sum for a diagonal entry, every term except the matching diagonal pair contains a zero.',
-    'The first diagonal entry is 4×6 = 24.',
-    'The second diagonal entry is 0×5 = 0. Multiplying does not remove that zero.',
-    'The third diagonal entry is 7×6 = 42. Therefore the diagonal of AB is (24,0,42).'
+  p7(24,tr('Find the diagonal entries of AB by inspection.\n\n', "Bestäm diagonalelementen i AB direkt genom att titta på matriserna.\n\n")+named('A',[[4,0,0],[-2,0,0],[-3,0,7]])+'\n\n'+named('B',[[6,0,0],[1,5,0],[3,2,6]]),{steps:[
+    tr('Both matrices are lower triangular. In the row-column sum for a diagonal entry, every term except the matching diagonal pair contains a zero.', "Båda matriserna är undertriangulära. I summan rad för kolumn för ett diagonalelement innehåller varje term utom det matchande diagonalparet en nolla."),
+    tr('The first diagonal entry is 4×6 = 24.', "Det första diagonalelementet är 4×6 = 24."),
+    tr('The second diagonal entry is 0×5 = 0. Multiplying does not remove that zero.', "Det andra diagonalelementet är 0×5 = 0. Multiplikationen tar inte bort den nollan."),
+    tr('The third diagonal entry is 7×6 = 42. Therefore the diagonal of AB is (24,0,42).', "Det tredje diagonalelementet är 7×6 = 42. Diagonalen i AB är därför (24,0,42).")
   ]});
-  p7(25,'Find all values of the unknown constant(s) for which A is symmetric.\n\n'+named('A',[[4,-3],['a+5',-1]]),{steps:[
-    'For a 2 × 2 matrix, the only off-diagonal pair is the upper-right and lower-left entries. Symmetry requires them to be equal.',
-    'Write a + 5 = −3. Subtract 5 from both sides so the equation stays balanced: a = −3 − 5 = −8.',
-    'Check by substituting a = −8: the lower-left entry becomes −8 + 5 = −3, matching the upper-right entry. Thus a = −8 is the required value.'
+  p7(25,tr('Find all values of the unknown constant(s) for which A is symmetric.\n\n', "Bestäm alla värden på den eller de okända konstanterna för vilka A är symmetrisk.\n\n")+named('A',[[4,-3],['a+5',-1]]),{steps:[
+    tr('For a 2 × 2 matrix, the only off-diagonal pair is the upper-right and lower-left entries. Symmetry requires them to be equal.', "För en 2 × 2-matris är det enda paret utanför diagonalen elementen uppe till höger och nere till vänster. Symmetri kräver att de är lika."),
+    tr('Write a + 5 = −3. Subtract 5 from both sides so the equation stays balanced: a = −3 − 5 = −8.', "Skriv a + 5 = −3. Subtrahera 5 från båda sidor så att ekvationen förblir balanserad: a = −3 − 5 = −8."),
+    tr('Check by substituting a = −8: the lower-left entry becomes −8 + 5 = −3, matching the upper-right entry. Thus a = −8 is the required value.', "Kontrollera genom att sätta in a = −8: elementet nere till vänster blir −8 + 5 = −3, vilket stämmer med elementet uppe till höger. Alltså är a = −8 det sökta värdet.")
   ]});
-  p7(26,'Find all values of the unknown constant(s) for which A is symmetric.\n\n'+named('A',[[2,'a − 2b + 2c','2a + b + c'],[3,5,'a + c'],[0,-2,7]]));
-  p7(27,'Find all values of x for which A is invertible.\n\n'+named('A',[['x−1','x²','x⁴'],[0,'x+2','x³'],[0,0,'x−4']]),{steps:[
-    'This is upper triangular because every entry below the main diagonal is zero. Such a matrix is invertible exactly when all diagonal entries are nonzero.',
-    'Read the diagonal: x−1, x+2, x−4. The powers above the diagonal do not affect this test.',
-    'Solve each forbidden equality separately: x−1=0 gives x=1; x+2=0 gives x=−2; x−4=0 gives x=4.',
-    'Exclude those three values. Every other real x leaves three nonzero pivots and therefore an invertible matrix.'
+  p7(26,tr('Find all values of the unknown constant(s) for which A is symmetric.\n\n', "Bestäm alla värden på den eller de okända konstanterna för vilka A är symmetrisk.\n\n")+named('A',[[2,'a − 2b + 2c','2a + b + c'],[3,5,'a + c'],[0,-2,7]]));
+  p7(27,tr('Find all values of x for which A is invertible.\n\n', "Bestäm alla värden på x för vilka A är inverterbar.\n\n")+named('A',[['x−1','x²','x⁴'],[0,'x+2','x³'],[0,0,'x−4']]),{steps:[
+    tr('This is upper triangular because every entry below the main diagonal is zero. Such a matrix is invertible exactly when all diagonal entries are nonzero.', "Matrisen är övertriangulär eftersom varje element under huvuddiagonalen är noll. En sådan matris är inverterbar precis när alla diagonalelement är skilda från noll."),
+    tr('Read the diagonal: x−1, x+2, x−4. The powers above the diagonal do not affect this test.', "Läs av diagonalen: x−1, x+2, x−4. Potenserna ovanför diagonalen påverkar inte detta test."),
+    tr('Solve each forbidden equality separately: x−1=0 gives x=1; x+2=0 gives x=−2; x−4=0 gives x=4.', "Lös varje otillåten likhet för sig: x−1=0 ger x=1, x+2=0 ger x=−2 och x−4=0 ger x=4."),
+    tr('Exclude those three values. Every other real x leaves three nonzero pivots and therefore an invertible matrix.', "Uteslut dessa tre värden. Varje annat reellt x ger tre pivotelement skilda från noll och därmed en inverterbar matris.")
   ]});
-  p7(28,'Find all values of x for which A is invertible.\n\n'+named('A',[['x−1/2',0,0],['x','x−1/3',0],['x²','x³','x+1/4']]),{steps:[
-    'The matrix is lower triangular. Read its diagonal, not the entries below it: x−1/2, x−1/3, x+1/4.',
-    'Invertibility requires x−1/2 ≠ 0, x−1/3 ≠ 0 and x+1/4 ≠ 0 simultaneously.',
-    'The excluded values are x=1/2, x=1/3 and x=−1/4. Every other real value makes all diagonal entries nonzero.',
-    'For a quick check, x=0 is allowed: its diagonal is (−1/2,−1/3,1/4), which contains no zero.'
+  p7(28,tr('Find all values of x for which A is invertible.\n\n', "Bestäm alla värden på x för vilka A är inverterbar.\n\n")+named('A',[['x−1/2',0,0],['x','x−1/3',0],['x²','x³','x+1/4']]),{steps:[
+    tr('The matrix is lower triangular. Read its diagonal, not the entries below it: x−1/2, x−1/3, x+1/4.', "Matrisen är undertriangulär. Läs av diagonalen, inte elementen under den: x−1/2, x−1/3, x+1/4."),
+    tr('Invertibility requires x−1/2 ≠ 0, x−1/3 ≠ 0 and x+1/4 ≠ 0 simultaneously.', "Inverterbarhet kräver att x−1/2 ≠ 0, x−1/3 ≠ 0 och x+1/4 ≠ 0 gäller samtidigt."),
+    tr('The excluded values are x=1/2, x=1/3 and x=−1/4. Every other real value makes all diagonal entries nonzero.', "De uteslutna värdena är x=1/2, x=1/3 och x=−1/4. Varje annat reellt värde gör alla diagonalelement skilda från noll."),
+    tr('For a quick check, x=0 is allowed: its diagonal is (−1/2,−1/3,1/4), which contains no zero.', "Som snabb kontroll är x=0 tillåtet: diagonalen är då (−1/2,−1/3,1/4), som inte innehåller någon nolla.")
   ]});
-  p7(29,'If A is an invertible upper triangular or lower triangular matrix, what can you say about the diagonal entries of A⁻¹?',{steps:[
-    'Name the inverse C=A⁻¹. The inverse of an invertible triangular matrix is triangular of the same type. Thus A and C are either both upper triangular or both lower triangular.',
-    'By definition, AC=I. For two triangular factors of the same type, diagonal entry i of the product is aᵢᵢcᵢᵢ; other terms in its row-column sum contain zeros.',
-    'The matching diagonal entry of I is 1, so aᵢᵢcᵢᵢ=1. Every aᵢᵢ is nonzero because A is invertible, so division gives cᵢᵢ=1/aᵢᵢ.',
-    'Thus each inverse diagonal entry is the reciprocal of the original one. This statement concerns the diagonal; it does not say to take reciprocals of every entry in A.'
+  p7(29,tr('If A is an invertible upper triangular or lower triangular matrix, what can you say about the diagonal entries of A⁻¹?', "Om A är en inverterbar övertriangulär eller undertriangulär matris, vad kan du säga om diagonalelementen i A⁻¹?"),{steps:[
+    tr('Name the inverse C=A⁻¹. The inverse of an invertible triangular matrix is triangular of the same type. Thus A and C are either both upper triangular or both lower triangular.', "Kalla inversen C=A⁻¹. Inversen till en inverterbar triangulär matris är triangulär av samma typ. A och C är alltså antingen båda övertriangulära eller båda undertriangulära."),
+    tr('By definition, AC=I. For two triangular factors of the same type, diagonal entry i of the product is aᵢᵢcᵢᵢ; other terms in its row-column sum contain zeros.', "Enligt definitionen är AC=I. För två triangulära faktorer av samma typ är diagonalelement i i produkten aᵢᵢcᵢᵢ. De andra termerna i dess summa rad för kolumn innehåller nollor."),
+    tr('The matching diagonal entry of I is 1, so aᵢᵢcᵢᵢ=1. Every aᵢᵢ is nonzero because A is invertible, so division gives cᵢᵢ=1/aᵢᵢ.', "Motsvarande diagonalelement i I är 1, så aᵢᵢcᵢᵢ=1. Varje aᵢᵢ är skilt från noll eftersom A är inverterbar, så division ger cᵢᵢ=1/aᵢᵢ."),
+    tr('Thus each inverse diagonal entry is the reciprocal of the original one. This statement concerns the diagonal; it does not say to take reciprocals of every entry in A.', "Varje diagonalelement i inversen är alltså det reciproka värdet av det ursprungliga elementet. Påståendet gäller diagonalen. Det säger inte att vi ska ta det reciproka värdet av varje element i A.")
   ]});
-  p7(30,'Show that if A is a symmetric n × n matrix and B is any n × m matrix, then the following products are symmetric:\nBᵀB, BBᵀ, BᵀAB.',{steps:[
-    'A square matrix X is symmetric when Xᵀ=X. The products have sizes m × m, n × n and m × m respectively, so each can be tested for symmetry.',
-    'Use the transpose rule (XY)ᵀ=YᵀXᵀ: reverse the order of factors and transpose each one. Also, (Bᵀ)ᵀ=B because exchanging rows and columns twice restores B.',
-    'For the first product, (BᵀB)ᵀ=Bᵀ(Bᵀ)ᵀ=BᵀB. It equals its transpose, so it is symmetric.',
-    'For the second, (BBᵀ)ᵀ=(Bᵀ)ᵀBᵀ=BBᵀ. It is also symmetric.',
-    'For the third, (BᵀAB)ᵀ=BᵀAᵀ(Bᵀ)ᵀ=BᵀAB. The final equality uses Aᵀ=A, which is the given symmetry of A. All three required products are symmetric.'
+  p7(30,tr('Show that if A is a symmetric n × n matrix and B is any n × m matrix, then the following products are symmetric:\nBᵀB, BBᵀ, BᵀAB.', "Visa att om A är en symmetrisk n × n-matris och B är en godtycklig n × m-matris, så är följande produkter symmetriska:\nBᵀB, BBᵀ, BᵀAB."),{steps:[
+    tr('A square matrix X is symmetric when Xᵀ=X. The products have sizes m × m, n × n and m × m respectively, so each can be tested for symmetry.', "En kvadratisk matris X är symmetrisk när Xᵀ=X. Produkterna har storlekarna m × m, n × n respektive m × m, så var och en kan prövas för symmetri."),
+    tr('Use the transpose rule (XY)ᵀ=YᵀXᵀ: reverse the order of factors and transpose each one. Also, (Bᵀ)ᵀ=B because exchanging rows and columns twice restores B.', "Använd transponeringsregeln (XY)ᵀ=YᵀXᵀ: vänd faktorernas ordning och transponera var och en. Dessutom är (Bᵀ)ᵀ=B, eftersom två byten mellan rader och kolumner återställer B."),
+    tr('For the first product, (BᵀB)ᵀ=Bᵀ(Bᵀ)ᵀ=BᵀB. It equals its transpose, so it is symmetric.', "För den första produkten är (BᵀB)ᵀ=Bᵀ(Bᵀ)ᵀ=BᵀB. Den är lika med sitt transponat och är därför symmetrisk."),
+    tr('For the second, (BBᵀ)ᵀ=(Bᵀ)ᵀBᵀ=BBᵀ. It is also symmetric.', "För den andra är (BBᵀ)ᵀ=(Bᵀ)ᵀBᵀ=BBᵀ. Den är också symmetrisk."),
+    tr('For the third, (BᵀAB)ᵀ=BᵀAᵀ(Bᵀ)ᵀ=BᵀAB. The final equality uses Aᵀ=A, which is the given symmetry of A. All three required products are symmetric.', "För den tredje är (BᵀAB)ᵀ=BᵀAᵀ(Bᵀ)ᵀ=BᵀAB. Den sista likheten använder Aᵀ=A, det vill säga den givna symmetrin hos A. Alla tre efterfrågade produkter är symmetriska.")
   ]});
-  p7(31,'Find a diagonal matrix A that satisfies the given condition.\n\nA⁵ =\n'+mat(diag([1,-1,-1])),{steps:[
-    'Write A = diag(a,b,c). This means a,b,c are on the main diagonal and all other entries are zero.',
-    'The fifth power is diag(a⁵,b⁵,c⁵), so compare entries: a⁵=1, b⁵=−1, c⁵=−1.',
-    'For real numbers an odd power keeps the sign and has one real root. Therefore a=1, b=−1 and c=−1.',
-    'Substitute back: 1⁵=1 and (−1)⁵=−1. Thus A=diag(1,−1,−1) satisfies the condition.'
+  p7(31,tr('Find a diagonal matrix A that satisfies the given condition.\n\nA⁵ =\n', "Hitta en diagonalmatris A som uppfyller det givna villkoret.\n\nA⁵ =\n")+mat(diag([1,-1,-1])),{steps:[
+    tr('Write A = diag(a,b,c). This means a,b,c are on the main diagonal and all other entries are zero.', "Skriv A = diag(a,b,c). Det betyder att a,b,c står på huvuddiagonalen och att alla andra element är noll."),
+    tr('The fifth power is diag(a⁵,b⁵,c⁵), so compare entries: a⁵=1, b⁵=−1, c⁵=−1.', "Den femte potensen är diag(a⁵,b⁵,c⁵), så jämför elementen: a⁵=1, b⁵=−1, c⁵=−1."),
+    tr('For real numbers an odd power keeps the sign and has one real root. Therefore a=1, b=−1 and c=−1.', "För reella tal behåller en udda potens tecknet och har en reell rot. Därför är a=1, b=−1 och c=−1."),
+    tr('Substitute back: 1⁵=1 and (−1)⁵=−1. Thus A=diag(1,−1,−1) satisfies the condition.', "Sätt in tillbaka: 1⁵=1 och (−1)⁵=−1. Alltså uppfyller A=diag(1,−1,−1) villkoret.")
   ]});
-  p7(32,'Find a diagonal matrix A that satisfies the given condition.\n\nA⁻² =\n'+mat(diag([9,4,1])),{steps:[
-    'Write A = diag(a,b,c), with nonzero entries because the negative power requires an inverse. Then A⁻² = diag(1/a²,1/b²,1/c²).',
-    'Compare diagonal entries: 1/a²=9, 1/b²=4 and 1/c²=1. Taking reciprocals gives a²=1/9, b²=1/4 and c²=1.',
-    'Both positive and negative square roots work: a=±1/3, b=±1/2 and c=±1. The signs can be chosen independently.',
-    'One requested example is A=diag(1/3,1/2,1). More generally all eight independent sign choices work, because squaring removes their signs.'
+  p7(32,tr('Find a diagonal matrix A that satisfies the given condition.\n\nA⁻² =\n', "Hitta en diagonalmatris A som uppfyller det givna villkoret.\n\nA⁻² =\n")+mat(diag([9,4,1])),{steps:[
+    tr('Write A = diag(a,b,c), with nonzero entries because the negative power requires an inverse. Then A⁻² = diag(1/a²,1/b²,1/c²).', "Skriv A = diag(a,b,c), med element skilda från noll eftersom den negativa potensen kräver en invers. Då är A⁻² = diag(1/a²,1/b²,1/c²)."),
+    tr('Compare diagonal entries: 1/a²=9, 1/b²=4 and 1/c²=1. Taking reciprocals gives a²=1/9, b²=1/4 and c²=1.', "Jämför diagonalelementen: 1/a²=9, 1/b²=4 och 1/c²=1. Ta reciproka värden så får vi a²=1/9, b²=1/4 och c²=1."),
+    tr('Both positive and negative square roots work: a=±1/3, b=±1/2 and c=±1. The signs can be chosen independently.', "Både positiva och negativa kvadratrötter fungerar: a=±1/3, b=±1/2 och c=±1. Tecknen kan väljas oberoende av varandra."),
+    tr('One requested example is A=diag(1/3,1/2,1). More generally all eight independent sign choices work, because squaring removes their signs.', "Ett efterfrågat exempel är A=diag(1/3,1/2,1). Mer allmänt fungerar alla åtta oberoende teckenval, eftersom tecknen försvinner när talen kvadreras.")
   ]});
-  p7(33,'Verify Theorem 1.7.1(b) for the matrix product AB and Theorem 1.7.1(d) for the matrix A, where\n\n'+named('A',[[-1,2,5],[0,1,3],[0,0,-4]])+'\n\n'+named('B',[[2,-8,0],[0,2,1],[0,0,3]]),{reference:'Theorem 1.7.1(b): a product of upper triangular matrices is upper triangular, and a product of lower triangular matrices is lower triangular. Part (d): the inverse of an invertible triangular matrix is triangular of the same type.'});
-  p7(34,'Let A be an n × n symmetric matrix.\n(a) Show that A² is symmetric.\n(b) Show that 2A² − 3A + I is symmetric.',{steps:[
-    'The assumption “A is symmetric” means Aᵀ=A. To show a new matrix is symmetric, calculate its transpose and show that it is unchanged.',
-    '(a) Since A²=AA, the product rule gives (A²)ᵀ=AᵀAᵀ. Substitute Aᵀ=A to obtain (A²)ᵀ=AA=A². This proves the first claim.',
-    '(b) Transposition distributes over sums and scalar multiples: (2A²−3A+I)ᵀ=2(A²)ᵀ−3Aᵀ+Iᵀ.',
-    'Use part (a), the assumption Aᵀ=A, and Iᵀ=I. The result is 2A²−3A+I again. Therefore the second matrix also equals its transpose and is symmetric.'
+  p7(33,tr('Verify Theorem 1.7.1(b) for the matrix product AB and Theorem 1.7.1(d) for the matrix A, where\n\n', "Verifiera sats 1.7.1(b) för matrisprodukten AB och sats 1.7.1(d) för matrisen A, där\n\n")+named('A',[[-1,2,5],[0,1,3],[0,0,-4]])+'\n\n'+named('B',[[2,-8,0],[0,2,1],[0,0,3]]),{reference:tr('Theorem 1.7.1(b): a product of upper triangular matrices is upper triangular, and a product of lower triangular matrices is lower triangular. Part (d): the inverse of an invertible triangular matrix is triangular of the same type.', "Sats 1.7.1(b): en produkt av övertriangulära matriser är övertriangulär, och en produkt av undertriangulära matriser är undertriangulär. Del (d): inversen till en inverterbar triangulär matris är triangulär av samma typ.")});
+  p7(34,tr('Let A be an n × n symmetric matrix.\n(a) Show that A² is symmetric.\n(b) Show that 2A² − 3A + I is symmetric.', "Låt A vara en symmetrisk n × n-matris.\n(a) Visa att A² är symmetrisk.\n(b) Visa att 2A² − 3A + I är symmetrisk."),{steps:[
+    tr('The assumption “A is symmetric” means Aᵀ=A. To show a new matrix is symmetric, calculate its transpose and show that it is unchanged.', "Förutsättningen att A är symmetrisk betyder Aᵀ=A. För att visa att en ny matris är symmetrisk beräknar vi dess transponat och visar att matrisen är oförändrad."),
+    tr('(a) Since A²=AA, the product rule gives (A²)ᵀ=AᵀAᵀ. Substitute Aᵀ=A to obtain (A²)ᵀ=AA=A². This proves the first claim.', "(a) Eftersom A²=AA ger produktregeln (A²)ᵀ=AᵀAᵀ. Sätt in Aᵀ=A så får vi (A²)ᵀ=AA=A². Det bevisar det första påståendet."),
+    tr('(b) Transposition distributes over sums and scalar multiples: (2A²−3A+I)ᵀ=2(A²)ᵀ−3Aᵀ+Iᵀ.', "(b) Transponering fördelas över summor och skalärmultiplar: (2A²−3A+I)ᵀ=2(A²)ᵀ−3Aᵀ+Iᵀ."),
+    tr('Use part (a), the assumption Aᵀ=A, and Iᵀ=I. The result is 2A²−3A+I again. Therefore the second matrix also equals its transpose and is symmetric.', "Använd del (a), förutsättningen Aᵀ=A och Iᵀ=I. Resultatet blir återigen 2A²−3A+I. Även den andra matrisen är alltså lika med sitt transponat och är symmetrisk.")
   ]});
-  p7(35,'Verify Theorem 1.7.4 for the given matrix A.\n\n'+parts([named('A',[[2,-1],[-1,3]]),named('A',[[1,-2,3],[-2,1,-7],[3,-7,4]])]),{reference:'Theorem 1.7.4: if A is an invertible symmetric matrix, then A⁻¹ is symmetric.'});
-  p7(36,'Find all 3 × 3 diagonal matrices A that satisfy A² − 3A − 4I = 0.',{steps:[
-    'Let the three diagonal entries be a,b,c. Since A is diagonal, the matrix equation gives the same scalar equation for each entry: t²−3t−4=0.',
-    'Factor: t²−3t−4=(t−4)(t+1). A product is zero only if at least one factor is zero, so t=4 or t=−1.',
-    'Choose independently for each diagonal position. The possibilities are diag(−1,−1,−1), diag(−1,−1,4), diag(−1,4,−1), diag(−1,4,4), diag(4,−1,−1), diag(4,−1,4), diag(4,4,−1), diag(4,4,4).',
-    'There are 2×2×2=8 matrices. Check either possible entry: 4²−3×4−4=0 and (−1)²−3×(−1)−4=0, so every listed diagonal matrix satisfies the original equation.'
+  p7(35,tr('Verify Theorem 1.7.4 for the given matrix A.\n\n', "Verifiera sats 1.7.4 för den givna matrisen A.\n\n")+parts([named('A',[[2,-1],[-1,3]]),named('A',[[1,-2,3],[-2,1,-7],[3,-7,4]])]),{reference:tr('Theorem 1.7.4: if A is an invertible symmetric matrix, then A⁻¹ is symmetric.', "Sats 1.7.4: om A är en inverterbar symmetrisk matris, så är A⁻¹ symmetrisk.")});
+  p7(36,tr('Find all 3 × 3 diagonal matrices A that satisfy A² − 3A − 4I = 0.', "Bestäm alla diagonala 3 × 3-matriser A som uppfyller A² − 3A − 4I = 0."),{steps:[
+    tr('Let the three diagonal entries be a,b,c. Since A is diagonal, the matrix equation gives the same scalar equation for each entry: t²−3t−4=0.', "Låt de tre diagonalelementen vara a,b,c. Eftersom A är diagonal ger matrisekvationen samma skalära ekvation för varje element: t²−3t−4=0."),
+    tr('Factor: t²−3t−4=(t−4)(t+1). A product is zero only if at least one factor is zero, so t=4 or t=−1.', "Faktorisera: t²−3t−4=(t−4)(t+1). En produkt är noll endast om minst en faktor är noll, så t=4 eller t=−1."),
+    tr('Choose independently for each diagonal position. The possibilities are diag(−1,−1,−1), diag(−1,−1,4), diag(−1,4,−1), diag(−1,4,4), diag(4,−1,−1), diag(4,−1,4), diag(4,4,−1), diag(4,4,4).', "Välj oberoende för varje diagonalplats. Möjligheterna är diag(−1,−1,−1), diag(−1,−1,4), diag(−1,4,−1), diag(−1,4,4), diag(4,−1,−1), diag(4,−1,4), diag(4,4,−1), diag(4,4,4)."),
+    tr('There are 2×2×2=8 matrices. Check either possible entry: 4²−3×4−4=0 and (−1)²−3×(−1)−4=0, so every listed diagonal matrix satisfies the original equation.', "Det finns 2×2×2=8 matriser. Kontrollera de båda möjliga elementen: 4²−3×4−4=0 och (−1)²−3×(−1)−4=0, så varje angiven diagonalmatris uppfyller den ursprungliga ekvationen.")
   ]});
-  p7(37,'Let A = [aᵢⱼ] be an n × n matrix. Determine whether A is symmetric.\n\n'+parts(['aᵢⱼ = i² + j²','aᵢⱼ = i² − j²','aᵢⱼ = 2i + 2j','aᵢⱼ = 2i² + 2j³']),{steps:[
-    'The subscripts i,j mean row i, column j. Symmetry requires aᵢⱼ=aⱼᵢ: entries reflected across the main diagonal must agree. Swap i and j in each formula to test that requirement.',
-    '(a) Swapping gives j²+i². Addition can be performed in either order, so j²+i²=i²+j² for every pair. The matrix is symmetric.',
-    '(b) Swapping gives j²−i², which is generally different. For n≥2, take i=1,j=2: a₁₂=1−4=−3, but a₂₁=4−1=3. One unequal pair proves the matrix is not symmetric.',
-    '(c) Swapping gives 2j+2i=2i+2j. The entries agree for every pair, so the matrix is symmetric.',
-    '(d) For n≥2, a₁₂=2×1²+2×2³=2+16=18, whereas a₂₁=2×2²+2×1³=8+2=10. These reflected entries differ, so the matrix is not symmetric.',
-    'If n=1, only a₁₁ exists; there are no different off-diagonal positions to compare. Every 1 × 1 matrix is symmetric, so all four formulas give symmetric matrices in that special case.'
+  p7(37,tr('Let A = [aᵢⱼ] be an n × n matrix. Determine whether A is symmetric.\n\n', "Låt A = [aᵢⱼ] vara en n × n-matris. Avgör om A är symmetrisk.\n\n")+parts(['aᵢⱼ = i² + j²','aᵢⱼ = i² − j²','aᵢⱼ = 2i + 2j','aᵢⱼ = 2i² + 2j³']),{steps:[
+    tr('The subscripts i,j mean row i, column j. Symmetry requires aᵢⱼ=aⱼᵢ: entries reflected across the main diagonal must agree. Swap i and j in each formula to test that requirement.', "Indexen i,j betyder rad i, kolumn j. Symmetri kräver aᵢⱼ=aⱼᵢ: element som är varandras spegelbilder över huvuddiagonalen måste stämma överens. Byt plats på i och j i varje formel för att pröva kravet."),
+    tr('(a) Swapping gives j²+i². Addition can be performed in either order, so j²+i²=i²+j² for every pair. The matrix is symmetric.', "(a) Bytet ger j²+i². Addition kan göras i valfri ordning, så j²+i²=i²+j² för varje par. Matrisen är symmetrisk."),
+    tr('(b) Swapping gives j²−i², which is generally different. For n≥2, take i=1,j=2: a₁₂=1−4=−3, but a₂₁=4−1=3. One unequal pair proves the matrix is not symmetric.', "(b) Bytet ger j²−i², vilket i allmänhet är annorlunda. För n≥2 väljer vi i=1,j=2: a₁₂=1−4=−3, men a₂₁=4−1=3. Ett par med olika värden bevisar att matrisen inte är symmetrisk."),
+    tr('(c) Swapping gives 2j+2i=2i+2j. The entries agree for every pair, so the matrix is symmetric.', "(c) Bytet ger 2j+2i=2i+2j. Elementen stämmer överens för varje par, så matrisen är symmetrisk."),
+    tr('(d) For n≥2, a₁₂=2×1²+2×2³=2+16=18, whereas a₂₁=2×2²+2×1³=8+2=10. These reflected entries differ, so the matrix is not symmetric.', "(d) För n≥2 är a₁₂=2×1²+2×2³=2+16=18, medan a₂₁=2×2²+2×1³=8+2=10. Dessa speglade element är olika, så matrisen är inte symmetrisk."),
+    tr('If n=1, only a₁₁ exists; there are no different off-diagonal positions to compare. Every 1 × 1 matrix is symmetric, so all four formulas give symmetric matrices in that special case.', "Om n=1 finns bara a₁₁. Det finns inga olika platser utanför diagonalen att jämföra. Varje 1 × 1-matris är symmetrisk, så alla fyra formlerna ger symmetriska matriser i detta specialfall.")
   ]});
-  p7(38,'On the basis of your experience with Exercise 37, devise a general test that can be applied to a formula for aᵢⱼ to determine whether A = [aᵢⱼ] is symmetric.',{reference:'Exercise 37 compares the formulas aᵢⱼ=i²+j², i²−j², 2i+2j and 2i²+2j³ when the two indices are interchanged.',steps:[
-    'The first subscript i tells you the row, and j tells you the column. The reflected entry across the main diagonal has the indices exchanged: aⱼᵢ.',
-    'Take the proposed formula for aᵢⱼ and swap every i with j and every j with i. This produces the formula for aⱼᵢ.',
-    'If the two formulas have equal values for every allowed pair i,j from 1 to n, then A is symmetric. For example i²+j² becomes j²+i², the same number.',
-    'To disprove symmetry, one unequal pair is enough. For i²−j², positions (1,2) and (2,1) give −3 and 3 when n≥2, so that matrix fails the test.'
+  p7(38,tr('On the basis of your experience with Exercise 37, devise a general test that can be applied to a formula for aᵢⱼ to determine whether A = [aᵢⱼ] is symmetric.', "Använd din erfarenhet från uppgift 37 för att formulera ett allmänt test som kan tillämpas på en formel för aᵢⱼ för att avgöra om A = [aᵢⱼ] är symmetrisk."),{reference:tr('Exercise 37 compares the formulas aᵢⱼ=i²+j², i²−j², 2i+2j and 2i²+2j³ when the two indices are interchanged.', "Uppgift 37 jämför formlerna aᵢⱼ=i²+j², i²−j², 2i+2j och 2i²+2j³ när de två indexen byter plats."),steps:[
+    tr('The first subscript i tells you the row, and j tells you the column. The reflected entry across the main diagonal has the indices exchanged: aⱼᵢ.', "Det första indexet i anger raden och j anger kolumnen. Elementets spegelbild över huvuddiagonalen har indexen utbytta: aⱼᵢ."),
+    tr('Take the proposed formula for aᵢⱼ and swap every i with j and every j with i. This produces the formula for aⱼᵢ.', "Ta den föreslagna formeln för aᵢⱼ och byt varje i mot j och varje j mot i. Då får du formeln för aⱼᵢ."),
+    tr('If the two formulas have equal values for every allowed pair i,j from 1 to n, then A is symmetric. For example i²+j² becomes j²+i², the same number.', "Om de två formlerna har lika värden för varje tillåtet par i,j från 1 till n, är A symmetrisk. Till exempel blir i²+j² till j²+i², vilket är samma tal."),
+    tr('To disprove symmetry, one unequal pair is enough. For i²−j², positions (1,2) and (2,1) give −3 and 3 when n≥2, so that matrix fails the test.', "För att motbevisa symmetri räcker ett par med olika värden. För i²−j² ger platserna (1,2) och (2,1) värdena −3 och 3 när n≥2, så den matrisen klarar inte testet.")
   ]});
-  p7(39,'Find an upper triangular matrix that satisfies\n\nA³ =\n'+mat([[1,30],[0,-8]]),{steps:[
-    'An upper triangular 2 × 2 matrix has the form A=[a t; 0 d]. We need to find the three unknown entries a,t,d.',
-    'When triangular matrices multiply, their diagonal entries multiply position by position. Therefore the diagonal of A³ is a³,d³. Comparing with the given matrix gives a³=1 and d³=−8, so a=1 and d=−2 over the real numbers.',
-    'Now A=[1 t; 0 −2]. Multiply A by itself: the upper-right entry is 1×t+t×(−2)=−t. Thus A²=[1 −t; 0 4].',
-    'Multiply A² by A. The upper-right entry is 1×t+(−t)×(−2)=3t; the diagonal is 1,−8. Hence A³=[1 3t; 0 −8].',
-    'Match the remaining entry: 3t=30, so t=10. Substituting gives A=[1 10; 0 −2], whose cube is exactly the required matrix.'
+  p7(39,tr('Find an upper triangular matrix that satisfies\n\nA³ =\n', "Hitta en övertriangulär matris som uppfyller\n\nA³ =\n")+mat([[1,30],[0,-8]]),{steps:[
+    tr('An upper triangular 2 × 2 matrix has the form A=[a t; 0 d]. We need to find the three unknown entries a,t,d.', "En övertriangulär 2 × 2-matris har formen A=[a t; 0 d]. Vi behöver bestämma de tre okända elementen a,t,d."),
+    tr('When triangular matrices multiply, their diagonal entries multiply position by position. Therefore the diagonal of A³ is a³,d³. Comparing with the given matrix gives a³=1 and d³=−8, so a=1 and d=−2 over the real numbers.', "När triangulära matriser multipliceras multipliceras diagonalelementen plats för plats. Därför är diagonalen i A³ lika med a³,d³. Jämförelse med den givna matrisen ger a³=1 och d³=−8, så a=1 och d=−2 bland de reella talen."),
+    tr('Now A=[1 t; 0 −2]. Multiply A by itself: the upper-right entry is 1×t+t×(−2)=−t. Thus A²=[1 −t; 0 4].', "Nu är A=[1 t; 0 −2]. Multiplicera A med sig själv: elementet uppe till höger är 1×t+t×(−2)=−t. Alltså är A²=[1 −t; 0 4]."),
+    tr('Multiply A² by A. The upper-right entry is 1×t+(−t)×(−2)=3t; the diagonal is 1,−8. Hence A³=[1 3t; 0 −8].', "Multiplicera A² med A. Elementet uppe till höger är 1×t+(−t)×(−2)=3t, och diagonalen är 1,−8. Därför är A³=[1 3t; 0 −8]."),
+    tr('Match the remaining entry: 3t=30, so t=10. Substituting gives A=[1 10; 0 −2], whose cube is exactly the required matrix.', "Jämför det återstående elementet: 3t=30, så t=10. Insättning ger A=[1 10; 0 −2], vars kub är exakt den efterfrågade matrisen.")
   ]});
-  p7(40,'If the n × n matrix A can be expressed as A = LU, where L is a lower triangular matrix and U is an upper triangular matrix, then the linear system Ax = b can be expressed as LUx = b and can be solved in two steps:\nStep 1. Let Ux = y, so that LUx = b can be expressed as Ly = b. Solve this system.\nStep 2. Solve the system Ux = y for x.\nIn each part, use this two-step method to solve the given system.\n\n'+parts([
+  p7(40,tr('If the n × n matrix A can be expressed as A = LU, where L is a lower triangular matrix and U is an upper triangular matrix, then the linear system Ax = b can be expressed as LUx = b and can be solved in two steps:\nStep 1. Let Ux = y, so that LUx = b can be expressed as Ly = b. Solve this system.\nStep 2. Solve the system Ux = y for x.\nIn each part, use this two-step method to solve the given system.\n\n', "Om n × n-matrisen A kan skrivas som A = LU, där L är en undertriangulär matris och U är en övertriangulär matris, kan det linjära systemet Ax = b skrivas som LUx = b och lösas i två steg:\nSteg 1. Sätt Ux = y, så att LUx = b kan skrivas som Ly = b. Lös detta system.\nSteg 2. Lös systemet Ux = y med avseende på x.\nAnvänd denna tvåstegsmetod för att lösa det givna systemet i varje del.\n\n")+parts([
     mat([[1,0,0],[-2,3,0],[2,4,1]])+'\n×\n'+mat([[2,-1,3],[0,1,2],[0,0,4]])+'\n×\n'+mat([['x₁'],['x₂'],['x₃']])+'\n=\n'+mat([[1],[-2],[0]]),
     mat([[2,0,0],[4,1,0],[-3,-2,3]])+'\n×\n'+mat([[3,-5,2],[0,4,1],[0,0,2]])+'\n×\n'+mat([['x₁'],['x₂'],['x₃']])+'\n=\n'+mat([[4],[-5],[2]])
   ]));
-  const skewDefinition='In the text we defined a matrix A to be symmetric if Aᵀ = A. Analogously, a matrix A is said to be skew-symmetric if Aᵀ = −A. Exercises 41–45 are concerned with matrices of this type.';
-  p7(41,'Fill in the missing entries (marked with ×) so the matrix A is skew-symmetric.\n\n'+parts([named('A',[['×','×',4],[0,'×','×'],['×',-1,'×']]),named('A',[['×',0,'×'],['×','×',-4],[8,'×','×']])]),{reference:skewDefinition,steps:[
-    'Skew-symmetric means that reflected entries are opposites: aᵢⱼ = −aⱼᵢ. A diagonal entry reflects onto itself, so it must satisfy aᵢᵢ = −aᵢᵢ. Hence every diagonal entry is 0.',
-    '(a) Opposite the given 0, put 0; opposite 4, put −4; opposite −1, put 1. The rows become [0 0 4], [0 0 1], [−4 −1 0].',
-    '(b) Opposite the given 0, put 0; opposite 8, put −8; opposite −4, put 4. The rows become [0 0 −8], [0 0 −4], [8 4 0].',
-    'Check by exchanging rows and columns in either result: every entry becomes the negative of its original value, exactly as Aᵀ = −A requires.'
+  const skewDefinition=tr('In the text we defined a matrix A to be symmetric if Aᵀ = A. Analogously, a matrix A is said to be skew-symmetric if Aᵀ = −A. Exercises 41–45 are concerned with matrices of this type.', "I texten definierade vi en matris A som symmetrisk om Aᵀ = A. På motsvarande sätt sägs A vara skevsymmetrisk om Aᵀ = −A. Uppgifterna 41–45 handlar om matriser av denna typ.");
+  p7(41,tr('Fill in the missing entries (marked with ×) so the matrix A is skew-symmetric.\n\n', "Fyll i de saknade elementen, markerade med ×, så att matrisen A blir skevsymmetrisk.\n\n")+parts([named('A',[['×','×',4],[0,'×','×'],['×',-1,'×']]),named('A',[['×',0,'×'],['×','×',-4],[8,'×','×']])]),{reference:skewDefinition,steps:[
+    tr('Skew-symmetric means that reflected entries are opposites: aᵢⱼ = −aⱼᵢ. A diagonal entry reflects onto itself, so it must satisfy aᵢᵢ = −aᵢᵢ. Hence every diagonal entry is 0.', "Skevsymmetrisk betyder att speglade element är varandras motsatta tal: aᵢⱼ = −aⱼᵢ. Ett diagonalelement speglas på sig självt och måste därför uppfylla aᵢᵢ = −aᵢᵢ. Varje diagonalelement är alltså 0."),
+    tr('(a) Opposite the given 0, put 0; opposite 4, put −4; opposite −1, put 1. The rows become [0 0 4], [0 0 1], [−4 −1 0].', "(a) Mittemot det givna 0 sätter vi 0, mittemot 4 sätter vi −4 och mittemot −1 sätter vi 1. Raderna blir [0 0 4], [0 0 1], [−4 −1 0]."),
+    tr('(b) Opposite the given 0, put 0; opposite 8, put −8; opposite −4, put 4. The rows become [0 0 −8], [0 0 −4], [8 4 0].', "(b) Mittemot det givna 0 sätter vi 0, mittemot 8 sätter vi −8 och mittemot −4 sätter vi 4. Raderna blir [0 0 −8], [0 0 −4], [8 4 0]."),
+    tr('Check by exchanging rows and columns in either result: every entry becomes the negative of its original value, exactly as Aᵀ = −A requires.', "Kontrollera genom att byta rader och kolumner i vartdera resultatet: varje element blir det negativa av sitt ursprungliga värde, precis som Aᵀ = −A kräver.")
   ]});
-  p7(42,'Find all values of a, b, c, and d for which A is skew-symmetric.\n\n'+named('A',[[0,'2a − 3b + c','3a − 5b + 5c'],[-2,0,'5a − 8b + 6c'],[-3,-5,'d']]),{reference:skewDefinition,steps:[
-    'For skew-symmetry, reflected entries must be opposites and every diagonal entry must be zero. The last diagonal entry therefore gives d=0.',
-    'Compare the three off-diagonal pairs. Opposite −2 we need 2, opposite −3 we need 3, and opposite −5 we need 5. This gives (1) 2a−3b+c=2; (2) 3a−5b+5c=3; (3) 5a−8b+6c=5.',
-    'Add equations (1) and (2): the result is exactly equation (3), on both sides. Thus equation (3) imposes no new condition, and we only need to solve the first two.',
-    'Eliminate a by taking twice equation (2) minus three times equation (1). The a-terms are 6a−6a=0, the b-terms are −10b−(−9b)=−b, and the c-terms are 10c−3c=7c. The right side is 6−6=0. Therefore −b+7c=0, or b=7c.',
-    'Substitute b=7c into equation (1): 2a−3(7c)+c=2, so 2a−20c=2. Add 20c to both sides and divide by 2 to obtain a=1+10c.',
-    'No equation restricts c, so write c=t for any real number t. All solutions are (a,b,c,d)=(1+10t,7t,t,0). Here a “free parameter” simply means a number you may choose.',
-    'Check the reflected entries: 2(1+10t)−3(7t)+t=2; 3(1+10t)−5(7t)+5t=3; 5(1+10t)−8(7t)+6t=5. All terms containing t cancel, so every real choice works.'
+  p7(42,tr('Find all values of a, b, c, and d for which A is skew-symmetric.\n\n', "Bestäm alla värden på a, b, c och d för vilka A är skevsymmetrisk.\n\n")+named('A',[[0,'2a − 3b + c','3a − 5b + 5c'],[-2,0,'5a − 8b + 6c'],[-3,-5,'d']]),{reference:skewDefinition,steps:[
+    tr('For skew-symmetry, reflected entries must be opposites and every diagonal entry must be zero. The last diagonal entry therefore gives d=0.', "För skevsymmetri måste speglade element vara varandras motsatta tal och varje diagonalelement vara noll. Det sista diagonalelementet ger därför d=0."),
+    tr('Compare the three off-diagonal pairs. Opposite −2 we need 2, opposite −3 we need 3, and opposite −5 we need 5. This gives (1) 2a−3b+c=2; (2) 3a−5b+5c=3; (3) 5a−8b+6c=5.', "Jämför de tre paren utanför diagonalen. På spegelplatsen till −2 behöver vi 2, till −3 behöver vi 3 och till −5 behöver vi 5. Detta ger (1) 2a−3b+c=2; (2) 3a−5b+5c=3; (3) 5a−8b+6c=5."),
+    tr('Add equations (1) and (2): the result is exactly equation (3), on both sides. Thus equation (3) imposes no new condition, and we only need to solve the first two.', "Addera ekvationerna (1) och (2): resultatet är exakt ekvation (3), på båda sidor. Ekvation (3) tillför alltså inget nytt villkor, och vi behöver bara lösa de första två."),
+    tr('Eliminate a by taking twice equation (2) minus three times equation (1). The a-terms are 6a−6a=0, the b-terms are −10b−(−9b)=−b, and the c-terms are 10c−3c=7c. The right side is 6−6=0. Therefore −b+7c=0, or b=7c.', "Eliminera a genom att ta två gånger ekvation (2) minus tre gånger ekvation (1). a-termerna är 6a−6a=0, b-termerna är −10b−(−9b)=−b och c-termerna är 10c−3c=7c. Högerledet är 6−6=0. Därför är −b+7c=0, eller b=7c."),
+    tr('Substitute b=7c into equation (1): 2a−3(7c)+c=2, so 2a−20c=2. Add 20c to both sides and divide by 2 to obtain a=1+10c.', "Sätt in b=7c i ekvation (1): 2a−3(7c)+c=2, så 2a−20c=2. Addera 20c till båda sidor och dividera med 2 för att få a=1+10c."),
+    tr('No equation restricts c, so write c=t for any real number t. All solutions are (a,b,c,d)=(1+10t,7t,t,0). Here a “free parameter” simply means a number you may choose.', "Ingen ekvation begränsar c, så skriv c=t för ett valfritt reellt tal t. Alla lösningar är (a,b,c,d)=(1+10t,7t,t,0). Här betyder en fri parameter helt enkelt ett tal som du får välja."),
+    tr('Check the reflected entries: 2(1+10t)−3(7t)+t=2; 3(1+10t)−5(7t)+5t=3; 5(1+10t)−8(7t)+6t=5. All terms containing t cancel, so every real choice works.', "Kontrollera de speglade elementen: 2(1+10t)−3(7t)+t=2; 3(1+10t)−5(7t)+5t=3; 5(1+10t)−8(7t)+6t=5. Alla termer som innehåller t tar ut varandra, så varje reellt val fungerar.")
   ]});
-  p7(43,'We showed in the text that the product of symmetric matrices is symmetric if and only if the matrices commute. Is the product of commuting skew-symmetric matrices skew-symmetric? Explain.',{reference:skewDefinition,steps:[
-    '“Commute” means AB=BA. Skew-symmetry means Aᵀ=−A and Bᵀ=−B. We test the product by calculating (AB)ᵀ.',
-    'Transposing a product reverses its order: (AB)ᵀ=BᵀAᵀ=(−B)(−A)=BA. The two minus signs cancel. Because the matrices commute, BA=AB.',
-    'Thus AB equals its transpose, which makes it symmetric. To be skew-symmetric as well, it would need AB=−AB. Adding AB to both sides gives 2AB=0, so this happens only when AB is the zero matrix.',
-    'For a concrete counterexample, take A=B=[0 1; −1 0]. Both are skew-symmetric, and a matrix commutes with itself. Their product is [−1 0; 0 −1]=−I₂.',
-    'This nonzero diagonal product equals its transpose but does not equal its negative. Hence the answer is no in general; a commuting product is skew-symmetric only in the special case AB=0.'
+  p7(43,tr('We showed in the text that the product of symmetric matrices is symmetric if and only if the matrices commute. Is the product of commuting skew-symmetric matrices skew-symmetric? Explain.', "I texten visade vi att produkten av symmetriska matriser är symmetrisk om och endast om matriserna kommuterar. Är produkten av kommuterande skevsymmetriska matriser skevsymmetrisk? Förklara."),{reference:skewDefinition,steps:[
+    tr('“Commute” means AB=BA. Skew-symmetry means Aᵀ=−A and Bᵀ=−B. We test the product by calculating (AB)ᵀ.', "Kommutera betyder AB=BA. Skevsymmetri betyder Aᵀ=−A och Bᵀ=−B. Vi prövar produkten genom att beräkna (AB)ᵀ."),
+    tr('Transposing a product reverses its order: (AB)ᵀ=BᵀAᵀ=(−B)(−A)=BA. The two minus signs cancel. Because the matrices commute, BA=AB.', "Transponering av en produkt vänder ordningen: (AB)ᵀ=BᵀAᵀ=(−B)(−A)=BA. De två minustecknen tar ut varandra. Eftersom matriserna kommuterar är BA=AB."),
+    tr('Thus AB equals its transpose, which makes it symmetric. To be skew-symmetric as well, it would need AB=−AB. Adding AB to both sides gives 2AB=0, so this happens only when AB is the zero matrix.', "AB är alltså lika med sitt transponat, vilket gör den symmetrisk. För att också vara skevsymmetrisk måste den uppfylla AB=−AB. Addera AB till båda sidor så får vi 2AB=0. Detta sker alltså bara när AB är nollmatrisen."),
+    tr('For a concrete counterexample, take A=B=[0 1; −1 0]. Both are skew-symmetric, and a matrix commutes with itself. Their product is [−1 0; 0 −1]=−I₂.', "Som konkret motexempel tar vi A=B=[0 1; −1 0]. Båda är skevsymmetriska, och en matris kommuterar med sig själv. Deras produkt är [−1 0; 0 −1]=−I₂."),
+    tr('This nonzero diagonal product equals its transpose but does not equal its negative. Hence the answer is no in general; a commuting product is skew-symmetric only in the special case AB=0.', "Denna diagonalprodukt är skild från noll och är lika med sitt transponat, men inte med sitt negativa värde. Svaret är därför nej i allmänhet. En kommuterande produkt är skevsymmetrisk endast i specialfallet AB=0.")
   ]});
-  p7(44,'Prove that every square matrix A can be expressed as the sum of a symmetric matrix and a skew-symmetric matrix. [Hint: Note the identity A = ½(A + Aᵀ) + ½(A − Aᵀ).]',{reference:skewDefinition,steps:[
-    'The hint proposes two pieces. Name them S=(A+Aᵀ)/2 and K=(A−Aᵀ)/2. We must check their symmetry types and that they add to A.',
-    'Add them: S+K=(A+Aᵀ+A−Aᵀ)/2=2A/2=A. The transpose terms cancel.',
-    'Transpose S: Sᵀ=(Aᵀ+(Aᵀ)ᵀ)/2=(Aᵀ+A)/2=S. Here (Aᵀ)ᵀ=A means that swapping rows and columns twice restores the matrix. Thus S is symmetric.',
-    'Transpose K: Kᵀ=(Aᵀ−A)/2=−(A−Aᵀ)/2=−K. Thus K is skew-symmetric.',
-    'We have constructed the required two matrices and verified both properties for any square A, which proves the claim.'
+  p7(44,tr('Prove that every square matrix A can be expressed as the sum of a symmetric matrix and a skew-symmetric matrix. [Hint: Note the identity A = ½(A + Aᵀ) + ½(A − Aᵀ).]', "Bevisa att varje kvadratisk matris A kan skrivas som summan av en symmetrisk matris och en skevsymmetrisk matris. [Ledning: Observera identiteten A = ½(A + Aᵀ) + ½(A − Aᵀ).]"),{reference:skewDefinition,steps:[
+    tr('The hint proposes two pieces. Name them S=(A+Aᵀ)/2 and K=(A−Aᵀ)/2. We must check their symmetry types and that they add to A.', "Ledningen föreslår två delar. Kalla dem S=(A+Aᵀ)/2 och K=(A−Aᵀ)/2. Vi måste kontrollera deras symmetrityper och att deras summa är A."),
+    tr('Add them: S+K=(A+Aᵀ+A−Aᵀ)/2=2A/2=A. The transpose terms cancel.', "Addera dem: S+K=(A+Aᵀ+A−Aᵀ)/2=2A/2=A. Transponattermerna tar ut varandra."),
+    tr('Transpose S: Sᵀ=(Aᵀ+(Aᵀ)ᵀ)/2=(Aᵀ+A)/2=S. Here (Aᵀ)ᵀ=A means that swapping rows and columns twice restores the matrix. Thus S is symmetric.', "Transponera S: Sᵀ=(Aᵀ+(Aᵀ)ᵀ)/2=(Aᵀ+A)/2=S. Här betyder (Aᵀ)ᵀ=A att två byten mellan rader och kolumner återställer matrisen. Alltså är S symmetrisk."),
+    tr('Transpose K: Kᵀ=(Aᵀ−A)/2=−(A−Aᵀ)/2=−K. Thus K is skew-symmetric.', "Transponera K: Kᵀ=(Aᵀ−A)/2=−(A−Aᵀ)/2=−K. Alltså är K skevsymmetrisk."),
+    tr('We have constructed the required two matrices and verified both properties for any square A, which proves the claim.', "Vi har konstruerat de två efterfrågade matriserna och verifierat båda egenskaperna för en godtycklig kvadratisk A. Därmed är påståendet bevisat.")
   ]});
-  p7(45,'Prove the following facts about skew-symmetric matrices.\n(a) If A is an invertible skew-symmetric matrix, then A⁻¹ is skew-symmetric.\n(b) If A and B are skew-symmetric matrices, then so are Aᵀ, A + B, A − B, and kA for any scalar k.',{reference:skewDefinition,steps:[
-    'Use the defining equalities Aᵀ=−A and Bᵀ=−B. For each requested expression X, our goal is to show Xᵀ=−X.',
-    '(a) Transpose the inverse: (A⁻¹)ᵀ=(Aᵀ)⁻¹=(−A)⁻¹=−A⁻¹. The last equality follows because (−A)(−A⁻¹)=I. Thus A⁻¹ is skew-symmetric.',
-    '(b), transpose: (Aᵀ)ᵀ=A. Since Aᵀ=−A, we also have A=−Aᵀ. Hence (Aᵀ)ᵀ=−Aᵀ.',
-    '(b), sum: (A+B)ᵀ=Aᵀ+Bᵀ=−A−B=−(A+B).',
-    '(b), difference: (A−B)ᵀ=Aᵀ−Bᵀ=−A+B=−(A−B). Notice the sign change before B.',
-    '(b), scalar multiple: (kA)ᵀ=kAᵀ=k(−A)=−kA. This works even for k=0. Every requested expression is therefore skew-symmetric.'
+  p7(45,tr('Prove the following facts about skew-symmetric matrices.\n(a) If A is an invertible skew-symmetric matrix, then A⁻¹ is skew-symmetric.\n(b) If A and B are skew-symmetric matrices, then so are Aᵀ, A + B, A − B, and kA for any scalar k.', "Bevisa följande egenskaper hos skevsymmetriska matriser.\n(a) Om A är en inverterbar skevsymmetrisk matris, så är A⁻¹ skevsymmetrisk.\n(b) Om A och B är skevsymmetriska matriser, så är även Aᵀ, A + B, A − B och kA skevsymmetriska för varje skalär k."),{reference:skewDefinition,steps:[
+    tr('Use the defining equalities Aᵀ=−A and Bᵀ=−B. For each requested expression X, our goal is to show Xᵀ=−X.', "Använd definitionens likheter Aᵀ=−A och Bᵀ=−B. För varje efterfrågat uttryck X är målet att visa Xᵀ=−X."),
+    tr('(a) Transpose the inverse: (A⁻¹)ᵀ=(Aᵀ)⁻¹=(−A)⁻¹=−A⁻¹. The last equality follows because (−A)(−A⁻¹)=I. Thus A⁻¹ is skew-symmetric.', "(a) Transponera inversen: (A⁻¹)ᵀ=(Aᵀ)⁻¹=(−A)⁻¹=−A⁻¹. Den sista likheten följer av att (−A)(−A⁻¹)=I. Alltså är A⁻¹ skevsymmetrisk."),
+    tr('(b), transpose: (Aᵀ)ᵀ=A. Since Aᵀ=−A, we also have A=−Aᵀ. Hence (Aᵀ)ᵀ=−Aᵀ.', "(b), transponat: (Aᵀ)ᵀ=A. Eftersom Aᵀ=−A har vi också A=−Aᵀ. Därför är (Aᵀ)ᵀ=−Aᵀ."),
+    tr('(b), sum: (A+B)ᵀ=Aᵀ+Bᵀ=−A−B=−(A+B).', "(b), summa: (A+B)ᵀ=Aᵀ+Bᵀ=−A−B=−(A+B)."),
+    tr('(b), difference: (A−B)ᵀ=Aᵀ−Bᵀ=−A+B=−(A−B). Notice the sign change before B.', "(b), differens: (A−B)ᵀ=Aᵀ−Bᵀ=−A+B=−(A−B). Lägg märke till teckenbytet framför B."),
+    tr('(b), scalar multiple: (kA)ᵀ=kAᵀ=k(−A)=−kA. This works even for k=0. Every requested expression is therefore skew-symmetric.', "(b), skalärmultipel: (kA)ᵀ=kAᵀ=k(−A)=−kA. Detta fungerar även för k=0. Varje efterfrågat uttryck är därför skevsymmetriskt.")
   ]});
-  p7(46,'Prove: If the matrices A and B are both upper triangular or both lower triangular, then the diagonal entries of both AB and BA are the products of the diagonal entries of A and B.',{steps:[
-    'The entry (i,i) of AB is obtained from row i of A and column i of B: (AB)ᵢᵢ = Σₖ aᵢₖbₖᵢ. The symbol Σ means add the terms for k=1 through n.',
-    'Suppose both matrices are upper triangular. If k<i, aᵢₖ lies below A’s diagonal and is 0. If k>i, bₖᵢ lies below B’s diagonal and is 0.',
-    'Every term except k=i therefore vanishes. The surviving term is aᵢᵢbᵢᵢ.',
-    'For two lower triangular matrices, k>i makes aᵢₖ=0 and k<i makes bₖᵢ=0. Again only k=i survives.',
-    'Repeat with A and B exchanged to get (BA)ᵢᵢ=bᵢᵢaᵢᵢ. These entries are ordinary numbers, so the two products are equal. This proves the claim for every diagonal position.'
+  p7(46,tr('Prove: If the matrices A and B are both upper triangular or both lower triangular, then the diagonal entries of both AB and BA are the products of the diagonal entries of A and B.', "Bevisa: Om matriserna A och B är antingen båda övertriangulära eller båda undertriangulära, så är diagonalelementen i både AB och BA produkterna av diagonalelementen i A och B."),{steps:[
+    tr('The entry (i,i) of AB is obtained from row i of A and column i of B: (AB)ᵢᵢ = Σₖ aᵢₖbₖᵢ. The symbol Σ means add the terms for k=1 through n.', "Elementet (i,i) i AB fås från rad i i A och kolumn i i B: (AB)ᵢᵢ = Σₖ aᵢₖbₖᵢ. Symbolen Σ betyder att vi adderar termerna för k=1 till n."),
+    tr('Suppose both matrices are upper triangular. If k<i, aᵢₖ lies below A’s diagonal and is 0. If k>i, bₖᵢ lies below B’s diagonal and is 0.', "Anta att båda matriserna är övertriangulära. Om k<i ligger aᵢₖ under diagonalen i A och är 0. Om k>i ligger bₖᵢ under diagonalen i B och är 0."),
+    tr('Every term except k=i therefore vanishes. The surviving term is aᵢᵢbᵢᵢ.', "Varje term utom k=i försvinner därför. Den återstående termen är aᵢᵢbᵢᵢ."),
+    tr('For two lower triangular matrices, k>i makes aᵢₖ=0 and k<i makes bₖᵢ=0. Again only k=i survives.', "För två undertriangulära matriser ger k>i att aᵢₖ=0 och k<i att bₖᵢ=0. Återigen återstår bara k=i."),
+    tr('Repeat with A and B exchanged to get (BA)ᵢᵢ=bᵢᵢaᵢᵢ. These entries are ordinary numbers, so the two products are equal. This proves the claim for every diagonal position.', "Upprepa med A och B utbytta för att få (BA)ᵢᵢ=bᵢᵢaᵢᵢ. Dessa element är vanliga tal, så de två produkterna är lika. Detta bevisar påståendet för varje diagonalplats.")
   ]});
-  p7(47,'Prove: If AᵀA = A, then A is symmetric and A² = A.',{steps:[
-    'Start with the given equality AᵀA=A. Transpose both sides; transposing a product reverses the factors: (XY)ᵀ=YᵀXᵀ.',
-    'Thus (AᵀA)ᵀ=Aᵀ(Aᵀ)ᵀ=AᵀA, while the right-hand side becomes Aᵀ. We obtain AᵀA=Aᵀ.',
-    'The same left-hand side equals A by the hypothesis. Therefore Aᵀ=A, which is exactly the definition of symmetry.',
-    'Replace Aᵀ with A in the original equality. It becomes AA=A, or A²=A. Both conclusions are established.'
+  p7(47,tr('Prove: If AᵀA = A, then A is symmetric and A² = A.', "Bevisa: Om AᵀA = A, så är A symmetrisk och A² = A."),{steps:[
+    tr('Start with the given equality AᵀA=A. Transpose both sides; transposing a product reverses the factors: (XY)ᵀ=YᵀXᵀ.', "Börja med den givna likheten AᵀA=A. Transponera båda sidor. Transponering av en produkt vänder faktorernas ordning: (XY)ᵀ=YᵀXᵀ."),
+    tr('Thus (AᵀA)ᵀ=Aᵀ(Aᵀ)ᵀ=AᵀA, while the right-hand side becomes Aᵀ. We obtain AᵀA=Aᵀ.', "Alltså är (AᵀA)ᵀ=Aᵀ(Aᵀ)ᵀ=AᵀA, medan högerledet blir Aᵀ. Vi får AᵀA=Aᵀ."),
+    tr('The same left-hand side equals A by the hypothesis. Therefore Aᵀ=A, which is exactly the definition of symmetry.', "Samma vänsterled är lika med A enligt förutsättningen. Därför är Aᵀ=A, vilket är exakt definitionen av symmetri."),
+    tr('Replace Aᵀ with A in the original equality. It becomes AA=A, or A²=A. Both conclusions are established.', "Ersätt Aᵀ med A i den ursprungliga likheten. Den blir AA=A, eller A²=A. Båda slutsatserna är fastställda.")
   ]});
-  p7('TF','In parts (a)–(m) determine whether the statement is true or false, and justify your answer.\n\n'+parts([
-    'The transpose of a diagonal matrix is a diagonal matrix.',
-    'The transpose of an upper triangular matrix is an upper triangular matrix.',
-    'The sum of an upper triangular matrix and a lower triangular matrix is a diagonal matrix.',
-    'All entries of a symmetric matrix are determined by the entries occurring on and above the main diagonal.',
-    'All entries of an upper triangular matrix are determined by the entries occurring on and above the main diagonal.',
-    'The inverse of an invertible lower triangular matrix is an upper triangular matrix.',
-    'A diagonal matrix is invertible if and only if all of its diagonal entries are positive.',
-    'The sum of a diagonal matrix and a lower triangular matrix is a lower triangular matrix.',
-    'A matrix that is both symmetric and upper triangular must be a diagonal matrix.',
-    'If A and B are n × n matrices such that A + B is symmetric, then A and B are symmetric.',
-    'If A and B are n × n matrices such that A + B is upper triangular, then A and B are upper triangular.',
-    'If A² is a symmetric matrix, then A is a symmetric matrix.',
-    'If kA is a symmetric matrix for some k ≠ 0, then A is a symmetric matrix.'
+  p7('TF',tr('In parts (a)–(m) determine whether the statement is true or false, and justify your answer.\n\n', "Avgör i delarna (a)–(m) om påståendet är sant eller falskt och motivera ditt svar.\n\n")+parts([
+    tr('The transpose of a diagonal matrix is a diagonal matrix.', "Transponatet av en diagonalmatris är en diagonalmatris."),
+    tr('The transpose of an upper triangular matrix is an upper triangular matrix.', "Transponatet av en övertriangulär matris är en övertriangulär matris."),
+    tr('The sum of an upper triangular matrix and a lower triangular matrix is a diagonal matrix.', "Summan av en övertriangulär matris och en undertriangulär matris är en diagonalmatris."),
+    tr('All entries of a symmetric matrix are determined by the entries occurring on and above the main diagonal.', "Alla element i en symmetrisk matris bestäms av elementen på och ovanför huvuddiagonalen."),
+    tr('All entries of an upper triangular matrix are determined by the entries occurring on and above the main diagonal.', "Alla element i en övertriangulär matris bestäms av elementen på och ovanför huvuddiagonalen."),
+    tr('The inverse of an invertible lower triangular matrix is an upper triangular matrix.', "Inversen till en inverterbar undertriangulär matris är en övertriangulär matris."),
+    tr('A diagonal matrix is invertible if and only if all of its diagonal entries are positive.', "En diagonalmatris är inverterbar om och endast om alla dess diagonalelement är positiva."),
+    tr('The sum of a diagonal matrix and a lower triangular matrix is a lower triangular matrix.', "Summan av en diagonalmatris och en undertriangulär matris är en undertriangulär matris."),
+    tr('A matrix that is both symmetric and upper triangular must be a diagonal matrix.', "En matris som är både symmetrisk och övertriangulär måste vara en diagonalmatris."),
+    tr('If A and B are n × n matrices such that A + B is symmetric, then A and B are symmetric.', "Om A och B är n × n-matriser sådana att A + B är symmetrisk, så är A och B symmetriska."),
+    tr('If A and B are n × n matrices such that A + B is upper triangular, then A and B are upper triangular.', "Om A och B är n × n-matriser sådana att A + B är övertriangulär, så är A och B övertriangulära."),
+    tr('If A² is a symmetric matrix, then A is a symmetric matrix.', "Om A² är en symmetrisk matris, så är A en symmetrisk matris."),
+    tr('If kA is a symmetric matrix for some k ≠ 0, then A is a symmetric matrix.', "Om kA är en symmetrisk matris för något k ≠ 0, så är A en symmetrisk matris.")
   ]),{steps:[
-    '(a) True. Transposition leaves diagonal entries in place and swaps off-diagonal zero pairs, so a diagonal matrix stays diagonal.',
-    '(b) False. The upper triangular matrix [1 2; 0 3] transposes to [1 0; 2 3], which has a nonzero entry below the diagonal.',
-    '(c) False. Add the upper triangular matrix [1 2; 0 3] to the lower triangular matrix [4 0; 5 6]. The result [5 2; 5 9] has nonzero entries off the diagonal.',
-    '(d) True. For symmetry, every entry below the diagonal must equal its reflected partner above it. The given upper half therefore determines the rest.',
-    '(e) True. An upper triangular matrix has all entries below the diagonal equal to 0, so only the on-diagonal and above-diagonal entries need to be specified.',
-    '(f) False. A lower triangular inverse is lower triangular. For example [1 0; 2 1] has inverse [1 0; −2 1], which is not upper triangular.',
-    '(g) False. The diagonal entries must be nonzero, but may be negative. For example diag(−1,2) is invertible, with inverse diag(−1,1/2).',
-    '(h) True. Both matrices have zeros above the diagonal. Adding corresponding entries leaves zeros there, so the sum is lower triangular.',
-    '(i) True. Upper triangular gives zeros below the diagonal. Symmetry copies those zeros to the reflected positions above it. Only diagonal entries can remain nonzero.',
-    '(j) False. Let A=[0 0; 1 0] and B=[0 0; −1 0]. Neither is symmetric, but A+B=0 is symmetric.',
-    '(k) False. The same A and B have nonzero entries below the diagonal, so neither is upper triangular. Their zero sum is upper triangular.',
-    '(l) False. A=[0 1; 0 0] is not symmetric, but A²=0 is symmetric.',
-    '(m) True. Symmetry of kA gives kAᵀ=kA. Since k≠0, divide both sides by k to get Aᵀ=A.'
+    tr('(a) True. Transposition leaves diagonal entries in place and swaps off-diagonal zero pairs, so a diagonal matrix stays diagonal.', "(a) Sant. Transponering lämnar diagonalelementen på plats och byter plats på nollpar utanför diagonalen. En diagonalmatris förblir därför diagonal."),
+    tr('(b) False. The upper triangular matrix [1 2; 0 3] transposes to [1 0; 2 3], which has a nonzero entry below the diagonal.', "(b) Falskt. Den övertriangulära matrisen [1 2; 0 3] transponeras till [1 0; 2 3], som har ett element skilt från noll under diagonalen."),
+    tr('(c) False. Add the upper triangular matrix [1 2; 0 3] to the lower triangular matrix [4 0; 5 6]. The result [5 2; 5 9] has nonzero entries off the diagonal.', "(c) Falskt. Addera den övertriangulära matrisen [1 2; 0 3] till den undertriangulära matrisen [4 0; 5 6]. Resultatet [5 2; 5 9] har element skilda från noll utanför diagonalen."),
+    tr('(d) True. For symmetry, every entry below the diagonal must equal its reflected partner above it. The given upper half therefore determines the rest.', "(d) Sant. För symmetri måste varje element under diagonalen vara lika med sitt speglade element ovanför. Den givna övre halvan bestämmer därför resten."),
+    tr('(e) True. An upper triangular matrix has all entries below the diagonal equal to 0, so only the on-diagonal and above-diagonal entries need to be specified.', "(e) Sant. En övertriangulär matris har alla element under diagonalen lika med 0, så bara elementen på och ovanför diagonalen behöver anges."),
+    tr('(f) False. A lower triangular inverse is lower triangular. For example [1 0; 2 1] has inverse [1 0; −2 1], which is not upper triangular.', "(f) Falskt. Inversen till en undertriangulär matris är undertriangulär. Till exempel har [1 0; 2 1] inversen [1 0; −2 1], som inte är övertriangulär."),
+    tr('(g) False. The diagonal entries must be nonzero, but may be negative. For example diag(−1,2) is invertible, with inverse diag(−1,1/2).', "(g) Falskt. Diagonalelementen måste vara skilda från noll men får vara negativa. Till exempel är diag(−1,2) inverterbar med inversen diag(−1,1/2)."),
+    tr('(h) True. Both matrices have zeros above the diagonal. Adding corresponding entries leaves zeros there, so the sum is lower triangular.', "(h) Sant. Båda matriserna har nollor ovanför diagonalen. När motsvarande element adderas finns nollorna kvar, så summan är undertriangulär."),
+    tr('(i) True. Upper triangular gives zeros below the diagonal. Symmetry copies those zeros to the reflected positions above it. Only diagonal entries can remain nonzero.', "(i) Sant. Övertriangulär ger nollor under diagonalen. Symmetri kopierar dessa nollor till de speglade platserna ovanför. Bara diagonalelementen kan vara skilda från noll."),
+    tr('(j) False. Let A=[0 0; 1 0] and B=[0 0; −1 0]. Neither is symmetric, but A+B=0 is symmetric.', "(j) Falskt. Låt A=[0 0; 1 0] och B=[0 0; −1 0]. Ingen av dem är symmetrisk, men A+B=0 är symmetrisk."),
+    tr('(k) False. The same A and B have nonzero entries below the diagonal, so neither is upper triangular. Their zero sum is upper triangular.', "(k) Falskt. Samma A och B har element skilda från noll under diagonalen, så ingen av dem är övertriangulär. Deras nollsumma är övertriangulär."),
+    tr('(l) False. A=[0 1; 0 0] is not symmetric, but A²=0 is symmetric.', "(l) Falskt. A=[0 1; 0 0] är inte symmetrisk, men A²=0 är symmetrisk."),
+    tr('(m) True. Symmetry of kA gives kAᵀ=kA. Since k≠0, divide both sides by k to get Aᵀ=A.', "(m) Sant. Symmetrin hos kA ger kAᵀ=kA. Eftersom k≠0 dividerar vi båda sidor med k och får Aᵀ=A.")
   ]});
-  p7('T1','Starting with the formula stated in Exercise T1 of Section 1.5, derive a formula for the inverse of the “block diagonal” matrix\n[ D₁   0  ]\n[  0   D₂ ]\nin which D₁ and D₂ are invertible, and use your result to compute the inverse of the matrix\n\n'+named('M',[[1.24,2.37,0,0],[3.08,-1.01,0,0],[0,0,2.76,4.92],[0,0,3.23,5.54]]),{reference:blockFormula,steps:[
-    'In the referenced block formula, substitute A=D₁, D=D₂, B=0 and C=0. The letters here represent whole rectangular groups of entries, called blocks.',
-    'Then S=D−CA⁻¹B=D₂ because the product containing a zero block is zero. The correction A⁻¹BS⁻¹CA⁻¹ is also zero, as are both off-diagonal inverse blocks.',
-    'The formula therefore reduces to diag(D₁⁻¹,D₂⁻¹): put the inverse of each original block in the same diagonal position, with zero blocks elsewhere. This derives the required rule from the given formula.',
-    'For the first numeric block, det(D₁)=1.24×(−1.01)−2.37×3.08=−8.552. Hence D₁⁻¹=(1/−8.552)[−1.01 −2.37; −3.08 1.24].',
-    'For the second block, det(D₂)=2.76×5.54−4.92×3.23=−0.6012. Hence D₂⁻¹=(1/−0.6012)[5.54 −4.92; −3.23 2.76]. Both denominators are nonzero, so both inverses exist.',
-    'Place these two blocks into the 4 × 4 result shown below. To check, multiply by M: each diagonal block gives DᵢDᵢ⁻¹=I₂ and each off-diagonal block remains zero. The full product is I₄. Rounded decimal entries may produce tiny rounding differences.'
+  p7('T1',tr('Starting with the formula stated in Exercise T1 of Section 1.5, derive a formula for the inverse of the “block diagonal” matrix\n[ D₁   0  ]\n[  0   D₂ ]\nin which D₁ and D₂ are invertible, and use your result to compute the inverse of the matrix\n\n', "Utgå från formeln i uppgift T1 i avsnitt 1.5 och härled en formel för inversen till blockdiagonalmatrisen\n[ D₁   0  ]\n[  0   D₂ ]\ndär D₁ och D₂ är inverterbara. Använd resultatet för att beräkna inversen till matrisen\n\n")+named('M',[[1.24,2.37,0,0],[3.08,-1.01,0,0],[0,0,2.76,4.92],[0,0,3.23,5.54]]),{reference:blockFormula,steps:[
+    tr('In the referenced block formula, substitute A=D₁, D=D₂, B=0 and C=0. The letters here represent whole rectangular groups of entries, called blocks.', "Sätt in A=D₁, D=D₂, B=0 och C=0 i den angivna blockformeln. Bokstäverna betecknar här hela rektangulära grupper av element, som kallas block."),
+    tr('Then S=D−CA⁻¹B=D₂ because the product containing a zero block is zero. The correction A⁻¹BS⁻¹CA⁻¹ is also zero, as are both off-diagonal inverse blocks.', "Då är S=D−CA⁻¹B=D₂ eftersom produkten som innehåller ett nollblock är noll. Korrigeringstermen A⁻¹BS⁻¹CA⁻¹ är också noll, liksom båda inversblocken utanför diagonalen."),
+    tr('The formula therefore reduces to diag(D₁⁻¹,D₂⁻¹): put the inverse of each original block in the same diagonal position, with zero blocks elsewhere. This derives the required rule from the given formula.', "Formeln förenklas därför till diag(D₁⁻¹,D₂⁻¹): sätt inversen till varje ursprungligt block på samma diagonalplats och nollblock på övriga platser. Därmed har vi härlett den efterfrågade regeln från den givna formeln."),
+    tr('For the first numeric block, det(D₁)=1.24×(−1.01)−2.37×3.08=−8.552. Hence D₁⁻¹=(1/−8.552)[−1.01 −2.37; −3.08 1.24].', "För det första numeriska blocket är det(D₁)=1.24×(−1.01)−2.37×3.08=−8.552. Därför är D₁⁻¹=(1/−8.552)[−1.01 −2.37; −3.08 1.24]."),
+    tr('For the second block, det(D₂)=2.76×5.54−4.92×3.23=−0.6012. Hence D₂⁻¹=(1/−0.6012)[5.54 −4.92; −3.23 2.76]. Both denominators are nonzero, so both inverses exist.', "För det andra blocket är det(D₂)=2.76×5.54−4.92×3.23=−0.6012. Därför är D₂⁻¹=(1/−0.6012)[5.54 −4.92; −3.23 2.76]. Båda nämnarna är skilda från noll, så båda inverserna finns."),
+    tr('Place these two blocks into the 4 × 4 result shown below. To check, multiply by M: each diagonal block gives DᵢDᵢ⁻¹=I₂ and each off-diagonal block remains zero. The full product is I₄. Rounded decimal entries may produce tiny rounding differences.', "Placera dessa två block i resultatet av storlek 4 × 4 som visas nedan. Kontrollera genom att multiplicera med M: varje diagonalblock ger DᵢDᵢ⁻¹=I₂ och varje block utanför diagonalen förblir noll. Hela produkten är I₄. Avrundade decimaltal kan ge mycket små avrundningsskillnader.")
   ]});
 
   window.EmberMathQuestions=window.EmberMathQuestions||{};
   Object.assign(window.EmberMathQuestions,sets);
-})();
+});

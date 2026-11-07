@@ -1,4 +1,4 @@
-(function(){
+(window.EmberMathI18n?.register || ((_id,build)=>build()))('questions',()=>{
   'use strict';
   const bank=window.EmberTextbook,questions=window.EmberMathQuestions;
   for(const [section,items]of Object.entries(bank.solutions)){
@@ -22,4 +22,4 @@
       if(question.answer!==undefined)item.answer=question.answer;
     }
   }
-})();
+});

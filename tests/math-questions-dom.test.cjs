@@ -24,7 +24,7 @@ function fixture(width=390,stored={}){
   w.requestAnimationFrame=cb=>{frames.set(++nextFrame,cb);return nextFrame;};
   w.cancelAnimationFrame=id=>frames.delete(id);
   for(const [key,value]of Object.entries(stored))w.localStorage.setItem(key,value);
-  for(const script of d.querySelectorAll('script[src]'))w.eval(read(script.getAttribute('src')));
+  for(const script of d.querySelectorAll('script[src]'))w.eval(read(script.getAttribute('src').split('?')[0]));
   const $=selector=>d.querySelector(selector),all=selector=>Array.from(d.querySelectorAll(selector));
   const input=(element,value,event='input')=>{
     if(typeof element==='string')element=$(element);

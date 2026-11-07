@@ -1,153 +1,154 @@
-(() => {
+(window.EmberMathI18n?.register || ((_id,build)=>build()))('questions-applications', () => {
   'use strict';
+  const tr=(en,sv)=>window.EmberMathI18n?.t(en,sv)??en;
   const q = text => ({text});
   const data = {
     '1.10': {
-      '1': q(`The accompanying figure shows a network in which the flow rate and direction of flow in certain branches are known. Find the flow rates and directions of flow in the remaining branches.`),
-      '2': q(`The accompanying figure shows known flow rates of hydrocarbons into and out of a network of pipes at an oil refinery.
+      '1': q(tr(`The accompanying figure shows a network in which the flow rate and direction of flow in certain branches are known. Find the flow rates and directions of flow in the remaining branches.`, "Den tillhörande figuren visar ett nätverk där flödet per tidsenhet och flödesriktningen i vissa grenar är kända. Bestäm flödena och flödesriktningarna i de återstående grenarna.")),
+      '2': q(tr(`The accompanying figure shows known flow rates of hydrocarbons into and out of a network of pipes at an oil refinery.
 (a) Set up a linear system whose solution provides the unknown flow rates.
 (b) Solve the system for the unknown flow rates.
-(c) Find the flow rates and directions of flow if x₄ = 50 and x₆ = 0.`),
-      '3': q(`The accompanying figure shows a network of one-way streets with traffic flowing in the directions indicated. The flow rates along the streets are measured as the average number of vehicles per hour.
+(c) Find the flow rates and directions of flow if x₄ = 50 and x₆ = 0.`, "Den tillhörande figuren visar kända flöden av kolväten in i och ut ur ett rörnätverk vid ett oljeraffinaderi.\n(a) Ställ upp ett linjärt ekvationssystem vars lösning ger de okända flödena.\n(b) Lös systemet för de okända flödena.\n(c) Bestäm flödena och flödesriktningarna om x₄ = 50 och x₆ = 0.")),
+      '3': q(tr(`The accompanying figure shows a network of one-way streets with traffic flowing in the directions indicated. The flow rates along the streets are measured as the average number of vehicles per hour.
 (a) Set up a linear system whose solution provides the unknown flow rates.
 (b) Solve the system for the unknown flow rates.
-(c) If the flow along the road from A to B must be reduced for construction, what is the minimum flow that is required to keep traffic flowing on all roads?`),
-      '4': q(`The accompanying figure shows a network of one-way streets with traffic flowing in the directions indicated. The flow rates along the streets are measured as the average number of vehicles per hour.
+(c) If the flow along the road from A to B must be reduced for construction, what is the minimum flow that is required to keep traffic flowing on all roads?`, "Den tillhörande figuren visar ett nätverk av enkelriktade gator där trafiken går i de angivna riktningarna. Flödena längs gatorna mäts som det genomsnittliga antalet fordon per timme.\n(a) Ställ upp ett linjärt ekvationssystem vars lösning ger de okända flödena.\n(b) Lös systemet för de okända flödena.\n(c) Om flödet längs vägen från A till B måste minskas på grund av vägarbete, vilket är det minsta flöde som krävs för att trafiken ska fortsätta på alla vägar?")),
+      '4': q(tr(`The accompanying figure shows a network of one-way streets with traffic flowing in the directions indicated. The flow rates along the streets are measured as the average number of vehicles per hour.
 (a) Set up a linear system whose solution provides the unknown flow rates.
 (b) Solve the system for the unknown flow rates.
-(c) Is it possible to close the road from A to B for construction and keep traffic flowing on the other streets? Explain.`),
-      '5': q(`Analyze the given electrical circuit by finding the unknown currents.`),
-      '6': q(`Analyze the given electrical circuit by finding the unknown currents.`),
-      '7': q(`Analyze the given electrical circuit by finding the unknown currents.`),
-      '8': q(`Analyze the given electrical circuit by finding the unknown currents.`),
-      '9': q(`Write a balanced equation for the given chemical reaction.
-C₃H₈ + O₂ → CO₂ + H₂O [propane combustion]`),
-      '10': q(`Write a balanced equation for the given chemical reaction.
-C₆H₁₂O₆ → CO₂ + C₂H₅OH [fermentation of sugar]`),
-      '11': q(`Write a balanced equation for the given chemical reaction.
-CH₃COF + H₂O → CH₃COOH + HF`),
-      '12': q(`Write a balanced equation for the given chemical reaction.
-CO₂ + H₂O → C₆H₁₂O₆ + O₂ [photosynthesis]`),
-      '13': q(`Find the quadratic polynomial whose graph passes through the points (1, 1), (2, 2), and (3, 5).`),
-      '14': q(`Find the quadratic polynomial whose graph passes through the points (0, 0), (−1, 1), and (1, 1).`),
-      '15': q(`Find the cubic polynomial whose graph passes through the points (−1, −1), (0, 1), (1, 3), (4, −1).`),
-      '16': q(`The accompanying figure shows the graph of a cubic polynomial. Find the polynomial.`),
-      '17': q(`(a) Find an equation that represents the family of all second-degree polynomials that pass through the points (0, 1) and (1, 2). [Hint: The equation will involve one arbitrary parameter that produces the members of the family when varied.]
-(b) By hand, or with the help of a graphing utility, sketch four curves in the family.`),
-      '18': q(`In this section we have selected only a few applications of linear systems. Using the Internet as a search tool, try to find some more real-world applications of such systems. Select one that is of interest to you and write a paragraph about it.`),
-      'TF': q(`In parts (a)–(e) determine whether the statement is true or false, and justify your answer.
+(c) Is it possible to close the road from A to B for construction and keep traffic flowing on the other streets? Explain.`, "Den tillhörande figuren visar ett nätverk av enkelriktade gator där trafiken går i de angivna riktningarna. Flödena längs gatorna mäts som det genomsnittliga antalet fordon per timme.\n(a) Ställ upp ett linjärt ekvationssystem vars lösning ger de okända flödena.\n(b) Lös systemet för de okända flödena.\n(c) Är det möjligt att stänga vägen från A till B för vägarbete och ändå låta trafiken fortsätta på de andra gatorna? Förklara.")),
+      '5': q(tr(`Analyze the given electrical circuit by finding the unknown currents.`, "Analysera den givna elektriska kretsen genom att bestämma de okända strömmarna.")),
+      '6': q(tr(`Analyze the given electrical circuit by finding the unknown currents.`, "Analysera den givna elektriska kretsen genom att bestämma de okända strömmarna.")),
+      '7': q(tr(`Analyze the given electrical circuit by finding the unknown currents.`, "Analysera den givna elektriska kretsen genom att bestämma de okända strömmarna.")),
+      '8': q(tr(`Analyze the given electrical circuit by finding the unknown currents.`, "Analysera den givna elektriska kretsen genom att bestämma de okända strömmarna.")),
+      '9': q(tr(`Write a balanced equation for the given chemical reaction.
+C₃H₈ + O₂ → CO₂ + H₂O [propane combustion]`, "Skriv en balanserad reaktionsformel för den givna kemiska reaktionen.\nC₃H₈ + O₂ → CO₂ + H₂O [förbränning av propan]")),
+      '10': q(tr(`Write a balanced equation for the given chemical reaction.
+C₆H₁₂O₆ → CO₂ + C₂H₅OH [fermentation of sugar]`, "Skriv en balanserad reaktionsformel för den givna kemiska reaktionen.\nC₆H₁₂O₆ → CO₂ + C₂H₅OH [jäsning av socker]")),
+      '11': q(tr(`Write a balanced equation for the given chemical reaction.
+CH₃COF + H₂O → CH₃COOH + HF`, "Skriv en balanserad reaktionsformel för den givna kemiska reaktionen.\nCH₃COF + H₂O → CH₃COOH + HF")),
+      '12': q(tr(`Write a balanced equation for the given chemical reaction.
+CO₂ + H₂O → C₆H₁₂O₆ + O₂ [photosynthesis]`, "Skriv en balanserad reaktionsformel för den givna kemiska reaktionen.\nCO₂ + H₂O → C₆H₁₂O₆ + O₂ [fotosyntes]")),
+      '13': q(tr(`Find the quadratic polynomial whose graph passes through the points (1, 1), (2, 2), and (3, 5).`, "Bestäm det andragradspolynom vars graf går genom punkterna (1, 1), (2, 2) och (3, 5).")),
+      '14': q(tr(`Find the quadratic polynomial whose graph passes through the points (0, 0), (−1, 1), and (1, 1).`, "Bestäm det andragradspolynom vars graf går genom punkterna (0, 0), (−1, 1) och (1, 1).")),
+      '15': q(tr(`Find the cubic polynomial whose graph passes through the points (−1, −1), (0, 1), (1, 3), (4, −1).`, "Bestäm det tredjegradspolynom vars graf går genom punkterna (−1, −1), (0, 1), (1, 3), (4, −1).")),
+      '16': q(tr(`The accompanying figure shows the graph of a cubic polynomial. Find the polynomial.`, "Den tillhörande figuren visar grafen till ett tredjegradspolynom. Bestäm polynomet.")),
+      '17': q(tr(`(a) Find an equation that represents the family of all second-degree polynomials that pass through the points (0, 1) and (1, 2). [Hint: The equation will involve one arbitrary parameter that produces the members of the family when varied.]
+(b) By hand, or with the help of a graphing utility, sketch four curves in the family.`, "(a) Bestäm en ekvation som beskriver familjen av alla andragradspolynom som går genom punkterna (0, 1) och (1, 2). [Ledning: Ekvationen kommer att innehålla en godtycklig parameter som ger familjens olika medlemmar när den varieras.]\n(b) Rita fyra kurvor ur familjen för hand eller med hjälp av ett grafritande verktyg.")),
+      '18': q(tr(`In this section we have selected only a few applications of linear systems. Using the Internet as a search tool, try to find some more real-world applications of such systems. Select one that is of interest to you and write a paragraph about it.`, "I det här avsnittet har vi bara valt ut några få tillämpningar av linjära ekvationssystem. Använd internet som sökverktyg och försök hitta fler tillämpningar av sådana system i verkligheten. Välj en som intresserar dig och skriv ett stycke om den.")),
+      'TF': q(tr(`In parts (a)–(e) determine whether the statement is true or false, and justify your answer.
 (a) In any network, the sum of the flows out of a node must equal the sum of the flows into a node.
 (b) When a current passes through a resistor, there is an increase in the electrical potential in a circuit.
 (c) Kirchhoff’s current law states that the sum of the currents flowing into a node equals the sum of the currents flowing out of the node.
 (d) A chemical equation is called balanced if the total number of atoms on each side of the equation is the same.
-(e) Given any n points in the xy-plane, there is a unique polynomial of degree n − 1 or less whose graph passes through those points.`),
-      'T1': q(`The following table shows the lifting force on an aircraft wing measured in a wind tunnel at various wind velocities. Model the data with an interpolating polynomial of degree 5, and use that polynomial to estimate the lifting force at 2000 ft/s.
+(e) Given any n points in the xy-plane, there is a unique polynomial of degree n − 1 or less whose graph passes through those points.`, "Avgör i delarna (a)–(e) om påståendet är sant eller falskt och motivera ditt svar.\n(a) I varje nätverk måste summan av flödena ut ur en nod vara lika med summan av flödena in i noden.\n(b) När en ström går genom en resistor ökar den elektriska potentialen i kretsen.\n(c) Kirchhoffs strömlag säger att summan av strömmarna in i en nod är lika med summan av strömmarna ut ur noden.\n(d) En kemisk reaktionsformel kallas balanserad om det totala antalet atomer på vardera sidan av formeln är detsamma.\n(e) För vilka n punkter som helst i xy-planet finns ett entydigt polynom av grad n − 1 eller lägre vars graf går genom dessa punkter.")),
+      'T1': q(tr(`The following table shows the lifting force on an aircraft wing measured in a wind tunnel at various wind velocities. Model the data with an interpolating polynomial of degree 5, and use that polynomial to estimate the lifting force at 2000 ft/s.
 Velocity (100 ft/s): 1, 2, 4, 8, 16, 32.
-Lifting force (100 lb), in the same order: 0, 3.12, 15.86, 33.7, 81.5, 123.0.`),
-      'T2': q(`(Calculus required) Use the method of Example 7 to approximate the integral
+Lifting force (100 lb), in the same order: 0, 3.12, 15.86, 33.7, 81.5, 123.0.`, "Följande tabell visar lyftkraften på en flygplansvinge, uppmätt i en vindtunnel vid olika vindhastigheter. Modellera data med ett interpolerande polynom av grad 5 och använd polynomet för att uppskatta lyftkraften vid 2000 ft/s.\nHastighet (100 ft/s): 1, 2, 4, 8, 16, 32.\nLyftkraft (100 lb), i samma ordning: 0, 3.12, 15.86, 33.7, 81.5, 123.0.")),
+      'T2': q(tr(`(Calculus required) Use the method of Example 7 to approximate the integral
 ∫₀¹ e^(x²) dx
-by subdividing the interval of integration into five equal parts and using an interpolating polynomial to approximate the integrand. Compare your answer to that obtained using the numerical integration capability of your technology utility.`),
-      'T3': q(`Use the method of Example 5 to balance the chemical equation
+by subdividing the interval of integration into five equal parts and using an interpolating polynomial to approximate the integrand. Compare your answer to that obtained using the numerical integration capability of your technology utility.`, "(Kräver kunskaper i matematisk analys) Använd metoden i Exempel 7 för att approximera integralen\n∫₀¹ e^(x²) dx\ngenom att dela integrationsintervallet i fem lika stora delar och använda ett interpolerande polynom för att approximera integranden. Jämför ditt svar med det som du får med ditt digitala verktygs funktion för numerisk integration.")),
+      'T3': q(tr(`Use the method of Example 5 to balance the chemical equation
 Fe₂O₃ + Al → Al₂O₃ + Fe
-(Fe = iron, Al = aluminum, O = oxygen)`),
-      'T4': q(`Determine the currents in the accompanying circuit.`)
+(Fe = iron, Al = aluminum, O = oxygen)`, "Använd metoden i Exempel 5 för att balansera reaktionsformeln\nFe₂O₃ + Al → Al₂O₃ + Fe\n(Fe = järn, Al = aluminium, O = syre)")),
+      'T4': q(tr(`Determine the currents in the accompanying circuit.`, "Bestäm strömmarna i den tillhörande kretsen."))
     },
     '1.11': {
-      '1': q(`An automobile mechanic (M) and a body shop (B) use each other’s services. For each $1.00 of business that M does, it uses $0.50 of its own services and $0.25 of B’s services, and for each $1.00 of business that B does it uses $0.10 of its own services and $0.25 of M’s services.
+      '1': q(tr(`An automobile mechanic (M) and a body shop (B) use each other’s services. For each $1.00 of business that M does, it uses $0.50 of its own services and $0.25 of B’s services, and for each $1.00 of business that B does it uses $0.10 of its own services and $0.25 of M’s services.
 (a) Construct a consumption matrix for this economy.
-(b) How much must M and B each produce to provide customers with $7000 worth of mechanical work and $14,000 worth of body work?`),
-      '2': q(`A simple economy produces food (F) and housing (H). The production of $1.00 worth of food requires $0.30 worth of food and $0.10 worth of housing, and the production of $1.00 worth of housing requires $0.20 worth of food and $0.60 worth of housing.
+(b) How much must M and B each produce to provide customers with $7000 worth of mechanical work and $14,000 worth of body work?`, "En bilmekanisk verkstad (M) och en bilplåtverkstad (B) använder varandras tjänster. För varje $1.00 som M producerar används egna tjänster för $0.50 och tjänster från B för $0.25. För varje $1.00 som B producerar används egna tjänster för $0.10 och tjänster från M för $0.25.\n(a) Konstruera en förbrukningsmatris för denna ekonomi.\n(b) Hur mycket måste M och B vardera producera för att ge kunderna mekaniskt arbete värt $7000 och karosseriarbete värt $14,000?")),
+      '2': q(tr(`A simple economy produces food (F) and housing (H). The production of $1.00 worth of food requires $0.30 worth of food and $0.10 worth of housing, and the production of $1.00 worth of housing requires $0.20 worth of food and $0.60 worth of housing.
 (a) Construct a consumption matrix for this economy.
-(b) What dollar value of food and housing must be produced for the economy to provide consumers $130,000 worth of food and $130,000 worth of housing?`),
-      '3': q(`Consider the open economy described by the accompanying table, where the input is in dollars needed for $1.00 of output.
+(b) What dollar value of food and housing must be produced for the economy to provide consumers $130,000 worth of food and $130,000 worth of housing?`, "En enkel ekonomi producerar livsmedel (F) och bostäder (H). Produktion av livsmedel värda $1.00 kräver livsmedel för $0.30 och bostäder för $0.10. Produktion av bostäder värda $1.00 kräver livsmedel för $0.20 och bostäder för $0.60.\n(a) Konstruera en förbrukningsmatris för denna ekonomi.\n(b) Till vilket dollarvärde måste livsmedel och bostäder produceras för att ekonomin ska kunna förse konsumenterna med livsmedel för $130,000 och bostäder för $130,000?")),
+      '3': q(tr(`Consider the open economy described by the accompanying table, where the input is in dollars needed for $1.00 of output.
 Table Ex-3: Input required per dollar output. Columns: Housing, Food, Utilities.
 Provider Housing: $0.10, $0.60, $0.40.
 Provider Food: $0.30, $0.20, $0.30.
 Provider Utilities: $0.40, $0.10, $0.20.
 (a) Find the consumption matrix for the economy.
-(b) Suppose that the open sector has a demand for $1930 worth of housing, $3860 worth of food, and $5790 worth of utilities. Use row reduction to find a production vector that will meet this demand exactly.`),
-      '4': q(`A company produces Web design, software, and networking services. View the company as an open economy described by the accompanying table, where input is in dollars needed for $1.00 of output.
+(b) Suppose that the open sector has a demand for $1930 worth of housing, $3860 worth of food, and $5790 worth of utilities. Use row reduction to find a production vector that will meet this demand exactly.`, "Betrakta den öppna ekonomi som beskrivs i tabellen. Insatserna anges i dollar som behövs för en produktion värd $1.00.\nTabell Ex-3: Insats per producerad dollar. Kolumner: Bostäder, Livsmedel, Försörjningstjänster.\nLeverantör Bostäder: $0.10, $0.60, $0.40.\nLeverantör Livsmedel: $0.30, $0.20, $0.30.\nLeverantör Försörjningstjänster: $0.40, $0.10, $0.20.\n(a) Bestäm ekonomins förbrukningsmatris.\n(b) Anta att den öppna sektorn efterfrågar bostäder för $1930, livsmedel för $3860 och försörjningstjänster för $5790. Använd radreduktion för att bestämma en produktionsvektor som uppfyller efterfrågan exakt.")),
+      '4': q(tr(`A company produces Web design, software, and networking services. View the company as an open economy described by the accompanying table, where input is in dollars needed for $1.00 of output.
 Table Ex-4: Input required per dollar output. Columns: Web Design, Software, Networking.
 Provider Web Design: $0.40, $0.20, $0.45.
 Provider Software: $0.30, $0.35, $0.30.
 Provider Networking: $0.15, $0.10, $0.20.
 (a) Find the consumption matrix for the company.
-(b) Suppose that the customers (the open sector) have a demand for $5400 worth of Web design, $2700 worth of software, and $900 worth of networking. Use row reduction to find a production vector that will meet this demand exactly.`),
-      '5': q(`Use matrix inversion to find the production vector x that meets the demand d for the consumption matrix C.
+(b) Suppose that the customers (the open sector) have a demand for $5400 worth of Web design, $2700 worth of software, and $900 worth of networking. Use row reduction to find a production vector that will meet this demand exactly.`, "Ett företag producerar webbdesign, programvara och nätverkstjänster. Betrakta företaget som en öppen ekonomi enligt tabellen, där insatserna anges i dollar som behövs för en produktion värd $1.00.\nTabell Ex-4: Insats per producerad dollar. Kolumner: Webbdesign, Programvara, Nätverkstjänster.\nLeverantör Webbdesign: $0.40, $0.20, $0.45.\nLeverantör Programvara: $0.30, $0.35, $0.30.\nLeverantör Nätverkstjänster: $0.15, $0.10, $0.20.\n(a) Bestäm företagets förbrukningsmatris.\n(b) Anta att kunderna (den öppna sektorn) efterfrågar webbdesign för $5400, programvara för $2700 och nätverkstjänster för $900. Använd radreduktion för att bestämma en produktionsvektor som uppfyller efterfrågan exakt.")),
+      '5': q(tr(`Use matrix inversion to find the production vector x that meets the demand d for the consumption matrix C.
 C =
 [0.1  0.3]
 [0.5  0.4]
 d =
 [50]
-[60]`),
-      '6': q(`Use matrix inversion to find the production vector x that meets the demand d for the consumption matrix C.
+[60]`, "Använd matrisinvertering för att bestämma den produktionsvektor x som uppfyller efterfrågan d för förbrukningsmatrisen C.\nC =\n[0.1  0.3]\n[0.5  0.4]\nd =\n[50]\n[60]")),
+      '6': q(tr(`Use matrix inversion to find the production vector x that meets the demand d for the consumption matrix C.
 C =
 [0.3  0.1]
 [0.3  0.7]
 d =
 [22]
-[14]`),
-      '7': q(`Consider an open economy with consumption matrix
+[14]`, "Använd matrisinvertering för att bestämma den produktionsvektor x som uppfyller efterfrågan d för förbrukningsmatrisen C.\nC =\n[0.3  0.1]\n[0.3  0.7]\nd =\n[22]\n[14]")),
+      '7': q(tr(`Consider an open economy with consumption matrix
 C =
 [1/2  0]
 [ 0   1]
 (a) Show that the economy can meet a demand of d₁ = 2 units from the first sector and d₂ = 0 units from the second sector, but it cannot meet a demand of d₁ = 2 units from the first sector and d₂ = 1 unit from the second sector.
-(b) Give both a mathematical and an economic explanation of the result in part (a).`),
-      '8': q(`Consider an open economy with consumption matrix
+(b) Give both a mathematical and an economic explanation of the result in part (a).`, "Betrakta en öppen ekonomi med förbrukningsmatrisen\nC =\n[1/2  0]\n[ 0   1]\n(a) Visa att ekonomin kan uppfylla en efterfrågan på d₁ = 2 enheter från den första sektorn och d₂ = 0 enheter från den andra sektorn, men att den inte kan uppfylla en efterfrågan på d₁ = 2 enheter från den första sektorn och d₂ = 1 enhet från den andra sektorn.\n(b) Ge både en matematisk och en ekonomisk förklaring till resultatet i del (a).")),
+      '8': q(tr(`Consider an open economy with consumption matrix
 C =
 [1/2  1/4  1/4]
 [1/2  1/8  1/4]
 [1/2  1/4  1/8]
-If the open sector demands the same dollar value from each product-producing sector, which such sector must produce the greatest dollar value to meet the demand?`),
-      '9': q(`Consider an open economy with consumption matrix
+If the open sector demands the same dollar value from each product-producing sector, which such sector must produce the greatest dollar value to meet the demand?`, "Betrakta en öppen ekonomi med förbrukningsmatrisen\nC =\n[1/2  1/4  1/4]\n[1/2  1/8  1/4]\n[1/2  1/4  1/8]\nOm den öppna sektorn efterfrågar samma dollarvärde från varje producerande sektor, vilken av dessa sektorer måste då producera det största dollarvärdet för att uppfylla efterfrågan?")),
+      '9': q(tr(`Consider an open economy with consumption matrix
 C =
 [c₁₁  c₁₂]
 [c₂₁   0 ]
-Show that the Leontief equation x − Cx = d has a unique solution for every demand vector d if c₂₁c₁₂ < 1 − c₁₁.`),
-      '10': q(`(a) Consider an open economy with a consumption matrix C whose column sums are less than 1, and let x be the production vector that satisfies an outside demand d; that is, (I − C)⁻¹d = x. Let dⱼ be the demand vector that is obtained by increasing the jth entry of d by 1 and leaving the other entries fixed. Prove that the production vector xⱼ that meets this demand is
+Show that the Leontief equation x − Cx = d has a unique solution for every demand vector d if c₂₁c₁₂ < 1 − c₁₁.`, "Betrakta en öppen ekonomi med förbrukningsmatrisen\nC =\n[c₁₁  c₁₂]\n[c₂₁   0 ]\nVisa att Leontiefekvationen x − Cx = d har en entydig lösning för varje efterfrågevektor d om c₂₁c₁₂ < 1 − c₁₁.")),
+      '10': q(tr(`(a) Consider an open economy with a consumption matrix C whose column sums are less than 1, and let x be the production vector that satisfies an outside demand d; that is, (I − C)⁻¹d = x. Let dⱼ be the demand vector that is obtained by increasing the jth entry of d by 1 and leaving the other entries fixed. Prove that the production vector xⱼ that meets this demand is
 xⱼ = x + jth column vector of (I − C)⁻¹.
-(b) In words, what is the economic significance of the jth column vector of (I − C)⁻¹? [Hint: Look at xⱼ − x.]`),
-      '11': q(`Prove: If C is an n × n matrix whose entries are nonnegative and whose row sums are less than 1, then I − C is invertible and has nonnegative entries. [Hint: (Aᵀ)⁻¹ = (A⁻¹)ᵀ for any invertible matrix A.]`),
-      'TF': q(`In parts (a)–(e) determine whether the statement is true or false, and justify your answer.
+(b) In words, what is the economic significance of the jth column vector of (I − C)⁻¹? [Hint: Look at xⱼ − x.]`, "(a) Betrakta en öppen ekonomi med en förbrukningsmatris C vars kolumnsummor är mindre än 1. Låt x vara produktionsvektorn som uppfyller en extern efterfrågan d, det vill säga (I − C)⁻¹d = x. Låt dⱼ vara den efterfrågevektor som fås när den j:te komponenten i d ökas med 1 medan övriga komponenter behålls. Bevisa att produktionsvektorn xⱼ som uppfyller denna efterfrågan är\nxⱼ = x + den j:te kolumnvektorn i (I − C)⁻¹.\n(b) Vilken ekonomisk betydelse har den j:te kolumnvektorn i (I − C)⁻¹, uttryckt i ord? [Ledning: Betrakta xⱼ − x.]")),
+      '11': q(tr(`Prove: If C is an n × n matrix whose entries are nonnegative and whose row sums are less than 1, then I − C is invertible and has nonnegative entries. [Hint: (Aᵀ)⁻¹ = (A⁻¹)ᵀ for any invertible matrix A.]`, "Bevisa: Om C är en n × n-matris vars element är icke-negativa och vars radsummor är mindre än 1, så är I − C inverterbar och har icke-negativa element. [Ledning: (Aᵀ)⁻¹ = (A⁻¹)ᵀ för varje inverterbar matris A.]")),
+      'TF': q(tr(`In parts (a)–(e) determine whether the statement is true or false, and justify your answer.
 (a) Sectors of an economy that produce outputs are called open sectors.
 (b) A closed economy is an economy that has no open sectors.
 (c) The rows of a consumption matrix represent the outputs in a sector of an economy.
 (d) If the column sums of the consumption matrix are all less than 1, then the Leontief matrix is invertible.
-(e) The Leontief equation relates the production vector for an economy to the outside demand vector.`),
-      'T1': q(`The following table describes an open economy with three sectors in which the table entries are the dollar inputs required to produce one dollar of output. The outside demand during a 1-week period if $50,000 of coal, $75,000 of electricity, and $1,250,000 of manufacturing. Determine whether the economy can meet the demand.
+(e) The Leontief equation relates the production vector for an economy to the outside demand vector.`, "Avgör i delarna (a)–(e) om påståendet är sant eller falskt och motivera ditt svar.\n(a) Sektorer i en ekonomi som producerar varor eller tjänster kallas öppna sektorer.\n(b) En sluten ekonomi är en ekonomi som inte har några öppna sektorer.\n(c) Raderna i en förbrukningsmatris representerar produktionen i en sektor av ekonomin.\n(d) Om alla kolumnsummor i förbrukningsmatrisen är mindre än 1, så är Leontiefmatrisen inverterbar.\n(e) Leontiefekvationen kopplar samman ekonomins produktionsvektor med den externa efterfrågevektorn.")),
+      'T1': q(tr(`The following table describes an open economy with three sectors in which the table entries are the dollar inputs required to produce one dollar of output. The outside demand during a 1-week period if $50,000 of coal, $75,000 of electricity, and $1,250,000 of manufacturing. Determine whether the economy can meet the demand.
 Input Required per Dollar Output. Columns: Electricity, Coal, Manufacturing.
 Provider Electricity: $0.1, $0.25, $0.2.
 Provider Coal: $0.3, $0.4, $0.5.
-Provider Manufacturing: $0.1, $0.15, $0.1.`)
+Provider Manufacturing: $0.1, $0.15, $0.1.`, "Följande tabell beskriver en öppen ekonomi med tre sektorer. Tabellvärdena är de insatser i dollar som krävs för att producera en dollar av produkten. Den externa efterfrågan under en period på 1 vecka är kol för $50,000, elektricitet för $75,000 och industriprodukter för $1,250,000. Avgör om ekonomin kan uppfylla efterfrågan.\nInsats per producerad dollar. Kolumner: Elektricitet, Kol, Industri.\nLeverantör Elektricitet: $0.1, $0.25, $0.2.\nLeverantör Kol: $0.3, $0.4, $0.5.\nLeverantör Industri: $0.1, $0.15, $0.1."))
     },
     review: {
-      '1': q(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
+      '1': q(tr(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
 [3  −1  0  4 |  1]
-[2   0  3  3 | −1]`),
-      '2': q(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
+[2   0  3  3 | −1]`, "Den givna matrisen är en utökad matris för ett linjärt ekvationssystem. Skriv motsvarande linjära ekvationer och lös systemet med Gausselimination. Inför fria parametrar vid behov.\n[3  −1  0  4 |  1]\n[2   0  3  3 | −1]")),
+      '2': q(tr(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
 [ 1   4 | −1]
 [−2  −8 |  2]
 [ 3  12 | −3]
-[ 0   0 |  0]`),
-      '3': q(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
+[ 0   0 |  0]`, "Den givna matrisen är en utökad matris för ett linjärt ekvationssystem. Skriv motsvarande linjära ekvationer och lös systemet med Gausselimination. Inför fria parametrar vid behov.\n[ 1   4 | −1]\n[−2  −8 |  2]\n[ 3  12 | −3]\n[ 0   0 |  0]")),
+      '3': q(tr(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
 [ 2  −4   1 |  6]
 [−4   0   3 | −1]
-[ 0   1  −1 |  3]`),
-      '4': q(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
+[ 0   1  −1 |  3]`, "Den givna matrisen är en utökad matris för ett linjärt ekvationssystem. Skriv motsvarande linjära ekvationer och lös systemet med Gausselimination. Inför fria parametrar vid behov.\n[ 2  −4   1 |  6]\n[−4   0   3 | −1]\n[ 0   1  −1 |  3]")),
+      '4': q(tr(`The given matrix represents an augmented matrix for a linear system. Write the corresponding set of linear equations for the system, and use Gaussian elimination to solve the linear system. Introduce free parameters as necessary.
 [ 3   1 | −2]
 [−9  −3 |  6]
-[ 6   2 |  1]`),
-      '5': q(`Use Gauss–Jordan elimination to solve for x′ and y′ in terms of x and y.
+[ 6   2 |  1]`, "Den givna matrisen är en utökad matris för ett linjärt ekvationssystem. Skriv motsvarande linjära ekvationer och lös systemet med Gausselimination. Inför fria parametrar vid behov.\n[ 3   1 | −2]\n[−9  −3 |  6]\n[ 6   2 |  1]")),
+      '5': q(tr(`Use Gauss–Jordan elimination to solve for x′ and y′ in terms of x and y.
 x = (3/5)x′ − (4/5)y′
-y = (4/5)x′ + (3/5)y′`),
-      '6': q(`Use Gauss–Jordan elimination to solve for x′ and y′ in terms of x and y.
+y = (4/5)x′ + (3/5)y′`, "Använd Gauss–Jordan-elimination för att uttrycka x′ och y′ med hjälp av x och y.\nx = (3/5)x′ − (4/5)y′\ny = (4/5)x′ + (3/5)y′")),
+      '6': q(tr(`Use Gauss–Jordan elimination to solve for x′ and y′ in terms of x and y.
 x = x′ cos θ − y′ sin θ
-y = x′ sin θ + y′ cos θ`),
-      '7': q(`Find positive integers that satisfy
+y = x′ sin θ + y′ cos θ`, "Använd Gauss–Jordan-elimination för att uttrycka x′ och y′ med hjälp av x och y.\nx = x′ cos θ − y′ sin θ\ny = x′ sin θ + y′ cos θ")),
+      '7': q(tr(`Find positive integers that satisfy
 x + y + z = 9
-x + 5y + 10z = 44.`),
-      '8': q(`A box containing pennies, nickels, and dimes has 13 coins with a total value of 83 cents. How many coins of each type are in the box? Is the economy productive?`),
-      '9': q(`Let
+x + 5y + 10z = 44.`, "Bestäm positiva heltal som uppfyller\nx + y + z = 9\nx + 5y + 10z = 44.")),
+      '8': q(tr(`A box containing pennies, nickels, and dimes has 13 coins with a total value of 83 cents. How many coins of each type are in the box? Is the economy productive?`, "En låda med amerikanska encentsmynt, femcentsmynt och tiocentsmynt innehåller 13 mynt med ett sammanlagt värde på 83 cent. Hur många mynt av varje slag finns i lådan? Är ekonomin produktiv?")),
+      '9': q(tr(`Let
 [a  0  b | 2]
 [a  a  4 | 4]
 [0  a  2 | b]
@@ -155,12 +156,12 @@ be the augmented matrix for a linear system. Find for what values of a and b the
 (a) a unique solution.
 (b) a one-parameter solution.
 (c) a two-parameter solution.
-(d) no solution.`),
-      '10': q(`For which value(s) of a does the following system have zero solutions? One solution? Infinitely many solutions?
+(d) no solution.`, "Låt\n[a  0  b | 2]\n[a  a  4 | 4]\n[0  a  2 | b]\nvara den utökade matrisen för ett linjärt ekvationssystem. Bestäm för vilka värden på a och b som systemet har\n(a) en entydig lösning.\n(b) en lösning med en fri parameter.\n(c) en lösning med två fria parametrar.\n(d) ingen lösning.")),
+      '10': q(tr(`For which value(s) of a does the following system have zero solutions? One solution? Infinitely many solutions?
 x₁ + x₂ + x₃ = 4
 x₃ = 2
-(a² − 4)x₃ = a − 2`),
-      '11': q(`Find a matrix K such that AKB = C given that
+(a² − 4)x₃ = a − 2`, "För vilket eller vilka värden på a har följande system ingen lösning? En lösning? Oändligt många lösningar?\nx₁ + x₂ + x₃ = 4\nx₃ = 2\n(a² − 4)x₃ = a − 2")),
+      '11': q(tr(`Find a matrix K such that AKB = C given that
 A =
 [ 1   4]
 [−2   3]
@@ -171,13 +172,13 @@ B =
 C =
 [ 8   6  −6]
 [ 6  −1   1]
-[−4   0   0]`),
-      '12': q(`How should the coefficients a, b, and c be chosen so that the system
+[−4   0   0]`, "Bestäm en matris K så att AKB = C, givet att\nA =\n[ 1   4]\n[−2   3]\n[ 1  −2]\nB =\n[2  0   0]\n[0  1  −1]\nC =\n[ 8   6  −6]\n[ 6  −1   1]\n[−4   0   0]")),
+      '12': q(tr(`How should the coefficients a, b, and c be chosen so that the system
 ax + by − 3z = −3
 −2x − by + cz = −1
 ax + 3y − cz = −3
-has the solution x = 1, y = −1, and z = 2?`),
-      '13': q(`In each part, solve the matrix equation for X.
+has the solution x = 1, y = −1, and z = 2?`, "Hur ska koefficienterna a, b och c väljas för att systemet\nax + by − 3z = −3\n−2x − by + cz = −1\nax + 3y − cz = −3\nska ha lösningen x = 1, y = −1 och z = 2?")),
+      '13': q(tr(`In each part, solve the matrix equation for X.
 (a) XB = C, where
 B =
 [−1  0   1]
@@ -202,27 +203,27 @@ B =
 [2  0]
 C =
 [2  −2]
-[5   4]`),
-      '14': q(`Let A be a square matrix.
+[5   4]`, "Lös i varje del matrisekvationen för X.\n(a) XB = C, där\nB =\n[−1  0   1]\n[ 1  1   0]\n[ 3  1  −1]\nC =\n[ 1  2  0]\n[−3  1  5]\n(b) XB = C, där\nB =\n[1  −1  2]\n[3   0  1]\nC =\n[−5  −1  0]\n[ 6  −3  7]\n(c) AX − XB = C, där\nA =\n[ 3  1]\n[−1  2]\nB =\n[1  4]\n[2  0]\nC =\n[2  −2]\n[5   4]")),
+      '14': q(tr(`Let A be a square matrix.
 (a) Show that (I − A)⁻¹ = I + A + A² + A³ if A⁴ = 0.
-(b) Show that (I − A)⁻¹ = I + A + A² + ⋯ + Aⁿ if Aⁿ⁺¹ = 0.`),
-      '15': q(`Find values of a, b, and c such that the graph of the polynomial p(x) = ax² + bx + c passes through the points (1, 2), (−1, 6), and (2, 3).`),
-      '16': q(`(Calculus required) Find values of a, b, and c such that the graph of p(x) = ax² + bx + c passes through the point (−1, 0) and has a horizontal tangent at (2, −9).`),
-      '17': q(`Let Jₙ be the n × n matrix each of whose entries is 1. Show that if n > 1, then
-(I − Jₙ)⁻¹ = I − [1/(n − 1)]Jₙ.`),
-      '18': q(`Show that if a square matrix A satisfies
+(b) Show that (I − A)⁻¹ = I + A + A² + ⋯ + Aⁿ if Aⁿ⁺¹ = 0.`, "Låt A vara en kvadratisk matris.\n(a) Visa att (I − A)⁻¹ = I + A + A² + A³ om A⁴ = 0.\n(b) Visa att (I − A)⁻¹ = I + A + A² + ⋯ + Aⁿ om Aⁿ⁺¹ = 0.")),
+      '15': q(tr(`Find values of a, b, and c such that the graph of the polynomial p(x) = ax² + bx + c passes through the points (1, 2), (−1, 6), and (2, 3).`, "Bestäm värden på a, b och c så att grafen till polynomet p(x) = ax² + bx + c går genom punkterna (1, 2), (−1, 6) och (2, 3).")),
+      '16': q(tr(`(Calculus required) Find values of a, b, and c such that the graph of p(x) = ax² + bx + c passes through the point (−1, 0) and has a horizontal tangent at (2, −9).`, "(Kräver kunskaper i matematisk analys) Bestäm värden på a, b och c så att grafen till p(x) = ax² + bx + c går genom punkten (−1, 0) och har en horisontell tangent i (2, −9).")),
+      '17': q(tr(`Let Jₙ be the n × n matrix each of whose entries is 1. Show that if n > 1, then
+(I − Jₙ)⁻¹ = I − [1/(n − 1)]Jₙ.`, "Låt Jₙ vara den n × n-matris vars samtliga element är 1. Visa att om n > 1, så gäller\n(I − Jₙ)⁻¹ = I − [1/(n − 1)]Jₙ.")),
+      '18': q(tr(`Show that if a square matrix A satisfies
 A³ + 4A² − 2A + 7I = 0
-then so does Aᵀ.`),
-      '19': q(`Prove: If B is invertible, then AB⁻¹ = B⁻¹A if and only if AB = BA.`),
-      '20': q(`Prove: If A is invertible, then A + B and I + BA⁻¹ are both invertible or both not invertible.`),
-      '21': q(`Prove: If A is an m × n matrix and B is the n × 1 matrix each of whose entries is 1/n, then
+then so does Aᵀ.`, "Visa att om en kvadratisk matris A uppfyller\nA³ + 4A² − 2A + 7I = 0\nså gör även Aᵀ det.")),
+      '19': q(tr(`Prove: If B is invertible, then AB⁻¹ = B⁻¹A if and only if AB = BA.`, "Bevisa: Om B är inverterbar, så gäller AB⁻¹ = B⁻¹A om och endast om AB = BA.")),
+      '20': q(tr(`Prove: If A is invertible, then A + B and I + BA⁻¹ are both invertible or both not invertible.`, "Bevisa: Om A är inverterbar, så är A + B och I + BA⁻¹ antingen båda inverterbara eller båda icke-inverterbara.")),
+      '21': q(tr(`Prove: If A is an m × n matrix and B is the n × 1 matrix each of whose entries is 1/n, then
 AB =
 [r₁]
 [r₂]
 [ ⋮]
 [rₘ]
-where rᵢ is the average of the entries in the ith row of A.`),
-      '22': q(`(Calculus required) If the entries of the matrix
+where rᵢ is the average of the entries in the ith row of A.`, "Bevisa: Om A är en m × n-matris och B är den n × 1-matris vars samtliga element är 1/n, så är\nAB =\n[r₁]\n[r₂]\n[ ⋮]\n[rₘ]\ndär rᵢ är medelvärdet av elementen i den i:te raden i A.")),
+      '22': q(tr(`(Calculus required) If the entries of the matrix
 C =
 [c₁₁(x)  c₁₂(x)  ⋯  c₁ₙ(x)]
 [c₂₁(x)  c₂₂(x)  ⋯  c₂ₙ(x)]
@@ -237,16 +238,16 @@ dC/dx =
 Show that if the entries in A and B are differentiable functions of x and the sizes of the matrices are such that the stated operations can be performed, then
 (a) d(kA)/dx = k(dA/dx).
 (b) d(A + B)/dx = dA/dx + dB/dx.
-(c) d(AB)/dx = (dA/dx)B + A(dB/dx).`),
-      '23': q(`(Calculus required) Use part (c) of Exercise 22 to show that
+(c) d(AB)/dx = (dA/dx)B + A(dB/dx).`, "(Kräver kunskaper i matematisk analys) Om elementen i matrisen\nC =\n[c₁₁(x)  c₁₂(x)  ⋯  c₁ₙ(x)]\n[c₂₁(x)  c₂₂(x)  ⋯  c₂ₙ(x)]\n[   ⋮        ⋮    ⋱     ⋮  ]\n[cₘ₁(x)  cₘ₂(x)  ⋯  cₘₙ(x)]\när deriverbara funktioner av x, definierar vi\ndC/dx =\n[c′₁₁(x)  c′₁₂(x)  ⋯  c′₁ₙ(x)]\n[c′₂₁(x)  c′₂₂(x)  ⋯  c′₂ₙ(x)]\n[    ⋮         ⋮    ⋱      ⋮  ]\n[c′ₘ₁(x)  c′ₘ₂(x)  ⋯  c′ₘₙ(x)]\nVisa att om elementen i A och B är deriverbara funktioner av x och matrisernas dimensioner tillåter de angivna operationerna, så gäller\n(a) d(kA)/dx = k(dA/dx).\n(b) d(A + B)/dx = dA/dx + dB/dx.\n(c) d(AB)/dx = (dA/dx)B + A(dB/dx).")),
+      '23': q(tr(`(Calculus required) Use part (c) of Exercise 22 to show that
 d(A⁻¹)/dx = −A⁻¹(dA/dx)A⁻¹.
 State all the assumptions you make in obtaining this formula.
-Referenced formula from Exercise 22(c): d(AB)/dx = (dA/dx)B + A(dB/dx).`),
-      '24': q(`Assuming that the stated inverses exist, prove the following equalities.
+Referenced formula from Exercise 22(c): d(AB)/dx = (dA/dx)B + A(dB/dx).`, "(Kräver kunskaper i matematisk analys) Använd del (c) i Uppgift 22 för att visa att\nd(A⁻¹)/dx = −A⁻¹(dA/dx)A⁻¹.\nAnge alla antaganden du gör för att få fram denna formel.\nRefererad formel från Uppgift 22(c): d(AB)/dx = (dA/dx)B + A(dB/dx).")),
+      '24': q(tr(`Assuming that the stated inverses exist, prove the following equalities.
 (a) (C⁻¹ + D⁻¹)⁻¹ = C(C + D)⁻¹D.
 (b) (I + CD)⁻¹C = C(I + DC)⁻¹.
-(c) (C + DDᵀ)⁻¹D = C⁻¹D(I + DᵀC⁻¹D)⁻¹.`),
-      '25': q(`Partitioned matrices can be multiplied by the row-column rule just as if the matrix entries were numbers provided that the sizes of all matrices are such that the necessary operations can be performed. Thus, for example, if A is partitioned into a 2 × 2 matrix and B into a 2 × 1 matrix, then
+(c) (C + DDᵀ)⁻¹D = C⁻¹D(I + DᵀC⁻¹D)⁻¹.`, "Anta att de angivna inverserna finns och bevisa följande likheter.\n(a) (C⁻¹ + D⁻¹)⁻¹ = C(C + D)⁻¹D.\n(b) (I + CD)⁻¹C = C(I + DC)⁻¹.\n(c) (C + DDᵀ)⁻¹D = C⁻¹D(I + DᵀC⁻¹D)⁻¹.")),
+      '25': q(tr(`Partitioned matrices can be multiplied by the row-column rule just as if the matrix entries were numbers provided that the sizes of all matrices are such that the necessary operations can be performed. Thus, for example, if A is partitioned into a 2 × 2 matrix and B into a 2 × 1 matrix, then
 AB =
 [A₁₁  A₁₂] [B₁] = [A₁₁B₁ + A₁₂B₂]
 [A₂₁  A₂₂] [B₂]   [A₂₁B₁ + A₂₂B₂]     (*)
@@ -267,8 +268,8 @@ B =
 [2   5]
 = [B₁; B₂], with the horizontal partition after row 3.
 (a) Confirm that the sizes of all matrices are such that the product AB can be obtained using Formula (*).
-(b) Confirm that the result obtained using Formula (*) agrees with that obtained using ordinary matrix multiplication.`),
-      '26': q(`Suppose that an invertible matrix A is partitioned as
+(b) Confirm that the result obtained using Formula (*) agrees with that obtained using ordinary matrix multiplication.`, "Blockindelade matriser kan multipliceras med rad–kolumn-regeln som om matriselementen vore tal, förutsatt att alla matrisdimensioner tillåter de nödvändiga operationerna. Om till exempel A delas in i 2 × 2 block och B i 2 × 1 block, gäller\nAB =\n[A₁₁  A₁₂] [B₁] = [A₁₁B₁ + A₁₂B₂]\n[A₂₁  A₂₂] [B₂]   [A₂₁B₁ + A₂₂B₂]     (*)\nförutsatt att dimensionerna gör att AB, de två summorna och de fyra produkterna alla är definierade.\nLåt A och B vara följande blockindelade matriser.\nA =\n[1   0  2 | 1   4]\n[4   1  0 | 3  −1]\n[---------+------]\n[0  −3  4 | 2  −2]\n= [A₁₁ A₁₂; A₂₁ A₂₂], med den horisontella delningen efter rad 2 och den vertikala delningen efter kolumn 3.\nB =\n[3   0]\n[2   1]\n[4  −1]\n[-----]\n[0   3]\n[2   5]\n= [B₁; B₂], med den horisontella delningen efter rad 3.\n(a) Kontrollera att alla matrisdimensioner är sådana att produkten AB kan beräknas med Formel (*).\n(b) Kontrollera att resultatet från Formel (*) överensstämmer med resultatet av vanlig matrismultiplikation.")),
+      '26': q(tr(`Suppose that an invertible matrix A is partitioned as
 A =
 [A₁₁  A₁₂]
 [A₂₁  A₂₂]
@@ -281,8 +282,8 @@ B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A₂₁)⁻¹,
 B₁₂ = −B₁₁A₁₂A₂₂⁻¹,
 B₂₁ = −A₂₂⁻¹A₂₁B₁₁,
 B₂₂ = (A₂₂ − A₂₁A₁₁⁻¹A₁₂)⁻¹,
-provided all the inverses in these formulas exist.`),
-      '27': q(`In the special case where matrix A₂₁ in Exercise 26 is zero, the matrix A simplifies to
+provided all the inverses in these formulas exist.`, "Anta att en inverterbar matris A är blockindelad enligt\nA =\n[A₁₁  A₁₂]\n[A₂₁  A₂₂]\nVisa att\nA⁻¹ =\n[B₁₁  B₁₂]\n[B₂₁  B₂₂]\ndär\nB₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A₂₁)⁻¹,\nB₁₂ = −B₁₁A₁₂A₂₂⁻¹,\nB₂₁ = −A₂₂⁻¹A₂₁B₁₁,\nB₂₂ = (A₂₂ − A₂₁A₁₁⁻¹A₁₂)⁻¹,\nförutsatt att alla inverser i dessa formler finns.")),
+      '27': q(tr(`In the special case where matrix A₂₁ in Exercise 26 is zero, the matrix A simplifies to
 A =
 [A₁₁  A₁₂]
 [ 0   A₂₂]
@@ -290,9 +291,9 @@ which is said to be in block upper triangular form. Use the result of Exercise 2
 A⁻¹ =
 [A₁₁⁻¹  −A₁₁⁻¹A₁₂A₂₂⁻¹]
 [   0           A₂₂⁻¹   ]
-Referenced result from Exercise 26: B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A₂₁)⁻¹; B₁₂ = −B₁₁A₁₂A₂₂⁻¹; B₂₁ = −A₂₂⁻¹A₂₁B₁₁; B₂₂ = (A₂₂ − A₂₁A₁₁⁻¹A₁₂)⁻¹, whenever these inverses exist.`),
-      '28': q(`A linear system whose coefficient matrix has a pivot position in every row must be consistent. Explain why this must be so.`),
-      '29': q(`What can you say about the consistency or inconsistency of a linear system of three equations in five unknowns whose coefficient matrix has three pivot columns?`)
+Referenced result from Exercise 26: B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A₂₁)⁻¹; B₁₂ = −B₁₁A₁₂A₂₂⁻¹; B₂₁ = −A₂₂⁻¹A₂₁B₁₁; B₂₂ = (A₂₂ − A₂₁A₁₁⁻¹A₁₂)⁻¹, whenever these inverses exist.`, "I specialfallet då matrisen A₂₁ i Uppgift 26 är noll förenklas matrisen A till\nA =\n[A₁₁  A₁₂]\n[ 0   A₂₂]\nvilket kallas blockövre triangulär form. Använd resultatet från Uppgift 26 för att visa att i detta fall gäller\nA⁻¹ =\n[A₁₁⁻¹  −A₁₁⁻¹A₁₂A₂₂⁻¹]\n[   0           A₂₂⁻¹   ]\nRefererat resultat från Uppgift 26: B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A₂₁)⁻¹; B₁₂ = −B₁₁A₁₂A₂₂⁻¹; B₂₁ = −A₂₂⁻¹A₂₁B₁₁; B₂₂ = (A₂₂ − A₂₁A₁₁⁻¹A₁₂)⁻¹, när dessa inverser finns.")),
+      '28': q(tr(`A linear system whose coefficient matrix has a pivot position in every row must be consistent. Explain why this must be so.`, "Ett linjärt ekvationssystem vars koefficientmatris har en pivotposition i varje rad måste vara konsistent. Förklara varför det måste vara så.")),
+      '29': q(tr(`What can you say about the consistency or inconsistency of a linear system of three equations in five unknowns whose coefficient matrix has three pivot columns?`, "Vad kan du säga om konsistensen eller inkonsistensen hos ett linjärt system med tre ekvationer och fem obekanta, vars koefficientmatris har tre pivotkolumner?"))
     }
   };
 
@@ -307,411 +308,411 @@ Referenced result from Exercise 26: B₁₁ = (A₁₁ − A₁₂A₂₂⁻¹A�
     [...before, ...existing(section, number).steps, ...after], answer);
 
   const figures = {
-    '1': ['algebra-1-10-1.svg', 'Figure Ex-1', 'Four-node flow network: 50 enters the top, 40 enters the bottom, 30 leaves the left, 60 leaves the right, and 50 flows from the bottom to the right.'],
-    '2': ['algebra-1-10-2.svg', 'Figure Ex-2', 'Refinery network with six unknown flows, inflows 200, 25 and 150, and outflows 175 and 200; arrows show the assumed directions.'],
-    '3': ['algebra-1-10-3.svg', 'Figure Ex-3', 'Four one-way intersections with boundary traffic rates. A to B is the upper-right to lower-right road carrying x₄.'],
-    '4': ['algebra-1-10-4.svg', 'Figure Ex-4', 'Six one-way intersections with seven internal flows and all boundary traffic rates. The upper-left road A to B carries x₁.'],
-    '5': ['algebra-1-10-5.svg', 'Exercise 5 circuit', 'Two 2 Ω resistors, one 4 Ω resistor, 6 V and 8 V sources, and current arrows I₁, I₂ and I₃.'],
-    '6': ['algebra-1-10-6.svg', 'Exercise 6 circuit', 'The central 4 Ω branch carries I₁ upward, the left 6 Ω branch carries I₂ downward, and the right 2 Ω branch carries I₃ upward. Battery polarities are shown.'],
-    '7': ['algebra-1-10-7.svg', 'Exercise 7 circuit', 'Four 20 Ω resistors, two 10 V sources with opposite polarities, and arrows I₁ through I₆.'],
-    '8': ['algebra-1-10-8.svg', 'Exercise 8 circuit', 'Three parallel branches: 5 V and 3 Ω at the top, 4 V and 4 Ω in the middle, 3 V and 5 Ω below. I₁ points left; I₂ and I₃ point right.'],
-    '16': ['algebra-1-10-16.svg', 'Figure Ex-16', 'Cubic graph on a unit grid, passing through the origin, (2,5), (4,8) and (6,3).'],
-    'T4': ['algebra-1-10-t4.svg', 'Technology exercise T4 circuit', 'Parallel branches with 20 V and 3 Ω above, 470 Ω in the middle, and 12 V and 2 Ω below. The diagram shows each battery polarity and the I₁, I₂ and I₃ arrows.']
+    '1': ['algebra-1-10-1.svg', tr('Figure Ex-1', "Figur Ex-1"), tr('Four-node flow network: 50 enters the top, 40 enters the bottom, 30 leaves the left, 60 leaves the right, and 50 flows from the bottom to the right.', "Flödesnätverk med fyra noder: 50 kommer in upptill, 40 kommer in nedtill, 30 lämnar åt vänster, 60 lämnar åt höger och 50 flödar från den nedre noden till den högra.")],
+    '2': ['algebra-1-10-2.svg', tr('Figure Ex-2', "Figur Ex-2"), tr('Refinery network with six unknown flows, inflows 200, 25 and 150, and outflows 175 and 200; arrows show the assumed directions.', "Raffinaderinätverk med sex okända flöden, inflödena 200, 25 och 150 samt utflödena 175 och 200. Pilarna visar de antagna riktningarna.")],
+    '3': ['algebra-1-10-3.svg', tr('Figure Ex-3', "Figur Ex-3"), tr('Four one-way intersections with boundary traffic rates. A to B is the upper-right to lower-right road carrying x₄.', "Fyra enkelriktade korsningar med angivna trafikflöden vid nätverkets gräns. Vägen A till B går från övre högra till nedre högra hörnet och har flödet x₄.")],
+    '4': ['algebra-1-10-4.svg', tr('Figure Ex-4', "Figur Ex-4"), tr('Six one-way intersections with seven internal flows and all boundary traffic rates. The upper-left road A to B carries x₁.', "Sex enkelriktade korsningar med sju interna flöden och samtliga trafikflöden vid nätverkets gräns. Vägen A till B uppe till vänster har flödet x₁.")],
+    '5': ['algebra-1-10-5.svg', tr('Exercise 5 circuit', "Krets till Uppgift 5"), tr('Two 2 Ω resistors, one 4 Ω resistor, 6 V and 8 V sources, and current arrows I₁, I₂ and I₃.', "Två resistorer på 2 Ω, en resistor på 4 Ω, spänningskällor på 6 V och 8 V samt strömpilarna I₁, I₂ och I₃.")],
+    '6': ['algebra-1-10-6.svg', tr('Exercise 6 circuit', "Krets till Uppgift 6"), tr('The central 4 Ω branch carries I₁ upward, the left 6 Ω branch carries I₂ downward, and the right 2 Ω branch carries I₃ upward. Battery polarities are shown.', "Den centrala grenen med 4 Ω har strömmen I₁ uppåt, vänstergrenen med 6 Ω har I₂ nedåt och högergrenen med 2 Ω har I₃ uppåt. Batteriernas polariteter visas.")],
+    '7': ['algebra-1-10-7.svg', tr('Exercise 7 circuit', "Krets till Uppgift 7"), tr('Four 20 Ω resistors, two 10 V sources with opposite polarities, and arrows I₁ through I₆.', "Fyra resistorer på 20 Ω, två spänningskällor på 10 V med motsatta polariteter samt pilarna I₁ till I₆.")],
+    '8': ['algebra-1-10-8.svg', tr('Exercise 8 circuit', "Krets till Uppgift 8"), tr('Three parallel branches: 5 V and 3 Ω at the top, 4 V and 4 Ω in the middle, 3 V and 5 Ω below. I₁ points left; I₂ and I₃ point right.', "Tre parallella grenar: 5 V och 3 Ω upptill, 4 V och 4 Ω i mitten samt 3 V och 5 Ω nedtill. I₁ pekar åt vänster; I₂ och I₃ pekar åt höger.")],
+    '16': ['algebra-1-10-16.svg', tr('Figure Ex-16', "Figur Ex-16"), tr('Cubic graph on a unit grid, passing through the origin, (2,5), (4,8) and (6,3).', "Graf till ett tredjegradspolynom på ett rutnät med enhetsavstånd. Den går genom origo, (2,5), (4,8) och (6,3).")],
+    'T4': ['algebra-1-10-t4.svg', tr('Technology exercise T4 circuit', "Krets till teknikuppgift T4"), tr('Parallel branches with 20 V and 3 Ω above, 470 Ω in the middle, and 12 V and 2 Ω below. The diagram shows each battery polarity and the I₁, I₂ and I₃ arrows.', "Parallella grenar med 20 V och 3 Ω upptill, 470 Ω i mitten samt 12 V och 2 Ω nedtill. Figuren visar varje batteris polaritet och pilarna I₁, I₂ och I₃.")]
   };
   for (const [number, [file, caption, alt]] of Object.entries(figures)) data['1.10'][number].figures = [{file, caption, alt}];
 
   extend('1.10', '1', [
-    'A flow rate tells us how much passes a point per unit of time. At a junction with no storage, everything entering must also leave. Start at a junction with only one unknown branch so that one subtraction finds its flow.'
-  ], [], 'Top → left: 40; top → right: 10; left → bottom: 10, in the flow-rate units of the diagram. All four junctions balance.');
+    tr('A flow rate tells us how much passes a point per unit of time. At a junction with no storage, everything entering must also leave. Start at a junction with only one unknown branch so that one subtraction finds its flow.', "Ett flöde anger hur mycket som passerar en punkt per tidsenhet. Vid en förgrening utan lagring måste allt som kommer in också lämna den. Börja vid en förgrening där bara en gren är okänd, så att en enda subtraktion ger dess flöde.")
+  ], [], tr('Top → left: 40; top → right: 10; left → bottom: 10, in the flow-rate units of the diagram. All four junctions balance.', "Övre → vänstra: 40; övre → högra: 10; vänstra → nedre: 10, i figurens flödesenheter. Alla fyra förgreningar är i balans."));
   teach('1.10', '2', [
-    'Part (a): each dot is a junction. Write “total entering = total leaving.” We assume that hydrocarbons do not collect at a junction. The labels x₁,…,x₆ are the unknown amounts flowing per unit time in the drawn directions.',
-    'At the upper-left junction, 200 arrives and x₁+x₃ leaves, giving x₁+x₃=200. At the lower-left junction, x₁ and 25 arrive while x₂ leaves, giving x₁+25=x₂.',
-    'At the upper-middle junction, x₃+150=x₄+x₅. At the lower-middle junction, x₂+x₄=x₆+175. At the rightmost junction, x₅+x₆=200. These five equations form the required system.',
-    'Part (b): two flows can be chosen freely. Call x₄=s and x₆=t. The outlet equation gives x₅=200−t. Substitute this into x₃+150=s+x₅ to get x₃=50+s−t.',
-    'Now x₁=200−x₃=150−s+t, and x₂=x₁+25=175−s+t. Check the remaining junction: x₂+x₄=175−s+t+s=175+t=x₆+175. It introduces no new restriction.',
-    'Part (c): insert s=50 and t=0 into all six formulas, giving x₁=100, x₂=125, x₃=100, x₄=50, x₅=200 and x₆=0. A positive value follows its arrow. A zero value means no flow in that pipe.',
-    'Check the numerical balances: 100+100=200; 100+25=125; 100+150=50+200; 125+50=0+175; and 200+0=200. Thus the chosen flows satisfy every junction.'
-  ], '(a) x₁+x₃=200, x₁+25=x₂, x₃+150=x₄+x₅, x₂+x₄=x₆+175, x₅+x₆=200.\n(b) (x₁,x₂,x₃,x₄,x₅,x₆)=(150−s+t,175−s+t,50+s−t,s,200−t,t). To keep all flows in the drawn directions, require s≥0, 0≤t≤200, and t−50≤s≤150+t.\n(c) (100,125,100,50,200,0); all nonzero flows follow the arrows and pipe x₆ has no flow.');
+    tr('Part (a): each dot is a junction. Write “total entering = total leaving.” We assume that hydrocarbons do not collect at a junction. The labels x₁,…,x₆ are the unknown amounts flowing per unit time in the drawn directions.', "Del (a): varje punkt är en förgrening. Skriv ”totalt inflöde = totalt utflöde”. Vi antar att kolväten inte samlas i förgreningen. Beteckningarna x₁,…,x₆ är de okända mängder som flödar per tidsenhet i de ritade riktningarna."),
+    tr('At the upper-left junction, 200 arrives and x₁+x₃ leaves, giving x₁+x₃=200. At the lower-left junction, x₁ and 25 arrive while x₂ leaves, giving x₁+25=x₂.', "Vid förgreningen uppe till vänster kommer 200 in och x₁+x₃ lämnar, vilket ger x₁+x₃=200. Vid förgreningen nere till vänster kommer x₁ och 25 in medan x₂ lämnar, vilket ger x₁+25=x₂."),
+    tr('At the upper-middle junction, x₃+150=x₄+x₅. At the lower-middle junction, x₂+x₄=x₆+175. At the rightmost junction, x₅+x₆=200. These five equations form the required system.', "Vid den övre mittförgreningen gäller x₃+150=x₄+x₅. Vid den nedre mittförgreningen gäller x₂+x₄=x₆+175. Vid förgreningen längst till höger gäller x₅+x₆=200. Dessa fem ekvationer bildar det sökta systemet."),
+    tr('Part (b): two flows can be chosen freely. Call x₄=s and x₆=t. The outlet equation gives x₅=200−t. Substitute this into x₃+150=s+x₅ to get x₃=50+s−t.', "Del (b): två flöden kan väljas fritt. Sätt x₄=s och x₆=t. Ekvationen vid utloppet ger x₅=200−t. Sätt in detta i x₃+150=s+x₅ för att få x₃=50+s−t."),
+    tr('Now x₁=200−x₃=150−s+t, and x₂=x₁+25=175−s+t. Check the remaining junction: x₂+x₄=175−s+t+s=175+t=x₆+175. It introduces no new restriction.', "Nu är x₁=200−x₃=150−s+t och x₂=x₁+25=175−s+t. Kontrollera den återstående förgreningen: x₂+x₄=175−s+t+s=175+t=x₆+175. Den ger ingen ny begränsning."),
+    tr('Part (c): insert s=50 and t=0 into all six formulas, giving x₁=100, x₂=125, x₃=100, x₄=50, x₅=200 and x₆=0. A positive value follows its arrow. A zero value means no flow in that pipe.', "Del (c): sätt in s=50 och t=0 i alla sex formler. Då fås x₁=100, x₂=125, x₃=100, x₄=50, x₅=200 och x₆=0. Ett positivt värde följer sin pil. Värdet noll betyder att inget flödar genom det röret."),
+    tr('Check the numerical balances: 100+100=200; 100+25=125; 100+150=50+200; 125+50=0+175; and 200+0=200. Thus the chosen flows satisfy every junction.', "Kontrollera balanserna numeriskt: 100+100=200; 100+25=125; 100+150=50+200; 125+50=0+175; och 200+0=200. De valda flödena uppfyller alltså balansen vid varje förgrening.")
+  ], tr('(a) x₁+x₃=200, x₁+25=x₂, x₃+150=x₄+x₅, x₂+x₄=x₆+175, x₅+x₆=200.\n(b) (x₁,x₂,x₃,x₄,x₅,x₆)=(150−s+t,175−s+t,50+s−t,s,200−t,t). To keep all flows in the drawn directions, require s≥0, 0≤t≤200, and t−50≤s≤150+t.\n(c) (100,125,100,50,200,0); all nonzero flows follow the arrows and pipe x₆ has no flow.', "(a) x₁+x₃=200, x₁+25=x₂, x₃+150=x₄+x₅, x₂+x₄=x₆+175, x₅+x₆=200.\n(b) (x₁,x₂,x₃,x₄,x₅,x₆)=(150−s+t,175−s+t,50+s−t,s,200−t,t). För att alla flöden ska följa de ritade riktningarna krävs s≥0, 0≤t≤200 och t−50≤s≤150+t.\n(c) (100,125,100,50,200,0); alla flöden som inte är noll följer pilarna och röret x₆ har inget flöde."));
   teach('1.10', '3', [
-    'Part (a): count vehicles entering and leaving each intersection. A flow rate is an average per hour, so it may be a non-integer number. At the upper-left corner, x₂+300=x₃+400. At A, x₃+750=x₄+250.',
-    'At the lower-left corner, x₁+100=x₂+400. At B, x₄+200=x₁+300. Together these four balances are the linear system.',
-    'Part (b): choose the road we want to reduce, x₄, as the free parameter s. The balance at B gives x₁=s−100.',
-    'Move to the lower-left intersection: x₂=x₁−300=s−400. Then the upper-left intersection gives x₃=x₂−100=s−500.',
-    'Check A: x₃+750=(s−500)+750=s+250=x₄+250. This equation is satisfied for every value of s; it does not determine another unknown.',
-    'Part (c): a one-way road cannot carry a negative flow. The four inequalities are s−100≥0, s−400≥0, s−500≥0 and s≥0. The strongest one is s≥500.',
-    'At the boundary s=500, the rates are (400,100,0,500), so road x₃ has stopped. If “flowing on all roads” means strictly positive flow, require s>500. There is no smallest real number greater than 500. Under an additional whole-number restriction, the smallest choice is 501.'
-  ], '(a) x₂+300=x₃+400; x₃+750=x₄+250; x₁+100=x₂+400; x₄+200=x₁+300.\n(b) (x₁,x₂,x₃,x₄)=(s−100,s−400,s−500,s).\n(c) 500 vehicles/hour is the lower boundary for nonnegative flows. To keep every road carrying positive traffic, x₄ must be greater than 500 vehicles/hour; 501 is the smallest choice only if whole-number rates are required.');
+    tr('Part (a): count vehicles entering and leaving each intersection. A flow rate is an average per hour, so it may be a non-integer number. At the upper-left corner, x₂+300=x₃+400. At A, x₃+750=x₄+250.', "Del (a): räkna fordon som kommer in i och lämnar varje korsning. Flödet är ett genomsnitt per timme och behöver därför inte vara ett heltal. I övre vänstra hörnet gäller x₂+300=x₃+400. Vid A gäller x₃+750=x₄+250."),
+    tr('At the lower-left corner, x₁+100=x₂+400. At B, x₄+200=x₁+300. Together these four balances are the linear system.', "I nedre vänstra hörnet gäller x₁+100=x₂+400. Vid B gäller x₄+200=x₁+300. Dessa fyra balanser bildar tillsammans det linjära ekvationssystemet."),
+    tr('Part (b): choose the road we want to reduce, x₄, as the free parameter s. The balance at B gives x₁=s−100.', "Del (b): välj flödet på vägen som vi vill minska, x₄, som den fria parametern s. Balansen vid B ger x₁=s−100."),
+    tr('Move to the lower-left intersection: x₂=x₁−300=s−400. Then the upper-left intersection gives x₃=x₂−100=s−500.', "Gå till korsningen nere till vänster: x₂=x₁−300=s−400. Korsningen uppe till vänster ger sedan x₃=x₂−100=s−500."),
+    tr('Check A: x₃+750=(s−500)+750=s+250=x₄+250. This equation is satisfied for every value of s; it does not determine another unknown.', "Kontrollera A: x₃+750=(s−500)+750=s+250=x₄+250. Ekvationen är uppfylld för varje värde på s; den bestämmer ingen ytterligare obekant."),
+    tr('Part (c): a one-way road cannot carry a negative flow. The four inequalities are s−100≥0, s−400≥0, s−500≥0 and s≥0. The strongest one is s≥500.', "Del (c): en enkelriktad väg kan inte ha ett negativt flöde. De fyra olikheterna är s−100≥0, s−400≥0, s−500≥0 och s≥0. Det starkaste kravet är s≥500."),
+    tr('At the boundary s=500, the rates are (400,100,0,500), so road x₃ has stopped. If “flowing on all roads” means strictly positive flow, require s>500. There is no smallest real number greater than 500. Under an additional whole-number restriction, the smallest choice is 501.', "Vid gränsen s=500 är flödena (400,100,0,500), så trafiken på väg x₃ har stannat. Om ”trafik på alla vägar” betyder strikt positivt flöde krävs s>500. Det finns inget minsta reellt tal större än 500. Om man dessutom kräver heltalsvärden är det minsta valet 501.")
+  ], tr('(a) x₂+300=x₃+400; x₃+750=x₄+250; x₁+100=x₂+400; x₄+200=x₁+300.\n(b) (x₁,x₂,x₃,x₄)=(s−100,s−400,s−500,s).\n(c) 500 vehicles/hour is the lower boundary for nonnegative flows. To keep every road carrying positive traffic, x₄ must be greater than 500 vehicles/hour; 501 is the smallest choice only if whole-number rates are required.', "(a) x₂+300=x₃+400; x₃+750=x₄+250; x₁+100=x₂+400; x₄+200=x₁+300.\n(b) (x₁,x₂,x₃,x₄)=(s−100,s−400,s−500,s).\n(c) 500 fordon/timme är den nedre gränsen för icke-negativa flöden. För att varje väg ska ha positiv trafik måste x₄ vara större än 500 fordon/timme; 501 är det minsta valet endast om flödena måste vara heltal."));
   teach('1.10', '4', [
-    'Part (a): use one equation per intersection, with incoming traffic on the left and outgoing traffic on the right. Along the top row, these equations are x₁+x₃=800, x₁+x₄=x₂+200, and x₂+100=x₅+600.',
-    'Along the bottom row, the equations are x₃+x₆=750, x₇+600=x₆+x₄, and x₅+450=x₇+400. The numbers 800 and 750 combine the two boundary arrows at their respective intersections.',
-    'Part (b): let x₁=s and x₅=t. From the rightmost intersections, x₂=t+500 and x₇=t+50.',
-    'At A, x₃=800−s. Then the lower-left balance gives x₆=750−x₃=s−50. At B, x₄=x₂+200−x₁=700+t−s.',
-    'Check the unused lower-middle balance: x₇+600=t+650, and x₆+x₄=(s−50)+(700+t−s)=t+650. Thus the formulas satisfy all six equations.',
-    'Part (c): closing A → B means x₁=s=0. But the formula x₆=s−50 would give x₆=−50. A negative flow would mean 50 vehicles per hour traveling against that one-way arrow, so closure is incompatible with the given traffic pattern.',
-    'For a feasible nonnegative flow in every drawn direction, x₃≥0 requires s≤800, x₆≥0 requires s≥50, and x₄≥0 requires t≥s−700. Together with t≥0, these describe the allowed choices.'
-  ], '(a) x₁+x₃=800; x₁+x₄=x₂+200; x₂+100=x₅+600; x₃+x₆=750; x₇+600=x₆+x₄; x₅+450=x₇+400.\n(b) (x₁,…,x₇)=(s,500+t,800−s,700+t−s,t,s−50,t+50), with 50≤s≤800 and t≥max(0,s−700) for nonnegative flows.\n(c) No. Closing A → B forces x₆=−50, against a one-way street.');
+    tr('Part (a): use one equation per intersection, with incoming traffic on the left and outgoing traffic on the right. Along the top row, these equations are x₁+x₃=800, x₁+x₄=x₂+200, and x₂+100=x₅+600.', "Del (a): använd en ekvation per korsning, med inkommande trafik till vänster och utgående trafik till höger. Längs den övre raden är ekvationerna x₁+x₃=800, x₁+x₄=x₂+200 och x₂+100=x₅+600."),
+    tr('Along the bottom row, the equations are x₃+x₆=750, x₇+600=x₆+x₄, and x₅+450=x₇+400. The numbers 800 and 750 combine the two boundary arrows at their respective intersections.', "Längs den nedre raden är ekvationerna x₃+x₆=750, x₇+600=x₆+x₄ och x₅+450=x₇+400. Talen 800 och 750 är summorna av de två pilarna vid nätverkets gräns i respektive korsning."),
+    tr('Part (b): let x₁=s and x₅=t. From the rightmost intersections, x₂=t+500 and x₇=t+50.', "Del (b): sätt x₁=s och x₅=t. Korsningarna längst till höger ger x₂=t+500 och x₇=t+50."),
+    tr('At A, x₃=800−s. Then the lower-left balance gives x₆=750−x₃=s−50. At B, x₄=x₂+200−x₁=700+t−s.', "Vid A är x₃=800−s. Balansen nere till vänster ger sedan x₆=750−x₃=s−50. Vid B är x₄=x₂+200−x₁=700+t−s."),
+    tr('Check the unused lower-middle balance: x₇+600=t+650, and x₆+x₄=(s−50)+(700+t−s)=t+650. Thus the formulas satisfy all six equations.', "Kontrollera den oanvända balansen i nedre mitten: x₇+600=t+650 och x₆+x₄=(s−50)+(700+t−s)=t+650. Formlerna uppfyller alltså alla sex ekvationer."),
+    tr('Part (c): closing A → B means x₁=s=0. But the formula x₆=s−50 would give x₆=−50. A negative flow would mean 50 vehicles per hour traveling against that one-way arrow, so closure is incompatible with the given traffic pattern.', "Del (c): att stänga A → B innebär x₁=s=0. Men formeln x₆=s−50 ger då x₆=−50. Ett negativt flöde skulle innebära att 50 fordon per timme kör mot enkelriktningen. Stängningen är därför oförenlig med det givna trafikmönstret."),
+    tr('For a feasible nonnegative flow in every drawn direction, x₃≥0 requires s≤800, x₆≥0 requires s≥50, and x₄≥0 requires t≥s−700. Together with t≥0, these describe the allowed choices.', "För ett möjligt icke-negativt flöde i varje ritad riktning kräver x₃≥0 att s≤800, x₆≥0 att s≥50 och x₄≥0 att t≥s−700. Tillsammans med t≥0 beskriver dessa villkor de tillåtna valen.")
+  ], tr('(a) x₁+x₃=800; x₁+x₄=x₂+200; x₂+100=x₅+600; x₃+x₆=750; x₇+600=x₆+x₄; x₅+450=x₇+400.\n(b) (x₁,…,x₇)=(s,500+t,800−s,700+t−s,t,s−50,t+50), with 50≤s≤800 and t≥max(0,s−700) for nonnegative flows.\n(c) No. Closing A → B forces x₆=−50, against a one-way street.', "(a) x₁+x₃=800; x₁+x₄=x₂+200; x₂+100=x₅+600; x₃+x₆=750; x₇+600=x₆+x₄; x₅+450=x₇+400.\n(b) (x₁,…,x₇)=(s,500+t,800−s,700+t−s,t,s−50,t+50), med 50≤s≤800 och t≥max(0,s−700) för icke-negativa flöden.\n(c) Nej. Att stänga A → B tvingar fram x₆=−50, mot enkelriktningen."));
   extend('1.10', '5', [], [
-    'Interpret the signs: I₁=13/5=2.6 A travels downward, I₂=−2/5 A means 0.4 A upward instead of downward, and I₃=11/5=2.2 A travels upward. Check the junction: 2.6−0.4=2.2.'
-  ], 'I₁=13/5 A=2.6 A downward; I₂=−2/5 A relative to its arrow, so 0.4 A upward; I₃=11/5 A=2.2 A upward.');
+    tr('Interpret the signs: I₁=13/5=2.6 A travels downward, I₂=−2/5 A means 0.4 A upward instead of downward, and I₃=11/5=2.2 A travels upward. Check the junction: 2.6−0.4=2.2.', "Tolka tecknen: I₁=13/5=2.6 A går nedåt, I₂=−2/5 A betyder 0.4 A uppåt i stället för nedåt och I₃=11/5=2.2 A går uppåt. Kontrollera förgreningen: 2.6−0.4=2.2.")
+  ], tr('I₁=13/5 A=2.6 A downward; I₂=−2/5 A relative to its arrow, so 0.4 A upward; I₃=11/5 A=2.2 A upward.', "I₁=13/5 A=2.6 A nedåt; I₂=−2/5 A i förhållande till sin pil, alltså 0.4 A uppåt; I₃=11/5 A=2.2 A uppåt."));
   teach('1.10', '6', [
-    'Read the labels carefully: I₁ is the upward arrow in the central 4 Ω resistor; I₂ is the downward arrow in the left 6 Ω branch; I₃ is the upward arrow in the right 2 Ω branch. A negative answer will mean that the actual direction is reversed.',
-    'Balance the top junction. Currents I₁ and I₃ enter it, while I₂ leaves it, so I₁+I₃=I₂.',
-    'Call the top-minus-bottom electrical potential V. A resistor drops voltage by resistance × current when followed in the current direction. In the central branch the upward arrow means V=−4I₁. On the left, the resistor and the 1 V source give V=6I₂−1. On the right, the 2 V source and resistor give V=2−2I₃.',
-    'Equate these three descriptions of the same voltage: −4I₁=6I₂−1 gives 4I₁+6I₂=1; and −4I₁=2−2I₃ gives −4I₁+2I₃=2.',
-    'Use the last equation first: divide by 2 to get I₃=1+2I₁. Substitute into the junction equation to get I₂=I₁+(1+2I₁)=1+3I₁.',
-    'Substitute that expression for I₂ into 4I₁+6I₂=1. This gives 4I₁+6(1+3I₁)=1, so 22I₁=−5 and I₁=−5/22 A.',
-    'Work back: I₂=1+3(−5/22)=7/22 A; I₃=1+2(−5/22)=12/22=6/11 A. The central current is negative relative to its upward arrow, so it actually travels downward.',
-    'Check the junction: −5/22+12/22=7/22. Check all three voltages: −4(−5/22)=10/11; 6(7/22)−1=10/11; 2−2(6/11)=10/11 volts. The results agree.'
-  ], 'I₁=−5/22 A (about 0.2273 A downward, opposite its arrow); I₂=7/22 A (about 0.3182 A down the left branch); I₃=6/11 A (about 0.5455 A up the right branch).');
+    tr('Read the labels carefully: I₁ is the upward arrow in the central 4 Ω resistor; I₂ is the downward arrow in the left 6 Ω branch; I₃ is the upward arrow in the right 2 Ω branch. A negative answer will mean that the actual direction is reversed.', "Läs beteckningarna noggrant: I₁ är pilen uppåt genom den centrala resistorn på 4 Ω; I₂ är pilen nedåt i vänstergrenen med 6 Ω; I₃ är pilen uppåt i högergrenen med 2 Ω. Ett negativt svar betyder att den verkliga riktningen är den motsatta."),
+    tr('Balance the top junction. Currents I₁ and I₃ enter it, while I₂ leaves it, so I₁+I₃=I₂.', "Balansera den övre förgreningen. Strömmarna I₁ och I₃ kommer in medan I₂ lämnar, så I₁+I₃=I₂."),
+    tr('Call the top-minus-bottom electrical potential V. A resistor drops voltage by resistance × current when followed in the current direction. In the central branch the upward arrow means V=−4I₁. On the left, the resistor and the 1 V source give V=6I₂−1. On the right, the 2 V source and resistor give V=2−2I₃.', "Kalla den elektriska potentialen upptill minus potentialen nedtill för V. När man följer strömriktningen genom en resistor sjunker spänningen med resistans × ström. I mittgrenen innebär pilen uppåt att V=−4I₁. Till vänster ger resistorn och källan på 1 V att V=6I₂−1. Till höger ger källan på 2 V och resistorn att V=2−2I₃."),
+    tr('Equate these three descriptions of the same voltage: −4I₁=6I₂−1 gives 4I₁+6I₂=1; and −4I₁=2−2I₃ gives −4I₁+2I₃=2.', "Sätt de tre beskrivningarna av samma spänning lika: −4I₁=6I₂−1 ger 4I₁+6I₂=1; och −4I₁=2−2I₃ ger −4I₁+2I₃=2."),
+    tr('Use the last equation first: divide by 2 to get I₃=1+2I₁. Substitute into the junction equation to get I₂=I₁+(1+2I₁)=1+3I₁.', "Börja med den sista ekvationen: dividera med 2 för att få I₃=1+2I₁. Sätt in i förgreningens ekvation för att få I₂=I₁+(1+2I₁)=1+3I₁."),
+    tr('Substitute that expression for I₂ into 4I₁+6I₂=1. This gives 4I₁+6(1+3I₁)=1, so 22I₁=−5 and I₁=−5/22 A.', "Sätt in detta uttryck för I₂ i 4I₁+6I₂=1. Då fås 4I₁+6(1+3I₁)=1, så 22I₁=−5 och I₁=−5/22 A."),
+    tr('Work back: I₂=1+3(−5/22)=7/22 A; I₃=1+2(−5/22)=12/22=6/11 A. The central current is negative relative to its upward arrow, so it actually travels downward.', "Räkna tillbaka: I₂=1+3(−5/22)=7/22 A; I₃=1+2(−5/22)=12/22=6/11 A. Mittgrenens ström är negativ i förhållande till pilen uppåt och går alltså i verkligheten nedåt."),
+    tr('Check the junction: −5/22+12/22=7/22. Check all three voltages: −4(−5/22)=10/11; 6(7/22)−1=10/11; 2−2(6/11)=10/11 volts. The results agree.', "Kontrollera förgreningen: −5/22+12/22=7/22. Kontrollera alla tre spänningar: −4(−5/22)=10/11; 6(7/22)−1=10/11; 2−2(6/11)=10/11 volt. Resultaten stämmer överens.")
+  ], tr('I₁=−5/22 A (about 0.2273 A downward, opposite its arrow); I₂=7/22 A (about 0.3182 A down the left branch); I₃=6/11 A (about 0.5455 A up the right branch).', "I₁=−5/22 A (ungefär 0.2273 A nedåt, mot sin pil); I₂=7/22 A (ungefär 0.3182 A nedåt i vänstergrenen); I₃=6/11 A (ungefär 0.5455 A uppåt i högergrenen)."));
   extend('1.10', '7', [], [
-    'Read zero literally: neither central vertical resistor carries current. The positive currents I₁, I₄, I₅ and I₆ all follow their drawn arrows. Their value is 1/2 A=0.5 A. Both central resistors have voltage drop 20×0=0 V, which agrees with the equal top and bottom rail voltages.'
-  ], 'I₁=I₄=I₅=I₆=1/2 A, each in its drawn direction. I₂=I₃=0 A, so there is no current through the two central vertical resistors.');
+    tr('Read zero literally: neither central vertical resistor carries current. The positive currents I₁, I₄, I₅ and I₆ all follow their drawn arrows. Their value is 1/2 A=0.5 A. Both central resistors have voltage drop 20×0=0 V, which agrees with the equal top and bottom rail voltages.', "Tolka noll bokstavligt: ingen av de centrala lodräta resistorerna leder ström. De positiva strömmarna I₁, I₄, I₅ och I₆ följer alla sina ritade pilar. Deras värde är 1/2 A=0.5 A. Båda mittresistorerna har spänningsfallet 20×0=0 V, vilket stämmer med att den övre och den nedre ledaren har samma potential.")
+  ], tr('I₁=I₄=I₅=I₆=1/2 A, each in its drawn direction. I₂=I₃=0 A, so there is no current through the two central vertical resistors.', "I₁=I₄=I₅=I₆=1/2 A, var och en i sin ritade riktning. I₂=I₃=0 A, så ingen ström går genom de två centrala lodräta resistorerna."));
   extend('1.10', '8', [], [
-    'All three answers are positive: I₁ follows the leftward top arrow, while I₂ and I₃ follow the rightward arrows. The junction check is 77/47=48/47+29/47.'
-  ], 'I₁=77/47 A≈1.6383 A leftward; I₂=48/47 A≈1.0213 A rightward; I₃=29/47 A≈0.6170 A rightward.');
+    tr('All three answers are positive: I₁ follows the leftward top arrow, while I₂ and I₃ follow the rightward arrows. The junction check is 77/47=48/47+29/47.', "Alla tre svar är positiva: I₁ följer den övre pilen åt vänster, medan I₂ och I₃ följer pilarna åt höger. Kontrollen av förgreningen är 77/47=48/47+29/47.")
+  ], tr('I₁=77/47 A≈1.6383 A leftward; I₂=48/47 A≈1.0213 A rightward; I₃=29/47 A≈0.6170 A rightward.', "I₁=77/47 A≈1.6383 A åt vänster; I₂=48/47 A≈1.0213 A åt höger; I₃=29/47 A≈0.6170 A åt höger."));
 
   teach('1.10', '9', [
-    'Balancing a reaction means counting each kind of atom separately. A small subscript belongs to the molecule and stays fixed; a number placed before a formula tells us how many whole molecules to use.',
-    'Start with one C₃H₈ molecule. It contains 3 carbon atoms, so put 3 before CO₂ on the right.',
-    'The propane molecule also contains 8 hydrogen atoms. Each H₂O contains 2, so put 8÷2=4 before H₂O.',
-    'Now count oxygen on the right: 3CO₂ contains 3×2=6 oxygen atoms and 4H₂O contains 4×1=4. There are 10 in total, so the left needs 10÷2=5 O₂ molecules.',
-    'Check each element: carbon 3=3, hydrogen 8=8, and oxygen 10=6+4. The coefficients 1,5,3,4 are whole numbers with no common factor.'
+    tr('Balancing a reaction means counting each kind of atom separately. A small subscript belongs to the molecule and stays fixed; a number placed before a formula tells us how many whole molecules to use.', "Att balansera en reaktion betyder att räkna varje sorts atom för sig. Ett litet nedsänkt tal hör till molekylen och ändras inte. Ett tal framför en formel anger hur många hela molekyler vi ska använda."),
+    tr('Start with one C₃H₈ molecule. It contains 3 carbon atoms, so put 3 before CO₂ on the right.', "Börja med en C₃H₈-molekyl. Den innehåller 3 kolatomer, så sätt 3 framför CO₂ på höger sida."),
+    tr('The propane molecule also contains 8 hydrogen atoms. Each H₂O contains 2, so put 8÷2=4 before H₂O.', "Propanmolekylen innehåller också 8 väteatomer. Varje H₂O innehåller 2, så sätt 8÷2=4 framför H₂O."),
+    tr('Now count oxygen on the right: 3CO₂ contains 3×2=6 oxygen atoms and 4H₂O contains 4×1=4. There are 10 in total, so the left needs 10÷2=5 O₂ molecules.', "Räkna nu syreatomerna till höger: 3CO₂ innehåller 3×2=6 syreatomer och 4H₂O innehåller 4×1=4. Det är totalt 10, så vänster sida behöver 10÷2=5 O₂-molekyler."),
+    tr('Check each element: carbon 3=3, hydrogen 8=8, and oxygen 10=6+4. The coefficients 1,5,3,4 are whole numbers with no common factor.', "Kontrollera varje grundämne: kol 3=3, väte 8=8 och syre 10=6+4. Koefficienterna 1,5,3,4 är heltal utan gemensam faktor.")
   ], 'C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.');
   teach('1.10', '10', [
-    'Start with one glucose molecule C₆H₁₂O₆. Call the unknown counts of CO₂ and C₂H₅OH a and b. Notice that C₂H₅OH contains 6 hydrogen atoms in total: 5 in H₅ and 1 in OH.',
-    'Balance hydrogen first because only ethanol contains hydrogen on the right. The equation is 12=6b, so b=2.',
-    'Balance carbon: glucose supplies 6 carbon atoms; the products contain a+2b. Thus 6=a+2(2), giving a=2.',
-    'Check oxygen independently: 2CO₂ contains 4 oxygen atoms and 2C₂H₅OH contains 2, totaling the 6 in glucose. Carbon and hydrogen also match, so no adjustment is needed.'
+    tr('Start with one glucose molecule C₆H₁₂O₆. Call the unknown counts of CO₂ and C₂H₅OH a and b. Notice that C₂H₅OH contains 6 hydrogen atoms in total: 5 in H₅ and 1 in OH.', "Börja med en glukosmolekyl C₆H₁₂O₆. Kalla de okända antalen CO₂ och C₂H₅OH för a och b. Observera att C₂H₅OH innehåller totalt 6 väteatomer: 5 i H₅ och 1 i OH."),
+    tr('Balance hydrogen first because only ethanol contains hydrogen on the right. The equation is 12=6b, so b=2.', "Balansera väte först, eftersom bara etanol innehåller väte på höger sida. Ekvationen är 12=6b, så b=2."),
+    tr('Balance carbon: glucose supplies 6 carbon atoms; the products contain a+2b. Thus 6=a+2(2), giving a=2.', "Balansera kol: glukos ger 6 kolatomer; produkterna innehåller a+2b. Alltså är 6=a+2(2), vilket ger a=2."),
+    tr('Check oxygen independently: 2CO₂ contains 4 oxygen atoms and 2C₂H₅OH contains 2, totaling the 6 in glucose. Carbon and hydrogen also match, so no adjustment is needed.', "Kontrollera syre separat: 2CO₂ innehåller 4 syreatomer och 2C₂H₅OH innehåller 2, totalt samma 6 som i glukos. Även kol och väte stämmer, så ingen justering behövs.")
   ], 'C₆H₁₂O₆ → 2CO₂ + 2C₂H₅OH.');
   teach('1.10', '11', [
-    'Expand the atom counts mentally without changing the chemical formulas. CH₃COF has C₂H₃OF; CH₃COOH has C₂H₄O₂. The extra H in OH counts as a hydrogen atom.',
-    'Use one molecule of CH₃COF. Its two carbon atoms fit one CH₃COOH, and its one fluorine atom fits one HF. Begin with coefficient 1 for these three substances.',
-    'The products now need 4+1=5 hydrogen atoms, but CH₃COF supplies only 3. One H₂O supplies the missing 2.',
-    'Check oxygen: CH₃COF contributes 1 and H₂O contributes 1, matching the 2 in CH₃COOH. Check the complete totals: C=2, H=5, O=2, F=1 on each side.'
-  ], 'CH₃COF + H₂O → CH₃COOH + HF. All four coefficients are 1.');
+    tr('Expand the atom counts mentally without changing the chemical formulas. CH₃COF has C₂H₃OF; CH₃COOH has C₂H₄O₂. The extra H in OH counts as a hydrogen atom.', "Räkna atomerna utan att ändra de kemiska formlerna. CH₃COF innehåller C₂H₃OF; CH₃COOH innehåller C₂H₄O₂. Det extra H i OH räknas som en väteatom."),
+    tr('Use one molecule of CH₃COF. Its two carbon atoms fit one CH₃COOH, and its one fluorine atom fits one HF. Begin with coefficient 1 for these three substances.', "Använd en molekyl CH₃COF. Dess två kolatomer passar till en CH₃COOH, och dess enda fluoratom passar till en HF. Börja med koefficienten 1 för dessa tre ämnen."),
+    tr('The products now need 4+1=5 hydrogen atoms, but CH₃COF supplies only 3. One H₂O supplies the missing 2.', "Produkterna behöver nu 4+1=5 väteatomer, men CH₃COF ger bara 3. En H₂O ger de 2 som saknas."),
+    tr('Check oxygen: CH₃COF contributes 1 and H₂O contributes 1, matching the 2 in CH₃COOH. Check the complete totals: C=2, H=5, O=2, F=1 on each side.', "Kontrollera syre: CH₃COF bidrar med 1 och H₂O med 1, vilket motsvarar de 2 i CH₃COOH. Kontrollera samtliga totalsummor: C=2, H=5, O=2, F=1 på vardera sidan.")
+  ], tr('CH₃COF + H₂O → CH₃COOH + HF. All four coefficients are 1.', "CH₃COF + H₂O → CH₃COOH + HF. Alla fyra koefficienter är 1."));
   teach('1.10', '12', [
-    'Choose one glucose molecule, C₆H₁₂O₆, as the product. We will supply the atoms it needs by choosing the numbers of whole reactant molecules.',
-    'Glucose has 6 carbon atoms. Each CO₂ supplies 1, so use 6CO₂.',
-    'Glucose has 12 hydrogen atoms. Each water molecule supplies 2, so use 12÷2=6H₂O.',
-    'The reactants now contain 6×2+6×1=18 oxygen atoms. Six belong in glucose, leaving 18−6=12 oxygen atoms for O₂. Because each O₂ contains 2, its coefficient is 12÷2=6.',
-    'Check the counts on both sides: carbon 6; hydrogen 12; oxygen 18. All coefficients are whole numbers and the glucose coefficient is 1, so they cannot all be reduced.'
+    tr('Choose one glucose molecule, C₆H₁₂O₆, as the product. We will supply the atoms it needs by choosing the numbers of whole reactant molecules.', "Välj en glukosmolekyl, C₆H₁₂O₆, som produkt. Vi ska tillföra de atomer den behöver genom att välja antalet hela molekyler av reaktanterna."),
+    tr('Glucose has 6 carbon atoms. Each CO₂ supplies 1, so use 6CO₂.', "Glukos har 6 kolatomer. Varje CO₂ ger 1, så använd 6CO₂."),
+    tr('Glucose has 12 hydrogen atoms. Each water molecule supplies 2, so use 12÷2=6H₂O.', "Glukos har 12 väteatomer. Varje vattenmolekyl ger 2, så använd 12÷2=6H₂O."),
+    tr('The reactants now contain 6×2+6×1=18 oxygen atoms. Six belong in glucose, leaving 18−6=12 oxygen atoms for O₂. Because each O₂ contains 2, its coefficient is 12÷2=6.', "Reaktanterna innehåller nu 6×2+6×1=18 syreatomer. Sex hör till glukos, vilket lämnar 18−6=12 syreatomer till O₂. Eftersom varje O₂ innehåller 2 blir koefficienten 12÷2=6."),
+    tr('Check the counts on both sides: carbon 6; hydrogen 12; oxygen 18. All coefficients are whole numbers and the glucose coefficient is 1, so they cannot all be reduced.', "Kontrollera antalen på båda sidor: kol 6; väte 12; syre 18. Alla koefficienter är heltal och glukoskoefficienten är 1, så de kan inte alla förkortas.")
   ], '6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.');
-  extend('1.10', '13', ['A quadratic has the shape p(x)=ax²+bx+c. The coordinates of the three points are known; the three coefficients a,b,c are the unknowns. “Passes through (1,1)” means putting x=1 into the formula must give 1.'], ['Check the resulting polynomial directly: p(1)=1−2+2=1, p(2)=4−4+2=2, and p(3)=9−6+2=5.'], 'p(x)=x²−2x+2; the coefficients are a=1, b=−2 and c=2.');
+  extend('1.10', '13', [tr('A quadratic has the shape p(x)=ax²+bx+c. The coordinates of the three points are known; the three coefficients a,b,c are the unknowns. “Passes through (1,1)” means putting x=1 into the formula must give 1.', "Ett andragradspolynom har formen p(x)=ax²+bx+c. Koordinaterna för de tre punkterna är kända; de tre koefficienterna a,b,c är obekanta. ”Går genom (1,1)” betyder att insättning av x=1 i formeln måste ge 1.")], [tr('Check the resulting polynomial directly: p(1)=1−2+2=1, p(2)=4−4+2=2, and p(3)=9−6+2=5.', "Kontrollera det framräknade polynomet direkt: p(1)=1−2+2=1, p(2)=4−4+2=2 och p(3)=9−6+2=5.")], tr('p(x)=x²−2x+2; the coefficients are a=1, b=−2 and c=2.', "p(x)=x²−2x+2; koefficienterna är a=1, b=−2 och c=2."));
   teach('1.10', '14', [
-    'Start with the general quadratic p(x)=ax²+bx+c. We seek its coefficients, not the already-given point coordinates.',
-    'Use (0,0): p(0)=c=0. This immediately removes the constant term.',
-    'Use (1,1): a+b=1. Use (−1,1): a−b=1, because (−1)²=1 but b(−1)=−b.',
-    'Add the two equations. The b terms cancel, leaving 2a=2, so a=1. Substitute into a+b=1 to find b=0.',
-    'Check p(x)=x²: p(0)=0, p(−1)=1, and p(1)=1. It passes through all three points.'
-  ], 'p(x)=x², with a=1, b=0 and c=0.');
-  extend('1.10', '15', ['A cubic has four coefficients: p(x)=ax³+bx²+cx+d. Each of the four given points supplies one equation for these unknown coefficients. In particular, the point (0,1) immediately gives d=1.'], ['Check p(x)=−x³/6+13x/6+1: p(−1)=1/6−13/6+1=−1; p(0)=1; p(1)=−1/6+13/6+1=3; p(4)=−64/6+52/6+1=−1.'], 'p(x)=−x³/6+13x/6+1. The coefficients of x³,x²,x,1 are −1/6,0,13/6,1.');
-  extend('1.10', '16', ['The graph supplies the data instead of a written table. A cubic p(x)=ax³+bx²+cx+d has four coefficients, so choose four clearly readable grid points.'], [], 'p(x)=−x³/8+x²/2+2x.');
-  extend('1.10', '17', ['There are three unknown coefficients but only two points. We therefore expect one coefficient to remain free; choosing it gives different curves that share those two points.'], [
-    'For the four example curves, substitute t=−2,−1,1,2. They are −2x²+3x+1, −x²+2x+1, x²+1, and 2x²−x+1. Each gives 1 at x=0 and 2 at x=1.',
-    'The special choice t=0 gives the straight line p(x)=x+1. It passes through the points but has degree 1, so exclude it when the question asks for second-degree polynomials.'
-  ], '(a) p(x)=tx²+(1−t)x+1, where t is any nonzero real number.\n(b) Four examples to sketch are p(x)=−2x²+3x+1, p(x)=−x²+2x+1, p(x)=x²+1, and p(x)=2x²−x+1. Their four sketches are shown with the solution.');
+    tr('Start with the general quadratic p(x)=ax²+bx+c. We seek its coefficients, not the already-given point coordinates.', "Börja med det allmänna andragradspolynomet p(x)=ax²+bx+c. Vi söker dess koefficienter, inte de redan givna punktkoordinaterna."),
+    tr('Use (0,0): p(0)=c=0. This immediately removes the constant term.', "Använd (0,0): p(0)=c=0. Därmed försvinner konstanttermen direkt."),
+    tr('Use (1,1): a+b=1. Use (−1,1): a−b=1, because (−1)²=1 but b(−1)=−b.', "Använd (1,1): a+b=1. Använd (−1,1): a−b=1, eftersom (−1)²=1 men b(−1)=−b."),
+    tr('Add the two equations. The b terms cancel, leaving 2a=2, so a=1. Substitute into a+b=1 to find b=0.', "Addera de två ekvationerna. b-termerna tar ut varandra och kvar blir 2a=2, så a=1. Sätt in i a+b=1 för att få b=0."),
+    tr('Check p(x)=x²: p(0)=0, p(−1)=1, and p(1)=1. It passes through all three points.', "Kontrollera p(x)=x²: p(0)=0, p(−1)=1 och p(1)=1. Grafen går genom alla tre punkter.")
+  ], tr('p(x)=x², with a=1, b=0 and c=0.', "p(x)=x², med a=1, b=0 och c=0."));
+  extend('1.10', '15', [tr('A cubic has four coefficients: p(x)=ax³+bx²+cx+d. Each of the four given points supplies one equation for these unknown coefficients. In particular, the point (0,1) immediately gives d=1.', "Ett tredjegradspolynom har fyra koefficienter: p(x)=ax³+bx²+cx+d. Var och en av de fyra givna punkterna ger en ekvation för dessa okända koefficienter. Punkten (0,1) ger direkt d=1.")], [tr('Check p(x)=−x³/6+13x/6+1: p(−1)=1/6−13/6+1=−1; p(0)=1; p(1)=−1/6+13/6+1=3; p(4)=−64/6+52/6+1=−1.', "Kontrollera p(x)=−x³/6+13x/6+1: p(−1)=1/6−13/6+1=−1; p(0)=1; p(1)=−1/6+13/6+1=3; p(4)=−64/6+52/6+1=−1.")], tr('p(x)=−x³/6+13x/6+1. The coefficients of x³,x²,x,1 are −1/6,0,13/6,1.', "p(x)=−x³/6+13x/6+1. Koefficienterna för x³,x²,x,1 är −1/6,0,13/6,1."));
+  extend('1.10', '16', [tr('The graph supplies the data instead of a written table. A cubic p(x)=ax³+bx²+cx+d has four coefficients, so choose four clearly readable grid points.', "Här ger grafen informationen i stället för en skriven tabell. Ett tredjegradspolynom p(x)=ax³+bx²+cx+d har fyra koefficienter, så välj fyra tydligt avläsbara punkter i rutnätet.")], [], 'p(x)=−x³/8+x²/2+2x.');
+  extend('1.10', '17', [tr('There are three unknown coefficients but only two points. We therefore expect one coefficient to remain free; choosing it gives different curves that share those two points.', "Det finns tre okända koefficienter men bara två punkter. Vi förväntar oss därför att en koefficient förblir fri. Olika val av den ger olika kurvor som går genom samma två punkter.")], [
+    tr('For the four example curves, substitute t=−2,−1,1,2. They are −2x²+3x+1, −x²+2x+1, x²+1, and 2x²−x+1. Each gives 1 at x=0 and 2 at x=1.', "Sätt in t=−2,−1,1,2 för de fyra exempelkurvorna. De blir −2x²+3x+1, −x²+2x+1, x²+1 och 2x²−x+1. Var och en ger 1 vid x=0 och 2 vid x=1."),
+    tr('The special choice t=0 gives the straight line p(x)=x+1. It passes through the points but has degree 1, so exclude it when the question asks for second-degree polynomials.', "Specialvalet t=0 ger den räta linjen p(x)=x+1. Den går genom punkterna men har grad 1, så den ska uteslutas när uppgiften frågar efter andragradspolynom.")
+  ], tr('(a) p(x)=tx²+(1−t)x+1, where t is any nonzero real number.\n(b) Four examples to sketch are p(x)=−2x²+3x+1, p(x)=−x²+2x+1, p(x)=x²+1, and p(x)=2x²−x+1. Their four sketches are shown with the solution.', "(a) p(x)=tx²+(1−t)x+1, där t är ett godtyckligt reellt tal som inte är noll.\n(b) Fyra exempel att rita är p(x)=−2x²+3x+1, p(x)=−x²+2x+1, p(x)=x²+1 och p(x)=2x²−x+1. De fyra skisserna visas tillsammans med lösningen."));
   teach('1.10', '18', [
-    'Choose a steady-temperature plate with no internal heat source. Let T be one unknown interior temperature.',
-    'Put a uniform square grid over the plate. Name the four neighboring temperatures N,S,E,W; their average is (N+S+E+W)/4.',
-    'Set T equal to that average, then multiply by 4: 4T−N−S−E−W=0. Write one equation per interior point.',
-    'Insert known boundary temperatures, keep other temperatures as unknowns, and solve all equations together.',
-    'Source: Technical University of Denmark, “The Poisson Problem.” The original paragraph below explains its source-free case.'
-  ], 'Linear systems can help estimate temperatures inside a thin metal plate. Engineers divide the plate into a square grid and treat each interior temperature as an unknown. When the temperature has settled and there is no internal heat source, a simple model makes each interior value the average of its four neighbors. This produces one linear equation per interior point. Known boundary temperatures provide the constants, while neighboring unknown temperatures connect the equations. Solving the whole system gives an approximate temperature map that can help reveal where the plate will be hottest or coolest.');
+    tr('Choose a steady-temperature plate with no internal heat source. Let T be one unknown interior temperature.', "Välj en platta där temperaturen har stabiliserats och som saknar en inre värmekälla. Låt T vara en okänd temperatur i plattans inre."),
+    tr('Put a uniform square grid over the plate. Name the four neighboring temperatures N,S,E,W; their average is (N+S+E+W)/4.', "Lägg ett jämnt kvadratiskt rutnät över plattan. Kalla de fyra närliggande temperaturerna N,S,E,W; deras medelvärde är (N+S+E+W)/4."),
+    tr('Set T equal to that average, then multiply by 4: 4T−N−S−E−W=0. Write one equation per interior point.', "Sätt T lika med detta medelvärde och multiplicera sedan med 4: 4T−N−S−E−W=0. Skriv en ekvation för varje inre punkt."),
+    tr('Insert known boundary temperatures, keep other temperatures as unknowns, and solve all equations together.', "Sätt in kända temperaturer vid kanten, behåll övriga temperaturer som obekanta och lös alla ekvationer tillsammans."),
+    tr('Source: Technical University of Denmark, “The Poisson Problem.” The original paragraph below explains its source-free case.', "Källa: Danmarks Tekniske Universitet, ”The Poisson Problem”. Det självständigt skrivna stycket nedan beskriver fallet utan inre värmekälla.")
+  ], tr('Linear systems can help estimate temperatures inside a thin metal plate. Engineers divide the plate into a square grid and treat each interior temperature as an unknown. When the temperature has settled and there is no internal heat source, a simple model makes each interior value the average of its four neighbors. This produces one linear equation per interior point. Known boundary temperatures provide the constants, while neighboring unknown temperatures connect the equations. Solving the whole system gives an approximate temperature map that can help reveal where the plate will be hottest or coolest.', "Linjära ekvationssystem kan hjälpa oss att uppskatta temperaturer inuti en tunn metallplatta. Ingenjörer delar in plattan i ett kvadratiskt rutnät och behandlar varje inre temperatur som en obekant. När temperaturen har stabiliserats och ingen inre värmekälla finns låter en enkel modell varje inre värde vara medelvärdet av dess fyra grannar. Det ger en linjär ekvation för varje inre punkt. Kända temperaturer vid kanten ger konstanterna, medan närliggande okända temperaturer kopplar samman ekvationerna. När hela systemet löses får man en ungefärlig temperaturkarta som kan visa var plattan blir varmast eller kallast."));
   teach('1.10', 'TF', [
-    'Part (a): the word “any” makes the statement too broad. A tank can be filling, so 10 liters per minute may enter while only 6 leave; the other 4 are stored. Equal inflow and outflow requires a steady network with no accumulation or uncounted source or sink. Therefore (a) is false.',
-    'Part (b): moving through a resistor in the direction of conventional current produces a voltage drop RI, not a voltage rise. A battery can provide a rise. Therefore (b) is false in the usual circuit convention.',
-    'Part (c): Kirchhoff’s current law is exactly the junction balance rule: total current entering equals total current leaving. Therefore (c) is true.',
-    'Part (d): equal total atom counts are insufficient; the count of each element must agree separately. For example, H₂ → O₂ has two atoms on each side but changes the element, so it is not balanced. Therefore (d) is false.',
-    'Part (e): the x-coordinates must be distinct. For example, no function can pass through both (0,0) and (0,1), because it cannot have two different values at x=0. Therefore the statement about any n points is false.'
-  ], '(a) False. (b) False. (c) True. (d) False. (e) False.');
+    tr('Part (a): the word “any” makes the statement too broad. A tank can be filling, so 10 liters per minute may enter while only 6 leave; the other 4 are stored. Equal inflow and outflow requires a steady network with no accumulation or uncounted source or sink. Therefore (a) is false.', "Del (a): ordet ”varje” gör påståendet för allmänt. En tank kan vara på väg att fyllas, så 10 liter per minut kan komma in medan bara 6 lämnar; de övriga 4 lagras. Lika stort inflöde och utflöde kräver ett stationärt nätverk utan ansamling eller oredovisad källa eller förbrukning. Därför är (a) falskt."),
+    tr('Part (b): moving through a resistor in the direction of conventional current produces a voltage drop RI, not a voltage rise. A battery can provide a rise. Therefore (b) is false in the usual circuit convention.', "Del (b): när man går genom en resistor i den konventionella strömriktningen får man ett spänningsfall RI, inte en spänningsökning. Ett batteri kan ge en ökning. Därför är (b) falskt med den vanliga teckenkonventionen för kretsar."),
+    tr('Part (c): Kirchhoff’s current law is exactly the junction balance rule: total current entering equals total current leaving. Therefore (c) is true.', "Del (c): Kirchhoffs strömlag är precis balansregeln vid en förgrening: den totala inkommande strömmen är lika med den totala utgående strömmen. Därför är (c) sant."),
+    tr('Part (d): equal total atom counts are insufficient; the count of each element must agree separately. For example, H₂ → O₂ has two atoms on each side but changes the element, so it is not balanced. Therefore (d) is false.', "Del (d): lika stort totalt antal atomer räcker inte; antalet av varje grundämne måste stämma var för sig. Exempelvis har H₂ → O₂ två atomer på varje sida men byter grundämne, så reaktionen är inte balanserad. Därför är (d) falskt."),
+    tr('Part (e): the x-coordinates must be distinct. For example, no function can pass through both (0,0) and (0,1), because it cannot have two different values at x=0. Therefore the statement about any n points is false.', "Del (e): x-koordinaterna måste vara olika. Ingen funktion kan till exempel gå genom både (0,0) och (0,1), eftersom den inte kan ha två olika värden vid x=0. Påståendet om vilka n punkter som helst är därför falskt.")
+  ], tr('(a) False. (b) False. (c) True. (d) False. (e) False.', "(a) Falskt. (b) Falskt. (c) Sant. (d) Falskt. (e) Falskt."));
   teach('1.10', 'T1', [
-    'Read the units before calculating. Let x be speed in hundreds of feet per second and p(x) force in hundreds of pounds. The target 2000 ft/s is therefore x=20, not x=2000.',
-    'A polynomial of degree at most 5 has six coefficients: p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. The six data pairs are (1,0), (2,3.12), (4,15.86), (8,33.7), (16,81.5), and (32,123). Each gives an equation by substituting its x and y values.',
-    'Here is an explicit way to construct the solution of those six equations. For each speed xᵢ, form Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ), using the other five speeds in the product. At x=xᵢ every numerator equals its denominator, so Lᵢ=1. At any other data speed one numerator is zero, so Lᵢ=0. These are called Lagrange basis polynomials.',
-    'Multiply each basis polynomial by its measured force and add. The zero force at x=1 contributes nothing. The full polynomial is\np(x) = 3.12(x−1)(x−4)(x−8)(x−16)(x−32)/5040\n+ 15.86(x−1)(x−2)(x−8)(x−16)(x−32)/(−8064)\n+ 33.7(x−1)(x−2)(x−4)(x−16)(x−32)/32256\n+ 81.5(x−1)(x−2)(x−4)(x−8)(x−32)/(−322560)\n+ 123(x−1)(x−2)(x−4)(x−8)(x−16)/9999360.',
-    'For example, the denominator 5040 is (2−1)(2−4)(2−8)(2−16)(2−32). At x=2 the first term becomes 3.12 and every other term becomes zero. The same reasoning verifies all six observations without rounding large powers.',
-    'Evaluate the five nonzero terms at x=20. They are approximately −108.397714286, 387.437142857, −274.414285714, 199.092857143, and 3.230875576, in hundreds of pounds.',
-    'Add those terms to obtain p(20)≈206.948875576 hundreds of pounds. Multiply by 100 to return to pounds: 206.948875576×100≈20694.8875576 lb.',
-    'Round only the final force to the requested practical precision. This is the estimate from the specified fifth-degree interpolation model; its high value comes from the curve fitted through all six measurements.'
-  ], 'The interpolating polynomial is\np(x)≈2.194769073221−5.867226190476x+4.241351686508x²−0.600660342262x³+0.032309089782x⁴−0.000543316772273x⁵,\nwith x in hundreds of ft/s and p(x) in hundreds of lb. The factored form in the steps uses the data without rounded coefficients. At 2000 ft/s the estimated lifting force is 20,694.89 lb.');
-  data['1.10']['T2'].reference = 'Example 7 uses polynomial interpolation for numerical integration: sample the integrand at equally spaced points, fit a polynomial through those samples, and integrate that polynomial instead of the original function.';
+    tr('Read the units before calculating. Let x be speed in hundreds of feet per second and p(x) force in hundreds of pounds. The target 2000 ft/s is therefore x=20, not x=2000.', "Läs enheterna innan du räknar. Låt x vara hastigheten i hundratal fot per sekund och p(x) kraften i hundratal pund. Målhastigheten 2000 ft/s motsvarar därför x=20, inte x=2000."),
+    tr('A polynomial of degree at most 5 has six coefficients: p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. The six data pairs are (1,0), (2,3.12), (4,15.86), (8,33.7), (16,81.5), and (32,123). Each gives an equation by substituting its x and y values.', "Ett polynom av högst grad 5 har sex koefficienter: p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. De sex dataparen är (1,0), (2,3.12), (4,15.86), (8,33.7), (16,81.5) och (32,123). Varje par ger en ekvation när dess x- och y-värden sätts in."),
+    tr('Here is an explicit way to construct the solution of those six equations. For each speed xᵢ, form Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ), using the other five speeds in the product. At x=xᵢ every numerator equals its denominator, so Lᵢ=1. At any other data speed one numerator is zero, so Lᵢ=0. These are called Lagrange basis polynomials.', "Här är ett konkret sätt att konstruera lösningen till dessa sex ekvationer. För varje hastighet xᵢ bildar vi Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ), där de andra fem hastigheterna ingår i produkten. Vid x=xᵢ är varje täljare lika med sin nämnare, så Lᵢ=1. Vid varje annan hastighet i mätserien är en täljare noll, så Lᵢ=0. Dessa kallas Lagranges baspolynom."),
+    tr('Multiply each basis polynomial by its measured force and add. The zero force at x=1 contributes nothing. The full polynomial is\np(x) = 3.12(x−1)(x−4)(x−8)(x−16)(x−32)/5040\n+ 15.86(x−1)(x−2)(x−8)(x−16)(x−32)/(−8064)\n+ 33.7(x−1)(x−2)(x−4)(x−16)(x−32)/32256\n+ 81.5(x−1)(x−2)(x−4)(x−8)(x−32)/(−322560)\n+ 123(x−1)(x−2)(x−4)(x−8)(x−16)/9999360.', "Multiplicera varje baspolynom med dess uppmätta kraft och addera. Kraften noll vid x=1 bidrar inte med något. Hela polynomet är\np(x) = 3.12(x−1)(x−4)(x−8)(x−16)(x−32)/5040\n+ 15.86(x−1)(x−2)(x−8)(x−16)(x−32)/(−8064)\n+ 33.7(x−1)(x−2)(x−4)(x−16)(x−32)/32256\n+ 81.5(x−1)(x−2)(x−4)(x−8)(x−32)/(−322560)\n+ 123(x−1)(x−2)(x−4)(x−8)(x−16)/9999360."),
+    tr('For example, the denominator 5040 is (2−1)(2−4)(2−8)(2−16)(2−32). At x=2 the first term becomes 3.12 and every other term becomes zero. The same reasoning verifies all six observations without rounding large powers.', "Till exempel är nämnaren 5040 lika med (2−1)(2−4)(2−8)(2−16)(2−32). Vid x=2 blir den första termen 3.12 och alla andra termer blir noll. Samma resonemang verifierar alla sex observationer utan att stora potenser behöver avrundas."),
+    tr('Evaluate the five nonzero terms at x=20. They are approximately −108.397714286, 387.437142857, −274.414285714, 199.092857143, and 3.230875576, in hundreds of pounds.', "Beräkna de fem termerna som inte är noll vid x=20. De är ungefär −108.397714286, 387.437142857, −274.414285714, 199.092857143 och 3.230875576, i hundratal pund."),
+    tr('Add those terms to obtain p(20)≈206.948875576 hundreds of pounds. Multiply by 100 to return to pounds: 206.948875576×100≈20694.8875576 lb.', "Addera termerna för att få p(20)≈206.948875576 hundratal pund. Multiplicera med 100 för att återgå till pund: 206.948875576×100≈20694.8875576 lb."),
+    tr('Round only the final force to the requested practical precision. This is the estimate from the specified fifth-degree interpolation model; its high value comes from the curve fitted through all six measurements.', "Avrunda bara den slutliga kraften till önskad praktisk noggrannhet. Detta är uppskattningen från den angivna interpolationsmodellen av femte graden. Det höga värdet kommer från kurvan som anpassats genom alla sex mätningar.")
+  ], tr('The interpolating polynomial is\np(x)≈2.194769073221−5.867226190476x+4.241351686508x²−0.600660342262x³+0.032309089782x⁴−0.000543316772273x⁵,\nwith x in hundreds of ft/s and p(x) in hundreds of lb. The factored form in the steps uses the data without rounded coefficients. At 2000 ft/s the estimated lifting force is 20,694.89 lb.', "Det interpolerande polynomet är\np(x)≈2.194769073221−5.867226190476x+4.241351686508x²−0.600660342262x³+0.032309089782x⁴−0.000543316772273x⁵,\nmed x i hundratal ft/s och p(x) i hundratal lb. Den faktoriserade formen i lösningsstegen använder data utan avrundade koefficienter. Vid 2000 ft/s är den uppskattade lyftkraften 20,694.89 lb."));
+  data['1.10']['T2'].reference = tr('Example 7 uses polynomial interpolation for numerical integration: sample the integrand at equally spaced points, fit a polynomial through those samples, and integrate that polynomial instead of the original function.', "Exempel 7 använder polynominterpolation för numerisk integration: beräkna integrandens värden i punkter med lika stora avstånd, anpassa ett polynom genom dessa värden och integrera polynomet i stället för den ursprungliga funktionen.");
   teach('1.10', 'T2', [
-    'An integral here measures the area under the curve. The method replaces the difficult curve f(x)=e^(x²) with a polynomial that we can integrate term by term. Five equal subintervals of [0,1] have width 1/5=0.2 and six endpoints: 0,0.2,0.4,0.6,0.8,1.',
-    'Calculate f at those endpoints, keeping extra digits: f(0)=1; f(0.2)≈1.040810774192; f(0.4)≈1.173510870992; f(0.6)≈1.433329414560; f(0.8)≈1.896480879305; f(1)≈2.718281828459.',
-    'Write p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. Set p equal to each sampled value. For example, the first equation is c₀=1 and the second is c₀+0.2c₁+0.04c₂+0.008c₃+0.0016c₄+0.00032c₅≈1.040810774192. The four remaining equations use x=0.4,0.6,0.8,1 in exactly the same way.',
-    'An explicit interpolation construction solves all six equations at once: for xᵢ=i/5, define Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ), then p(x)=Σᵢ₌₀⁵ f(xᵢ)Lᵢ(x). Each Lᵢ equals 1 at its own sample and 0 at the other five samples, so p takes precisely the six sampled values.',
-    'Expanding the products gives approximately\np(x)=1+0.019930822157x+0.780826925227x²+0.842820652342x³−0.917919971827x⁴+0.992623400561x⁵.\nUse full calculator precision internally; the displayed coefficients are rounded.',
-    'Use the power rule for area on [0,1]: the integral of xᵏ is 1/(k+1). Therefore the approximate area is 1+0.019930822157/2+0.780826925227/3+0.842820652342/4−0.917919971827/5+0.992623400561/6≈1.462799455390.',
-    'For an independent numerical comparison, use composite Simpson integration directly on f. With h=0.001, calculate (h/3)[f(0)+f(1)+4Σ f(ih) over odd i from 1 to 999+2Σ f(ih) over even i from 2 to 998]. This gives approximately 1.462651745908.',
-    'Subtract the two results: 1.462799455390−1.462651745908≈0.000147709482. The interpolation result is about 0.0101% higher. This comparison measures the approximation; it does not claim that the original function is exactly the polynomial.'
-  ], 'The degree-5 interpolation estimate is ∫₀¹e^(x²)dx≈1.462799455390. Direct numerical integration gives approximately 1.462651745908. The interpolation estimate is higher by about 0.000147709482 (0.0101%).');
-  data['1.10']['T3'].reference = 'Example 5 introduces one unknown coefficient per chemical substance, equates the count of each element on the two sides, and solves the resulting homogeneous linear system for the smallest positive integer coefficients.';
+    tr('An integral here measures the area under the curve. The method replaces the difficult curve f(x)=e^(x²) with a polynomial that we can integrate term by term. Five equal subintervals of [0,1] have width 1/5=0.2 and six endpoints: 0,0.2,0.4,0.6,0.8,1.', "En integral mäter här arean under kurvan. Metoden ersätter den svåra kurvan f(x)=e^(x²) med ett polynom som vi kan integrera term för term. Fem lika stora delintervall av [0,1] har bredden 1/5=0.2 och sex ändpunkter: 0,0.2,0.4,0.6,0.8,1."),
+    tr('Calculate f at those endpoints, keeping extra digits: f(0)=1; f(0.2)≈1.040810774192; f(0.4)≈1.173510870992; f(0.6)≈1.433329414560; f(0.8)≈1.896480879305; f(1)≈2.718281828459.', "Beräkna f i dessa ändpunkter och behåll extra siffror: f(0)=1; f(0.2)≈1.040810774192; f(0.4)≈1.173510870992; f(0.6)≈1.433329414560; f(0.8)≈1.896480879305; f(1)≈2.718281828459."),
+    tr('Write p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. Set p equal to each sampled value. For example, the first equation is c₀=1 and the second is c₀+0.2c₁+0.04c₂+0.008c₃+0.0016c₄+0.00032c₅≈1.040810774192. The four remaining equations use x=0.4,0.6,0.8,1 in exactly the same way.', "Skriv p(x)=c₀+c₁x+c₂x²+c₃x³+c₄x⁴+c₅x⁵. Sätt p lika med varje beräknat värde. Den första ekvationen är till exempel c₀=1 och den andra är c₀+0.2c₁+0.04c₂+0.008c₃+0.0016c₄+0.00032c₅≈1.040810774192. De fyra återstående ekvationerna använder x=0.4,0.6,0.8,1 på precis samma sätt."),
+    tr('An explicit interpolation construction solves all six equations at once: for xᵢ=i/5, define Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ), then p(x)=Σᵢ₌₀⁵ f(xᵢ)Lᵢ(x). Each Lᵢ equals 1 at its own sample and 0 at the other five samples, so p takes precisely the six sampled values.', "En explicit interpolationskonstruktion löser alla sex ekvationer samtidigt: för xᵢ=i/5 definierar vi Lᵢ(x)=∏ⱼ≠ᵢ(x−xⱼ)/(xᵢ−xⱼ) och sedan p(x)=Σᵢ₌₀⁵ f(xᵢ)Lᵢ(x). Varje Lᵢ är 1 i sin egen mätpunkt och 0 i de andra fem, så p antar exakt de sex beräknade värdena."),
+    tr('Expanding the products gives approximately\np(x)=1+0.019930822157x+0.780826925227x²+0.842820652342x³−0.917919971827x⁴+0.992623400561x⁵.\nUse full calculator precision internally; the displayed coefficients are rounded.', "När produkterna utvecklas fås ungefär\np(x)=1+0.019930822157x+0.780826925227x²+0.842820652342x³−0.917919971827x⁴+0.992623400561x⁵.\nAnvänd räknarens fulla noggrannhet i beräkningarna; de visade koefficienterna är avrundade."),
+    tr('Use the power rule for area on [0,1]: the integral of xᵏ is 1/(k+1). Therefore the approximate area is 1+0.019930822157/2+0.780826925227/3+0.842820652342/4−0.917919971827/5+0.992623400561/6≈1.462799455390.', "Använd potensregeln för area på [0,1]: integralen av xᵏ är 1/(k+1). Den ungefärliga arean blir därför 1+0.019930822157/2+0.780826925227/3+0.842820652342/4−0.917919971827/5+0.992623400561/6≈1.462799455390."),
+    tr('For an independent numerical comparison, use composite Simpson integration directly on f. With h=0.001, calculate (h/3)[f(0)+f(1)+4Σ f(ih) over odd i from 1 to 999+2Σ f(ih) over even i from 2 to 998]. This gives approximately 1.462651745908.', "För en oberoende numerisk jämförelse använder vi sammansatt Simpsonintegration direkt på f. Med h=0.001 beräknas (h/3)[f(0)+f(1)+4Σ f(ih) för udda i från 1 till 999+2Σ f(ih) för jämna i från 2 till 998]. Det ger ungefär 1.462651745908."),
+    tr('Subtract the two results: 1.462799455390−1.462651745908≈0.000147709482. The interpolation result is about 0.0101% higher. This comparison measures the approximation; it does not claim that the original function is exactly the polynomial.', "Subtrahera resultaten: 1.462799455390−1.462651745908≈0.000147709482. Interpolationsresultatet är ungefär 0.0101% högre. Jämförelsen mäter approximationen; den innebär inte att den ursprungliga funktionen är exakt samma som polynomet.")
+  ], tr('The degree-5 interpolation estimate is ∫₀¹e^(x²)dx≈1.462799455390. Direct numerical integration gives approximately 1.462651745908. The interpolation estimate is higher by about 0.000147709482 (0.0101%).', "Interpolationsuppskattningen med grad 5 är ∫₀¹e^(x²)dx≈1.462799455390. Direkt numerisk integration ger ungefär 1.462651745908. Interpolationsuppskattningen är högre med ungefär 0.000147709482 (0.0101%)."));
+  data['1.10']['T3'].reference = tr('Example 5 introduces one unknown coefficient per chemical substance, equates the count of each element on the two sides, and solves the resulting homogeneous linear system for the smallest positive integer coefficients.', "Exempel 5 inför en okänd koefficient för varje kemiskt ämne, sätter antalet atomer av varje grundämne lika på båda sidor och löser det resulterande homogena linjära ekvationssystemet för att hitta de minsta positiva heltalskoefficienterna.");
   teach('1.10', 'T3', [
-    'Assign an unknown number of molecules to each substance: aFe₂O₃+bAl → cAl₂O₃+dFe. We may change a,b,c,d, but we must not change the subscripts inside the formulas.',
-    'Balance iron: each Fe₂O₃ contains 2 iron atoms, so 2a=d. Balance oxygen: each oxide contains 3 oxygen atoms, so 3a=3c. Balance aluminum: b=2c.',
-    'Rewrite these as the linear equations 2a−d=0, 3a−3c=0, and b−2c=0. Their right-hand sides are zero because no element has a net gain or loss.',
-    'From 3a=3c, obtain c=a. Then b=2c=2a and d=2a. Thus every positive solution is a multiple of (1,2,1,2).',
-    'Choose a=1 to get the smallest positive whole-number coefficients: a=1,b=2,c=1,d=2. Check the atoms: iron 2=2, oxygen 3=3, aluminum 2=2.'
+    tr('Assign an unknown number of molecules to each substance: aFe₂O₃+bAl → cAl₂O₃+dFe. We may change a,b,c,d, but we must not change the subscripts inside the formulas.', "Tilldela varje ämne ett okänt antal molekyler: aFe₂O₃+bAl → cAl₂O₃+dFe. Vi får ändra a,b,c,d, men inte de nedsänkta talen inuti formlerna."),
+    tr('Balance iron: each Fe₂O₃ contains 2 iron atoms, so 2a=d. Balance oxygen: each oxide contains 3 oxygen atoms, so 3a=3c. Balance aluminum: b=2c.', "Balansera järn: varje Fe₂O₃ innehåller 2 järnatomer, så 2a=d. Balansera syre: varje oxid innehåller 3 syreatomer, så 3a=3c. Balansera aluminium: b=2c."),
+    tr('Rewrite these as the linear equations 2a−d=0, 3a−3c=0, and b−2c=0. Their right-hand sides are zero because no element has a net gain or loss.', "Skriv om detta som de linjära ekvationerna 2a−d=0, 3a−3c=0 och b−2c=0. Högerleden är noll eftersom inget grundämne har någon nettoökning eller nettominskning."),
+    tr('From 3a=3c, obtain c=a. Then b=2c=2a and d=2a. Thus every positive solution is a multiple of (1,2,1,2).', "Från 3a=3c får vi c=a. Sedan är b=2c=2a och d=2a. Varje positiv lösning är alltså en multipel av (1,2,1,2)."),
+    tr('Choose a=1 to get the smallest positive whole-number coefficients: a=1,b=2,c=1,d=2. Check the atoms: iron 2=2, oxygen 3=3, aluminum 2=2.', "Välj a=1 för att få de minsta positiva heltalskoefficienterna: a=1,b=2,c=1,d=2. Kontrollera atomerna: järn 2=2, syre 3=3, aluminium 2=2.")
   ], 'Fe₂O₃ + 2Al → Al₂O₃ + 2Fe.');
   extend('1.10', 'T4', [], [
-    'The negative I₁ means the lower branch actually carries 49/31 A from left to right, opposite the given arrows. I₂=50/31 A travels right to left along the top; I₃=1/31 A travels left to right in the middle.',
-    'Check the common voltage: 20−3(50/31)=470/31 V; 470(1/31)=470/31 V; and 12−2(−49/31)=470/31 V. All three branches give the same difference.'
-  ], 'I₁=−49/31 A (about 1.5806 A opposite its arrows); I₂=50/31 A (about 1.6129 A along its arrows); I₃=1/31 A (about 0.03226 A along its arrows).');
+    tr('The negative I₁ means the lower branch actually carries 49/31 A from left to right, opposite the given arrows. I₂=50/31 A travels right to left along the top; I₃=1/31 A travels left to right in the middle.', "Det negativa I₁ betyder att den nedre grenen i verkligheten leder 49/31 A från vänster till höger, mot de givna pilarna. I₂=50/31 A går från höger till vänster upptill; I₃=1/31 A går från vänster till höger i mitten."),
+    tr('Check the common voltage: 20−3(50/31)=470/31 V; 470(1/31)=470/31 V; and 12−2(−49/31)=470/31 V. All three branches give the same difference.', "Kontrollera den gemensamma spänningen: 20−3(50/31)=470/31 V; 470(1/31)=470/31 V; och 12−2(−49/31)=470/31 V. Alla tre grenar ger samma potentialskillnad.")
+  ], tr('I₁=−49/31 A (about 1.5806 A opposite its arrows); I₂=50/31 A (about 1.6129 A along its arrows); I₃=1/31 A (about 0.03226 A along its arrows).', "I₁=−49/31 A (ungefär 1.5806 A mot sina pilar); I₂=50/31 A (ungefär 1.6129 A längs sina pilar); I₃=1/31 A (ungefär 0.03226 A längs sina pilar)."));
 
-  const economyIntro = 'Let x list total production, including what the sectors themselves use. Let d list orders from outside the economy. The entry cᵢⱼ of C means the input supplied by sector i to produce one unit of sector j output. Thus Cx is internal use, and total production must satisfy x=Cx+d.';
-  extend('1.11', '1', [economyIntro, 'Use the same order for rows and columns: mechanic M first, body shop B second. A column is a recipe for producing $1 of that column’s service. The mechanic column is (0.50,0.25), and the body-shop column is (0.25,0.10).'], [
-    'Interpret the coordinates in the original order. The mechanic produces 784000/31≈$25,290.32 and the body shop 700000/31≈$22,580.65. These totals exceed the outside orders because some work is used by the businesses themselves.',
-    'Check with exact fractions: 0.50x₁−0.25x₂=217000/31=7000, and −0.25x₁+0.90x₂=434000/31=14000. After internal use, the required outside amounts remain.'
-  ], '(a) In the order (M,B), C=[0.50  0.25; 0.25  0.10].\n(b) M must produce 784000/31≈$25,290.32 of service and B must produce 700000/31≈$22,580.65. Currency figures are rounded to cents.');
-  extend('1.11', '2', [economyIntro, 'Choose the order food F, then housing H. Producing $1 of food needs the column (0.30,0.10); producing $1 of housing needs (0.20,0.60). Do not swap provider rows with output columns.'], [
-    'Check food: internal use is 0.30(300000)+0.20(400000)=170000, leaving 300000−170000=130000 for consumers. Check housing: internal use is 0.10(300000)+0.60(400000)=270000, leaving 400000−270000=130000.'
-  ], '(a) In the order (F,H), C=[0.30  0.20; 0.10  0.60].\n(b) Produce $300,000 of food and $400,000 of housing. After internal use, each sector supplies $130,000 to consumers.');
-  extend('1.11', '3', [economyIntro, 'Keep the table’s sector order: housing, food, utilities. Each provider row becomes the corresponding row of C, and the outside demand is d=(1930,3860,5790).'], [
-    'Verify the plan by subtracting internal use. Housing: 31500−(3150+15900+10520)=1930. Food: 26500−(9450+5300+7890)=3860. Utilities: 26300−(12600+2650+5260)=5790. These are exactly the three outside orders.'
-  ], '(a) C=[0.10  0.60  0.40; 0.30  0.20  0.30; 0.40  0.10  0.20], in the order housing, food, utilities.\n(b) x=($31,500,$26,500,$26,300) in that same order.');
-  extend('1.11', '4', [economyIntro, 'Use the order Web design, software, networking throughout. The given outside demand is d=(5400,2700,900). For example, 0.45 in row 1, column 3 means $0.45 of Web design is required per $1 of networking output.'], [
-    'Read the solution in the sector order: Web design approximately $19,578.29, software approximately $16,346.56, and networking approximately $6,839.25. Keep more digits during the calculations; rounding the final money amounts introduces only rounding differences in the demand checks.'
-  ], '(a) C=[0.40  0.20  0.45; 0.30  0.35  0.30; 0.15  0.10  0.20], in the order Web design, software, networking.\n(b) The exact production vector in dollars is (9378000/479,7830000/479,3276000/479). This is approximately ($19,578.29,$16,346.56,$6,839.25), rounded to cents.');
-  extend('1.11', '5', [economyIntro, 'The question requests matrix inversion. After rearranging to (I−C)x=d, find the inverse of I−C and multiply it by d. We invert I−C, because it measures what remains after internal consumption.'], [
-    'Check using exact values: (9/10)(1600/13)−(3/10)(7900/39)=50, and −(1/2)(1600/13)+(3/5)(7900/39)=60. Thus the net available production meets both demand entries.'
-  ], 'x=(I−C)⁻¹d=(1600/13,7900/39)≈(123.076923,202.564103), in the units used for d.');
-  extend('1.11', '6', [economyIntro, 'Rearrange x=Cx+d to (I−C)x=d. The production vector is x=(I−C)⁻¹d, so first calculate the inverse of the net-production matrix.'], [
-    'Check: (7/10)(400/9)−(1/10)(820/9)=22, and −(3/10)(400/9)+(3/10)(820/9)=14. These are the two requested outside demands.'
-  ], 'x=(I−C)⁻¹d=(400/9,820/9)≈(44.444444,91.111111), in the units used for d.');
+  const economyIntro = tr('Let x list total production, including what the sectors themselves use. Let d list orders from outside the economy. The entry cᵢⱼ of C means the input supplied by sector i to produce one unit of sector j output. Thus Cx is internal use, and total production must satisfy x=Cx+d.', "Låt x ange den totala produktionen, inklusive det som sektorerna själva använder. Låt d ange beställningar från kunder utanför ekonomin. Elementet cᵢⱼ i C anger insatsen från sektor i för att producera en enhet i sektor j. Då är Cx den interna förbrukningen och den totala produktionen måste uppfylla x=Cx+d.");
+  extend('1.11', '1', [economyIntro, tr('Use the same order for rows and columns: mechanic M first, body shop B second. A column is a recipe for producing $1 of that column’s service. The mechanic column is (0.50,0.25), and the body-shop column is (0.25,0.10).', "Använd samma ordning för rader och kolumner: först den bilmekaniska verkstaden M, sedan bilplåtverkstaden B. En kolumn är ett recept för att producera tjänster för $1 i den kolumnens verksamhet. Kolumnen för M är (0.50,0.25) och kolumnen för B är (0.25,0.10).")], [
+    tr('Interpret the coordinates in the original order. The mechanic produces 784000/31≈$25,290.32 and the body shop 700000/31≈$22,580.65. These totals exceed the outside orders because some work is used by the businesses themselves.', "Tolka komponenterna i den ursprungliga ordningen. Den bilmekaniska verkstaden producerar 784000/31≈$25,290.32 och bilplåtverkstaden 700000/31≈$22,580.65. Summorna är större än de externa beställningarna eftersom en del arbete används av verksamheterna själva."),
+    tr('Check with exact fractions: 0.50x₁−0.25x₂=217000/31=7000, and −0.25x₁+0.90x₂=434000/31=14000. After internal use, the required outside amounts remain.', "Kontrollera med exakta bråk: 0.50x₁−0.25x₂=217000/31=7000 och −0.25x₁+0.90x₂=434000/31=14000. Efter den interna förbrukningen återstår de efterfrågade externa beloppen.")
+  ], tr('(a) In the order (M,B), C=[0.50  0.25; 0.25  0.10].\n(b) M must produce 784000/31≈$25,290.32 of service and B must produce 700000/31≈$22,580.65. Currency figures are rounded to cents.', "(a) I ordningen (M,B) är C=[0.50  0.25; 0.25  0.10].\n(b) M måste producera tjänster för 784000/31≈$25,290.32 och B för 700000/31≈$22,580.65. Valutabeloppen är avrundade till cent."));
+  extend('1.11', '2', [economyIntro, tr('Choose the order food F, then housing H. Producing $1 of food needs the column (0.30,0.10); producing $1 of housing needs (0.20,0.60). Do not swap provider rows with output columns.', "Välj ordningen livsmedel F, sedan bostäder H. Produktion av livsmedel för $1 kräver kolumnen (0.30,0.10); produktion av bostäder för $1 kräver (0.20,0.60). Blanda inte ihop leverantörsrader med produktionskolumner.")], [
+    tr('Check food: internal use is 0.30(300000)+0.20(400000)=170000, leaving 300000−170000=130000 for consumers. Check housing: internal use is 0.10(300000)+0.60(400000)=270000, leaving 400000−270000=130000.', "Kontrollera livsmedel: den interna förbrukningen är 0.30(300000)+0.20(400000)=170000, vilket lämnar 300000−170000=130000 till konsumenterna. Kontrollera bostäder: den interna förbrukningen är 0.10(300000)+0.60(400000)=270000, vilket lämnar 400000−270000=130000.")
+  ], tr('(a) In the order (F,H), C=[0.30  0.20; 0.10  0.60].\n(b) Produce $300,000 of food and $400,000 of housing. After internal use, each sector supplies $130,000 to consumers.', "(a) I ordningen (F,H) är C=[0.30  0.20; 0.10  0.60].\n(b) Producera livsmedel för $300,000 och bostäder för $400,000. Efter intern förbrukning levererar varje sektor för $130,000 till konsumenterna."));
+  extend('1.11', '3', [economyIntro, tr('Keep the table’s sector order: housing, food, utilities. Each provider row becomes the corresponding row of C, and the outside demand is d=(1930,3860,5790).', "Behåll tabellens sektorordning: bostäder, livsmedel, försörjningstjänster. Varje leverantörsrad blir motsvarande rad i C, och den externa efterfrågan är d=(1930,3860,5790).")], [
+    tr('Verify the plan by subtracting internal use. Housing: 31500−(3150+15900+10520)=1930. Food: 26500−(9450+5300+7890)=3860. Utilities: 26300−(12600+2650+5260)=5790. These are exactly the three outside orders.', "Verifiera planen genom att subtrahera intern förbrukning. Bostäder: 31500−(3150+15900+10520)=1930. Livsmedel: 26500−(9450+5300+7890)=3860. Försörjningstjänster: 26300−(12600+2650+5260)=5790. Detta är exakt de tre externa beställningarna.")
+  ], tr('(a) C=[0.10  0.60  0.40; 0.30  0.20  0.30; 0.40  0.10  0.20], in the order housing, food, utilities.\n(b) x=($31,500,$26,500,$26,300) in that same order.', "(a) C=[0.10  0.60  0.40; 0.30  0.20  0.30; 0.40  0.10  0.20], i ordningen bostäder, livsmedel, försörjningstjänster.\n(b) x=($31,500,$26,500,$26,300) i samma ordning."));
+  extend('1.11', '4', [economyIntro, tr('Use the order Web design, software, networking throughout. The given outside demand is d=(5400,2700,900). For example, 0.45 in row 1, column 3 means $0.45 of Web design is required per $1 of networking output.', "Använd ordningen webbdesign, programvara, nätverkstjänster genom hela beräkningen. Den givna externa efterfrågan är d=(5400,2700,900). Till exempel betyder 0.45 i rad 1, kolumn 3 att webbdesign för $0.45 krävs per $1 av producerade nätverkstjänster.")], [
+    tr('Read the solution in the sector order: Web design approximately $19,578.29, software approximately $16,346.56, and networking approximately $6,839.25. Keep more digits during the calculations; rounding the final money amounts introduces only rounding differences in the demand checks.', "Läs lösningen i sektorordning: webbdesign ungefär $19,578.29, programvara ungefär $16,346.56 och nätverkstjänster ungefär $6,839.25. Behåll fler siffror under beräkningarna. När de slutliga beloppen avrundas uppstår endast avrundningsskillnader vid kontrollen av efterfrågan.")
+  ], tr('(a) C=[0.40  0.20  0.45; 0.30  0.35  0.30; 0.15  0.10  0.20], in the order Web design, software, networking.\n(b) The exact production vector in dollars is (9378000/479,7830000/479,3276000/479). This is approximately ($19,578.29,$16,346.56,$6,839.25), rounded to cents.', "(a) C=[0.40  0.20  0.45; 0.30  0.35  0.30; 0.15  0.10  0.20], i ordningen webbdesign, programvara, nätverkstjänster.\n(b) Den exakta produktionsvektorn i dollar är (9378000/479,7830000/479,3276000/479). Det är ungefär ($19,578.29,$16,346.56,$6,839.25), avrundat till cent."));
+  extend('1.11', '5', [economyIntro, tr('The question requests matrix inversion. After rearranging to (I−C)x=d, find the inverse of I−C and multiply it by d. We invert I−C, because it measures what remains after internal consumption.', "Uppgiften efterfrågar matrisinvertering. Skriv först om till (I−C)x=d, bestäm sedan inversen till I−C och multiplicera den med d. Vi inverterar I−C eftersom den anger vad som återstår efter den interna förbrukningen.")], [
+    tr('Check using exact values: (9/10)(1600/13)−(3/10)(7900/39)=50, and −(1/2)(1600/13)+(3/5)(7900/39)=60. Thus the net available production meets both demand entries.', "Kontrollera med exakta värden: (9/10)(1600/13)−(3/10)(7900/39)=50 och −(1/2)(1600/13)+(3/5)(7900/39)=60. Den tillgängliga nettoproduktionen uppfyller alltså båda komponenterna i efterfrågan.")
+  ], tr('x=(I−C)⁻¹d=(1600/13,7900/39)≈(123.076923,202.564103), in the units used for d.', "x=(I−C)⁻¹d=(1600/13,7900/39)≈(123.076923,202.564103), i samma enheter som d."));
+  extend('1.11', '6', [economyIntro, tr('Rearrange x=Cx+d to (I−C)x=d. The production vector is x=(I−C)⁻¹d, so first calculate the inverse of the net-production matrix.', "Skriv om x=Cx+d till (I−C)x=d. Produktionsvektorn är x=(I−C)⁻¹d, så beräkna först inversen till matrisen för nettoproduktion.")], [
+    tr('Check: (7/10)(400/9)−(1/10)(820/9)=22, and −(3/10)(400/9)+(3/10)(820/9)=14. These are the two requested outside demands.', "Kontrollera: (7/10)(400/9)−(1/10)(820/9)=22 och −(3/10)(400/9)+(3/10)(820/9)=14. Detta är de två givna externa efterfrågevärdena.")
+  ], tr('x=(I−C)⁻¹d=(400/9,820/9)≈(44.444444,91.111111), in the units used for d.', "x=(I−C)⁻¹d=(400/9,820/9)≈(44.444444,91.111111), i samma enheter som d."));
   teach('1.11', '7', [
-    'The diagonal entries tell a simple story. Sector 1 uses half its own output; sector 2 uses all of its own output. The zero off-diagonal entries mean neither sector requires the other’s product.',
-    'Form I−C=[1/2  0; 0  0]. The production equations (I−C)x=d are therefore x₁/2=d₁ and 0=d₂.',
-    'Part (a), first demand: put d₁=2,d₂=0. The first equation gives x₁=4. The second says 0=0, so it is satisfied by any x₂≥0. For example, x=(4,0) is a valid plan.',
-    'Part (a), second demand: put d₁=2,d₂=1. Now the second equation says 0=1, which is impossible. No choice of production can satisfy this demand.',
-    'Part (b), mathematical explanation: the second row of I−C is zero, so its left side always remains zero. It can match a zero right-hand side but cannot match 1.',
-    'Part (b), economic explanation: sector 2 consumes every unit it produces. Even doubling its output doubles its own consumption, leaving no surplus for an outside customer. Sector 1 only needs to double its outside order because it keeps half internally.'
-  ], '(a) Demand (2,0) is met by every x=(4,t), t≥0. Demand (2,1) has no solution.\n(b) Mathematically the second equation is 0=d₂; economically sector 2 consumes all of its output and cannot supply positive outside demand.');
+    tr('The diagonal entries tell a simple story. Sector 1 uses half its own output; sector 2 uses all of its own output. The zero off-diagonal entries mean neither sector requires the other’s product.', "Diagonalelementen ger en enkel förklaring. Sektor 1 använder hälften av sin egen produktion; sektor 2 använder hela sin egen produktion. Nollorna utanför diagonalen betyder att ingen sektor behöver den andras produkt."),
+    tr('Form I−C=[1/2  0; 0  0]. The production equations (I−C)x=d are therefore x₁/2=d₁ and 0=d₂.', "Bilda I−C=[1/2  0; 0  0]. Produktionsekvationerna (I−C)x=d är därför x₁/2=d₁ och 0=d₂."),
+    tr('Part (a), first demand: put d₁=2,d₂=0. The first equation gives x₁=4. The second says 0=0, so it is satisfied by any x₂≥0. For example, x=(4,0) is a valid plan.', "Del (a), första efterfrågan: sätt d₁=2,d₂=0. Den första ekvationen ger x₁=4. Den andra säger 0=0 och uppfylls därför av varje x₂≥0. Till exempel är x=(4,0) en giltig plan."),
+    tr('Part (a), second demand: put d₁=2,d₂=1. Now the second equation says 0=1, which is impossible. No choice of production can satisfy this demand.', "Del (a), andra efterfrågan: sätt d₁=2,d₂=1. Nu säger den andra ekvationen 0=1, vilket är omöjligt. Inget val av produktion kan uppfylla denna efterfrågan."),
+    tr('Part (b), mathematical explanation: the second row of I−C is zero, so its left side always remains zero. It can match a zero right-hand side but cannot match 1.', "Del (b), matematisk förklaring: den andra raden i I−C är noll, så dess vänsterled förblir alltid noll. Det kan motsvara ett högerled som är noll men kan inte motsvara 1."),
+    tr('Part (b), economic explanation: sector 2 consumes every unit it produces. Even doubling its output doubles its own consumption, leaving no surplus for an outside customer. Sector 1 only needs to double its outside order because it keeps half internally.', "Del (b), ekonomisk förklaring: sektor 2 förbrukar varje enhet den producerar. Om produktionen fördubblas fördubblas också den egna förbrukningen, så inget överskott blir kvar till externa kunder. Sektor 1 behöver bara dubblera sin externa beställning eftersom hälften behålls internt.")
+  ], tr('(a) Demand (2,0) is met by every x=(4,t), t≥0. Demand (2,1) has no solution.\n(b) Mathematically the second equation is 0=d₂; economically sector 2 consumes all of its output and cannot supply positive outside demand.', "(a) Efterfrågan (2,0) uppfylls av varje x=(4,t), t≥0. Efterfrågan (2,1) saknar lösning.\n(b) Matematiskt är den andra ekvationen 0=d₂; ekonomiskt förbrukar sektor 2 hela sin produktion och kan inte tillgodose positiv extern efterfrågan."));
   extend('1.11', '8', [economyIntro], [
-    'For one unit of demand from each sector, the solution is x=(18,16,16). For a common demand q, multiply the entire vector by q to get x=(18q,16q,16q). This scaling works because all equations are linear.',
-    'If q>0, then 18q>16q, so sector 1 has the greatest output. If the common demand is zero, all three outputs are zero and they tie.'
-  ], 'For equal positive outside demand q, production is x=(18q,16q,16q), so sector 1 must produce the most. If q=0, all outputs are zero.');
+    tr('For one unit of demand from each sector, the solution is x=(18,16,16). For a common demand q, multiply the entire vector by q to get x=(18q,16q,16q). This scaling works because all equations are linear.', "För en efterfrågan på en enhet från varje sektor är lösningen x=(18,16,16). För en gemensam efterfrågan q multiplicerar vi hela vektorn med q och får x=(18q,16q,16q). Skalningen fungerar eftersom alla ekvationer är linjära."),
+    tr('If q>0, then 18q>16q, so sector 1 has the greatest output. If the common demand is zero, all three outputs are zero and they tie.', "Om q>0 är 18q>16q, så sektor 1 har störst produktion. Om den gemensamma efterfrågan är noll är alla tre produktioner noll och därmed lika stora.")
+  ], tr('For equal positive outside demand q, production is x=(18q,16q,16q), so sector 1 must produce the most. If q=0, all outputs are zero.', "För lika stor positiv extern efterfrågan q är produktionen x=(18q,16q,16q), så sektor 1 måste producera mest. Om q=0 är all produktion noll."));
   teach('1.11', '9', [
-    'A unique production plan for every demand means the matrix multiplying x must be invertible. Rearrange x−Cx=d into (I−C)x=d.',
-    'Subtract C entry by entry from the 2×2 identity matrix. This gives I−C=[1−c₁₁  −c₁₂; −c₂₁  1].',
-    'For a 2×2 matrix [a b; c d], the determinant is ad−bc. Here it is Δ=(1−c₁₁)×1−(−c₁₂)(−c₂₁)=1−c₁₁−c₁₂c₂₁.',
-    'The assumption c₂₁c₁₂<1−c₁₁ says exactly that Δ>0. In particular Δ is not zero, so the 2×2 inverse formula is allowed.',
-    'The inverse is (I−C)⁻¹=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]. For any d, multiplying by this fixed inverse produces x. There cannot be two different solutions because applying the same inverse to (I−C)x=d always gives the same vector.'
-  ], 'The determinant is Δ=1−c₁₁−c₁₂c₂₁>0. Hence I−C is invertible, and every demand vector has exactly one solution x=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]d.');
+    tr('A unique production plan for every demand means the matrix multiplying x must be invertible. Rearrange x−Cx=d into (I−C)x=d.', "En entydig produktionsplan för varje efterfrågan innebär att matrisen som multiplicerar x måste vara inverterbar. Skriv om x−Cx=d till (I−C)x=d."),
+    tr('Subtract C entry by entry from the 2×2 identity matrix. This gives I−C=[1−c₁₁  −c₁₂; −c₂₁  1].', "Subtrahera C element för element från identitetsmatrisen av storlek 2×2. Det ger I−C=[1−c₁₁  −c₁₂; −c₂₁  1]."),
+    tr('For a 2×2 matrix [a b; c d], the determinant is ad−bc. Here it is Δ=(1−c₁₁)×1−(−c₁₂)(−c₂₁)=1−c₁₁−c₁₂c₂₁.', "För en 2×2-matris [a b; c d] är determinanten ad−bc. Här blir den Δ=(1−c₁₁)×1−(−c₁₂)(−c₂₁)=1−c₁₁−c₁₂c₂₁."),
+    tr('The assumption c₂₁c₁₂<1−c₁₁ says exactly that Δ>0. In particular Δ is not zero, so the 2×2 inverse formula is allowed.', "Antagandet c₂₁c₁₂<1−c₁₁ säger precis att Δ>0. Därför är Δ inte noll, och vi får använda inversformeln för en 2×2-matris."),
+    tr('The inverse is (I−C)⁻¹=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]. For any d, multiplying by this fixed inverse produces x. There cannot be two different solutions because applying the same inverse to (I−C)x=d always gives the same vector.', "Inversen är (I−C)⁻¹=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]. För varje d ger multiplikation med denna fasta invers x. Det kan inte finnas två olika lösningar eftersom samma invers tillämpad på (I−C)x=d alltid ger samma vektor.")
+  ], tr('The determinant is Δ=1−c₁₁−c₁₂c₂₁>0. Hence I−C is invertible, and every demand vector has exactly one solution x=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]d.', "Determinanten är Δ=1−c₁₁−c₁₂c₂₁>0. Därför är I−C inverterbar, och varje efterfrågevektor har exakt en lösning x=(1/Δ)[1  c₁₂; c₂₁  1−c₁₁]d."));
   teach('1.11', '10', [
-    'Part (a): call the inverse matrix L=(I−C)⁻¹ to shorten the notation. Its existence is guaranteed by the stated consumption assumptions. The original production is x=Ld.',
-    'Let eⱼ be a column vector containing 1 in position j and 0 everywhere else. Adding eⱼ increases only the jth demand by one, so the new demand is dⱼ=d+eⱼ.',
-    'Apply the same production formula to the new demand: xⱼ=L(d+eⱼ). Matrix multiplication distributes over addition, so xⱼ=Ld+Leⱼ=x+Leⱼ.',
-    'Why is Leⱼ column j of L? Multiplication by a column vector forms a weighted sum of L’s columns. The weights in eⱼ are all zero except the jth weight, which is 1. Therefore only column j remains.',
-    'Part (b): subtract the original production: xⱼ−x=Leⱼ. Entry i of this column is the extra production required from sector i when outside demand for sector j increases by one unit. It includes production needed directly for the order and indirectly to supply the other sectors.'
-  ], '(a) xⱼ=x+column j of (I−C)⁻¹.\n(b) That column lists the additional output needed from every sector to meet a one-unit increase in outside demand for sector j, including internal supply requirements.');
+    tr('Part (a): call the inverse matrix L=(I−C)⁻¹ to shorten the notation. Its existence is guaranteed by the stated consumption assumptions. The original production is x=Ld.', "Del (a): kalla inversmatrisen L=(I−C)⁻¹ för att förkorta beteckningarna. De angivna antagandena om förbrukningen garanterar att inversen finns. Den ursprungliga produktionen är x=Ld."),
+    tr('Let eⱼ be a column vector containing 1 in position j and 0 everywhere else. Adding eⱼ increases only the jth demand by one, so the new demand is dⱼ=d+eⱼ.', "Låt eⱼ vara en kolumnvektor med 1 på plats j och 0 överallt annars. Att addera eⱼ ökar bara den j:te efterfrågan med ett, så den nya efterfrågan är dⱼ=d+eⱼ."),
+    tr('Apply the same production formula to the new demand: xⱼ=L(d+eⱼ). Matrix multiplication distributes over addition, so xⱼ=Ld+Leⱼ=x+Leⱼ.', "Använd samma produktionsformel för den nya efterfrågan: xⱼ=L(d+eⱼ). Matrismultiplikation är distributiv över addition, så xⱼ=Ld+Leⱼ=x+Leⱼ."),
+    tr('Why is Leⱼ column j of L? Multiplication by a column vector forms a weighted sum of L’s columns. The weights in eⱼ are all zero except the jth weight, which is 1. Therefore only column j remains.', "Varför är Leⱼ kolumn j i L? Multiplikation med en kolumnvektor bildar en viktad summa av kolumnerna i L. Vikterna i eⱼ är alla noll utom den j:te, som är 1. Därför återstår bara kolumn j."),
+    tr('Part (b): subtract the original production: xⱼ−x=Leⱼ. Entry i of this column is the extra production required from sector i when outside demand for sector j increases by one unit. It includes production needed directly for the order and indirectly to supply the other sectors.', "Del (b): subtrahera den ursprungliga produktionen: xⱼ−x=Leⱼ. Element i i denna kolumn är den extra produktion som krävs från sektor i när den externa efterfrågan på sektor j ökar med en enhet. Det inkluderar både produktionen direkt till beställningen och den som indirekt behövs för att försörja de andra sektorerna.")
+  ], tr('(a) xⱼ=x+column j of (I−C)⁻¹.\n(b) That column lists the additional output needed from every sector to meet a one-unit increase in outside demand for sector j, including internal supply requirements.', "(a) xⱼ=x+kolumn j i (I−C)⁻¹.\n(b) Kolumnen anger den extra produktion som behövs från varje sektor för att möta en ökning med en enhet av den externa efterfrågan på sektor j, inklusive de interna leveransbehoven."));
   teach('1.11', '11', [
-    'First inspect the exact statement. As printed, it says I−C has nonnegative entries. That part is false: subtracting a positive off-diagonal entry of C from zero makes a negative entry. We cannot prove a false statement.',
-    'For a counterexample take C=[0  1/2; 0  0]. Its entries are nonnegative and its row sums are 1/2 and 0, both less than 1. But I−C=[1  −1/2; 0  1] has a negative entry. Its inverse is [1  1/2; 0  1], which is nonnegative.',
-    'The intended true claim is that I−C is invertible and its inverse (I−C)⁻¹ has nonnegative entries. To prove it, let r be the largest row sum of C. Then 0≤r<1.',
-    'All entries of every power Cᵏ remain nonnegative, because they are sums of products of nonnegative numbers. The row sums of C² are at most r²: row i sums to Σⱼcᵢⱼ(row sum j of C)≤rΣⱼcᵢⱼ≤r². Repeating the same calculation gives a bound rᵏ for Cᵏ.',
-    'Consider S=I+C+C²+C³+⋯. Each entry is a sum of nonnegative numbers bounded by the numerical series 1+r+r²+⋯=1/(1−r). This bound means each entry approaches a finite value; thus S exists and every entry is nonnegative.',
-    'For the finite sum Sₙ=I+C+⋯+Cⁿ, multiply by I−C. Terms cancel: (I−C)Sₙ=I−Cⁿ⁺¹. The same identity holds in the other order. Since every entry of Cⁿ⁺¹ is at most rⁿ⁺¹ and r<1, this remaining term tends to zero.',
-    'Taking the limit gives (I−C)S=S(I−C)=I. That is the definition of an inverse, so S=(I−C)⁻¹ and the inverse has nonnegative entries. This proves the corrected theorem while preserving the original question above.'
-  ], 'As printed, the claim that I−C has nonnegative entries is false; C=[0  1/2; 0  0] is a counterexample. The correct theorem is: I−C is invertible and (I−C)⁻¹=I+C+C²+⋯ has nonnegative entries.');
+    tr('First inspect the exact statement. As printed, it says I−C has nonnegative entries. That part is false: subtracting a positive off-diagonal entry of C from zero makes a negative entry. We cannot prove a false statement.', "Granska först den exakta formuleringen. I den tryckta uppgiften står att I−C har icke-negativa element. Den delen är falsk: om ett positivt element utanför diagonalen i C subtraheras från noll blir resultatet negativt. Vi kan inte bevisa ett falskt påstående."),
+    tr('For a counterexample take C=[0  1/2; 0  0]. Its entries are nonnegative and its row sums are 1/2 and 0, both less than 1. But I−C=[1  −1/2; 0  1] has a negative entry. Its inverse is [1  1/2; 0  1], which is nonnegative.', "Som motexempel väljer vi C=[0  1/2; 0  0]. Dess element är icke-negativa och radsummorna är 1/2 och 0, båda mindre än 1. Men I−C=[1  −1/2; 0  1] har ett negativt element. Dess invers är [1  1/2; 0  1], som däremot är icke-negativ."),
+    tr('The intended true claim is that I−C is invertible and its inverse (I−C)⁻¹ has nonnegative entries. To prove it, let r be the largest row sum of C. Then 0≤r<1.', "Det avsedda sanna påståendet är att I−C är inverterbar och att dess invers (I−C)⁻¹ har icke-negativa element. För att bevisa det låter vi r vara den största radsumman i C. Då är 0≤r<1."),
+    tr('All entries of every power Cᵏ remain nonnegative, because they are sums of products of nonnegative numbers. The row sums of C² are at most r²: row i sums to Σⱼcᵢⱼ(row sum j of C)≤rΣⱼcᵢⱼ≤r². Repeating the same calculation gives a bound rᵏ for Cᵏ.', "Alla element i varje potens Cᵏ förblir icke-negativa, eftersom de är summor av produkter av icke-negativa tal. Radsummorna i C² är högst r²: summan i rad i är Σⱼcᵢⱼ(radsumma j i C)≤rΣⱼcᵢⱼ≤r². Samma beräkning upprepad ger gränsen rᵏ för Cᵏ."),
+    tr('Consider S=I+C+C²+C³+⋯. Each entry is a sum of nonnegative numbers bounded by the numerical series 1+r+r²+⋯=1/(1−r). This bound means each entry approaches a finite value; thus S exists and every entry is nonnegative.', "Betrakta S=I+C+C²+C³+⋯. Varje element är en summa av icke-negativa tal som begränsas av den numeriska serien 1+r+r²+⋯=1/(1−r). Begränsningen innebär att varje element närmar sig ett ändligt värde. Alltså finns S och varje element är icke-negativt."),
+    tr('For the finite sum Sₙ=I+C+⋯+Cⁿ, multiply by I−C. Terms cancel: (I−C)Sₙ=I−Cⁿ⁺¹. The same identity holds in the other order. Since every entry of Cⁿ⁺¹ is at most rⁿ⁺¹ and r<1, this remaining term tends to zero.', "Multiplicera den ändliga summan Sₙ=I+C+⋯+Cⁿ med I−C. Termer tar ut varandra: (I−C)Sₙ=I−Cⁿ⁺¹. Samma identitet gäller i omvänd ordning. Eftersom varje element i Cⁿ⁺¹ är högst rⁿ⁺¹ och r<1 går den kvarvarande termen mot noll."),
+    tr('Taking the limit gives (I−C)S=S(I−C)=I. That is the definition of an inverse, so S=(I−C)⁻¹ and the inverse has nonnegative entries. This proves the corrected theorem while preserving the original question above.', "När vi tar gränsvärdet fås (I−C)S=S(I−C)=I. Det är definitionen av en invers, så S=(I−C)⁻¹ och inversen har icke-negativa element. Därmed är den korrigerade satsen bevisad, samtidigt som den ursprungliga frågan ovan har behållits.")
+  ], tr('As printed, the claim that I−C has nonnegative entries is false; C=[0  1/2; 0  0] is a counterexample. The correct theorem is: I−C is invertible and (I−C)⁻¹=I+C+C²+⋯ has nonnegative entries.', "Som det står tryckt är påståendet att I−C har icke-negativa element falskt; C=[0  1/2; 0  0] är ett motexempel. Den korrekta satsen är: I−C är inverterbar och (I−C)⁻¹=I+C+C²+⋯ har icke-negativa element."));
   teach('1.11', 'TF', [
-    'Part (a): false. The open sector consumes the goods or services produced by the modeled production sectors. It is not the name for those output-producing sectors.',
-    'Part (b): true. By definition, a closed economy has no open sector; an open economy includes at least one.',
-    'Part (c): false in the consumption-table convention. A column gives the input recipe for one unit of a sector’s output. A row follows a provider and shows how much of its product the different output sectors need per unit.',
-    'Part (d): true. For a nonnegative consumption matrix, column sums below 1 guarantee that powers of the matrix shrink sufficiently for I+C+C²+⋯ to converge. That sum is the inverse of the Leontief matrix I−C.',
-    'Part (e): true. The Leontief equation x=Cx+d, or equivalently (I−C)x=d, says that total production x covers internal consumption Cx and the outside demand d.'
-  ], '(a) False. (b) True. (c) False. (d) True. (e) True.');
-  extend('1.11', 'T1', [economyIntro, 'Align the demand with the table rather than the order in the sentence. The table order is electricity, coal, manufacturing, so d=(75000,50000,1250000). Putting coal first by mistake would solve a different problem.'], [
-    'The resulting weekly production is positive in every sector. Using unrounded values, (I−C)x equals (75000,50000,1250000). The displayed dollar figures are rounded to cents.',
-    'As an additional feasibility check, the column sums of C are 0.5, 0.8 and 0.8, each below 1. The model is productive and can meet this nonnegative outside demand.'
-  ], 'Yes. In the order electricity, coal, manufacturing, the exact weekly production vector in dollars is (141550000/127,280400000/127,238850000/127). This is approximately ($1,114,566.93,$2,207,874.02,$1,880,708.66). These outputs cover both internal consumption and the stated outside demand.');
+    tr('Part (a): false. The open sector consumes the goods or services produced by the modeled production sectors. It is not the name for those output-producing sectors.', "Del (a): falskt. Den öppna sektorn förbrukar varor eller tjänster som produceras av modellens produktionssektorer. Det är inte namnet på de sektorer som står för produktionen."),
+    tr('Part (b): true. By definition, a closed economy has no open sector; an open economy includes at least one.', "Del (b): sant. En sluten ekonomi saknar per definition en öppen sektor; en öppen ekonomi har minst en."),
+    tr('Part (c): false in the consumption-table convention. A column gives the input recipe for one unit of a sector’s output. A row follows a provider and shows how much of its product the different output sectors need per unit.', "Del (c): falskt enligt förbrukningstabellens konvention. En kolumn ger insatsreceptet för en enhet av en sektors produktion. En rad följer en leverantör och visar hur mycket av dess produkt som de olika produktionssektorerna behöver per enhet."),
+    tr('Part (d): true. For a nonnegative consumption matrix, column sums below 1 guarantee that powers of the matrix shrink sufficiently for I+C+C²+⋯ to converge. That sum is the inverse of the Leontief matrix I−C.', "Del (d): sant. För en icke-negativ förbrukningsmatris garanterar kolumnsummor under 1 att matrisens potenser avtar tillräckligt för att I+C+C²+⋯ ska konvergera. Den summan är inversen till Leontiefmatrisen I−C."),
+    tr('Part (e): true. The Leontief equation x=Cx+d, or equivalently (I−C)x=d, says that total production x covers internal consumption Cx and the outside demand d.', "Del (e): sant. Leontiefekvationen x=Cx+d, eller ekvivalent (I−C)x=d, säger att total produktion x täcker intern förbrukning Cx och extern efterfrågan d.")
+  ], tr('(a) False. (b) True. (c) False. (d) True. (e) True.', "(a) Falskt. (b) Sant. (c) Falskt. (d) Sant. (e) Sant."));
+  extend('1.11', 'T1', [economyIntro, tr('Align the demand with the table rather than the order in the sentence. The table order is electricity, coal, manufacturing, so d=(75000,50000,1250000). Putting coal first by mistake would solve a different problem.', "Ordna efterfrågan enligt tabellen, inte enligt ordningen i meningen. Tabellens ordning är elektricitet, kol, industri, så d=(75000,50000,1250000). Om kol av misstag placeras först löser man ett annat problem.")], [
+    tr('The resulting weekly production is positive in every sector. Using unrounded values, (I−C)x equals (75000,50000,1250000). The displayed dollar figures are rounded to cents.', "Den framräknade veckoproduktionen är positiv i varje sektor. Med oavrundade värden är (I−C)x lika med (75000,50000,1250000). De visade dollarbeloppen är avrundade till cent."),
+    tr('As an additional feasibility check, the column sums of C are 0.5, 0.8 and 0.8, each below 1. The model is productive and can meet this nonnegative outside demand.', "Som extra kontroll av genomförbarheten är kolumnsummorna i C lika med 0.5, 0.8 och 0.8, alla under 1. Modellen är produktiv och kan uppfylla denna icke-negativa externa efterfrågan.")
+  ], tr('Yes. In the order electricity, coal, manufacturing, the exact weekly production vector in dollars is (141550000/127,280400000/127,238850000/127). This is approximately ($1,114,566.93,$2,207,874.02,$1,880,708.66). These outputs cover both internal consumption and the stated outside demand.', "Ja. I ordningen elektricitet, kol, industri är den exakta veckoproduktionsvektorn i dollar (141550000/127,280400000/127,238850000/127). Det är ungefär ($1,114,566.93,$2,207,874.02,$1,880,708.66). Produktionen täcker både den interna förbrukningen och den angivna externa efterfrågan."));
 
   for (const n of ['23', '27']) {
-    const split = data.review[n].text.indexOf('\nReferenced');
+    const split = data.review[n].text.indexOf(tr('\nReferenced', "\nReferera"));
     if (split >= 0) {
       data.review[n].reference = data.review[n].text.slice(split + 1);
       data.review[n].text = data.review[n].text.slice(0, split);
     }
   }
-  const augmentedIntro = 'Each row is one equation. The columns before the vertical bar contain coefficients of the unknowns; the last column is the number on the other side of the equals sign. A zero coefficient means that unknown is absent. Gaussian elimination replaces equations by equivalent ones, then solves from the last nonzero row upward.';
+  const augmentedIntro = tr('Each row is one equation. The columns before the vertical bar contain coefficients of the unknowns; the last column is the number on the other side of the equals sign. A zero coefficient means that unknown is absent. Gaussian elimination replaces equations by equivalent ones, then solves from the last nonzero row upward.', "Varje rad är en ekvation. Kolumnerna före det lodräta strecket innehåller koefficienterna till de obekanta; den sista kolumnen är talet på andra sidan likhetstecknet. Koefficienten noll betyder att den obekanta saknas. Gausselimination ersätter ekvationer med ekvivalenta ekvationer och löser sedan från den sista raden som inte är noll och uppåt.");
   extend('review', '1', [augmentedIntro], [
-    'There are four unknowns but only two pivot columns. Write x₃=s and x₄=t to name the two choices we may make freely. The other two coordinates then depend on s and t.',
-    'Check the first equation symbolically: 3(−1/2−3s/2−3t/2)−(−5/2−9s/2−t/2)+4t=1. Check the second: 2(−1/2−3s/2−3t/2)+3s+3t=−1. Both hold for every real s,t.'
-  ], 'The equations are 3x₁−x₂+4x₄=1 and 2x₁+3x₃+3x₄=−1.\nAll solutions are x₁=−1/2−3s/2−3t/2, x₂=−5/2−9s/2−t/2, x₃=s, x₄=t, for arbitrary real s,t.');
+    tr('There are four unknowns but only two pivot columns. Write x₃=s and x₄=t to name the two choices we may make freely. The other two coordinates then depend on s and t.', "Det finns fyra obekanta men bara två pivotkolumner. Skriv x₃=s och x₄=t för att namnge de två värden som kan väljas fritt. De andra två koordinaterna beror sedan på s och t."),
+    tr('Check the first equation symbolically: 3(−1/2−3s/2−3t/2)−(−5/2−9s/2−t/2)+4t=1. Check the second: 2(−1/2−3s/2−3t/2)+3s+3t=−1. Both hold for every real s,t.', "Kontrollera den första ekvationen symboliskt: 3(−1/2−3s/2−3t/2)−(−5/2−9s/2−t/2)+4t=1. Kontrollera den andra: 2(−1/2−3s/2−3t/2)+3s+3t=−1. Båda gäller för alla reella s,t.")
+  ], tr('The equations are 3x₁−x₂+4x₄=1 and 2x₁+3x₃+3x₄=−1.\nAll solutions are x₁=−1/2−3s/2−3t/2, x₂=−5/2−9s/2−t/2, x₃=s, x₄=t, for arbitrary real s,t.', "Ekvationerna är 3x₁−x₂+4x₄=1 och 2x₁+3x₃+3x₄=−1.\nAlla lösningar är x₁=−1/2−3s/2−3t/2, x₂=−5/2−9s/2−t/2, x₃=s, x₄=t, för godtyckliga reella s,t."));
   extend('review', '2', [augmentedIntro], [
-    'Only the first equation adds information: the next two are its multiples and the last equation says 0=0. Let x₂=s. Then x₁+4s=−1 gives x₁=−1−4s.'
-  ], 'The equations are x₁+4x₂=−1; −2x₁−8x₂=2; 3x₁+12x₂=−3; and 0=0.\nAll solutions are (x₁,x₂)=(−1−4s,s), for any real s.');
-  extend('review', '3', [augmentedIntro], [], 'The equations are 2x₁−4x₂+x₃=6, −4x₁+3x₃=−1, and x₂−x₃=3.\nThe unique solution is (x₁,x₂,x₃)=(−17/2,−26/3,−35/3).');
+    tr('Only the first equation adds information: the next two are its multiples and the last equation says 0=0. Let x₂=s. Then x₁+4s=−1 gives x₁=−1−4s.', "Bara den första ekvationen tillför information: de nästa två är multiplar av den och den sista säger 0=0. Sätt x₂=s. Då ger x₁+4s=−1 att x₁=−1−4s.")
+  ], tr('The equations are x₁+4x₂=−1; −2x₁−8x₂=2; 3x₁+12x₂=−3; and 0=0.\nAll solutions are (x₁,x₂)=(−1−4s,s), for any real s.', "Ekvationerna är x₁+4x₂=−1; −2x₁−8x₂=2; 3x₁+12x₂=−3; och 0=0.\nAlla lösningar är (x₁,x₂)=(−1−4s,s), för godtyckligt reellt s."));
+  extend('review', '3', [augmentedIntro], [], tr('The equations are 2x₁−4x₂+x₃=6, −4x₁+3x₃=−1, and x₂−x₃=3.\nThe unique solution is (x₁,x₂,x₃)=(−17/2,−26/3,−35/3).', "Ekvationerna är 2x₁−4x₂+x₃=6, −4x₁+3x₃=−1 och x₂−x₃=3.\nDen entydiga lösningen är (x₁,x₂,x₃)=(−17/2,−26/3,−35/3)."));
   extend('review', '4', [augmentedIntro], [
-    'The inconsistency is visible without finishing every elimination step: twice the first equation would require 6x₁+2x₂=−4, while the third equation requires the same left side to equal 1. Subtracting gives the impossible equation 0=5.'
-  ], 'The equations are 3x₁+x₂=−2, −9x₁−3x₂=6, and 6x₁+2x₂=1. They have no solution: row 3 minus twice row 1 gives 0=5.');
+    tr('The inconsistency is visible without finishing every elimination step: twice the first equation would require 6x₁+2x₂=−4, while the third equation requires the same left side to equal 1. Subtracting gives the impossible equation 0=5.', "Motsägelsen syns utan att alla eliminationssteg behöver slutföras: dubbla den första ekvationen skulle kräva 6x₁+2x₂=−4, medan den tredje kräver att samma vänsterled är 1. Subtraktion ger den omöjliga ekvationen 0=5.")
+  ], tr('The equations are 3x₁+x₂=−2, −9x₁−3x₂=6, and 6x₁+2x₂=1. They have no solution: row 3 minus twice row 1 gives 0=5.', "Ekvationerna är 3x₁+x₂=−2, −9x₁−3x₂=6 och 6x₁+2x₂=1. De saknar lösning: rad 3 minus två gånger rad 1 ger 0=5."));
   teach('review', '5', [
-    'Treat x and y as known quantities and x′,y′ as the unknowns. Multiply both equations by 5 to remove the fractions: 3x′−4y′=5x and 4x′+3y′=5y.',
-    'Write the augmented matrix in the unknown order x′,y′:\n[3  −4 | 5x]\n[4   3 | 5y].\nDivide row 1 by 3, obtaining [1  −4/3 | 5x/3]. This creates the first pivot, a leading 1.',
-    'Clear the 4 below the first pivot: replace row 2 by row 2−4(row 1). Its entries become [0  25/3 | 5y−20x/3]. The x′ term is now eliminated from that row.',
-    'Multiply row 2 by 3/25 to turn its leading coefficient into 1. It now says y′=(3y−4x)/5.',
-    'Clear y′ from row 1 by adding 4/3 times row 2. The new right side is 5x/3+4(3y−4x)/15=(25x+12y−16x)/15=(3x+4y)/5. Thus row 1 now says x′=(3x+4y)/5.',
-    'Check by substituting back: (3/5)x′−(4/5)y′=[9x+12y+16x−12y]/25=x. The other equation gives [12x+16y−12x+9y]/25=y.'
-  ], 'x′=(3x+4y)/5 and y′=(−4x+3y)/5.');
+    tr('Treat x and y as known quantities and x′,y′ as the unknowns. Multiply both equations by 5 to remove the fractions: 3x′−4y′=5x and 4x′+3y′=5y.', "Behandla x och y som kända storheter och x′,y′ som obekanta. Multiplicera båda ekvationerna med 5 för att ta bort bråken: 3x′−4y′=5x och 4x′+3y′=5y."),
+    tr('Write the augmented matrix in the unknown order x′,y′:\n[3  −4 | 5x]\n[4   3 | 5y].\nDivide row 1 by 3, obtaining [1  −4/3 | 5x/3]. This creates the first pivot, a leading 1.', "Skriv den utökade matrisen med de obekanta i ordningen x′,y′:\n[3  −4 | 5x]\n[4   3 | 5y].\nDividera rad 1 med 3 så att den blir [1  −4/3 | 5x/3]. Då får vi den första pivoten, en ledande 1."),
+    tr('Clear the 4 below the first pivot: replace row 2 by row 2−4(row 1). Its entries become [0  25/3 | 5y−20x/3]. The x′ term is now eliminated from that row.', "Eliminera 4:an under den första pivoten: ersätt rad 2 med rad 2−4(rad 1). Elementen blir [0  25/3 | 5y−20x/3]. x′-termen är nu eliminerad från den raden."),
+    tr('Multiply row 2 by 3/25 to turn its leading coefficient into 1. It now says y′=(3y−4x)/5.', "Multiplicera rad 2 med 3/25 för att göra den ledande koefficienten till 1. Raden säger nu y′=(3y−4x)/5."),
+    tr('Clear y′ from row 1 by adding 4/3 times row 2. The new right side is 5x/3+4(3y−4x)/15=(25x+12y−16x)/15=(3x+4y)/5. Thus row 1 now says x′=(3x+4y)/5.', "Eliminera y′ från rad 1 genom att addera 4/3 gånger rad 2. Det nya högerledet är 5x/3+4(3y−4x)/15=(25x+12y−16x)/15=(3x+4y)/5. Rad 1 säger alltså nu x′=(3x+4y)/5."),
+    tr('Check by substituting back: (3/5)x′−(4/5)y′=[9x+12y+16x−12y]/25=x. The other equation gives [12x+16y−12x+9y]/25=y.', "Kontrollera genom att sätta tillbaka uttrycken: (3/5)x′−(4/5)y′=[9x+12y+16x−12y]/25=x. Den andra ekvationen ger [12x+16y−12x+9y]/25=y.")
+  ], tr('x′=(3x+4y)/5 and y′=(−4x+3y)/5.', "x′=(3x+4y)/5 och y′=(−4x+3y)/5."));
   teach('review', '6', [
-    'Shorten the notation: c=cos θ and s=sin θ. The trigonometric identity c²+s²=1 will simplify the elimination. With unknowns x′,y′, the augmented matrix is\n[c  −s | x]\n[s   c | y].',
-    'First suppose c≠0, so division by c is allowed. Divide row 1 by c. It becomes [1  −s/c | x/c].',
-    'Replace row 2 by row 2−s(row 1). The second coefficient becomes c+s²/c=(c²+s²)/c=1/c; the right side is y−sx/c.',
-    'Multiply row 2 by c. It now says y′=cy−sx. Then add s/c times row 2 to row 1. Its right side becomes x/c+(s/c)(cy−sx)=[(1−s²)/c]x+sy=cx+sy. Thus x′=cx+sy.',
-    'Handle the case we could not divide by: if c=0, then s²=1, so s is 1 or −1. The original equations are −sy′=x and sx′=y, giving y′=−sx and x′=sy. These are exactly the same formulas with c=0.',
-    'Substitute the formulas into the original equations: c(cx+sy)−s(−sx+cy)=(c²+s²)x=x, and s(cx+sy)+c(−sx+cy)=(s²+c²)y=y. Thus the answer works for every angle.'
-  ], 'x′=x cos θ+y sin θ and y′=−x sin θ+y cos θ, for every real angle θ.');
+    tr('Shorten the notation: c=cos θ and s=sin θ. The trigonometric identity c²+s²=1 will simplify the elimination. With unknowns x′,y′, the augmented matrix is\n[c  −s | x]\n[s   c | y].', "Förkorta beteckningarna: c=cos θ och s=sin θ. Den trigonometriska identiteten c²+s²=1 förenklar eliminationen. Med de obekanta x′,y′ är den utökade matrisen\n[c  −s | x]\n[s   c | y]."),
+    tr('First suppose c≠0, so division by c is allowed. Divide row 1 by c. It becomes [1  −s/c | x/c].', "Anta först c≠0, så att division med c är tillåten. Dividera rad 1 med c. Den blir [1  −s/c | x/c]."),
+    tr('Replace row 2 by row 2−s(row 1). The second coefficient becomes c+s²/c=(c²+s²)/c=1/c; the right side is y−sx/c.', "Ersätt rad 2 med rad 2−s(rad 1). Den andra koefficienten blir c+s²/c=(c²+s²)/c=1/c; högerledet blir y−sx/c."),
+    tr('Multiply row 2 by c. It now says y′=cy−sx. Then add s/c times row 2 to row 1. Its right side becomes x/c+(s/c)(cy−sx)=[(1−s²)/c]x+sy=cx+sy. Thus x′=cx+sy.', "Multiplicera rad 2 med c. Den säger nu y′=cy−sx. Addera sedan s/c gånger rad 2 till rad 1. Högerledet blir x/c+(s/c)(cy−sx)=[(1−s²)/c]x+sy=cx+sy. Alltså är x′=cx+sy."),
+    tr('Handle the case we could not divide by: if c=0, then s²=1, so s is 1 or −1. The original equations are −sy′=x and sx′=y, giving y′=−sx and x′=sy. These are exactly the same formulas with c=0.', "Hantera fallet där vi inte fick dividera: om c=0 är s²=1, så s är 1 eller −1. De ursprungliga ekvationerna är −sy′=x och sx′=y, vilket ger y′=−sx och x′=sy. Det är exakt samma formler med c=0."),
+    tr('Substitute the formulas into the original equations: c(cx+sy)−s(−sx+cy)=(c²+s²)x=x, and s(cx+sy)+c(−sx+cy)=(s²+c²)y=y. Thus the answer works for every angle.', "Sätt in formlerna i de ursprungliga ekvationerna: c(cx+sy)−s(−sx+cy)=(c²+s²)x=x och s(cx+sy)+c(−sx+cy)=(s²+c²)y=y. Svaret fungerar alltså för varje vinkel.")
+  ], tr('x′=x cos θ+y sin θ and y′=−x sin θ+y cos θ, for every real angle θ.', "x′=x cos θ+y sin θ och y′=−x sin θ+y cos θ, för varje reell vinkel θ."));
   teach('review', '7', [
-    'Positive integers are whole numbers greater than zero. Ordinary elimination may give a family of real solutions, so we must also use the whole-number restriction.',
-    'Subtract x+y+z=9 from x+5y+10z=44. The x terms cancel, giving 4y+9z=35.',
-    'Because y≥1, the term 4y is at least 4. Thus 9z≤31, which limits the positive integer z to 1,2,3.',
-    'Test those three possibilities in 4y=35−9z. For z=1, y=26/4 is not an integer. For z=2, y=17/4 is not an integer. For z=3, y=8/4=2.',
-    'Use the first original equation to recover x: x=9−2−3=4. Check both equations: 4+2+3=9 and 4+5(2)+10(3)=44. We checked every possible z, so this is the only positive-integer solution.'
-  ], 'The unique positive-integer solution is x=4, y=2, z=3.');
+    tr('Positive integers are whole numbers greater than zero. Ordinary elimination may give a family of real solutions, so we must also use the whole-number restriction.', "Positiva heltal är hela tal större än noll. Vanlig elimination kan ge en familj av reella lösningar, så vi måste dessutom använda kravet på heltal."),
+    tr('Subtract x+y+z=9 from x+5y+10z=44. The x terms cancel, giving 4y+9z=35.', "Subtrahera x+y+z=9 från x+5y+10z=44. x-termerna tar ut varandra och vi får 4y+9z=35."),
+    tr('Because y≥1, the term 4y is at least 4. Thus 9z≤31, which limits the positive integer z to 1,2,3.', "Eftersom y≥1 är termen 4y minst 4. Alltså är 9z≤31, vilket begränsar det positiva heltalet z till 1,2,3."),
+    tr('Test those three possibilities in 4y=35−9z. For z=1, y=26/4 is not an integer. For z=2, y=17/4 is not an integer. For z=3, y=8/4=2.', "Prova de tre möjligheterna i 4y=35−9z. För z=1 är y=26/4 inget heltal. För z=2 är y=17/4 inget heltal. För z=3 är y=8/4=2."),
+    tr('Use the first original equation to recover x: x=9−2−3=4. Check both equations: 4+2+3=9 and 4+5(2)+10(3)=44. We checked every possible z, so this is the only positive-integer solution.', "Använd den första ursprungliga ekvationen för att få x: x=9−2−3=4. Kontrollera båda ekvationerna: 4+2+3=9 och 4+5(2)+10(3)=44. Vi har kontrollerat varje möjligt z, så detta är den enda lösningen med positiva heltal.")
+  ], tr('The unique positive-integer solution is x=4, y=2, z=3.', "Den enda lösningen med positiva heltal är x=4, y=2, z=3."));
   teach('review', '8', [
-    'Let p,n,d be the numbers of pennies, nickels and dimes. Each must be a nonnegative integer. The coin count gives p+n+d=13; the value in cents gives p+5n+10d=83.',
-    'Subtract the count equation from the value equation to remove p. This leaves 4n+9d=70.',
-    'Because n≥0, we have 9d≤70, so d can be one of 0,1,2,3,4,5,6,7. Also 4n=70−9d must be divisible by 4. Since 70 leaves remainder 2 and 9 leaves remainder 1 on division by 4, d must leave remainder 2. Only d=2 or d=6 can work.',
-    'Try d=2: n=(70−18)/4=13 and p=13−13−2=−2. A negative number of coins is impossible, so reject this case.',
-    'Try d=6: n=(70−54)/4=4, then p=13−4−6=3. Check the count: 3+4+6=13. Check the value: 3+5(4)+10(6)=83 cents.',
-    'The final sentence “Is the economy productive?” appears in the printed exercise but supplies no economy or consumption matrix. It is unrelated to the coin data and cannot be answered from this question.'
-  ], '3 pennies, 4 nickels and 6 dimes. The printed sentence about a productive economy has no supporting economic data, so that separate sentence cannot be answered from the exercise.');
+    tr('Let p,n,d be the numbers of pennies, nickels and dimes. Each must be a nonnegative integer. The coin count gives p+n+d=13; the value in cents gives p+5n+10d=83.', "Låt p,n,d vara antalen encentsmynt, femcentsmynt och tiocentsmynt. Varje antal måste vara ett icke-negativt heltal. Myntantalet ger p+n+d=13; värdet i cent ger p+5n+10d=83."),
+    tr('Subtract the count equation from the value equation to remove p. This leaves 4n+9d=70.', "Subtrahera ekvationen för antalet från ekvationen för värdet för att eliminera p. Kvar blir 4n+9d=70."),
+    tr('Because n≥0, we have 9d≤70, so d can be one of 0,1,2,3,4,5,6,7. Also 4n=70−9d must be divisible by 4. Since 70 leaves remainder 2 and 9 leaves remainder 1 on division by 4, d must leave remainder 2. Only d=2 or d=6 can work.', "Eftersom n≥0 har vi 9d≤70, så d kan vara något av 0,1,2,3,4,5,6,7. Dessutom måste 4n=70−9d vara delbart med 4. Eftersom 70 ger resten 2 och 9 ger resten 1 vid division med 4 måste d ge resten 2. Bara d=2 eller d=6 kan fungera."),
+    tr('Try d=2: n=(70−18)/4=13 and p=13−13−2=−2. A negative number of coins is impossible, so reject this case.', "Prova d=2: n=(70−18)/4=13 och p=13−13−2=−2. Ett negativt antal mynt är omöjligt, så förkasta det fallet."),
+    tr('Try d=6: n=(70−54)/4=4, then p=13−4−6=3. Check the count: 3+4+6=13. Check the value: 3+5(4)+10(6)=83 cents.', "Prova d=6: n=(70−54)/4=4 och sedan p=13−4−6=3. Kontrollera antalet: 3+4+6=13. Kontrollera värdet: 3+5(4)+10(6)=83 cent."),
+    tr('The final sentence “Is the economy productive?” appears in the printed exercise but supplies no economy or consumption matrix. It is unrelated to the coin data and cannot be answered from this question.', "Den sista meningen ”Är ekonomin produktiv?” finns i den tryckta uppgiften, men ingen ekonomi eller förbrukningsmatris ges. Meningen har inget samband med myntuppgifterna och kan inte besvaras utifrån denna fråga.")
+  ], tr('3 pennies, 4 nickels and 6 dimes. The printed sentence about a productive economy has no supporting economic data, so that separate sentence cannot be answered from the exercise.', "3 stycken encentsmynt, 4 stycken femcentsmynt och 6 stycken tiocentsmynt. Den tryckta meningen om en produktiv ekonomi saknar ekonomiska underlag, så den separata meningen kan inte besvaras utifrån uppgiften."));
   teach('review', '9', [
-    'Read the augmented rows as ax+bz=2, ax+ay+4z=4, and ay+2z=b. We must distinguish cases because dividing by a or 2−b is allowed only when that number is nonzero.',
-    'Subtract the first and third equations from the second. The x and y terms cancel, leaving (2−b)z=2−b.',
-    'If a≠0 and b≠2, divide the last equation by 2−b to get z=1. Then x=(2−b)/a and y=(b−2)/a. All three variables are fixed, so there is a unique solution.',
-    'If a≠0 and b=2, the last equation is 0=0. Choose z=t freely. The first equation gives x=(2−2t)/a, and the third gives y=(2−2t)/a. One parameter remains.',
-    'If a=0, the middle original equation is 4z=4, forcing z=1. The other rows become bz=2 and 2z=b, so both require b=2.',
-    'When a=0,b=2, the equations place no restriction on x or y; choose x=s,y=t,z=1. When a=0,b≠2, the required z=1 contradicts the other rows, so there is no solution. These cases cover all possibilities.'
-  ], '(a) Unique solution: a≠0 and b≠2; (x,y,z)=((2−b)/a,(b−2)/a,1).\n(b) One parameter: a≠0 and b=2; (x,y,z)=((2−2t)/a,(2−2t)/a,t).\n(c) Two parameters: a=0 and b=2; (x,y,z)=(s,t,1).\n(d) No solution: a=0 and b≠2. Parameters s,t are arbitrary real numbers.');
+    tr('Read the augmented rows as ax+bz=2, ax+ay+4z=4, and ay+2z=b. We must distinguish cases because dividing by a or 2−b is allowed only when that number is nonzero.', "Läs de utökade raderna som ax+bz=2, ax+ay+4z=4 och ay+2z=b. Vi måste skilja mellan olika fall, eftersom division med a eller 2−b bara är tillåten när talet inte är noll."),
+    tr('Subtract the first and third equations from the second. The x and y terms cancel, leaving (2−b)z=2−b.', "Subtrahera den första och den tredje ekvationen från den andra. x- och y-termerna tar ut varandra och kvar blir (2−b)z=2−b."),
+    tr('If a≠0 and b≠2, divide the last equation by 2−b to get z=1. Then x=(2−b)/a and y=(b−2)/a. All three variables are fixed, so there is a unique solution.', "Om a≠0 och b≠2 kan den sista ekvationen divideras med 2−b, vilket ger z=1. Sedan är x=(2−b)/a och y=(b−2)/a. Alla tre variabler är bestämda, så lösningen är entydig."),
+    tr('If a≠0 and b=2, the last equation is 0=0. Choose z=t freely. The first equation gives x=(2−2t)/a, and the third gives y=(2−2t)/a. One parameter remains.', "Om a≠0 och b=2 är den sista ekvationen 0=0. Välj z=t fritt. Den första ekvationen ger x=(2−2t)/a och den tredje ger y=(2−2t)/a. En parameter återstår."),
+    tr('If a=0, the middle original equation is 4z=4, forcing z=1. The other rows become bz=2 and 2z=b, so both require b=2.', "Om a=0 är den mellersta ursprungliga ekvationen 4z=4, vilket tvingar z=1. De andra raderna blir bz=2 och 2z=b, så båda kräver b=2."),
+    tr('When a=0,b=2, the equations place no restriction on x or y; choose x=s,y=t,z=1. When a=0,b≠2, the required z=1 contradicts the other rows, so there is no solution. These cases cover all possibilities.', "När a=0,b=2 begränsar ekvationerna varken x eller y; välj x=s,y=t,z=1. När a=0,b≠2 strider det nödvändiga z=1 mot de andra raderna, så ingen lösning finns. Dessa fall täcker alla möjligheter.")
+  ], tr('(a) Unique solution: a≠0 and b≠2; (x,y,z)=((2−b)/a,(b−2)/a,1).\n(b) One parameter: a≠0 and b=2; (x,y,z)=((2−2t)/a,(2−2t)/a,t).\n(c) Two parameters: a=0 and b=2; (x,y,z)=(s,t,1).\n(d) No solution: a=0 and b≠2. Parameters s,t are arbitrary real numbers.', "(a) Entydig lösning: a≠0 och b≠2; (x,y,z)=((2−b)/a,(b−2)/a,1).\n(b) En parameter: a≠0 och b=2; (x,y,z)=((2−2t)/a,(2−2t)/a,t).\n(c) Två parametrar: a=0 och b=2; (x,y,z)=(s,t,1).\n(d) Ingen lösning: a=0 och b≠2. Parametrarna s,t är godtyckliga reella tal."));
   teach('review', '10', [
-    'Start with the equation that already fixes a variable: x₃=2. Any solution of the whole system must use that value.',
-    'Insert x₃=2 into the third equation. It becomes 2(a²−4)=a−2. Move all terms to the left: 2a²−a−6=0.',
-    'Factor: 2a²−a−6=(a−2)(2a+3). A product of two real numbers is zero only if at least one factor is zero, giving a=2 or a=−3/2.',
-    'For every other value of a, the third equation disagrees with x₃=2, so no solution exists.',
-    'For either allowed value, the third equation adds no new restriction. The first becomes x₁+x₂=2. Choose x₂=t, then x₁=2−t. Thus there are infinitely many solutions, and a unique solution never occurs.'
-  ], 'Zero solutions when a is neither 2 nor −3/2. Infinitely many solutions when a=2 or a=−3/2: (x₁,x₂,x₃)=(2−t,t,2), t∈ℝ. There is no value of a giving exactly one solution.');
+    tr('Start with the equation that already fixes a variable: x₃=2. Any solution of the whole system must use that value.', "Börja med den ekvation som redan bestämmer en variabel: x₃=2. Varje lösning till hela systemet måste använda det värdet."),
+    tr('Insert x₃=2 into the third equation. It becomes 2(a²−4)=a−2. Move all terms to the left: 2a²−a−6=0.', "Sätt in x₃=2 i den tredje ekvationen. Den blir 2(a²−4)=a−2. Flytta alla termer till vänster: 2a²−a−6=0."),
+    tr('Factor: 2a²−a−6=(a−2)(2a+3). A product of two real numbers is zero only if at least one factor is zero, giving a=2 or a=−3/2.', "Faktorisera: 2a²−a−6=(a−2)(2a+3). En produkt av två reella tal är noll endast om minst en faktor är noll, vilket ger a=2 eller a=−3/2."),
+    tr('For every other value of a, the third equation disagrees with x₃=2, so no solution exists.', "För varje annat värde på a strider den tredje ekvationen mot x₃=2, så ingen lösning finns."),
+    tr('For either allowed value, the third equation adds no new restriction. The first becomes x₁+x₂=2. Choose x₂=t, then x₁=2−t. Thus there are infinitely many solutions, and a unique solution never occurs.', "För vart och ett av de tillåtna värdena ger den tredje ekvationen ingen ny begränsning. Den första blir x₁+x₂=2. Välj x₂=t, så blir x₁=2−t. Det finns alltså oändligt många lösningar, och en entydig lösning uppstår aldrig.")
+  ], tr('Zero solutions when a is neither 2 nor −3/2. Infinitely many solutions when a=2 or a=−3/2: (x₁,x₂,x₃)=(2−t,t,2), t∈ℝ. There is no value of a giving exactly one solution.', "Ingen lösning när a varken är 2 eller −3/2. Oändligt många lösningar när a=2 eller a=−3/2: (x₁,x₂,x₃)=(2−t,t,2), t∈ℝ. Det finns inget värde på a som ger exakt en lösning."));
   teach('review', '11', [
-    'Check the sizes. A is 3×2, B is 2×3, and C is 3×3, so K must be 2×2. Write Y=AK, a 3×2 matrix, to simplify the product YB=C.',
-    'The columns of B are (2,0), (0,1), and (0,−1). Therefore the columns of YB are 2Y₁, Y₂, and −Y₂, where Y₁,Y₂ are the columns of Y.',
-    'Match the columns of C: Y₁=(8,6,−4)/2=(4,3,−2), and Y₂=(6,−1,0). The last column of C, (−6,1,0), is indeed −Y₂.',
-    'Find the first column (u,v) of K by solving A(u,v)=(4,3,−2). Rows 1 and 3 give u+4v=4 and u−2v=−2. Subtract the second from the first: 6v=6, so v=1 and u=0. Row 2 checks −2(0)+3(1)=3.',
-    'For the second column, solve A(u,v)=(6,−1,0). Rows 1 and 3 give u+4v=6 and u−2v=0. Subtract: 6v=6, so v=1 and u=2. Row 2 checks −2(2)+3(1)=−1.',
-    'Put the two columns together: K=[0  2; 1  1]. Then AK=[4  6; 3  −1; −2  0]. Multiplication by B gives [8  6  −6; 6  −1  1; −4  0  0], exactly C.'
+    tr('Check the sizes. A is 3×2, B is 2×3, and C is 3×3, so K must be 2×2. Write Y=AK, a 3×2 matrix, to simplify the product YB=C.', "Kontrollera dimensionerna. A är 3×2, B är 2×3 och C är 3×3, så K måste vara 2×2. Skriv Y=AK, en 3×2-matris, för att förenkla produkten till YB=C."),
+    tr('The columns of B are (2,0), (0,1), and (0,−1). Therefore the columns of YB are 2Y₁, Y₂, and −Y₂, where Y₁,Y₂ are the columns of Y.', "Kolumnerna i B är (2,0), (0,1) och (0,−1). Därför är kolumnerna i YB lika med 2Y₁, Y₂ och −Y₂, där Y₁,Y₂ är kolumnerna i Y."),
+    tr('Match the columns of C: Y₁=(8,6,−4)/2=(4,3,−2), and Y₂=(6,−1,0). The last column of C, (−6,1,0), is indeed −Y₂.', "Matcha kolumnerna i C: Y₁=(8,6,−4)/2=(4,3,−2) och Y₂=(6,−1,0). Den sista kolumnen i C, (−6,1,0), är mycket riktigt −Y₂."),
+    tr('Find the first column (u,v) of K by solving A(u,v)=(4,3,−2). Rows 1 and 3 give u+4v=4 and u−2v=−2. Subtract the second from the first: 6v=6, so v=1 and u=0. Row 2 checks −2(0)+3(1)=3.', "Bestäm den första kolumnen (u,v) i K genom att lösa A(u,v)=(4,3,−2). Raderna 1 och 3 ger u+4v=4 och u−2v=−2. Subtrahera den andra från den första: 6v=6, så v=1 och u=0. Rad 2 ger kontrollen −2(0)+3(1)=3."),
+    tr('For the second column, solve A(u,v)=(6,−1,0). Rows 1 and 3 give u+4v=6 and u−2v=0. Subtract: 6v=6, so v=1 and u=2. Row 2 checks −2(2)+3(1)=−1.', "Lös A(u,v)=(6,−1,0) för den andra kolumnen. Raderna 1 och 3 ger u+4v=6 och u−2v=0. Subtrahera: 6v=6, så v=1 och u=2. Rad 2 ger kontrollen −2(2)+3(1)=−1."),
+    tr('Put the two columns together: K=[0  2; 1  1]. Then AK=[4  6; 3  −1; −2  0]. Multiplication by B gives [8  6  −6; 6  −1  1; −4  0  0], exactly C.', "Sätt ihop de två kolumnerna: K=[0  2; 1  1]. Då är AK=[4  6; 3  −1; −2  0]. Multiplikation med B ger [8  6  −6; 6  −1  1; −4  0  0], exakt C.")
   ], 'K=\n[0  2]\n[1  1].');
   teach('review', '12', [
-    'Here the requested solution x=1,y=−1,z=2 is known; the unknowns are the coefficients a,b,c. Substitute that triple into each equation.',
-    'First equation: a(1)+b(−1)−3(2)=−3 gives a−b=3. Second equation: −2(1)−b(−1)+c(2)=−1 gives b+2c=1. Third equation: a(1)+3(−1)−c(2)=−3 gives a−2c=0.',
-    'From the third equation, a=2c. Add the first two equations to eliminate b: a+2c=4.',
-    'Replace a by 2c in a+2c=4: 4c=4, so c=1. Then a=2c=2, and a−b=3 gives b=−1.',
-    'Check the original equations using both the coefficients and the target solution: 2+1−6=−3; −2−1+2=−1; and 2−3−2=−3. All three right-hand sides match.'
-  ], 'Choose a=2, b=−1, and c=1.');
+    tr('Here the requested solution x=1,y=−1,z=2 is known; the unknowns are the coefficients a,b,c. Substitute that triple into each equation.', "Här är den önskade lösningen x=1,y=−1,z=2 känd; de obekanta är koefficienterna a,b,c. Sätt in denna trippel i varje ekvation."),
+    tr('First equation: a(1)+b(−1)−3(2)=−3 gives a−b=3. Second equation: −2(1)−b(−1)+c(2)=−1 gives b+2c=1. Third equation: a(1)+3(−1)−c(2)=−3 gives a−2c=0.', "Första ekvationen: a(1)+b(−1)−3(2)=−3 ger a−b=3. Andra ekvationen: −2(1)−b(−1)+c(2)=−1 ger b+2c=1. Tredje ekvationen: a(1)+3(−1)−c(2)=−3 ger a−2c=0."),
+    tr('From the third equation, a=2c. Add the first two equations to eliminate b: a+2c=4.', "Den tredje ekvationen ger a=2c. Addera de två första ekvationerna för att eliminera b: a+2c=4."),
+    tr('Replace a by 2c in a+2c=4: 4c=4, so c=1. Then a=2c=2, and a−b=3 gives b=−1.', "Ersätt a med 2c i a+2c=4: 4c=4, så c=1. Sedan är a=2c=2, och a−b=3 ger b=−1."),
+    tr('Check the original equations using both the coefficients and the target solution: 2+1−6=−3; −2−1+2=−1; and 2−3−2=−3. All three right-hand sides match.', "Kontrollera de ursprungliga ekvationerna med både koefficienterna och den önskade lösningen: 2+1−6=−3; −2−1+2=−1; och 2−3−2=−3. Alla tre högerled stämmer.")
+  ], tr('Choose a=2, b=−1, and c=1.', "Välj a=2, b=−1 och c=1."));
   extend('review', '13', [
-    'A matrix equation means every corresponding entry must match. Keep multiplication order: matrices generally cannot be swapped. In part (a) the factor next to X is square and invertible; in part (b) it is rectangular, so solve entry equations instead; part (c) contains X on both sides.'
+    tr('A matrix equation means every corresponding entry must match. Keep multiplication order: matrices generally cannot be swapped. In part (a) the factor next to X is square and invertible; in part (b) it is rectangular, so solve entry equations instead; part (c) contains X on both sides.', "En matrisekvation betyder att varje par av motsvarande element måste vara lika. Behåll multiplikationsordningen: matriser kan i allmänhet inte byta plats. I del (a) är faktorn bredvid X kvadratisk och inverterbar. I del (b) är den rektangulär, så lös i stället ekvationer för elementen. Del (c) innehåller X på båda sidor.")
   ], [
-    'Check part (a) by multiplying the two rows of X by B: (−1,3,−1)B=(1,2,0) and (6,0,1)B=(−3,1,5). Check part (b): (1,−2)B=(−5,−1,0) and (3,1)B=(6,−3,7).',
-    'Check part (c) without rounding fractions: AX=(1/37)[−359  −526; 73  68], and XB=(1/37)[−433  −452; −112  −80]. Subtracting gives (1/37)[74  −74; 185  148]=[2  −2; 5  4], the required C.'
+    tr('Check part (a) by multiplying the two rows of X by B: (−1,3,−1)B=(1,2,0) and (6,0,1)B=(−3,1,5). Check part (b): (1,−2)B=(−5,−1,0) and (3,1)B=(6,−3,7).', "Kontrollera del (a) genom att multiplicera de två raderna i X med B: (−1,3,−1)B=(1,2,0) och (6,0,1)B=(−3,1,5). Kontrollera del (b): (1,−2)B=(−5,−1,0) och (3,1)B=(6,−3,7)."),
+    tr('Check part (c) without rounding fractions: AX=(1/37)[−359  −526; 73  68], and XB=(1/37)[−433  −452; −112  −80]. Subtracting gives (1/37)[74  −74; 185  148]=[2  −2; 5  4], the required C.', "Kontrollera del (c) utan att avrunda bråken: AX=(1/37)[−359  −526; 73  68] och XB=(1/37)[−433  −452; −112  −80]. Subtraktionen ger (1/37)[74  −74; 185  148]=[2  −2; 5  4], vilket är det givna C.")
   ], '(a) X=\n[−1  3  −1]\n[ 6  0   1]\n(b) X=\n[1  −2]\n[3   1]\n(c) X=(1/37)\n[−113  −160]\n[ −20   −46].');
   teach('review', '14', [
-    'To prove that a matrix S is the inverse of I−A, multiply and show that both (I−A)S and S(I−A) equal I. We will use the suggested finite sum for S.',
-    'Part (a): set S=I+A+A²+A³. Expand (I−A)S=(I+A+A²+A³)−(A+A²+A³+A⁴). The terms A,A²,A³ cancel, leaving I−A⁴.',
-    'The assumption A⁴=0 turns this into I. Expanding S(I−A) gives the same cancellation, because all factors are powers of the same matrix A. Thus S is the inverse.',
-    'Part (b): repeat with S=I+A+⋯+Aⁿ. The product is (I+A+⋯+Aⁿ)−(A+A²+⋯+Aⁿ⁺¹)=I−Aⁿ⁺¹.',
-    'Now Aⁿ⁺¹=0 makes both product orders equal I. This cancellation proof also shows why the series stops after Aⁿ rather than continuing indefinitely.'
-  ], '(a) If A⁴=0, then (I−A)⁻¹=I+A+A²+A³.\n(b) If Aⁿ⁺¹=0, then (I−A)⁻¹=I+A+⋯+Aⁿ.');
-  extend('review', '15', ['The point (x,y) lies on the graph exactly when substituting x into p gives y. Here x and y come from the question; a,b,c are the unknowns. Use all three points to get three linear equations.'], ['Check p(1)=1−2+3=2, p(−1)=1+2+3=6, and p(2)=4−4+3=3.'], 'a=1, b=−2, c=3; therefore p(x)=x²−2x+3.');
+    tr('To prove that a matrix S is the inverse of I−A, multiply and show that both (I−A)S and S(I−A) equal I. We will use the suggested finite sum for S.', "För att bevisa att en matris S är inversen till I−A multiplicerar vi och visar att både (I−A)S och S(I−A) är I. Vi använder den föreslagna ändliga summan som S."),
+    tr('Part (a): set S=I+A+A²+A³. Expand (I−A)S=(I+A+A²+A³)−(A+A²+A³+A⁴). The terms A,A²,A³ cancel, leaving I−A⁴.', "Del (a): sätt S=I+A+A²+A³. Utveckla (I−A)S=(I+A+A²+A³)−(A+A²+A³+A⁴). Termerna A,A²,A³ tar ut varandra och kvar blir I−A⁴."),
+    tr('The assumption A⁴=0 turns this into I. Expanding S(I−A) gives the same cancellation, because all factors are powers of the same matrix A. Thus S is the inverse.', "Antagandet A⁴=0 gör detta till I. Utveckling av S(I−A) ger samma borttagning av termer, eftersom alla faktorer är potenser av samma matris A. Alltså är S inversen."),
+    tr('Part (b): repeat with S=I+A+⋯+Aⁿ. The product is (I+A+⋯+Aⁿ)−(A+A²+⋯+Aⁿ⁺¹)=I−Aⁿ⁺¹.', "Del (b): upprepa med S=I+A+⋯+Aⁿ. Produkten blir (I+A+⋯+Aⁿ)−(A+A²+⋯+Aⁿ⁺¹)=I−Aⁿ⁺¹."),
+    tr('Now Aⁿ⁺¹=0 makes both product orders equal I. This cancellation proof also shows why the series stops after Aⁿ rather than continuing indefinitely.', "Nu gör Aⁿ⁺¹=0 att båda produktordningarna är I. Beviset visar också varför serien slutar efter Aⁿ i stället för att fortsätta utan slut.")
+  ], tr('(a) If A⁴=0, then (I−A)⁻¹=I+A+A²+A³.\n(b) If Aⁿ⁺¹=0, then (I−A)⁻¹=I+A+⋯+Aⁿ.', "(a) Om A⁴=0, så är (I−A)⁻¹=I+A+A²+A³.\n(b) Om Aⁿ⁺¹=0, så är (I−A)⁻¹=I+A+⋯+Aⁿ."));
+  extend('review', '15', [tr('The point (x,y) lies on the graph exactly when substituting x into p gives y. Here x and y come from the question; a,b,c are the unknowns. Use all three points to get three linear equations.', "Punkten (x,y) ligger på grafen precis när insättning av x i p ger y. Här kommer x och y från uppgiften; a,b,c är obekanta. Använd alla tre punkter för att få tre linjära ekvationer.")], [tr('Check p(1)=1−2+3=2, p(−1)=1+2+3=6, and p(2)=4−4+3=3.', "Kontrollera p(1)=1−2+3=2, p(−1)=1+2+3=6 och p(2)=4−4+3=3.")], tr('a=1, b=−2, c=3; therefore p(x)=x²−2x+3.', "a=1, b=−2, c=3; alltså är p(x)=x²−2x+3."));
   extend('review', '16', [
-    'A tangent is the straight-line direction of the curve at one point. “Horizontal tangent at (2,−9)” supplies two facts: the curve passes through (2,−9), and its slope at x=2 is zero. Along with (−1,0), this gives three equations for a,b,c.'
-  ], ['Verify all three requirements: p(−1)=1+4−5=0; p(2)=4−8−5=−9; and p′(x)=2x−4 gives p′(2)=0.'], 'a=1, b=−4, c=−5. Thus p(x)=x²−4x−5, with a horizontal tangent at (2,−9).');
+    tr('A tangent is the straight-line direction of the curve at one point. “Horizontal tangent at (2,−9)” supplies two facts: the curve passes through (2,−9), and its slope at x=2 is zero. Along with (−1,0), this gives three equations for a,b,c.', "En tangent är den räta linje som visar kurvans riktning i en punkt. ”Horisontell tangent i (2,−9)” ger två uppgifter: kurvan går genom (2,−9) och dess lutning vid x=2 är noll. Tillsammans med (−1,0) får vi tre ekvationer för a,b,c.")
+  ], [tr('Verify all three requirements: p(−1)=1+4−5=0; p(2)=4−8−5=−9; and p′(x)=2x−4 gives p′(2)=0.', "Verifiera alla tre krav: p(−1)=1+4−5=0; p(2)=4−8−5=−9; och p′(x)=2x−4 ger p′(2)=0.")], tr('a=1, b=−4, c=−5. Thus p(x)=x²−4x−5, with a horizontal tangent at (2,−9).', "a=1, b=−4, c=−5. Alltså är p(x)=x²−4x−5, med en horisontell tangent i (2,−9)."));
   teach('review', '17', [
-    'Write J for Jₙ and S=I−J/(n−1). The condition n>1 ensures that n−1 is not zero, so the proposed formula is defined.',
-    'First calculate J². Each entry is the dot product of a row of n ones with a column of n ones: 1+⋯+1=n. Thus every entry of J² is n, which means J²=nJ.',
-    'Expand the proposed inverse product: (I−J)(I−J/(n−1))=I−J/(n−1)−J+J²/(n−1).',
-    'Replace J² by nJ and combine coefficients of J. The coefficient is −1/(n−1)−1+n/(n−1)=[−1−(n−1)+n]/(n−1)=0. The product is therefore I.',
-    'Reverse the factors and expand again. The same four terms appear because I commutes with J and the only other product is J². Both orders give I, so S is the inverse.'
-  ], 'For n>1, (I−Jₙ)⁻¹=I−Jₙ/(n−1).');
+    tr('Write J for Jₙ and S=I−J/(n−1). The condition n>1 ensures that n−1 is not zero, so the proposed formula is defined.', "Skriv J för Jₙ och S=I−J/(n−1). Villkoret n>1 garanterar att n−1 inte är noll, så den föreslagna formeln är definierad."),
+    tr('First calculate J². Each entry is the dot product of a row of n ones with a column of n ones: 1+⋯+1=n. Thus every entry of J² is n, which means J²=nJ.', "Beräkna först J². Varje element är skalärprodukten av en rad med n ettor och en kolumn med n ettor: 1+⋯+1=n. Varje element i J² är alltså n, vilket betyder J²=nJ."),
+    tr('Expand the proposed inverse product: (I−J)(I−J/(n−1))=I−J/(n−1)−J+J²/(n−1).', "Utveckla produkten med den föreslagna inversen: (I−J)(I−J/(n−1))=I−J/(n−1)−J+J²/(n−1)."),
+    tr('Replace J² by nJ and combine coefficients of J. The coefficient is −1/(n−1)−1+n/(n−1)=[−1−(n−1)+n]/(n−1)=0. The product is therefore I.', "Ersätt J² med nJ och samla koefficienterna framför J. Koefficienten är −1/(n−1)−1+n/(n−1)=[−1−(n−1)+n]/(n−1)=0. Produkten är därför I."),
+    tr('Reverse the factors and expand again. The same four terms appear because I commutes with J and the only other product is J². Both orders give I, so S is the inverse.', "Byt ordning på faktorerna och utveckla igen. Samma fyra termer uppstår eftersom I kommuterar med J och den enda andra produkten är J². Båda ordningarna ger I, så S är inversen.")
+  ], tr('For n>1, (I−Jₙ)⁻¹=I−Jₙ/(n−1).', "För n>1 gäller (I−Jₙ)⁻¹=I−Jₙ/(n−1)."));
   teach('review', '18', [
-    'The transpose turns rows into columns. Apply it to both sides of A³+4A²−2A+7I=0. Equal matrices still have equal transposes.',
-    'Transpose distributes over addition and preserves scalar coefficients, giving (A³)ᵀ+4(A²)ᵀ−2Aᵀ+7Iᵀ=0ᵀ.',
-    'For products, transposing reverses the factor order: (AB)ᵀ=BᵀAᵀ. All factors in A³ are the same A, so reversing them still gives (Aᵀ)³. Likewise (A²)ᵀ=(Aᵀ)².',
-    'The identity and zero matrices do not change under transposing. Substitute these facts to obtain (Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0. This is exactly the original equation with A replaced by Aᵀ.'
-  ], '(Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0, so Aᵀ satisfies the same polynomial equation.');
+    tr('The transpose turns rows into columns. Apply it to both sides of A³+4A²−2A+7I=0. Equal matrices still have equal transposes.', "Transponering gör rader till kolumner. Tillämpa den på båda sidor av A³+4A²−2A+7I=0. Lika matriser har fortfarande lika transponat."),
+    tr('Transpose distributes over addition and preserves scalar coefficients, giving (A³)ᵀ+4(A²)ᵀ−2Aᵀ+7Iᵀ=0ᵀ.', "Transponering är distributiv över addition och behåller skalära koefficienter, vilket ger (A³)ᵀ+4(A²)ᵀ−2Aᵀ+7Iᵀ=0ᵀ."),
+    tr('For products, transposing reverses the factor order: (AB)ᵀ=BᵀAᵀ. All factors in A³ are the same A, so reversing them still gives (Aᵀ)³. Likewise (A²)ᵀ=(Aᵀ)².', "För produkter vänder transponeringen på faktorernas ordning: (AB)ᵀ=BᵀAᵀ. Alla faktorer i A³ är samma A, så när de vänds får vi fortfarande (Aᵀ)³. På samma sätt är (A²)ᵀ=(Aᵀ)²."),
+    tr('The identity and zero matrices do not change under transposing. Substitute these facts to obtain (Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0. This is exactly the original equation with A replaced by Aᵀ.', "Identitetsmatrisen och nollmatrisen ändras inte vid transponering. Sätt in detta för att få (Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0. Det är exakt den ursprungliga ekvationen med A ersatt av Aᵀ.")
+  ], tr('(Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0, so Aᵀ satisfies the same polynomial equation.', "(Aᵀ)³+4(Aᵀ)²−2Aᵀ+7I=0, så Aᵀ uppfyller samma polynomekvation."));
   teach('review', '19', [
-    '“If and only if” asks for two implications. The only inverse used is B⁻¹, which exists by assumption. We will multiply on specified sides, preserving factor order.',
-    'First assume AB⁻¹=B⁻¹A. Multiply both sides on the left by B: BAB⁻¹=A. Then multiply both sides on the right by B: BA=AB, since B⁻¹B=I.',
-    'For the converse assume AB=BA. Multiply on the left by B⁻¹: B⁻¹AB=A. Multiply on the right by B⁻¹: B⁻¹A=AB⁻¹.',
-    'The last equality is the same as AB⁻¹=B⁻¹A with its two sides exchanged. We have proved both implications, so commuting with B and commuting with its inverse are equivalent.'
-  ], 'AB⁻¹=B⁻¹A if and only if AB=BA, whenever B is invertible.');
+    tr('“If and only if” asks for two implications. The only inverse used is B⁻¹, which exists by assumption. We will multiply on specified sides, preserving factor order.', "”Om och endast om” kräver två implikationer. Den enda invers vi använder är B⁻¹, som finns enligt antagandet. Vi multiplicerar på bestämda sidor och behåller faktorernas ordning."),
+    tr('First assume AB⁻¹=B⁻¹A. Multiply both sides on the left by B: BAB⁻¹=A. Then multiply both sides on the right by B: BA=AB, since B⁻¹B=I.', "Anta först AB⁻¹=B⁻¹A. Multiplicera båda sidor från vänster med B: BAB⁻¹=A. Multiplicera sedan båda sidor från höger med B: BA=AB, eftersom B⁻¹B=I."),
+    tr('For the converse assume AB=BA. Multiply on the left by B⁻¹: B⁻¹AB=A. Multiply on the right by B⁻¹: B⁻¹A=AB⁻¹.', "För den omvända riktningen antar vi AB=BA. Multiplicera från vänster med B⁻¹: B⁻¹AB=A. Multiplicera från höger med B⁻¹: B⁻¹A=AB⁻¹."),
+    tr('The last equality is the same as AB⁻¹=B⁻¹A with its two sides exchanged. We have proved both implications, so commuting with B and commuting with its inverse are equivalent.', "Den sista likheten är samma som AB⁻¹=B⁻¹A med sidorna utbytta. Vi har bevisat båda implikationerna. Att kommutera med B och att kommutera med dess invers är därför ekvivalenta villkor.")
+  ], tr('AB⁻¹=B⁻¹A if and only if AB=BA, whenever B is invertible.', "AB⁻¹=B⁻¹A om och endast om AB=BA, när B är inverterbar."));
   teach('review', '20', [
-    'Let P=I+BA⁻¹. Multiply it on the right by A: PA=(I+BA⁻¹)A=A+B. This order matters: BA⁻¹A simplifies to B.',
-    'If P is invertible, then A+B=PA is a product of invertible matrices, so it is invertible. Its inverse is A⁻¹P⁻¹, as direct multiplication verifies.',
-    'For the reverse implication, suppose A+B is invertible. From PA=A+B, multiply on the right by A⁻¹ to obtain P=(A+B)A⁻¹.',
-    'Both factors on this right side are invertible, so P is invertible, with inverse A(A+B)⁻¹. Thus invertibility of either matrix forces invertibility of the other. If one fails to be invertible, the other must fail too.'
-  ], 'A+B is invertible exactly when I+BA⁻¹ is invertible. Therefore they are either both invertible or both singular.');
+    tr('Let P=I+BA⁻¹. Multiply it on the right by A: PA=(I+BA⁻¹)A=A+B. This order matters: BA⁻¹A simplifies to B.', "Sätt P=I+BA⁻¹. Multiplicera från höger med A: PA=(I+BA⁻¹)A=A+B. Ordningen är viktig: BA⁻¹A förenklas till B."),
+    tr('If P is invertible, then A+B=PA is a product of invertible matrices, so it is invertible. Its inverse is A⁻¹P⁻¹, as direct multiplication verifies.', "Om P är inverterbar är A+B=PA en produkt av inverterbara matriser och därmed inverterbar. Inversen är A⁻¹P⁻¹, vilket kan verifieras med direkt multiplikation."),
+    tr('For the reverse implication, suppose A+B is invertible. From PA=A+B, multiply on the right by A⁻¹ to obtain P=(A+B)A⁻¹.', "För den omvända implikationen antar vi att A+B är inverterbar. Utgå från PA=A+B och multiplicera från höger med A⁻¹ för att få P=(A+B)A⁻¹."),
+    tr('Both factors on this right side are invertible, so P is invertible, with inverse A(A+B)⁻¹. Thus invertibility of either matrix forces invertibility of the other. If one fails to be invertible, the other must fail too.', "Båda faktorerna i högerledet är inverterbara, så P är inverterbar med inversen A(A+B)⁻¹. Inverterbarhet hos den ena matrisen medför alltså inverterbarhet hos den andra. Om den ena inte är inverterbar kan den andra inte heller vara det.")
+  ], tr('A+B is invertible exactly when I+BA⁻¹ is invertible. Therefore they are either both invertible or both singular.', "A+B är inverterbar precis när I+BA⁻¹ är inverterbar. Därför är de antingen båda inverterbara eller båda singulära."));
   teach('review', '21', [
-    'An arithmetic average means “sum the values and divide by how many values there are.” Row i of A contains n values, so its average is rᵢ=(aᵢ₁+⋯+aᵢₙ)/n.',
-    'Check the product size: A is m×n and B is n×1, so AB is m×1. It has one entry for each row of A.',
-    'Calculate entry i by the row-column rule: (AB)ᵢ₁=aᵢ₁(1/n)+aᵢ₂(1/n)+⋯+aᵢₙ(1/n).',
-    'Factor out 1/n. The result is (aᵢ₁+⋯+aᵢₙ)/n=rᵢ. This works for every row i, so the entire product is the column of row averages.'
-  ], 'AB=(r₁,…,rₘ)ᵀ, where rᵢ=(aᵢ₁+⋯+aᵢₙ)/n is the average of row i.');
+    tr('An arithmetic average means “sum the values and divide by how many values there are.” Row i of A contains n values, so its average is rᵢ=(aᵢ₁+⋯+aᵢₙ)/n.', "Ett aritmetiskt medelvärde betyder ”summera värdena och dividera med antalet värden”. Rad i i A innehåller n värden, så dess medelvärde är rᵢ=(aᵢ₁+⋯+aᵢₙ)/n."),
+    tr('Check the product size: A is m×n and B is n×1, so AB is m×1. It has one entry for each row of A.', "Kontrollera produktens storlek: A är m×n och B är n×1, så AB är m×1. Produkten har ett element för varje rad i A."),
+    tr('Calculate entry i by the row-column rule: (AB)ᵢ₁=aᵢ₁(1/n)+aᵢ₂(1/n)+⋯+aᵢₙ(1/n).', "Beräkna element i med rad–kolumn-regeln: (AB)ᵢ₁=aᵢ₁(1/n)+aᵢ₂(1/n)+⋯+aᵢₙ(1/n)."),
+    tr('Factor out 1/n. The result is (aᵢ₁+⋯+aᵢₙ)/n=rᵢ. This works for every row i, so the entire product is the column of row averages.', "Bryt ut 1/n. Resultatet är (aᵢ₁+⋯+aᵢₙ)/n=rᵢ. Det fungerar för varje rad i, så hela produkten är kolumnen av radmedelvärden.")
+  ], tr('AB=(r₁,…,rₘ)ᵀ, where rᵢ=(aᵢ₁+⋯+aᵢₙ)/n is the average of row i.', "AB=(r₁,…,rₘ)ᵀ, där rᵢ=(aᵢ₁+⋯+aᵢₙ)/n är medelvärdet av rad i."));
   teach('review', '22', [
-    'A matrix derivative means differentiating each entry separately. A prime denotes differentiation with respect to x. To prove equality of two matrices, show their entries agree at every position (i,j). In part (a), k is a constant.',
-    'Part (a): entry (i,j) of kA is kaᵢⱼ. The ordinary constant-multiple rule gives (kaᵢⱼ)′=ka′ᵢⱼ. These are precisely the entries of kA′, so (kA)′=kA′.',
-    'Part (b): entry (i,j) of A+B is aᵢⱼ+bᵢⱼ. The ordinary sum rule gives (aᵢⱼ+bᵢⱼ)′=a′ᵢⱼ+b′ᵢⱼ. Thus (A+B)′=A′+B′.',
-    'Part (c): if A has r columns and B has r rows, the product entry is (AB)ᵢⱼ=Σₖ₌₁ʳaᵢₖbₖⱼ. This is a finite sum of ordinary scalar products.',
-    'Differentiate each product using the scalar product rule: (aᵢₖbₖⱼ)′=a′ᵢₖbₖⱼ+aᵢₖb′ₖⱼ. Summing gives Σa′ᵢₖbₖⱼ+Σaᵢₖb′ₖⱼ.',
-    'The first sum is entry (i,j) of A′B; the second is entry (i,j) of AB′. Therefore (AB)′=A′B+AB′. The order of the matrix factors stays fixed throughout.'
-  ], '(a) d(kA)/dx=k(dA/dx), for constant k.\n(b) d(A+B)/dx=dA/dx+dB/dx.\n(c) d(AB)/dx=(dA/dx)B+A(dB/dx).');
+    tr('A matrix derivative means differentiating each entry separately. A prime denotes differentiation with respect to x. To prove equality of two matrices, show their entries agree at every position (i,j). In part (a), k is a constant.', "En matrisderivata innebär att varje element deriveras för sig. Ett primtecken betecknar derivering med avseende på x. För att bevisa att två matriser är lika visar vi att deras element överensstämmer på varje position (i,j). I del (a) är k en konstant."),
+    tr('Part (a): entry (i,j) of kA is kaᵢⱼ. The ordinary constant-multiple rule gives (kaᵢⱼ)′=ka′ᵢⱼ. These are precisely the entries of kA′, so (kA)′=kA′.', "Del (a): element (i,j) i kA är kaᵢⱼ. Den vanliga regeln för en konstant faktor ger (kaᵢⱼ)′=ka′ᵢⱼ. Det är precis elementen i kA′, så (kA)′=kA′."),
+    tr('Part (b): entry (i,j) of A+B is aᵢⱼ+bᵢⱼ. The ordinary sum rule gives (aᵢⱼ+bᵢⱼ)′=a′ᵢⱼ+b′ᵢⱼ. Thus (A+B)′=A′+B′.', "Del (b): element (i,j) i A+B är aᵢⱼ+bᵢⱼ. Den vanliga summaregeln ger (aᵢⱼ+bᵢⱼ)′=a′ᵢⱼ+b′ᵢⱼ. Alltså är (A+B)′=A′+B′."),
+    tr('Part (c): if A has r columns and B has r rows, the product entry is (AB)ᵢⱼ=Σₖ₌₁ʳaᵢₖbₖⱼ. This is a finite sum of ordinary scalar products.', "Del (c): om A har r kolumner och B har r rader är produktelementet (AB)ᵢⱼ=Σₖ₌₁ʳaᵢₖbₖⱼ. Det är en ändlig summa av vanliga produkter av tal."),
+    tr('Differentiate each product using the scalar product rule: (aᵢₖbₖⱼ)′=a′ᵢₖbₖⱼ+aᵢₖb′ₖⱼ. Summing gives Σa′ᵢₖbₖⱼ+Σaᵢₖb′ₖⱼ.', "Derivera varje produkt med den vanliga produktregeln: (aᵢₖbₖⱼ)′=a′ᵢₖbₖⱼ+aᵢₖb′ₖⱼ. Summering ger Σa′ᵢₖbₖⱼ+Σaᵢₖb′ₖⱼ."),
+    tr('The first sum is entry (i,j) of A′B; the second is entry (i,j) of AB′. Therefore (AB)′=A′B+AB′. The order of the matrix factors stays fixed throughout.', "Den första summan är element (i,j) i A′B; den andra är element (i,j) i AB′. Därför är (AB)′=A′B+AB′. Matrisfaktorernas ordning behålls genom hela beräkningen.")
+  ], tr('(a) d(kA)/dx=k(dA/dx), for constant k.\n(b) d(A+B)/dx=dA/dx+dB/dx.\n(c) d(AB)/dx=(dA/dx)B+A(dB/dx).', "(a) d(kA)/dx=k(dA/dx), för konstant k.\n(b) d(A+B)/dx=dA/dx+dB/dx.\n(c) d(AB)/dx=(dA/dx)B+A(dB/dx)."));
   teach('review', '23', [
-    'State the assumptions: A=A(x) is square, its entries are differentiable on an open interval, and A(x) is invertible throughout that interval. Its inverse has differentiable entries there: the inverse formula expresses each entry as a polynomial in the entries of A divided by the nonzero determinant.',
-    'Start from a true identity, A(x)A(x)⁻¹=I. We use the product rule from Exercise 22(c), because both factors can change with x.',
-    'Differentiate: A′A⁻¹+A(A⁻¹)′=0. The right side is zero because I is a constant matrix.',
-    'Subtract A′A⁻¹ from both sides: A(A⁻¹)′=−A′A⁻¹. To remove the A on the left of the unknown derivative, multiply both sides on the left by A⁻¹.',
-    'The left becomes A⁻¹A(A⁻¹)′=(A⁻¹)′. The right becomes −A⁻¹A′A⁻¹. Do not reorder these factors: matrix multiplication need not commute.',
-    'As a familiar one-variable check, if A is the 1×1 matrix [a(x)], the formula becomes (1/a)′=−a′/a², the ordinary reciprocal derivative.'
-  ], 'd(A⁻¹)/dx=−A⁻¹(dA/dx)A⁻¹, assuming A is square, differentiable and invertible throughout the interval considered.');
+    tr('State the assumptions: A=A(x) is square, its entries are differentiable on an open interval, and A(x) is invertible throughout that interval. Its inverse has differentiable entries there: the inverse formula expresses each entry as a polynomial in the entries of A divided by the nonzero determinant.', "Ange antagandena: A=A(x) är kvadratisk, dess element är deriverbara på ett öppet intervall och A(x) är inverterbar i hela intervallet. Inversen har deriverbara element där: inversformeln uttrycker varje element som ett polynom i elementen i A dividerat med determinanten, som inte är noll."),
+    tr('Start from a true identity, A(x)A(x)⁻¹=I. We use the product rule from Exercise 22(c), because both factors can change with x.', "Börja med en sann identitet, A(x)A(x)⁻¹=I. Vi använder produktregeln från Uppgift 22(c), eftersom båda faktorerna kan ändras med x."),
+    tr('Differentiate: A′A⁻¹+A(A⁻¹)′=0. The right side is zero because I is a constant matrix.', "Derivera: A′A⁻¹+A(A⁻¹)′=0. Högerledet är noll eftersom I är en konstant matris."),
+    tr('Subtract A′A⁻¹ from both sides: A(A⁻¹)′=−A′A⁻¹. To remove the A on the left of the unknown derivative, multiply both sides on the left by A⁻¹.', "Subtrahera A′A⁻¹ från båda sidor: A(A⁻¹)′=−A′A⁻¹. För att ta bort A till vänster om den okända derivatan multiplicerar vi båda sidor från vänster med A⁻¹."),
+    tr('The left becomes A⁻¹A(A⁻¹)′=(A⁻¹)′. The right becomes −A⁻¹A′A⁻¹. Do not reorder these factors: matrix multiplication need not commute.', "Vänsterledet blir A⁻¹A(A⁻¹)′=(A⁻¹)′. Högerledet blir −A⁻¹A′A⁻¹. Ändra inte ordningen på faktorerna: matrismultiplikation behöver inte vara kommutativ."),
+    tr('As a familiar one-variable check, if A is the 1×1 matrix [a(x)], the formula becomes (1/a)′=−a′/a², the ordinary reciprocal derivative.', "Som en välbekant kontroll med en enda variabel: om A är 1×1-matrisen [a(x)] blir formeln (1/a)′=−a′/a², den vanliga derivatan av ett reciprokvärde.")
+  ], tr('d(A⁻¹)/dx=−A⁻¹(dA/dx)A⁻¹, assuming A is square, differentiable and invertible throughout the interval considered.', "d(A⁻¹)/dx=−A⁻¹(dA/dx)A⁻¹, under antagandet att A är kvadratisk, deriverbar och inverterbar i hela det betraktade intervallet."));
   teach('review', '24', [
-    'For each part, every displayed inverse is assumed to exist and matrix sizes must allow the products. Two useful rules are (PQ)⁻¹=Q⁻¹P⁻¹ and “multiply an equality on the same side by the same matrix.” Preserve factor order.',
-    'Part (a): expand D⁻¹(C+D)C⁻¹. The two terms are D⁻¹CC⁻¹=D⁻¹ and D⁻¹DC⁻¹=C⁻¹. Thus C⁻¹+D⁻¹=D⁻¹(C+D)C⁻¹.',
-    'Invert that three-factor product in reverse order: [D⁻¹(C+D)C⁻¹]⁻¹=C(C+D)⁻¹D. This proves part (a).',
-    'Part (b): expand both (I+CD)C and C(I+DC). Each is C+CDC, so (I+CD)C=C(I+DC).',
-    'Multiply this equality on the left by (I+CD)⁻¹ and on the right by (I+DC)⁻¹. The left simplifies to C(I+DC)⁻¹ and the right to (I+CD)⁻¹C. Exchange the two sides to match the requested formula.',
-    'Part (c): expand (C+DDᵀ)C⁻¹D. It is D+DDᵀC⁻¹D. Factor the D on the left to obtain D(I+DᵀC⁻¹D).',
-    'Multiply that equality on the left by (C+DDᵀ)⁻¹ and on the right by (I+DᵀC⁻¹D)⁻¹. The identity factors cancel, leaving C⁻¹D(I+DᵀC⁻¹D)⁻¹=(C+DDᵀ)⁻¹D. This is part (c), with the sides reversed.'
-  ], '(a) (C⁻¹+D⁻¹)⁻¹=C(C+D)⁻¹D.\n(b) (I+CD)⁻¹C=C(I+DC)⁻¹.\n(c) (C+DDᵀ)⁻¹D=C⁻¹D(I+DᵀC⁻¹D)⁻¹. All three hold under the stated inverse and size assumptions.');
+    tr('For each part, every displayed inverse is assumed to exist and matrix sizes must allow the products. Two useful rules are (PQ)⁻¹=Q⁻¹P⁻¹ and “multiply an equality on the same side by the same matrix.” Preserve factor order.', "I varje del antas alla visade inverser finnas, och matrisdimensionerna måste tillåta produkterna. Två användbara regler är (PQ)⁻¹=Q⁻¹P⁻¹ och ”multiplicera en likhet på samma sida med samma matris”. Behåll faktorernas ordning."),
+    tr('Part (a): expand D⁻¹(C+D)C⁻¹. The two terms are D⁻¹CC⁻¹=D⁻¹ and D⁻¹DC⁻¹=C⁻¹. Thus C⁻¹+D⁻¹=D⁻¹(C+D)C⁻¹.', "Del (a): utveckla D⁻¹(C+D)C⁻¹. De två termerna är D⁻¹CC⁻¹=D⁻¹ och D⁻¹DC⁻¹=C⁻¹. Alltså är C⁻¹+D⁻¹=D⁻¹(C+D)C⁻¹."),
+    tr('Invert that three-factor product in reverse order: [D⁻¹(C+D)C⁻¹]⁻¹=C(C+D)⁻¹D. This proves part (a).', "Invertera produkten av tre faktorer i omvänd ordning: [D⁻¹(C+D)C⁻¹]⁻¹=C(C+D)⁻¹D. Det bevisar del (a)."),
+    tr('Part (b): expand both (I+CD)C and C(I+DC). Each is C+CDC, so (I+CD)C=C(I+DC).', "Del (b): utveckla både (I+CD)C och C(I+DC). Båda är C+CDC, så (I+CD)C=C(I+DC)."),
+    tr('Multiply this equality on the left by (I+CD)⁻¹ and on the right by (I+DC)⁻¹. The left simplifies to C(I+DC)⁻¹ and the right to (I+CD)⁻¹C. Exchange the two sides to match the requested formula.', "Multiplicera likheten från vänster med (I+CD)⁻¹ och från höger med (I+DC)⁻¹. Vänsterledet förenklas till C(I+DC)⁻¹ och högerledet till (I+CD)⁻¹C. Byt sida på de två leden för att få den efterfrågade formeln."),
+    tr('Part (c): expand (C+DDᵀ)C⁻¹D. It is D+DDᵀC⁻¹D. Factor the D on the left to obtain D(I+DᵀC⁻¹D).', "Del (c): utveckla (C+DDᵀ)C⁻¹D. Det blir D+DDᵀC⁻¹D. Bryt ut D från vänster för att få D(I+DᵀC⁻¹D)."),
+    tr('Multiply that equality on the left by (C+DDᵀ)⁻¹ and on the right by (I+DᵀC⁻¹D)⁻¹. The identity factors cancel, leaving C⁻¹D(I+DᵀC⁻¹D)⁻¹=(C+DDᵀ)⁻¹D. This is part (c), with the sides reversed.', "Multiplicera likheten från vänster med (C+DDᵀ)⁻¹ och från höger med (I+DᵀC⁻¹D)⁻¹. Identitetsfaktorerna försvinner och kvar blir C⁻¹D(I+DᵀC⁻¹D)⁻¹=(C+DDᵀ)⁻¹D. Det är del (c), med sidorna ombytta.")
+  ], tr('(a) (C⁻¹+D⁻¹)⁻¹=C(C+D)⁻¹D.\n(b) (I+CD)⁻¹C=C(I+DC)⁻¹.\n(c) (C+DDᵀ)⁻¹D=C⁻¹D(I+DᵀC⁻¹D)⁻¹. All three hold under the stated inverse and size assumptions.', "(a) (C⁻¹+D⁻¹)⁻¹=C(C+D)⁻¹D.\n(b) (I+CD)⁻¹C=C(I+DC)⁻¹.\n(c) (C+DDᵀ)⁻¹D=C⁻¹D(I+DᵀC⁻¹D)⁻¹. Alla tre gäller under de angivna antagandena om inverser och dimensioner."));
   extend('review', '25', [
-    'The partition lines divide a matrix into rectangular blocks. Block multiplication uses the same row-column idea as ordinary multiplication, but now the “entries” are smaller matrices. Every product must have matching inner dimensions, and every sum must add equal-sized matrices.'
+    tr('The partition lines divide a matrix into rectangular blocks. Block multiplication uses the same row-column idea as ordinary multiplication, but now the “entries” are smaller matrices. Every product must have matching inner dimensions, and every sum must add equal-sized matrices.', "Delningslinjerna delar upp en matris i rektangulära block. Blockmultiplikation använder samma rad–kolumn-idé som vanlig multiplikation, men ”elementen” är nu mindre matriser. Varje produkt måste ha matchande inre dimensioner, och varje summa måste addera matriser av samma storlek.")
   ], [
-    'The top block is [11  −2; 14  1]+[8  23; −2  4]=[19  21; 12  5]. The bottom block is [10  −7]+[−4  −4]=[6  −11]. Stacking them gives the same 3×2 product as all six direct dot products.'
-  ], '(a) A₁₁ is 2×3, A₁₂ is 2×2, A₂₁ is 1×3, A₂₂ is 1×2; B₁ is 3×2 and B₂ is 2×2. The top products are both 2×2 and the bottom products both 1×2, so Formula (*) is valid.\n(b) Both methods give AB=\n[19   21]\n[12    5]\n[ 6  −11].');
+    tr('The top block is [11  −2; 14  1]+[8  23; −2  4]=[19  21; 12  5]. The bottom block is [10  −7]+[−4  −4]=[6  −11]. Stacking them gives the same 3×2 product as all six direct dot products.', "Det övre blocket är [11  −2; 14  1]+[8  23; −2  4]=[19  21; 12  5]. Det nedre blocket är [10  −7]+[−4  −4]=[6  −11]. När de staplas får vi samma 3×2-produkt som från alla sex direkta skalärprodukter.")
+  ], tr('(a) A₁₁ is 2×3, A₁₂ is 2×2, A₂₁ is 1×3, A₂₂ is 1×2; B₁ is 3×2 and B₂ is 2×2. The top products are both 2×2 and the bottom products both 1×2, so Formula (*) is valid.\n(b) Both methods give AB=\n[19   21]\n[12    5]\n[ 6  −11].', "(a) A₁₁ är 2×3, A₁₂ är 2×2, A₂₁ är 1×3, A₂₂ är 1×2; B₁ är 3×2 och B₂ är 2×2. De övre produkterna är båda 2×2 och de nedre båda 1×2, så Formel (*) är giltig.\n(b) Båda metoderna ger AB=\n[19   21]\n[12    5]\n[ 6  −11]."));
   teach('review', '26', [
-    'Let B=A⁻¹ and partition B into the four unknown blocks B₁₁,B₁₂,B₂₁,B₂₂. Since B is the inverse, AB=I and BA=I. The identity matrix has identity blocks on its diagonal and zero blocks elsewhere.',
-    'Use the first block column of AB=I. Its top and bottom equations are A₁₁B₁₁+A₁₂B₂₁=I and A₂₁B₁₁+A₂₂B₂₁=0.',
-    'Solve the bottom equation by multiplying on the left by A₂₂⁻¹: B₂₁=−A₂₂⁻¹A₂₁B₁₁. Substitute into the top equation to obtain (A₁₁−A₁₂A₂₂⁻¹A₂₁)B₁₁=I.',
-    'The factor in parentheses is invertible by the question’s assumption. Multiply by its inverse to get B₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹. The previous step already gives the required B₂₁ formula.',
-    'For B₁₂, use the upper-right block of BA=I: B₁₁A₁₂+B₁₂A₂₂=0. Move the first term to the right and multiply on the right by A₂₂⁻¹, giving B₁₂=−B₁₁A₁₂A₂₂⁻¹.',
-    'For B₂₂, use the second block column of AB=I: A₁₁B₁₂+A₁₂B₂₂=0 and A₂₁B₁₂+A₂₂B₂₂=I. The first gives B₁₂=−A₁₁⁻¹A₁₂B₂₂.',
-    'Substitute that expression into the second equation: (A₂₂−A₂₁A₁₁⁻¹A₁₂)B₂₂=I. Multiply on the left by the assumed inverse to obtain B₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹. All four blocks have now been derived from the defining inverse identities.'
-  ], 'A⁻¹=[B₁₁  B₁₂; B₂₁  B₂₂], where\nB₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹,\nB₁₂=−B₁₁A₁₂A₂₂⁻¹,\nB₂₁=−A₂₂⁻¹A₂₁B₁₁,\nB₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹.\nThese formulas require all the stated inverses to exist.');
+    tr('Let B=A⁻¹ and partition B into the four unknown blocks B₁₁,B₁₂,B₂₁,B₂₂. Since B is the inverse, AB=I and BA=I. The identity matrix has identity blocks on its diagonal and zero blocks elsewhere.', "Sätt B=A⁻¹ och dela in B i de fyra okända blocken B₁₁,B₁₂,B₂₁,B₂₂. Eftersom B är inversen gäller AB=I och BA=I. Identitetsmatrisen har identitetsblock på diagonalen och nollblock överallt annars."),
+    tr('Use the first block column of AB=I. Its top and bottom equations are A₁₁B₁₁+A₁₂B₂₁=I and A₂₁B₁₁+A₂₂B₂₁=0.', "Använd den första blockkolumnen i AB=I. Dess övre och nedre ekvationer är A₁₁B₁₁+A₁₂B₂₁=I och A₂₁B₁₁+A₂₂B₂₁=0."),
+    tr('Solve the bottom equation by multiplying on the left by A₂₂⁻¹: B₂₁=−A₂₂⁻¹A₂₁B₁₁. Substitute into the top equation to obtain (A₁₁−A₁₂A₂₂⁻¹A₂₁)B₁₁=I.', "Lös den nedre ekvationen genom att multiplicera från vänster med A₂₂⁻¹: B₂₁=−A₂₂⁻¹A₂₁B₁₁. Sätt in i den övre ekvationen för att få (A₁₁−A₁₂A₂₂⁻¹A₂₁)B₁₁=I."),
+    tr('The factor in parentheses is invertible by the question’s assumption. Multiply by its inverse to get B₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹. The previous step already gives the required B₂₁ formula.', "Faktorn inom parentes är inverterbar enligt uppgiftens antagande. Multiplicera med dess invers för att få B₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹. Det föregående steget ger redan den efterfrågade formeln för B₂₁."),
+    tr('For B₁₂, use the upper-right block of BA=I: B₁₁A₁₂+B₁₂A₂₂=0. Move the first term to the right and multiply on the right by A₂₂⁻¹, giving B₁₂=−B₁₁A₁₂A₂₂⁻¹.', "För B₁₂ använder vi blocket uppe till höger i BA=I: B₁₁A₁₂+B₁₂A₂₂=0. Flytta den första termen till höger och multiplicera från höger med A₂₂⁻¹. Då fås B₁₂=−B₁₁A₁₂A₂₂⁻¹."),
+    tr('For B₂₂, use the second block column of AB=I: A₁₁B₁₂+A₁₂B₂₂=0 and A₂₁B₁₂+A₂₂B₂₂=I. The first gives B₁₂=−A₁₁⁻¹A₁₂B₂₂.', "För B₂₂ använder vi den andra blockkolumnen i AB=I: A₁₁B₁₂+A₁₂B₂₂=0 och A₂₁B₁₂+A₂₂B₂₂=I. Den första ger B₁₂=−A₁₁⁻¹A₁₂B₂₂."),
+    tr('Substitute that expression into the second equation: (A₂₂−A₂₁A₁₁⁻¹A₁₂)B₂₂=I. Multiply on the left by the assumed inverse to obtain B₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹. All four blocks have now been derived from the defining inverse identities.', "Sätt in uttrycket i den andra ekvationen: (A₂₂−A₂₁A₁₁⁻¹A₁₂)B₂₂=I. Multiplicera från vänster med den antagna inversen för att få B₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹. Alla fyra block har nu härletts från de identiteter som definierar inversen.")
+  ], tr('A⁻¹=[B₁₁  B₁₂; B₂₁  B₂₂], where\nB₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹,\nB₁₂=−B₁₁A₁₂A₂₂⁻¹,\nB₂₁=−A₂₂⁻¹A₂₁B₁₁,\nB₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹.\nThese formulas require all the stated inverses to exist.', "A⁻¹=[B₁₁  B₁₂; B₂₁  B₂₂], där\nB₁₁=(A₁₁−A₁₂A₂₂⁻¹A₂₁)⁻¹,\nB₁₂=−B₁₁A₁₂A₂₂⁻¹,\nB₂₁=−A₂₂⁻¹A₂₁B₁₁,\nB₂₂=(A₂₂−A₂₁A₁₁⁻¹A₁₂)⁻¹.\nFormlerna kräver att alla angivna inverser finns."));
   teach('review', '27', [
-    'Use the formulas from Exercise 26 with A₂₁=0. Multiplication by a zero block gives a zero block whenever the sizes match.',
-    'The top-left inverse block becomes B₁₁=(A₁₁−A₁₂A₂₂⁻¹0)⁻¹=A₁₁⁻¹. The bottom-right becomes B₂₂=(A₂₂−0A₁₁⁻¹A₁₂)⁻¹=A₂₂⁻¹.',
-    'The lower-left block becomes B₂₁=−A₂₂⁻¹0B₁₁=0. The upper-right block is B₁₂=−B₁₁A₁₂A₂₂⁻¹=−A₁₁⁻¹A₁₂A₂₂⁻¹.',
-    'Check by multiplying A by the proposed inverse. The diagonal blocks become A₁₁A₁₁⁻¹=I and A₂₂A₂₂⁻¹=I. The lower-left remains zero. The upper-right is −A₁₂A₂₂⁻¹+A₁₂A₂₂⁻¹=0.',
-    'In the reverse order, the upper-right is A₁₁⁻¹A₁₂−A₁₁⁻¹A₁₂=0 and the other blocks again form the identity. Thus the displayed block matrix is indeed the inverse.'
+    tr('Use the formulas from Exercise 26 with A₂₁=0. Multiplication by a zero block gives a zero block whenever the sizes match.', "Använd formlerna från Uppgift 26 med A₂₁=0. Multiplikation med ett nollblock ger ett nollblock när dimensionerna passar ihop."),
+    tr('The top-left inverse block becomes B₁₁=(A₁₁−A₁₂A₂₂⁻¹0)⁻¹=A₁₁⁻¹. The bottom-right becomes B₂₂=(A₂₂−0A₁₁⁻¹A₁₂)⁻¹=A₂₂⁻¹.', "Inversblocket uppe till vänster blir B₁₁=(A₁₁−A₁₂A₂₂⁻¹0)⁻¹=A₁₁⁻¹. Blocket nere till höger blir B₂₂=(A₂₂−0A₁₁⁻¹A₁₂)⁻¹=A₂₂⁻¹."),
+    tr('The lower-left block becomes B₂₁=−A₂₂⁻¹0B₁₁=0. The upper-right block is B₁₂=−B₁₁A₁₂A₂₂⁻¹=−A₁₁⁻¹A₁₂A₂₂⁻¹.', "Blocket nere till vänster blir B₂₁=−A₂₂⁻¹0B₁₁=0. Blocket uppe till höger är B₁₂=−B₁₁A₁₂A₂₂⁻¹=−A₁₁⁻¹A₁₂A₂₂⁻¹."),
+    tr('Check by multiplying A by the proposed inverse. The diagonal blocks become A₁₁A₁₁⁻¹=I and A₂₂A₂₂⁻¹=I. The lower-left remains zero. The upper-right is −A₁₂A₂₂⁻¹+A₁₂A₂₂⁻¹=0.', "Kontrollera genom att multiplicera A med den föreslagna inversen. Diagonalblocken blir A₁₁A₁₁⁻¹=I och A₂₂A₂₂⁻¹=I. Blocket nere till vänster förblir noll. Blocket uppe till höger är −A₁₂A₂₂⁻¹+A₁₂A₂₂⁻¹=0."),
+    tr('In the reverse order, the upper-right is A₁₁⁻¹A₁₂−A₁₁⁻¹A₁₂=0 and the other blocks again form the identity. Thus the displayed block matrix is indeed the inverse.', "I omvänd ordning är blocket uppe till höger A₁₁⁻¹A₁₂−A₁₁⁻¹A₁₂=0 och de övriga blocken bildar åter identiteten. Den visade blockmatrisen är alltså verkligen inversen.")
   ], 'A⁻¹=\n[A₁₁⁻¹  −A₁₁⁻¹A₁₂A₂₂⁻¹]\n[   0           A₂₂⁻¹   ].');
   teach('review', '28', [
-    'A consistent system is one with at least one solution. In row-echelon form, inconsistency appears as an equation 0=b with b≠0, represented by a row [0 … 0 | b].',
-    'A pivot position in every coefficient row means each row has a nonzero leading coefficient after elimination. Thus no row can have all zero coefficients.',
-    'Consequently an impossible row [0 … 0 | b] cannot occur, regardless of the right-hand-side values. Each equation can be used to solve for its pivot variable.',
-    'If there are free variables, choose their values and solve for the pivot variables by back-substitution. If there are none, back-substitution fixes every variable. Either way, at least one solution exists.'
-  ], 'The system is consistent for every right-hand side because a coefficient pivot in every row prevents a contradictory zero-coefficient row.');
+    tr('A consistent system is one with at least one solution. In row-echelon form, inconsistency appears as an equation 0=b with b≠0, represented by a row [0 … 0 | b].', "Ett konsistent system har minst en lösning. I trappstegsform visar sig inkonsistens som en ekvation 0=b med b≠0, representerad av en rad [0 … 0 | b]."),
+    tr('A pivot position in every coefficient row means each row has a nonzero leading coefficient after elimination. Thus no row can have all zero coefficients.', "En pivotposition i varje koefficientrad betyder att varje rad har en ledande koefficient som inte är noll efter eliminationen. Ingen rad kan därför ha enbart nollor som koefficienter."),
+    tr('Consequently an impossible row [0 … 0 | b] cannot occur, regardless of the right-hand-side values. Each equation can be used to solve for its pivot variable.', "Därmed kan en omöjlig rad [0 … 0 | b] inte uppstå, oavsett värdena i högerledet. Varje ekvation kan användas för att lösa ut sin pivotvariabel."),
+    tr('If there are free variables, choose their values and solve for the pivot variables by back-substitution. If there are none, back-substitution fixes every variable. Either way, at least one solution exists.', "Om det finns fria variabler väljer du deras värden och löser ut pivotvariablerna genom bakåtsubstitution. Om det inte finns några fria variabler bestämmer bakåtsubstitutionen varje variabel. I båda fallen finns minst en lösning.")
+  ], tr('The system is consistent for every right-hand side because a coefficient pivot in every row prevents a contradictory zero-coefficient row.', "Systemet är konsistent för varje högerled eftersom en koefficientpivot i varje rad förhindrar en motsägelsefull rad med enbart nollor bland koefficienterna."));
   teach('review', '29', [
-    'Three equations mean the coefficient matrix has three rows. Five unknowns mean it has five columns.',
-    'Three pivot columns contain three pivots, and distinct pivots lie in distinct rows. With only three rows available, every row has a pivot.',
-    'Therefore there is no zero-coefficient row that could become an impossible equation 0=b with b≠0. The system is consistent for any right-hand side.',
-    'Of the five variable columns, three are pivot columns and 5−3=2 are free columns. Choose those two variables freely; the pivot variables are determined from them. Over the real numbers this gives infinitely many solutions, described by two parameters.'
-  ], 'The system is consistent and has infinitely many real solutions, with two free parameters.');
+    tr('Three equations mean the coefficient matrix has three rows. Five unknowns mean it has five columns.', "Tre ekvationer betyder att koefficientmatrisen har tre rader. Fem obekanta betyder att den har fem kolumner."),
+    tr('Three pivot columns contain three pivots, and distinct pivots lie in distinct rows. With only three rows available, every row has a pivot.', "Tre pivotkolumner innehåller tre pivoter, och olika pivoter ligger i olika rader. Eftersom det bara finns tre rader har varje rad en pivot."),
+    tr('Therefore there is no zero-coefficient row that could become an impossible equation 0=b with b≠0. The system is consistent for any right-hand side.', "Därför finns ingen rad med enbart nollkoefficienter som skulle kunna bli en omöjlig ekvation 0=b med b≠0. Systemet är konsistent för varje högerled."),
+    tr('Of the five variable columns, three are pivot columns and 5−3=2 are free columns. Choose those two variables freely; the pivot variables are determined from them. Over the real numbers this gives infinitely many solutions, described by two parameters.', "Av de fem variabelkolumnerna är tre pivotkolumner och 5−3=2 fria kolumner. Välj dessa två variabler fritt; pivotvariablerna bestäms av dem. Över de reella talen ger det oändligt många lösningar som beskrivs med två parametrar.")
+  ], tr('The system is consistent and has infinitely many real solutions, with two free parameters.', "Systemet är konsistent och har oändligt många reella lösningar, med två fria parametrar."));
 
   window.EmberMathQuestions = window.EmberMathQuestions || {};
   Object.assign(window.EmberMathQuestions, data);
-})();
+});

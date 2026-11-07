@@ -1,104 +1,105 @@
-(function(){
+(window.EmberMathI18n?.register || ((_id,build)=>build()))('questions-transformations',()=>{
   'use strict';
+  const tr=(en,sv)=>window.EmberMathI18n?.t(en,sv)??en;
   const sets={'1.8':{},'1.9':{}};
   const put=(set,n,text,extra={})=>sets[set][String(n)]={text,...extra};
   const p=(n,text,extra)=>put('1.8',n,text,extra);
   const q=(n,text,extra)=>put('1.9',n,text,extra);
   const matrix=a=>a.map(row=>'['+row.join('  ')+']').join('\n');
-  const domains='Find the domain and codomain of the transformation ';
-  p(1,domains+'Tₐ(x) = Ax.\n(a) A has size 3 × 2.\n(b) A has size 2 × 3.\n(c) A has size 3 × 3.\n(d) A has size 1 × 6.');
-  p(2,domains+'Tₐ(x) = Ax.\n(a) A has size 4 × 5.\n(b) A has size 5 × 4.\n(c) A has size 4 × 4.\n(d) A has size 3 × 1.');
-  p(3,domains+'defined by the equations.\n(a) w₁ = 4x₁ + 5x₂\nw₂ = x₁ − 8x₂\n(b) w₁ = 5x₁ − 7x₂\nw₂ = 6x₁ + x₂\nw₃ = 2x₁ + 3x₂');
-  p(4,domains+'defined by the equations.\n(a) w₁ = x₁ − 4x₂ + 8x₃\nw₂ = −x₁ + 4x₂ + 2x₃\nw₃ = −3x₁ + 2x₂ − 5x₃\n(b) w₁ = 2x₁ + 7x₂ − 4x₃\nw₂ = 4x₁ − 3x₂ + 2x₃');
-  p(5,domains+'defined by the matrix product.\n(a)\n'+matrix([[3,1,2],[6,7,1]])+'\n×\n'+matrix([['x₁'],['x₂'],['x₃']])+'\n(b)\n'+matrix([[2,-1],[4,3],[2,-5]])+'\n×\n'+matrix([['x₁'],['x₂']]));
-  p(6,domains+'defined by the matrix product.\n(a)\n'+matrix([[6,3],[-1,7]])+'\n×\n'+matrix([['x₁'],['x₂']])+'\n(b)\n'+matrix([[2,1,-6],[3,7,-4],[1,0,3]])+'\n×\n'+matrix([['x₁'],['x₂'],['x₃']]));
-  p(7,domains+'T defined by the formula.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂, x₃) = (4x₁ + x₂, x₁ + x₂)');
-  p(8,domains+'T defined by the formula.\n(a) T(x₁, x₂, x₃, x₄) = (x₁, x₂)\n(b) T(x₁, x₂, x₃) = (x₁, x₂ − x₃, x₂)');
-  p(9,domains+'T defined by the formula.\nT(\n'+matrix([['x₁'],['x₂']])+'\n) =\n'+matrix([['4x₁'],['x₁ − x₂'],['3x₂']]));
-  p(10,domains+'T defined by the formula.\nT(\n'+matrix([['x₁'],['x₂'],['x₃']])+'\n) =\n'+matrix([['x₁'],['x₂'],['x₁ − x₃'],[0]]));
-  const standard='Find the standard matrix for the transformation defined by the equations.\n';
+  const domains=tr('Find the domain and codomain of the transformation ',"Bestäm definitionsmängden och målmängden för avbildningen ");
+  p(1,domains+tr('Tₐ(x) = Ax.\n(a) A has size 3 × 2.\n(b) A has size 2 × 3.\n(c) A has size 3 × 3.\n(d) A has size 1 × 6.',"Tₐ(x) = Ax.\n(a) A har storleken 3 × 2.\n(b) A har storleken 2 × 3.\n(c) A har storleken 3 × 3.\n(d) A har storleken 1 × 6."));
+  p(2,domains+tr('Tₐ(x) = Ax.\n(a) A has size 4 × 5.\n(b) A has size 5 × 4.\n(c) A has size 4 × 4.\n(d) A has size 3 × 1.',"Tₐ(x) = Ax.\n(a) A har storleken 4 × 5.\n(b) A har storleken 5 × 4.\n(c) A har storleken 4 × 4.\n(d) A har storleken 3 × 1."));
+  p(3,domains+tr('defined by the equations.\n(a) w₁ = 4x₁ + 5x₂\nw₂ = x₁ − 8x₂\n(b) w₁ = 5x₁ − 7x₂\nw₂ = 6x₁ + x₂\nw₃ = 2x₁ + 3x₂',"som definieras av ekvationerna.\n(a) w₁ = 4x₁ + 5x₂\nw₂ = x₁ − 8x₂\n(b) w₁ = 5x₁ − 7x₂\nw₂ = 6x₁ + x₂\nw₃ = 2x₁ + 3x₂"));
+  p(4,domains+tr('defined by the equations.\n(a) w₁ = x₁ − 4x₂ + 8x₃\nw₂ = −x₁ + 4x₂ + 2x₃\nw₃ = −3x₁ + 2x₂ − 5x₃\n(b) w₁ = 2x₁ + 7x₂ − 4x₃\nw₂ = 4x₁ − 3x₂ + 2x₃',"som definieras av ekvationerna.\n(a) w₁ = x₁ − 4x₂ + 8x₃\nw₂ = −x₁ + 4x₂ + 2x₃\nw₃ = −3x₁ + 2x₂ − 5x₃\n(b) w₁ = 2x₁ + 7x₂ − 4x₃\nw₂ = 4x₁ − 3x₂ + 2x₃"));
+  p(5,domains+tr('defined by the matrix product.\n(a)\n',"som definieras av matrisprodukten.\n(a)\n")+matrix([[3,1,2],[6,7,1]])+'\n×\n'+matrix([['x₁'],['x₂'],['x₃']])+'\n(b)\n'+matrix([[2,-1],[4,3],[2,-5]])+'\n×\n'+matrix([['x₁'],['x₂']]));
+  p(6,domains+tr('defined by the matrix product.\n(a)\n',"som definieras av matrisprodukten.\n(a)\n")+matrix([[6,3],[-1,7]])+'\n×\n'+matrix([['x₁'],['x₂']])+'\n(b)\n'+matrix([[2,1,-6],[3,7,-4],[1,0,3]])+'\n×\n'+matrix([['x₁'],['x₂'],['x₃']]));
+  p(7,domains+tr('T defined by the formula.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂, x₃) = (4x₁ + x₂, x₁ + x₂)',"T som definieras av formeln.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂, x₃) = (4x₁ + x₂, x₁ + x₂)"));
+  p(8,domains+tr('T defined by the formula.\n(a) T(x₁, x₂, x₃, x₄) = (x₁, x₂)\n(b) T(x₁, x₂, x₃) = (x₁, x₂ − x₃, x₂)',"T som definieras av formeln.\n(a) T(x₁, x₂, x₃, x₄) = (x₁, x₂)\n(b) T(x₁, x₂, x₃) = (x₁, x₂ − x₃, x₂)"));
+  p(9,domains+tr('T defined by the formula.\nT(\n',"T som definieras av formeln.\nT(\n")+matrix([['x₁'],['x₂']])+'\n) =\n'+matrix([['4x₁'],['x₁ − x₂'],['3x₂']]));
+  p(10,domains+tr('T defined by the formula.\nT(\n',"T som definieras av formeln.\nT(\n")+matrix([['x₁'],['x₂'],['x₃']])+'\n) =\n'+matrix([['x₁'],['x₂'],['x₁ − x₃'],[0]]));
+  const standard=tr('Find the standard matrix for the transformation defined by the equations.\n',"Bestäm standardmatrisen för avbildningen som definieras av ekvationerna.\n");
   p(11,standard+'(a) w₁ = 2x₁ − 3x₂ + x₃\nw₂ = 3x₁ + 5x₂ − x₃\n(b) w₁ = 7x₁ + 2x₂ − 8x₃\nw₂ = −x₂ + 5x₃\nw₃ = 4x₁ + 7x₂ − x₃');
   p(12,standard+'(a) w₁ = −x₁ + x₂\nw₂ = 3x₁ − 2x₂\nw₃ = 5x₁ − 7x₂\n(b) w₁ = x₁\nw₂ = x₁ + x₂\nw₃ = x₁ + x₂ + x₃\nw₄ = x₁ + x₂ + x₃ + x₄');
-  p(13,'Find the standard matrix for the transformation T defined by the formula.\n(a) T(x₁, x₂) = (x₂, −x₁, x₁ + 3x₂, x₁ − x₂)\n(b) T(x₁, x₂, x₃, x₄) = (7x₁ + 2x₂ − x₃ + x₄, x₂ + x₃, −x₁)\n(c) T(x₁, x₂, x₃) = (0, 0, 0, 0, 0)\n(d) T(x₁, x₂, x₃, x₄) = (x₄, x₁, x₃, x₂, x₁ − x₃)');
-  p(14,'Find the standard matrix for the operator T defined by the formula.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂) = (x₁, x₂)\n(c) T(x₁, x₂, x₃) = (x₁ + 2x₂ + x₃, x₁ + 5x₂, x₃)\n(d) T(x₁, x₂, x₃) = (4x₁, 7x₂, −8x₃)');
-  p(15,'Find the standard matrix for the operator T: ℝ³ → ℝ³ defined by\nw₁ = 3x₁ + 5x₂ − x₃\nw₂ = 4x₁ − x₂ + x₃\nw₃ = 3x₁ + 2x₂ − x₃\nand then compute T(−1, 2, 4) by directly substituting in the equations and then by matrix multiplication.');
-  p(16,'Find the standard matrix for the transformation T: ℝ⁴ → ℝ² defined by\nw₁ = 2x₁ + 3x₂ − 5x₃ − x₄\nw₂ = x₁ − 5x₂ + 2x₃ − 3x₄\nand then compute T(1, −1, 2, 4) by directly substituting in the equations and then by matrix multiplication.');
-  const apply='Find the standard matrix for the transformation and use it to compute T(x). Check your result by substituting directly in the formula for T.\n';
+  p(13,tr('Find the standard matrix for the transformation T defined by the formula.\n(a) T(x₁, x₂) = (x₂, −x₁, x₁ + 3x₂, x₁ − x₂)\n(b) T(x₁, x₂, x₃, x₄) = (7x₁ + 2x₂ − x₃ + x₄, x₂ + x₃, −x₁)\n(c) T(x₁, x₂, x₃) = (0, 0, 0, 0, 0)\n(d) T(x₁, x₂, x₃, x₄) = (x₄, x₁, x₃, x₂, x₁ − x₃)',"Bestäm standardmatrisen för avbildningen T som definieras av formeln.\n(a) T(x₁, x₂) = (x₂, −x₁, x₁ + 3x₂, x₁ − x₂)\n(b) T(x₁, x₂, x₃, x₄) = (7x₁ + 2x₂ − x₃ + x₄, x₂ + x₃, −x₁)\n(c) T(x₁, x₂, x₃) = (0, 0, 0, 0, 0)\n(d) T(x₁, x₂, x₃, x₄) = (x₄, x₁, x₃, x₂, x₁ − x₃)"));
+  p(14,tr('Find the standard matrix for the operator T defined by the formula.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂) = (x₁, x₂)\n(c) T(x₁, x₂, x₃) = (x₁ + 2x₂ + x₃, x₁ + 5x₂, x₃)\n(d) T(x₁, x₂, x₃) = (4x₁, 7x₂, −8x₃)',"Bestäm standardmatrisen för operatorn T som definieras av formeln.\n(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂)\n(b) T(x₁, x₂) = (x₁, x₂)\n(c) T(x₁, x₂, x₃) = (x₁ + 2x₂ + x₃, x₁ + 5x₂, x₃)\n(d) T(x₁, x₂, x₃) = (4x₁, 7x₂, −8x₃)"));
+  p(15,tr('Find the standard matrix for the operator T: ℝ³ → ℝ³ defined by\nw₁ = 3x₁ + 5x₂ − x₃\nw₂ = 4x₁ − x₂ + x₃\nw₃ = 3x₁ + 2x₂ − x₃\nand then compute T(−1, 2, 4) by directly substituting in the equations and then by matrix multiplication.',"Bestäm standardmatrisen för operatorn T: ℝ³ → ℝ³ som definieras av\nw₁ = 3x₁ + 5x₂ − x₃\nw₂ = 4x₁ − x₂ + x₃\nw₃ = 3x₁ + 2x₂ − x₃\noch beräkna sedan T(−1, 2, 4), först genom direkt insättning i ekvationerna och sedan genom matrismultiplikation."));
+  p(16,tr('Find the standard matrix for the transformation T: ℝ⁴ → ℝ² defined by\nw₁ = 2x₁ + 3x₂ − 5x₃ − x₄\nw₂ = x₁ − 5x₂ + 2x₃ − 3x₄\nand then compute T(1, −1, 2, 4) by directly substituting in the equations and then by matrix multiplication.',"Bestäm standardmatrisen för avbildningen T: ℝ⁴ → ℝ² som definieras av\nw₁ = 2x₁ + 3x₂ − 5x₃ − x₄\nw₂ = x₁ − 5x₂ + 2x₃ − 3x₄\noch beräkna sedan T(1, −1, 2, 4), först genom direkt insättning i ekvationerna och sedan genom matrismultiplikation."));
+  const apply=tr('Find the standard matrix for the transformation and use it to compute T(x). Check your result by substituting directly in the formula for T.\n',"Bestäm standardmatrisen för avbildningen och använd den för att beräkna T(x). Kontrollera resultatet genom att sätta in värdena direkt i formeln för T.\n");
   p(17,apply+'(a) T(x₁, x₂) = (−x₁ + x₂, x₂); x = (−1, 4)\n(b) T(x₁, x₂, x₃) = (2x₁ − x₂ + x₃, x₂ + x₃, 0); x = (2, 1, −3)');
   p(18,apply+'(a) T(x₁, x₂) = (2x₁ − x₂, x₁ + x₂); x = (−2, 2)\n(b) T(x₁, x₂, x₃) = (x₁, x₂ − x₃, x₂); x = (1, 0, 5)');
-  const applyMatrix='Find Tₐ(x), and express your answer in matrix form.\n';
+  const applyMatrix=tr('Find Tₐ(x), and express your answer in matrix form.\n',"Bestäm Tₐ(x) och skriv svaret i matrisform.\n");
   p(19,applyMatrix+'(a) A =\n'+matrix([[1,2],[3,4]])+'\nx =\n'+matrix([[3],[-2]])+'\n(b) A =\n'+matrix([[-1,2,0],[3,1,5]])+'\nx =\n'+matrix([[-1],[1],[3]]));
   p(20,applyMatrix+'(a) A =\n'+matrix([[-2,1,4],[3,5,7],[6,0,-1]])+'\nx =\n'+matrix([['x₁'],['x₂'],['x₃']])+'\n(b) A =\n'+matrix([[-1,1],[2,4],[7,8]])+'\nx =\n'+matrix([['x₁'],['x₂']]));
-  const theorem='Referenced Theorem 1.8.2: T: ℝⁿ → ℝᵐ is a matrix transformation if and only if T(u + v) = T(u) + T(v) and T(cu) = cT(u) for all u, v in ℝⁿ and every scalar c.';
-  p(21,'Use Theorem 1.8.2 to show that T is a matrix transformation.\n(a) T(x, y) = (2x + y, x − y)\n(b) T(x₁, x₂, x₃) = (x₁, x₃, x₁ + x₂)\n\n'+theorem);
-  p(22,'Use Theorem 1.8.2 to show that T is a matrix transformation.\n(a) T(x, y, z) = (x + y, y + z, x)\n(b) T(x₁, x₂) = (x₂, x₁)\n\n'+theorem);
-  p(23,'Use Theorem 1.8.2 to show that T is not a matrix transformation.\n(a) T(x, y) = (x², y)\n(b) T(x, y, z) = (x, y, xz)\n\n'+theorem);
-  p(24,'Use Theorem 1.8.2 to show that T is not a matrix transformation.\n(a) T(x, y) = (x, y + 1)\n(b) T(x₁, x₂, x₃) = (x₁, x₂, √x₃)\n\n'+theorem);
-  p(25,'A function of the form f(x) = mx + b is commonly called a “linear function” because the graph of y = mx + b is a line. Is f a matrix transformation on ℝ?');
-  p(26,'Show that T(x, y) = (0, 0) defines a matrix operator on ℝ² but T(x, y) = (1, 1) does not.');
-  const basis='The images of the standard basis vectors for ℝ³ are given for a linear transformation T: ℝ³ → ℝ³. Find the standard matrix for the transformation, and find T(x).\n';
+  const theorem=tr('Referenced Theorem 1.8.2: T: ℝⁿ → ℝᵐ is a matrix transformation if and only if T(u + v) = T(u) + T(v) and T(cu) = cT(u) for all u, v in ℝⁿ and every scalar c.',"Hänvisad sats 1.8.2: T: ℝⁿ → ℝᵐ är en matrisavbildning om och endast om T(u + v) = T(u) + T(v) och T(cu) = cT(u) för alla u, v i ℝⁿ och varje skalär c.");
+  p(21,tr('Use Theorem 1.8.2 to show that T is a matrix transformation.\n(a) T(x, y) = (2x + y, x − y)\n(b) T(x₁, x₂, x₃) = (x₁, x₃, x₁ + x₂)\n\n',"Använd sats 1.8.2 för att visa att T är en matrisavbildning.\n(a) T(x, y) = (2x + y, x − y)\n(b) T(x₁, x₂, x₃) = (x₁, x₃, x₁ + x₂)\n\n")+theorem);
+  p(22,tr('Use Theorem 1.8.2 to show that T is a matrix transformation.\n(a) T(x, y, z) = (x + y, y + z, x)\n(b) T(x₁, x₂) = (x₂, x₁)\n\n',"Använd sats 1.8.2 för att visa att T är en matrisavbildning.\n(a) T(x, y, z) = (x + y, y + z, x)\n(b) T(x₁, x₂) = (x₂, x₁)\n\n")+theorem);
+  p(23,tr('Use Theorem 1.8.2 to show that T is not a matrix transformation.\n(a) T(x, y) = (x², y)\n(b) T(x, y, z) = (x, y, xz)\n\n',"Använd sats 1.8.2 för att visa att T inte är en matrisavbildning.\n(a) T(x, y) = (x², y)\n(b) T(x, y, z) = (x, y, xz)\n\n")+theorem);
+  p(24,tr('Use Theorem 1.8.2 to show that T is not a matrix transformation.\n(a) T(x, y) = (x, y + 1)\n(b) T(x₁, x₂, x₃) = (x₁, x₂, √x₃)\n\n',"Använd sats 1.8.2 för att visa att T inte är en matrisavbildning.\n(a) T(x, y) = (x, y + 1)\n(b) T(x₁, x₂, x₃) = (x₁, x₂, √x₃)\n\n")+theorem);
+  p(25,tr('A function of the form f(x) = mx + b is commonly called a “linear function” because the graph of y = mx + b is a line. Is f a matrix transformation on ℝ?',"En funktion av formen f(x) = mx + b kallas ofta en ”linjär funktion” eftersom grafen y = mx + b är en rät linje. Är f en matrisavbildning på ℝ?"));
+  p(26,tr('Show that T(x, y) = (0, 0) defines a matrix operator on ℝ² but T(x, y) = (1, 1) does not.',"Visa att T(x, y) = (0, 0) definierar en matrisoperator på ℝ² men att T(x, y) = (1, 1) inte gör det."));
+  const basis=tr('The images of the standard basis vectors for ℝ³ are given for a linear transformation T: ℝ³ → ℝ³. Find the standard matrix for the transformation, and find T(x).\n',"Bilderna av standardbasvektorerna för ℝ³ är givna för en linjär avbildning T: ℝ³ → ℝ³. Bestäm avbildningens standardmatris och bestäm T(x).\n");
   p(27,basis+'T(e₁) =\n'+matrix([[1],[3],[0]])+'\nT(e₂) =\n'+matrix([[0],[0],[1]])+'\nT(e₃) =\n'+matrix([[4],[-3],[-1]])+'\nx =\n'+matrix([[2],[1],[0]]));
   p(28,basis+'T(e₁) =\n'+matrix([[2],[1],[3]])+'\nT(e₂) =\n'+matrix([[-3],[-1],[0]])+'\nT(e₃) =\n'+matrix([[1],[0],[2]])+'\nx =\n'+matrix([[3],[2],[1]]));
-  for(const [n,v]of [[29,'(−1, 2)'],[30,'(a, b)']])p(n,'Use matrix multiplication to find the reflection of '+v+' about the\n(a) x-axis.\n(b) y-axis.\n(c) line y = x.');
-  for(const [n,v]of [[31,'(2, −5, 3)'],[32,'(a, b, c)']])p(n,'Use matrix multiplication to find the reflection of '+v+' about the\n(a) xy-plane.\n(b) xz-plane.\n(c) yz-plane.');
-  for(const [n,v]of [[33,'(2, −5)'],[34,'(a, b)']])p(n,'Use matrix multiplication to find the orthogonal projection of '+v+' onto the\n(a) x-axis.\n(b) y-axis.');
-  for(const [n,v]of [[35,'(−2, 1, 3)'],[36,'(a, b, c)']])p(n,'Use matrix multiplication to find the orthogonal projection of '+v+' onto the\n(a) xy-plane.\n(b) xz-plane.\n(c) yz-plane.');
-  p(37,'Use matrix multiplication to find the image of the vector (3, −4) when it is rotated about the origin through an angle of\n(a) θ = 30°.\n(b) θ = −60°.\n(c) θ = 45°.\n(d) θ = 90°.');
-  p(38,'Use matrix multiplication to find the image of the nonzero vector v = (v₁, v₂) when it is rotated about the origin through\n(a) a positive angle α.\n(b) a negative angle −α.');
-  p(39,'Let T: ℝ² → ℝ² be a linear operator for which the images of the standard basis vectors for ℝ² are T(e₁) = (a, b) and T(e₂) = (c, d). Find T(1, 1).');
-  p(40,'Let Tₐ: ℝ² → ℝ² be multiplication by\nA =\n'+matrix([['a','b'],['c','d']])+'\nand let e₁ and e₂ be the standard basis vectors for ℝ². Find the following vectors by inspection.\n(a) Tₐ(ke₁)\n(b) Tₐ(ke₁ + le₂)');
-  p(41,'Let Tₐ: ℝ³ → ℝ³ be multiplication by\nA =\n'+matrix([[-1,3,0],[2,1,2],[4,5,-3]])+'\nand let e₁, e₂, and e₃ be the standard basis vectors for ℝ³. Find the following vectors by inspection.\n(a) Tₐ(e₁), Tₐ(e₂), and Tₐ(e₃)\n(b) Tₐ(e₁ + e₂ + e₃)\n(c) Tₐ(7e₃)');
-  p(42,'For each orthogonal projection operator in Table 4 use the standard matrix to compute T(1, 2, 3), and convince yourself that your result makes sense geometrically.\n\nReferenced Table 4 — Orthogonal projections in ℝ³:\nOnto the xy-plane:\n'+matrix([[1,0,0],[0,1,0],[0,0,0]])+'\nOnto the xz-plane:\n'+matrix([[1,0,0],[0,0,0],[0,0,1]])+'\nOnto the yz-plane:\n'+matrix([[0,0,0],[0,1,0],[0,0,1]]));
-  p(43,'For each reflection operator in Table 2 use the standard matrix to compute T(1, 2, 3), and convince yourself that your result makes sense geometrically.\n\nReferenced Table 2 — Reflections in ℝ³:\nAbout the xy-plane:\n'+matrix([[1,0,0],[0,1,0],[0,0,-1]])+'\nAbout the xz-plane:\n'+matrix([[1,0,0],[0,-1,0],[0,0,1]])+'\nAbout the yz-plane:\n'+matrix([[-1,0,0],[0,1,0],[0,0,1]]));
-  p(44,'If multiplication by A rotates a vector x in the xy-plane through an angle θ, what is the effect of multiplying x by Aᵀ? Explain your reasoning.');
-  p(45,'Find the standard matrix A for the linear transformation T: ℝ² → ℝ² for which\nT(\n'+matrix([[1],[1]])+'\n) =\n'+matrix([[1],[-2]])+'\nT(\n'+matrix([[2],[3]])+'\n) =\n'+matrix([[-2],[5]]));
-  p(46,'Find the standard matrix A for the linear transformation T: ℝ³ → ℝ³ for which\nT(\n'+matrix([[1],[0],[2]])+'\n) =\n'+matrix([[2],[-3],[10]])+'\nT(\n'+matrix([[1],[1],[1]])+'\n) =\n'+matrix([[1],[3],[8]])+'\nT(\n'+matrix([[-3],[-1],[2]])+'\n) =\n'+matrix([[-5],[-11],[7]]));
-  p(47,'Let x₀ be a nonzero column vector in ℝ², and suppose that T: ℝ² → ℝ² is the transformation defined by the formula T(x) = x₀ + Rθx, where Rθ is the standard matrix of the rotation of ℝ² about the origin through the angle θ. Give a geometric description of this transformation. Is it a matrix transformation? Explain.');
-  p(48,'In each part of the accompanying figure, find the standard matrix for the pictured operator.',{figures:[{file:'figure-1-8-ex48.svg',caption:'Section 1.8 · Figure Ex-48',alt:'Three coordinate interchanges. (a) The point (x,y,z) moves to (x,z,y). (b) It moves to (z,y,x). (c) It moves to (y,x,z).'}]});
+  for(const [n,v]of [[29,'(−1, 2)'],[30,'(a, b)']])p(n,tr('Use matrix multiplication to find the reflection of ',"Använd matrismultiplikation för att bestämma spegelbilden av ")+v+tr(' about the\n(a) x-axis.\n(b) y-axis.\n(c) line y = x.'," vid spegling i\n(a) x-axeln.\n(b) y-axeln.\n(c) linjen y = x."));
+  for(const [n,v]of [[31,'(2, −5, 3)'],[32,'(a, b, c)']])p(n,tr('Use matrix multiplication to find the reflection of ',"Använd matrismultiplikation för att bestämma spegelbilden av ")+v+tr(' about the\n(a) xy-plane.\n(b) xz-plane.\n(c) yz-plane.'," vid spegling i\n(a) xy-planet.\n(b) xz-planet.\n(c) yz-planet."));
+  for(const [n,v]of [[33,'(2, −5)'],[34,'(a, b)']])p(n,tr('Use matrix multiplication to find the orthogonal projection of ',"Använd matrismultiplikation för att bestämma den ortogonala projektionen av ")+v+tr(' onto the\n(a) x-axis.\n(b) y-axis.'," på\n(a) x-axeln.\n(b) y-axeln."));
+  for(const [n,v]of [[35,'(−2, 1, 3)'],[36,'(a, b, c)']])p(n,tr('Use matrix multiplication to find the orthogonal projection of ',"Använd matrismultiplikation för att bestämma den ortogonala projektionen av ")+v+tr(' onto the\n(a) xy-plane.\n(b) xz-plane.\n(c) yz-plane.'," på\n(a) xy-planet.\n(b) xz-planet.\n(c) yz-planet."));
+  p(37,tr('Use matrix multiplication to find the image of the vector (3, −4) when it is rotated about the origin through an angle of\n(a) θ = 30°.\n(b) θ = −60°.\n(c) θ = 45°.\n(d) θ = 90°.',"Använd matrismultiplikation för att bestämma bilden av vektorn (3, −4) när den roteras kring origo med vinkeln\n(a) θ = 30°.\n(b) θ = −60°.\n(c) θ = 45°.\n(d) θ = 90°."));
+  p(38,tr('Use matrix multiplication to find the image of the nonzero vector v = (v₁, v₂) when it is rotated about the origin through\n(a) a positive angle α.\n(b) a negative angle −α.',"Använd matrismultiplikation för att bestämma bilden av den nollskilda vektorn v = (v₁, v₂) när den roteras kring origo med\n(a) en positiv vinkel α.\n(b) en negativ vinkel −α."));
+  p(39,tr('Let T: ℝ² → ℝ² be a linear operator for which the images of the standard basis vectors for ℝ² are T(e₁) = (a, b) and T(e₂) = (c, d). Find T(1, 1).',"Låt T: ℝ² → ℝ² vara en linjär operator där bilderna av standardbasvektorerna för ℝ² är T(e₁) = (a, b) och T(e₂) = (c, d). Bestäm T(1, 1)."));
+  p(40,tr('Let Tₐ: ℝ² → ℝ² be multiplication by\nA =\n',"Låt Tₐ: ℝ² → ℝ² vara multiplikation med\nA =\n")+matrix([['a','b'],['c','d']])+tr('\nand let e₁ and e₂ be the standard basis vectors for ℝ². Find the following vectors by inspection.\n(a) Tₐ(ke₁)\n(b) Tₐ(ke₁ + le₂)',"\noch låt e₁ och e₂ vara standardbasvektorerna för ℝ². Bestäm följande vektorer genom direkt avläsning.\n(a) Tₐ(ke₁)\n(b) Tₐ(ke₁ + le₂)"));
+  p(41,tr('Let Tₐ: ℝ³ → ℝ³ be multiplication by\nA =\n',"Låt Tₐ: ℝ³ → ℝ³ vara multiplikation med\nA =\n")+matrix([[-1,3,0],[2,1,2],[4,5,-3]])+tr('\nand let e₁, e₂, and e₃ be the standard basis vectors for ℝ³. Find the following vectors by inspection.\n(a) Tₐ(e₁), Tₐ(e₂), and Tₐ(e₃)\n(b) Tₐ(e₁ + e₂ + e₃)\n(c) Tₐ(7e₃)',"\noch låt e₁, e₂ och e₃ vara standardbasvektorerna för ℝ³. Bestäm följande vektorer genom direkt avläsning.\n(a) Tₐ(e₁), Tₐ(e₂) och Tₐ(e₃)\n(b) Tₐ(e₁ + e₂ + e₃)\n(c) Tₐ(7e₃)"));
+  p(42,tr('For each orthogonal projection operator in Table 4 use the standard matrix to compute T(1, 2, 3), and convince yourself that your result makes sense geometrically.\n\nReferenced Table 4 — Orthogonal projections in ℝ³:\nOnto the xy-plane:\n',"Använd standardmatrisen för varje ortogonal projektionsoperator i tabell 4 för att beräkna T(1, 2, 3). Övertyga dig om att resultatet är rimligt geometriskt.\n\nHänvisad tabell 4 — Ortogonala projektioner i ℝ³:\nPå xy-planet:\n")+matrix([[1,0,0],[0,1,0],[0,0,0]])+tr('\nOnto the xz-plane:\n',"\nPå xz-planet:\n")+matrix([[1,0,0],[0,0,0],[0,0,1]])+tr('\nOnto the yz-plane:\n',"\nPå yz-planet:\n")+matrix([[0,0,0],[0,1,0],[0,0,1]]));
+  p(43,tr('For each reflection operator in Table 2 use the standard matrix to compute T(1, 2, 3), and convince yourself that your result makes sense geometrically.\n\nReferenced Table 2 — Reflections in ℝ³:\nAbout the xy-plane:\n',"Använd standardmatrisen för varje speglingsoperator i tabell 2 för att beräkna T(1, 2, 3). Övertyga dig om att resultatet är rimligt geometriskt.\n\nHänvisad tabell 2 — Speglingar i ℝ³:\nI xy-planet:\n")+matrix([[1,0,0],[0,1,0],[0,0,-1]])+tr('\nAbout the xz-plane:\n',"\nI xz-planet:\n")+matrix([[1,0,0],[0,-1,0],[0,0,1]])+tr('\nAbout the yz-plane:\n',"\nI yz-planet:\n")+matrix([[-1,0,0],[0,1,0],[0,0,1]]));
+  p(44,tr('If multiplication by A rotates a vector x in the xy-plane through an angle θ, what is the effect of multiplying x by Aᵀ? Explain your reasoning.',"Om multiplikation med A roterar en vektor x i xy-planet med vinkeln θ, vad händer då när x multipliceras med Aᵀ? Förklara ditt resonemang."));
+  p(45,tr('Find the standard matrix A for the linear transformation T: ℝ² → ℝ² for which\nT(\n',"Bestäm standardmatrisen A för den linjära avbildningen T: ℝ² → ℝ² där\nT(\n")+matrix([[1],[1]])+'\n) =\n'+matrix([[1],[-2]])+'\nT(\n'+matrix([[2],[3]])+'\n) =\n'+matrix([[-2],[5]]));
+  p(46,tr('Find the standard matrix A for the linear transformation T: ℝ³ → ℝ³ for which\nT(\n',"Bestäm standardmatrisen A för den linjära avbildningen T: ℝ³ → ℝ³ där\nT(\n")+matrix([[1],[0],[2]])+'\n) =\n'+matrix([[2],[-3],[10]])+'\nT(\n'+matrix([[1],[1],[1]])+'\n) =\n'+matrix([[1],[3],[8]])+'\nT(\n'+matrix([[-3],[-1],[2]])+'\n) =\n'+matrix([[-5],[-11],[7]]));
+  p(47,tr('Let x₀ be a nonzero column vector in ℝ², and suppose that T: ℝ² → ℝ² is the transformation defined by the formula T(x) = x₀ + Rθx, where Rθ is the standard matrix of the rotation of ℝ² about the origin through the angle θ. Give a geometric description of this transformation. Is it a matrix transformation? Explain.',"Låt x₀ vara en nollskild kolonnvektor i ℝ² och anta att T: ℝ² → ℝ² definieras av formeln T(x) = x₀ + Rθx, där Rθ är standardmatrisen för rotation av ℝ² kring origo med vinkeln θ. Beskriv avbildningen geometriskt. Är den en matrisavbildning? Förklara."));
+  p(48,tr('In each part of the accompanying figure, find the standard matrix for the pictured operator.',"Bestäm standardmatrisen för den avbildade operatorn i varje del av den tillhörande figuren."),{figures:[{file:'figure-1-8-ex48.svg',caption:tr('Section 1.8 · Figure Ex-48',"Avsnitt 1.8 · Figur Ex-48"),alt:tr('Three coordinate interchanges. (a) The point (x,y,z) moves to (x,z,y). (b) It moves to (z,y,x). (c) It moves to (y,x,z).',"Tre koordinatbyten. (a) Punkten (x,y,z) flyttas till (x,z,y). (b) Den flyttas till (z,y,x). (c) Den flyttas till (y,x,z).")}]});
   const doubleAngle='A =\n'+matrix([['cos²θ − sin²θ','−2 sinθ cosθ'],['2 sinθ cosθ','cos²θ − sin²θ']]);
-  p(49,'In a sentence, describe the geometric effect of multiplying a vector x by the matrix\n'+doubleAngle);
-  p(50,'(a) Prove: If T: ℝⁿ → ℝᵐ is a matrix transformation, then T(0) = 0; that is, T maps the zero vector in ℝⁿ into the zero vector in ℝᵐ.\n(b) The converse of this is not true. Find an example of a mapping T: ℝⁿ → ℝᵐ for which T(0) = 0 but which is not a matrix transformation.');
-  p('TF','In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n(a) If A is a 2 × 3 matrix, then the domain of the transformation Tₐ is ℝ².\n(b) If A is an m × n matrix, then the codomain of the transformation Tₐ is ℝⁿ.\n(c) There is at least one linear transformation T: ℝⁿ → ℝᵐ for which T(2x) = 4T(x) for some vector x in ℝⁿ.\n(d) There are linear transformations from ℝⁿ to ℝᵐ that are not matrix transformations.\n(e) If Tₐ: ℝⁿ → ℝⁿ and if Tₐ(x) = 0 for every vector x in ℝⁿ, then A is the n × n zero matrix.\n(f) There is only one matrix transformation T: ℝⁿ → ℝᵐ such that T(−x) = −T(x) for every vector x in ℝⁿ.\n(g) If b is a nonzero vector in ℝⁿ, then T(x) = x + b is a matrix operator on ℝⁿ.');
+  p(49,tr('In a sentence, describe the geometric effect of multiplying a vector x by the matrix\n',"Beskriv med en mening den geometriska effekten av att multiplicera en vektor x med matrisen\n")+doubleAngle);
+  p(50,tr('(a) Prove: If T: ℝⁿ → ℝᵐ is a matrix transformation, then T(0) = 0; that is, T maps the zero vector in ℝⁿ into the zero vector in ℝᵐ.\n(b) The converse of this is not true. Find an example of a mapping T: ℝⁿ → ℝᵐ for which T(0) = 0 but which is not a matrix transformation.',"(a) Bevisa: Om T: ℝⁿ → ℝᵐ är en matrisavbildning, så är T(0) = 0; det vill säga T avbildar nollvektorn i ℝⁿ på nollvektorn i ℝᵐ.\n(b) Omvändningen gäller inte. Hitta ett exempel på en avbildning T: ℝⁿ → ℝᵐ där T(0) = 0 men som inte är en matrisavbildning."));
+  p('TF',tr('In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n(a) If A is a 2 × 3 matrix, then the domain of the transformation Tₐ is ℝ².\n(b) If A is an m × n matrix, then the codomain of the transformation Tₐ is ℝⁿ.\n(c) There is at least one linear transformation T: ℝⁿ → ℝᵐ for which T(2x) = 4T(x) for some vector x in ℝⁿ.\n(d) There are linear transformations from ℝⁿ to ℝᵐ that are not matrix transformations.\n(e) If Tₐ: ℝⁿ → ℝⁿ and if Tₐ(x) = 0 for every vector x in ℝⁿ, then A is the n × n zero matrix.\n(f) There is only one matrix transformation T: ℝⁿ → ℝᵐ such that T(−x) = −T(x) for every vector x in ℝⁿ.\n(g) If b is a nonzero vector in ℝⁿ, then T(x) = x + b is a matrix operator on ℝⁿ.',"Avgör i delarna (a)–(g) om påståendet är sant eller falskt och motivera svaret.\n(a) Om A är en 2 × 3-matris, så är definitionsmängden för avbildningen Tₐ lika med ℝ².\n(b) Om A är en m × n-matris, så är målmängden för avbildningen Tₐ lika med ℝⁿ.\n(c) Det finns minst en linjär avbildning T: ℝⁿ → ℝᵐ där T(2x) = 4T(x) för någon vektor x i ℝⁿ.\n(d) Det finns linjära avbildningar från ℝⁿ till ℝᵐ som inte är matrisavbildningar.\n(e) Om Tₐ: ℝⁿ → ℝⁿ och Tₐ(x) = 0 för varje vektor x i ℝⁿ, så är A nollmatrisen av storlek n × n.\n(f) Det finns bara en matrisavbildning T: ℝⁿ → ℝᵐ sådan att T(−x) = −T(x) för varje vektor x i ℝⁿ.\n(g) Om b är en nollskild vektor i ℝⁿ, så är T(x) = x + b en matrisoperator på ℝⁿ."));
 
-  const commute='Determine whether the operators T₁ and T₂ commute; that is, whether T₁ ∘ T₂ = T₂ ∘ T₁.\n';
-  q(1,commute+'(a) T₁: ℝ² → ℝ² is the reflection about the line y = x, and T₂: ℝ² → ℝ² is the orthogonal projection onto the x-axis.\n(b) T₁: ℝ² → ℝ² is the reflection about the x-axis, and T₂: ℝ² → ℝ² is the reflection about the line y = x.');
-  q(2,commute+'(a) T₁: ℝ² → ℝ² is the orthogonal projection onto the x-axis, and T₂: ℝ² → ℝ² is the orthogonal projection onto the y-axis.\n(b) T₁: ℝ² → ℝ² is the rotation about the origin through an angle of π/4, and T₂: ℝ² → ℝ² is the reflection about the y-axis.');
-  q(3,commute+'T₁: ℝ³ → ℝ³ is the reflection about the xy-plane and T₂: ℝ³ → ℝ³ is the orthogonal projection onto the yz-plane.');
-  q(4,commute+'T₁: ℝ³ → ℝ³ is the reflection about the xy-plane and T₂: ℝ³ → ℝ³ is given by the formula T(x, y, z) = (2x, 3y, z).');
-  const compose='Let Tₐ and Tᵦ be the operators whose standard matrices are given. Find the standard matrices for Tᵦ ∘ Tₐ and Tₐ ∘ Tᵦ.\n';
+  const commute=tr('Determine whether the operators T₁ and T₂ commute; that is, whether T₁ ∘ T₂ = T₂ ∘ T₁.\n',"Avgör om operatorerna T₁ och T₂ kommuterar, det vill säga om T₁ ∘ T₂ = T₂ ∘ T₁.\n");
+  q(1,commute+tr('(a) T₁: ℝ² → ℝ² is the reflection about the line y = x, and T₂: ℝ² → ℝ² is the orthogonal projection onto the x-axis.\n(b) T₁: ℝ² → ℝ² is the reflection about the x-axis, and T₂: ℝ² → ℝ² is the reflection about the line y = x.',"(a) T₁: ℝ² → ℝ² är spegling i linjen y = x och T₂: ℝ² → ℝ² är ortogonal projektion på x-axeln.\n(b) T₁: ℝ² → ℝ² är spegling i x-axeln och T₂: ℝ² → ℝ² är spegling i linjen y = x."));
+  q(2,commute+tr('(a) T₁: ℝ² → ℝ² is the orthogonal projection onto the x-axis, and T₂: ℝ² → ℝ² is the orthogonal projection onto the y-axis.\n(b) T₁: ℝ² → ℝ² is the rotation about the origin through an angle of π/4, and T₂: ℝ² → ℝ² is the reflection about the y-axis.',"(a) T₁: ℝ² → ℝ² är ortogonal projektion på x-axeln och T₂: ℝ² → ℝ² är ortogonal projektion på y-axeln.\n(b) T₁: ℝ² → ℝ² är rotation kring origo med vinkeln π/4 och T₂: ℝ² → ℝ² är spegling i y-axeln."));
+  q(3,commute+tr('T₁: ℝ³ → ℝ³ is the reflection about the xy-plane and T₂: ℝ³ → ℝ³ is the orthogonal projection onto the yz-plane.',"T₁: ℝ³ → ℝ³ är spegling i xy-planet och T₂: ℝ³ → ℝ³ är ortogonal projektion på yz-planet."));
+  q(4,commute+tr('T₁: ℝ³ → ℝ³ is the reflection about the xy-plane and T₂: ℝ³ → ℝ³ is given by the formula T(x, y, z) = (2x, 3y, z).',"T₁: ℝ³ → ℝ³ är spegling i xy-planet och T₂: ℝ³ → ℝ³ ges av formeln T(x, y, z) = (2x, 3y, z)."));
+  const compose=tr('Let Tₐ and Tᵦ be the operators whose standard matrices are given. Find the standard matrices for Tᵦ ∘ Tₐ and Tₐ ∘ Tᵦ.\n',"Låt Tₐ och Tᵦ vara operatorerna vars standardmatriser är givna. Bestäm standardmatriserna för Tᵦ ∘ Tₐ och Tₐ ∘ Tᵦ.\n");
   q(5,compose+'A =\n'+matrix([[1,-2],[4,1]])+'\nB =\n'+matrix([[2,-3],[5,0]]));
   q(6,compose+'A =\n'+matrix([[6,3,-1],[2,0,1],[4,-3,6]])+'\nB =\n'+matrix([[4,0,4],[-1,5,2],[2,-3,8]]));
-  q(7,'Find the standard matrix for the stated composition in ℝ².\n(a) A rotation of 90°, followed by a reflection about the line y = x.\n(b) An orthogonal projection onto the y-axis, followed by a 45° degree rotation about the origin.\n(c) A reflection about the x-axis, followed by a rotation about the origin of 60°.');
-  q(8,'Find the standard matrix for the stated composition in ℝ².\n(a) A rotation about the origin of 60°, followed by an orthogonal projection onto the x-axis, followed by a reflection about the line y = x.\n(b) An orthogonal projection onto the x-axis, followed by a rotation about the origin of 45°, followed by a reflection about the y-axis.\n(c) A rotation about the origin of 15°, followed by a rotation about the origin of 105°, followed by a rotation about the origin of 60°.');
-  q(9,'Find the standard matrix for the stated composition in ℝ³.\n(a) A reflection about the yz-plane, followed by an orthogonal projection onto the xz-plane.\n(b) A reflection about the xy-plane, followed by an orthogonal projection onto the xy-plane.\n(c) An orthogonal projection onto the xy-plane, followed by a reflection about the yz-plane.');
-  q(10,'Find the standard matrix for the stated composition in ℝ³.\n(a) A reflection about the xy-plane, followed by an orthogonal projection onto the xz-plane, followed by the transformation that sends each vector x to the vector −x.\n(b) A reflection about the xy-plane, followed by a reflection about the xz-plane, followed by an orthogonal projection onto the yz-plane.\n(c) An orthogonal projection onto the yz-plane, followed by the transformation that maps each vector x to the vector 2x, followed by a reflection about the xy-plane.');
-  const pairParts='\n(a) Find the standard matrices for T₁ and T₂.\n(b) Find the standard matrices for T₂ ∘ T₁ and T₁ ∘ T₂.\n(c) Use the matrices obtained in part (b) to find formulas for ';
-  q(11,'Let T₁(x₁, x₂) = (x₁ + x₂, x₁ − x₂) and T₂(x₁, x₂) = (3x₁, 2x₁ + 4x₂).'+pairParts+'T₁(T₂(x₁, x₂)) and T₂(T₁(x₁, x₂)).');
-  q(12,'Let T₁(x₁, x₂, x₃) = (4x₁, −2x₁ + x₂, −x₁ − 3x₂) and T₂(x₁, x₂, x₃) = (x₁ + 2x₂, −x₃, 4x₁ − x₃).'+pairParts+'T₁(T₂(x₁, x₂, x₃)) and T₂(T₁(x₁, x₂, x₃)).');
-  q(13,'Let T₁(x₁, x₂) = (x₁ − x₂, 2x₂ − x₁, 3x₁) and T₂(x₁, x₂, x₃) = (4x₂, x₁ + 2x₂).'+pairParts+'T₁(T₂(x₁, x₂, x₃)) and T₂(T₁(x₁, x₂)).');
-  q(14,'Let T₁(x₁, x₂, x₃, x₄) = (x₁ + 2x₂ + 3x₃, x₂ − x₄) and T₂(x₁, x₂) = (−x₁, 0, x₁ + x₂, 3x₂).'+pairParts+'T₁(T₂(x₁, x₂)) and T₂(T₁(x₁, x₂, x₃, x₄)).');
-  const dimensionParts='\n(a) Find the standard matrices for T₁ and T₂.\n(b) Find the standard matrices for T₂ ∘ T₁.\n(c) Explain why T₁ ∘ T₂ is not defined.\n(d) Use the matrix found in part (b) to find a formula for (T₂ ∘ T₁)(x, y).';
-  q(15,'Let T₁: ℝ² → ℝ⁴ and T₂: ℝ⁴ → ℝ³ be given by:\nT₁(x, y) = (y, x, x + y, x − y)\nT₂(x, y, z, w) = (x + w, y + w, z + w).'+dimensionParts);
-  q(16,'Let T₁: ℝ² → ℝ³ and T₂: ℝ³ → ℝ⁴ be given by:\nT₁(x, y) = (x + 2y, 0, 2x + y)\nT₂(x, y, z) = (3z, x − y, 3z, y − x).'+dimensionParts);
-  const equationInverse='Express the equations in matrix form, and then use Theorem 1.5.3(c) to determine whether the operator defined by the equations is invertible.\n';
+  q(7,tr('Find the standard matrix for the stated composition in ℝ².\n(a) A rotation of 90°, followed by a reflection about the line y = x.\n(b) An orthogonal projection onto the y-axis, followed by a 45° degree rotation about the origin.\n(c) A reflection about the x-axis, followed by a rotation about the origin of 60°.',"Bestäm standardmatrisen för den angivna sammansättningen i ℝ².\n(a) En rotation med 90°, följd av en spegling i linjen y = x.\n(b) En ortogonal projektion på y-axeln, följd av en rotation med 45° kring origo.\n(c) En spegling i x-axeln, följd av en rotation kring origo med 60°."));
+  q(8,tr('Find the standard matrix for the stated composition in ℝ².\n(a) A rotation about the origin of 60°, followed by an orthogonal projection onto the x-axis, followed by a reflection about the line y = x.\n(b) An orthogonal projection onto the x-axis, followed by a rotation about the origin of 45°, followed by a reflection about the y-axis.\n(c) A rotation about the origin of 15°, followed by a rotation about the origin of 105°, followed by a rotation about the origin of 60°.',"Bestäm standardmatrisen för den angivna sammansättningen i ℝ².\n(a) En rotation kring origo med 60°, följd av en ortogonal projektion på x-axeln, följd av en spegling i linjen y = x.\n(b) En ortogonal projektion på x-axeln, följd av en rotation kring origo med 45°, följd av en spegling i y-axeln.\n(c) En rotation kring origo med 15°, följd av en rotation kring origo med 105°, följd av en rotation kring origo med 60°."));
+  q(9,tr('Find the standard matrix for the stated composition in ℝ³.\n(a) A reflection about the yz-plane, followed by an orthogonal projection onto the xz-plane.\n(b) A reflection about the xy-plane, followed by an orthogonal projection onto the xy-plane.\n(c) An orthogonal projection onto the xy-plane, followed by a reflection about the yz-plane.',"Bestäm standardmatrisen för den angivna sammansättningen i ℝ³.\n(a) En spegling i yz-planet, följd av en ortogonal projektion på xz-planet.\n(b) En spegling i xy-planet, följd av en ortogonal projektion på xy-planet.\n(c) En ortogonal projektion på xy-planet, följd av en spegling i yz-planet."));
+  q(10,tr('Find the standard matrix for the stated composition in ℝ³.\n(a) A reflection about the xy-plane, followed by an orthogonal projection onto the xz-plane, followed by the transformation that sends each vector x to the vector −x.\n(b) A reflection about the xy-plane, followed by a reflection about the xz-plane, followed by an orthogonal projection onto the yz-plane.\n(c) An orthogonal projection onto the yz-plane, followed by the transformation that maps each vector x to the vector 2x, followed by a reflection about the xy-plane.',"Bestäm standardmatrisen för den angivna sammansättningen i ℝ³.\n(a) En spegling i xy-planet, följd av en ortogonal projektion på xz-planet, följd av avbildningen som skickar varje vektor x till vektorn −x.\n(b) En spegling i xy-planet, följd av en spegling i xz-planet, följd av en ortogonal projektion på yz-planet.\n(c) En ortogonal projektion på yz-planet, följd av avbildningen som skickar varje vektor x till vektorn 2x, följd av en spegling i xy-planet."));
+  const pairParts=tr('\n(a) Find the standard matrices for T₁ and T₂.\n(b) Find the standard matrices for T₂ ∘ T₁ and T₁ ∘ T₂.\n(c) Use the matrices obtained in part (b) to find formulas for ',"\n(a) Bestäm standardmatriserna för T₁ och T₂.\n(b) Bestäm standardmatriserna för T₂ ∘ T₁ och T₁ ∘ T₂.\n(c) Använd matriserna från del (b) för att bestämma formler för ");
+  q(11,tr('Let T₁(x₁, x₂) = (x₁ + x₂, x₁ − x₂) and T₂(x₁, x₂) = (3x₁, 2x₁ + 4x₂).',"Låt T₁(x₁, x₂) = (x₁ + x₂, x₁ − x₂) och T₂(x₁, x₂) = (3x₁, 2x₁ + 4x₂).")+pairParts+tr('T₁(T₂(x₁, x₂)) and T₂(T₁(x₁, x₂)).',"T₁(T₂(x₁, x₂)) och T₂(T₁(x₁, x₂))."));
+  q(12,tr('Let T₁(x₁, x₂, x₃) = (4x₁, −2x₁ + x₂, −x₁ − 3x₂) and T₂(x₁, x₂, x₃) = (x₁ + 2x₂, −x₃, 4x₁ − x₃).',"Låt T₁(x₁, x₂, x₃) = (4x₁, −2x₁ + x₂, −x₁ − 3x₂) och T₂(x₁, x₂, x₃) = (x₁ + 2x₂, −x₃, 4x₁ − x₃).")+pairParts+tr('T₁(T₂(x₁, x₂, x₃)) and T₂(T₁(x₁, x₂, x₃)).',"T₁(T₂(x₁, x₂, x₃)) och T₂(T₁(x₁, x₂, x₃))."));
+  q(13,tr('Let T₁(x₁, x₂) = (x₁ − x₂, 2x₂ − x₁, 3x₁) and T₂(x₁, x₂, x₃) = (4x₂, x₁ + 2x₂).',"Låt T₁(x₁, x₂) = (x₁ − x₂, 2x₂ − x₁, 3x₁) och T₂(x₁, x₂, x₃) = (4x₂, x₁ + 2x₂).")+pairParts+tr('T₁(T₂(x₁, x₂, x₃)) and T₂(T₁(x₁, x₂)).',"T₁(T₂(x₁, x₂, x₃)) och T₂(T₁(x₁, x₂))."));
+  q(14,tr('Let T₁(x₁, x₂, x₃, x₄) = (x₁ + 2x₂ + 3x₃, x₂ − x₄) and T₂(x₁, x₂) = (−x₁, 0, x₁ + x₂, 3x₂).',"Låt T₁(x₁, x₂, x₃, x₄) = (x₁ + 2x₂ + 3x₃, x₂ − x₄) och T₂(x₁, x₂) = (−x₁, 0, x₁ + x₂, 3x₂).")+pairParts+tr('T₁(T₂(x₁, x₂)) and T₂(T₁(x₁, x₂, x₃, x₄)).',"T₁(T₂(x₁, x₂)) och T₂(T₁(x₁, x₂, x₃, x₄))."));
+  const dimensionParts=tr('\n(a) Find the standard matrices for T₁ and T₂.\n(b) Find the standard matrices for T₂ ∘ T₁.\n(c) Explain why T₁ ∘ T₂ is not defined.\n(d) Use the matrix found in part (b) to find a formula for (T₂ ∘ T₁)(x, y).',"\n(a) Bestäm standardmatriserna för T₁ och T₂.\n(b) Bestäm standardmatrisen för T₂ ∘ T₁.\n(c) Förklara varför T₁ ∘ T₂ inte är definierad.\n(d) Använd matrisen från del (b) för att bestämma en formel för (T₂ ∘ T₁)(x, y).");
+  q(15,tr('Let T₁: ℝ² → ℝ⁴ and T₂: ℝ⁴ → ℝ³ be given by:\nT₁(x, y) = (y, x, x + y, x − y)\nT₂(x, y, z, w) = (x + w, y + w, z + w).',"Låt T₁: ℝ² → ℝ⁴ och T₂: ℝ⁴ → ℝ³ ges av:\nT₁(x, y) = (y, x, x + y, x − y)\nT₂(x, y, z, w) = (x + w, y + w, z + w).")+dimensionParts);
+  q(16,tr('Let T₁: ℝ² → ℝ³ and T₂: ℝ³ → ℝ⁴ be given by:\nT₁(x, y) = (x + 2y, 0, 2x + y)\nT₂(x, y, z) = (3z, x − y, 3z, y − x).',"Låt T₁: ℝ² → ℝ³ och T₂: ℝ³ → ℝ⁴ ges av:\nT₁(x, y) = (x + 2y, 0, 2x + y)\nT₂(x, y, z) = (3z, x − y, 3z, y − x).")+dimensionParts);
+  const equationInverse=tr('Express the equations in matrix form, and then use Theorem 1.5.3(c) to determine whether the operator defined by the equations is invertible.\n',"Skriv ekvationerna i matrisform och använd sedan sats 1.5.3(c) för att avgöra om operatorn som definieras av ekvationerna är inverterbar.\n");
   q(17,equationInverse+'(a) w₁ = 8x₁ + 4x₂\nw₂ = 2x₁ + x₂\n(b) w₁ = −x₁ + 3x₂ + 2x₃\nw₂ = 2x₁ + 4x₃\nw₃ = x₁ + 3x₂ + 6x₃');
   q(18,equationInverse+'(a) w₁ = 2x₁ − 3x₂\nw₂ = 5x₁ + x₂\n(b) w₁ = x₁ + 2x₂ + 3x₃\nw₂ = 2x₁ + 5x₂ + 3x₃\nw₃ = x₁ + 8x₃');
-  q(19,'Determine whether the matrix operator T: ℝ² → ℝ² defined by the equations is invertible; if so, find the standard matrix for the inverse operator, and find T⁻¹(w₁, w₂).\n(a) w₁ = x₁ + 2x₂\nw₂ = −x₁ + x₂\n(b) w₁ = 4x₁ − 6x₂\nw₂ = −2x₁ + 3x₂');
-  q(20,'Determine whether the matrix operator T: ℝ³ → ℝ³ defined by the equations is invertible; if so, find the standard matrix for the inverse operator, and find T⁻¹(w₁, w₂, w₃).\n(a) w₁ = x₁ − 2x₂ + 2x₃\nw₂ = 2x₁ + x₂ + x₃\nw₃ = x₁ + x₂\n(b) w₁ = x₁ − 3x₂ + 4x₃\nw₂ = −x₁ + x₂ + x₃\nw₃ = −2x₂ + 5x₃');
-  const inverseWords='Determine whether the matrix operator is invertible. If so, describe in words the effect of its inverse.\n';
-  q(21,inverseWords+'(a) Reflection about the x-axis in ℝ².\n(b) A 60° rotation about the origin in ℝ².\n(c) Orthogonal projection onto the x-axis in ℝ².');
-  q(22,inverseWords+'(a) Reflection about the line y = x.\n(b) Orthogonal projection onto the y-axis.\n(c) Reflection about the origin.');
-  const inverseImage='Determine whether Tₐ is invertible. If so, compute Tₐ⁻¹(x).\n';
+  q(19,tr('Determine whether the matrix operator T: ℝ² → ℝ² defined by the equations is invertible; if so, find the standard matrix for the inverse operator, and find T⁻¹(w₁, w₂).\n(a) w₁ = x₁ + 2x₂\nw₂ = −x₁ + x₂\n(b) w₁ = 4x₁ − 6x₂\nw₂ = −2x₁ + 3x₂',"Avgör om matrisoperatorn T: ℝ² → ℝ² som definieras av ekvationerna är inverterbar. Bestäm i så fall inversens standardmatris och bestäm T⁻¹(w₁, w₂).\n(a) w₁ = x₁ + 2x₂\nw₂ = −x₁ + x₂\n(b) w₁ = 4x₁ − 6x₂\nw₂ = −2x₁ + 3x₂"));
+  q(20,tr('Determine whether the matrix operator T: ℝ³ → ℝ³ defined by the equations is invertible; if so, find the standard matrix for the inverse operator, and find T⁻¹(w₁, w₂, w₃).\n(a) w₁ = x₁ − 2x₂ + 2x₃\nw₂ = 2x₁ + x₂ + x₃\nw₃ = x₁ + x₂\n(b) w₁ = x₁ − 3x₂ + 4x₃\nw₂ = −x₁ + x₂ + x₃\nw₃ = −2x₂ + 5x₃',"Avgör om matrisoperatorn T: ℝ³ → ℝ³ som definieras av ekvationerna är inverterbar. Bestäm i så fall inversens standardmatris och bestäm T⁻¹(w₁, w₂, w₃).\n(a) w₁ = x₁ − 2x₂ + 2x₃\nw₂ = 2x₁ + x₂ + x₃\nw₃ = x₁ + x₂\n(b) w₁ = x₁ − 3x₂ + 4x₃\nw₂ = −x₁ + x₂ + x₃\nw₃ = −2x₂ + 5x₃"));
+  const inverseWords=tr('Determine whether the matrix operator is invertible. If so, describe in words the effect of its inverse.\n',"Avgör om matrisoperatorn är inverterbar. Beskriv i så fall med ord vad inversen gör.\n");
+  q(21,inverseWords+tr('(a) Reflection about the x-axis in ℝ².\n(b) A 60° rotation about the origin in ℝ².\n(c) Orthogonal projection onto the x-axis in ℝ².',"(a) Spegling i x-axeln i ℝ².\n(b) En rotation med 60° kring origo i ℝ².\n(c) Ortogonal projektion på x-axeln i ℝ²."));
+  q(22,inverseWords+tr('(a) Reflection about the line y = x.\n(b) Orthogonal projection onto the y-axis.\n(c) Reflection about the origin.',"(a) Spegling i linjen y = x.\n(b) Ortogonal projektion på y-axeln.\n(c) Spegling i origo."));
+  const inverseImage=tr('Determine whether Tₐ is invertible. If so, compute Tₐ⁻¹(x).\n',"Avgör om Tₐ är inverterbar. Beräkna i så fall Tₐ⁻¹(x).\n");
   q(23,inverseImage+'(a) A =\n'+matrix([[1,2],[1,1]])+'\nx =\n'+matrix([[1],[2]])+'\n(b) A =\n'+matrix([[1,1],[1,1]])+'\nx =\n'+matrix([[1],[2]]));
   q(24,inverseImage+'(a) A =\n'+matrix([[1,2,0],[1,1,1],[2,3,1]])+'\nx =\n'+matrix([[1],[2],[3]])+'\n(b) A =\n'+matrix([[1,1,0],[0,1,1],[1,0,1]])+'\nx =\n'+matrix([[1],[2],[3]]));
-  const geometricParts='\n(a) What is the geometric effect of applying this transformation to a vector x in ℝ²?\n(b) Express the operator Tₐ as a composition of two linear operators on ℝ².';
-  q(25,'Let Tₐ: ℝ² → ℝ² be multiplication by\nA =\n'+matrix([[0,-1],[-1,0]])+geometricParts);
-  q(26,'Let Tₐ: ℝ² → ℝ² be multiplication by\n'+doubleAngle+geometricParts);
-  q(27,'Prove that the matrix transformations Tₐ and Tᵦ commute if and only if the matrices A and B commute.');
-  q(28,'Let Tₐ and Tᵦ be matrix operators on ℝⁿ. Prove that Tₐ ∘ Tᵦ is invertible if and only if both Tₐ and Tᵦ are invertible.');
-  q(29,'Prove that the matrix operator Tₐ on ℝⁿ is invertible if and only if for every b in ℝⁿ there exists a unique vector x in ℝⁿ such that Tₐ(x) = b.');
-  q('TF','In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n(a) If Tₐ and Tᵦ are matrix operators on ℝⁿ, then Tₐ(Tᵦ(x)) = Tᵦ(Tₐ(x)) for every vector x in ℝⁿ.\n(b) If Tₐ and Tᵦ are matrix operators on ℝⁿ and x is a vector in ℝⁿ, then Tᵦ ∘ Tₐ(x) = BAx.\n(c) A composition of two rotation operators about the origin of ℝ² is another rotation about the origin.\n(d) A composition of two reflection operators in ℝ² is another reflection operator.\n(e) The inverse transformation for a reflection in ℝ² about the line y = x is the reflection about the line y = x.\n(f) The inverse transformation for a 90° rotation about the origin in ℝ² is a 90° rotation about the origin.\n(g) The inverse transformation for a reflection about the origin in ℝ² is a reflection about the origin.');
-  q('T1','(a) Find the standard matrix for the linear operator on ℝ² that performs a counterclockwise rotation of 47° about the origin, followed by a reflection about the y-axis, followed by a counterclockwise rotation of 33° about the origin.\n(b) Find the image of the point (1, 1) under the operator in part (a).');
+  const geometricParts=tr('\n(a) What is the geometric effect of applying this transformation to a vector x in ℝ²?\n(b) Express the operator Tₐ as a composition of two linear operators on ℝ².',"\n(a) Vilken geometrisk effekt får avbildningen på en vektor x i ℝ²?\n(b) Skriv operatorn Tₐ som en sammansättning av två linjära operatorer på ℝ².");
+  q(25,tr('Let Tₐ: ℝ² → ℝ² be multiplication by\nA =\n',"Låt Tₐ: ℝ² → ℝ² vara multiplikation med\nA =\n")+matrix([[0,-1],[-1,0]])+geometricParts);
+  q(26,tr('Let Tₐ: ℝ² → ℝ² be multiplication by\n',"Låt Tₐ: ℝ² → ℝ² vara multiplikation med\n")+doubleAngle+geometricParts);
+  q(27,tr('Prove that the matrix transformations Tₐ and Tᵦ commute if and only if the matrices A and B commute.',"Bevisa att matrisavbildningarna Tₐ och Tᵦ kommuterar om och endast om matriserna A och B kommuterar."));
+  q(28,tr('Let Tₐ and Tᵦ be matrix operators on ℝⁿ. Prove that Tₐ ∘ Tᵦ is invertible if and only if both Tₐ and Tᵦ are invertible.',"Låt Tₐ och Tᵦ vara matrisoperatorer på ℝⁿ. Bevisa att Tₐ ∘ Tᵦ är inverterbar om och endast om både Tₐ och Tᵦ är inverterbara."));
+  q(29,tr('Prove that the matrix operator Tₐ on ℝⁿ is invertible if and only if for every b in ℝⁿ there exists a unique vector x in ℝⁿ such that Tₐ(x) = b.',"Bevisa att matrisoperatorn Tₐ på ℝⁿ är inverterbar om och endast om det för varje b i ℝⁿ finns exakt en vektor x i ℝⁿ sådan att Tₐ(x) = b."));
+  q('TF',tr('In parts (a)–(g) determine whether the statement is true or false, and justify your answer.\n(a) If Tₐ and Tᵦ are matrix operators on ℝⁿ, then Tₐ(Tᵦ(x)) = Tᵦ(Tₐ(x)) for every vector x in ℝⁿ.\n(b) If Tₐ and Tᵦ are matrix operators on ℝⁿ and x is a vector in ℝⁿ, then Tᵦ ∘ Tₐ(x) = BAx.\n(c) A composition of two rotation operators about the origin of ℝ² is another rotation about the origin.\n(d) A composition of two reflection operators in ℝ² is another reflection operator.\n(e) The inverse transformation for a reflection in ℝ² about the line y = x is the reflection about the line y = x.\n(f) The inverse transformation for a 90° rotation about the origin in ℝ² is a 90° rotation about the origin.\n(g) The inverse transformation for a reflection about the origin in ℝ² is a reflection about the origin.',"Avgör i delarna (a)–(g) om påståendet är sant eller falskt och motivera svaret.\n(a) Om Tₐ och Tᵦ är matrisoperatorer på ℝⁿ, så är Tₐ(Tᵦ(x)) = Tᵦ(Tₐ(x)) för varje vektor x i ℝⁿ.\n(b) Om Tₐ och Tᵦ är matrisoperatorer på ℝⁿ och x är en vektor i ℝⁿ, så är Tᵦ ∘ Tₐ(x) = BAx.\n(c) En sammansättning av två rotationsoperatorer kring origo i ℝ² är en annan rotation kring origo.\n(d) En sammansättning av två speglingsoperatorer i ℝ² är en annan speglingsoperator.\n(e) Den inversa avbildningen till spegling i linjen y = x i ℝ² är spegling i linjen y = x.\n(f) Den inversa avbildningen till en rotation med 90° kring origo i ℝ² är en rotation med 90° kring origo.\n(g) Den inversa avbildningen till spegling i origo i ℝ² är spegling i origo."));
+  q('T1',tr('(a) Find the standard matrix for the linear operator on ℝ² that performs a counterclockwise rotation of 47° about the origin, followed by a reflection about the y-axis, followed by a counterclockwise rotation of 33° about the origin.\n(b) Find the image of the point (1, 1) under the operator in part (a).',"(a) Bestäm standardmatrisen för den linjära operator på ℝ² som utför en moturs rotation med 47° kring origo, följd av en spegling i y-axeln, följd av en moturs rotation med 33° kring origo.\n(b) Bestäm bilden av punkten (1, 1) under operatorn i del (a)."));
 
   // Keep the existing exact arithmetic traces, then expand the explanations that
   // need more intermediate work. This script loads after the solution engine.
@@ -121,91 +122,91 @@
     return parts.join('')||'0';
   };
   for(const n of [21,22,23,24,42,43]){
-    const entry=sets['1.8'][n],at=entry.text.indexOf('\n\nReferenced');
+    const entry=sets['1.8'][n],at=entry.text.indexOf(tr('\n\nReferenced',"\n\nHänvisad"));
     if(at!==-1){entry.reference=entry.text.slice(at+2);entry.text=entry.text.slice(0,at);}
   }
   sets['1.8'][48].figures[0].file='figure-1-8-ex48.svg';
-  for(const n of [17,18])sets['1.9'][n].reference='Theorem 1.5.3(c), together with part (a): a square matrix A is invertible exactly when its reduced row echelon form is the identity matrix Iₙ. The identity has 1 on its main diagonal and 0 everywhere else.';
+  for(const n of [17,18])sets['1.9'][n].reference=tr('Theorem 1.5.3(c), together with part (a): a square matrix A is invertible exactly when its reduced row echelon form is the identity matrix Iₙ. The identity has 1 on its main diagonal and 0 everywhere else.',"Sats 1.5.3(c), tillsammans med del (a): en kvadratisk matris A är inverterbar precis när dess reducerade trappstegsform är identitetsmatrisen Iₙ. Identiteten har 1 på huvuddiagonalen och 0 överallt annars.");
 
   const dimensions={1:[[3,2],[2,3],[3,3],[1,6]],2:[[4,5],[5,4],[4,4],[3,1]],3:[[2,2],[3,2]],4:[[3,3],[2,3]],5:[[2,3],[3,2]],6:[[2,2],[3,3]],7:[[2,2],[2,3]],8:[[2,4],[3,3]],9:[[3,2]],10:[[4,3]]};
   for(const [n,parts]of Object.entries(dimensions)){
-    const steps=['A vector is an ordered list of numbers. ℝⁿ means the collection of all lists with n real-number coordinates. The domain describes the allowed inputs; the codomain describes the space in which the outputs are written.',
-      'Count input coordinates first, then output coordinates. For an m × n matrix, the input column must have n entries so multiplication fits, and its m rows produce m output entries. Thus the map goes from ℝⁿ to ℝᵐ.'];
-    parts.forEach(([m,n],i)=>steps.push((parts.length>1?'Part '+letter(i)+': ':'')+'There are '+n+' input coordinates and '+m+' output coordinates. The domain is ℝ^'+n+' and the codomain is ℝ^'+m+'. Writing ℝ^'+n+' → ℝ^'+m+' records input space first, output space second.'));
-    if(+n===7||+n===8)steps.push('Keep every coordinate named in the input, even if the output formula ignores one of them. Ignoring a coordinate does not remove it from the domain.');
-    if(+n===10)steps.push('The fourth output is always 0, but it still occupies a fourth coordinate. The codomain is therefore ℝ⁴; the possible outputs form a smaller subset inside ℝ⁴.');
+    const steps=[tr('A vector is an ordered list of numbers. ℝⁿ means the collection of all lists with n real-number coordinates. The domain describes the allowed inputs; the codomain describes the space in which the outputs are written.',"En vektor är en ordnad lista av tal. ℝⁿ betyder mängden av alla listor med n reella koordinater. Definitionsmängden beskriver tillåtna indata; målmängden beskriver rummet där utdata anges."),
+      tr('Count input coordinates first, then output coordinates. For an m × n matrix, the input column must have n entries so multiplication fits, and its m rows produce m output entries. Thus the map goes from ℝⁿ to ℝᵐ.',"Räkna först antalet koordinater i indata och sedan i utdata. För en m × n-matris måste indatakolonnen ha n element för att multiplikationen ska passa. Matrisens m rader ger m element i utdata. Avbildningen går alltså från ℝⁿ till ℝᵐ.")];
+    parts.forEach(([m,n],i)=>steps.push((parts.length>1?tr('Part ',"Del ")+letter(i)+': ':'')+tr('There are ',"Det finns ")+n+tr(' input coordinates and '," koordinater i indata och ")+m+tr(' output coordinates. The domain is ℝ^'," koordinater i utdata. Definitionsmängden är ℝ^")+n+tr(' and the codomain is ℝ^'," och målmängden är ℝ^")+m+tr('. Writing ℝ^',". Skrivsättet ℝ^")+n+' → ℝ^'+m+tr(' records input space first, output space second.'," anger indatarummet först och utdatarummet sedan.")));
+    if(+n===7||+n===8)steps.push(tr('Keep every coordinate named in the input, even if the output formula ignores one of them. Ignoring a coordinate does not remove it from the domain.',"Behåll varje koordinat som anges i indata, även om utdataformeln inte använder någon av dem. Att en koordinat ignoreras betyder inte att den försvinner ur definitionsmängden."));
+    if(+n===10)steps.push(tr('The fourth output is always 0, but it still occupies a fourth coordinate. The codomain is therefore ℝ⁴; the possible outputs form a smaller subset inside ℝ⁴.',"Den fjärde utdatan är alltid 0, men upptar ändå en fjärde koordinat. Målmängden är därför ℝ⁴; de möjliga bilderna bildar en mindre delmängd inuti ℝ⁴."));
     s(n,steps);
   }
-  for(const n of [11,12,13,14])sets['1.8'][n].steps.push('Check the construction by multiplying each matrix row by the input column. A coefficient 1 copies that coordinate, −1 changes its sign, and 0 ignores it. This reproduces every output formula in the question.');
-  sets['1.8'][15].steps.push('Check by direct substitution, independently of the row layout: T(−1,2,4) = (−3+10−4, −4−2+4, −3+4−4) = (3,−2,−3). Both methods give the same three coordinates.');
-  sets['1.8'][16].steps.push('Check directly in the original equations: w₁ = 2−3−10−4 = −15 and w₂ = 1+5+4−12 = −2. These agree with the matrix product, so T(1,−1,2,4) = (−15,−2).');
-  sets['1.8'][17].steps.push('Check the original formulas: (a) T(−1,4) = (−(−1)+4,4) = (5,4). (b) T(2,1,−3) = (4−1−3,1−3,0) = (0,−2,0).');
-  sets['1.8'][18].steps.push('Check the original formulas: (a) T(−2,2) = (−4−2,−2+2) = (−6,0). (b) T(1,0,5) = (1,0−5,0) = (1,−5,0).');
+  for(const n of [11,12,13,14])sets['1.8'][n].steps.push(tr('Check the construction by multiplying each matrix row by the input column. A coefficient 1 copies that coordinate, −1 changes its sign, and 0 ignores it. This reproduces every output formula in the question.',"Kontrollera konstruktionen genom att multiplicera varje matrisrad med indatakolonnen. Koefficienten 1 kopierar koordinaten, −1 byter dess tecken och 0 ignorerar den. Då återskapas varje utdataformel i frågan."));
+  sets['1.8'][15].steps.push(tr('Check by direct substitution, independently of the row layout: T(−1,2,4) = (−3+10−4, −4−2+4, −3+4−4) = (3,−2,−3). Both methods give the same three coordinates.',"Kontrollera genom direkt insättning, oberoende av hur raderna ställts upp: T(−1,2,4) = (−3+10−4, −4−2+4, −3+4−4) = (3,−2,−3). Båda metoderna ger samma tre koordinater."));
+  sets['1.8'][16].steps.push(tr('Check directly in the original equations: w₁ = 2−3−10−4 = −15 and w₂ = 1+5+4−12 = −2. These agree with the matrix product, so T(1,−1,2,4) = (−15,−2).',"Kontrollera direkt i de ursprungliga ekvationerna: w₁ = 2−3−10−4 = −15 och w₂ = 1+5+4−12 = −2. Dessa stämmer med matrisprodukten, så T(1,−1,2,4) = (−15,−2)."));
+  sets['1.8'][17].steps.push(tr('Check the original formulas: (a) T(−1,4) = (−(−1)+4,4) = (5,4). (b) T(2,1,−3) = (4−1−3,1−3,0) = (0,−2,0).',"Kontrollera de ursprungliga formlerna: (a) T(−1,4) = (−(−1)+4,4) = (5,4). (b) T(2,1,−3) = (4−1−3,1−3,0) = (0,−2,0)."));
+  sets['1.8'][18].steps.push(tr('Check the original formulas: (a) T(−2,2) = (−4−2,−2+2) = (−6,0). (b) T(1,0,5) = (1,0−5,0) = (1,−5,0).',"Kontrollera de ursprungliga formlerna: (a) T(−2,2) = (−4−2,−2+2) = (−6,0). (b) T(1,0,5) = (1,0−5,0) = (1,−5,0)."));
   s(19,[
-    'Tₐ(x) means multiply A by the input column x. Each output entry is the sum of the products of matching entries in one row of A and the column x.',
-    'Part a, first output: 1 × 3 + 2 × (−2) = 3−4 = −1. Second output: 3 × 3 + 4 × (−2) = 9−8 = 1.',
-    'Part b, first output: (−1) × (−1) + 2 × 1 + 0 × 3 = 1+2+0 = 3. Second output: 3 × (−1) + 1 × 1 + 5 × 3 = −3+1+15 = 13.',
-    'Place the outputs in a column, in the same order as the matrix rows. Each original matrix has two rows, so each answer must have exactly two entries.'
+    tr('Tₐ(x) means multiply A by the input column x. Each output entry is the sum of the products of matching entries in one row of A and the column x.',"Tₐ(x) betyder att A multipliceras med indatakolonnen x. Varje element i utdata är summan av produkterna av motsvarande element i en rad av A och kolonnen x."),
+    tr('Part a, first output: 1 × 3 + 2 × (−2) = 3−4 = −1. Second output: 3 × 3 + 4 × (−2) = 9−8 = 1.',"Del a, första utdatan: 1 × 3 + 2 × (−2) = 3−4 = −1. Andra utdatan: 3 × 3 + 4 × (−2) = 9−8 = 1."),
+    tr('Part b, first output: (−1) × (−1) + 2 × 1 + 0 × 3 = 1+2+0 = 3. Second output: 3 × (−1) + 1 × 1 + 5 × 3 = −3+1+15 = 13.',"Del b, första utdatan: (−1) × (−1) + 2 × 1 + 0 × 3 = 1+2+0 = 3. Andra utdatan: 3 × (−1) + 1 × 1 + 5 × 3 = −3+1+15 = 13."),
+    tr('Place the outputs in a column, in the same order as the matrix rows. Each original matrix has two rows, so each answer must have exactly two entries.',"Placera utdata i en kolonn, i samma ordning som matrisraderna. Varje ursprunglig matris har två rader, så varje svar måste ha exakt två element.")
   ],'(a) Tₐ(x) =\n'+col([-1,1])+'\n(b) Tₐ(x) =\n'+col([3,13]));
   s(20,[
-    'The input coordinates are symbols because we want one formula that works for every input. Multiply each row by the input column; do not choose particular values for x₁, x₂ or x₃.',
-    'Part a, row 1: (−2)x₁ + 1x₂ + 4x₃ = −2x₁+x₂+4x₃.',
-    'Part a, row 2: 3x₁+5x₂+7x₃. Row 3: 6x₁+0x₂−x₃ = 6x₁−x₃.',
-    'Part b, row 1: (−1)x₁+1x₂ = −x₁+x₂. Row 2: 2x₁+4x₂. Row 3: 7x₁+8x₂.',
-    'Write one output per row in a column matrix. Check the sizes: a 3 × 3 matrix times a 3-entry column and a 3 × 2 matrix times a 2-entry column both produce a 3-entry column.'
+    tr('The input coordinates are symbols because we want one formula that works for every input. Multiply each row by the input column; do not choose particular values for x₁, x₂ or x₃.',"Indatakoordinaterna är symboler eftersom vi vill ha en formel som fungerar för varje indata. Multiplicera varje rad med indatakolonnen; välj inga särskilda värden för x₁, x₂ eller x₃."),
+    tr('Part a, row 1: (−2)x₁ + 1x₂ + 4x₃ = −2x₁+x₂+4x₃.',"Del a, rad 1: (−2)x₁ + 1x₂ + 4x₃ = −2x₁+x₂+4x₃."),
+    tr('Part a, row 2: 3x₁+5x₂+7x₃. Row 3: 6x₁+0x₂−x₃ = 6x₁−x₃.',"Del a, rad 2: 3x₁+5x₂+7x₃. Rad 3: 6x₁+0x₂−x₃ = 6x₁−x₃."),
+    tr('Part b, row 1: (−1)x₁+1x₂ = −x₁+x₂. Row 2: 2x₁+4x₂. Row 3: 7x₁+8x₂.',"Del b, rad 1: (−1)x₁+1x₂ = −x₁+x₂. Rad 2: 2x₁+4x₂. Rad 3: 7x₁+8x₂."),
+    tr('Write one output per row in a column matrix. Check the sizes: a 3 × 3 matrix times a 3-entry column and a 3 × 2 matrix times a 2-entry column both produce a 3-entry column.',"Skriv ett utdatavärde per rad i en kolonnmatris. Kontrollera storlekarna: en 3 × 3-matris gånger en kolonn med 3 element och en 3 × 2-matris gånger en kolonn med 2 element ger båda en kolonn med 3 element.")
   ],'(a) Tₐ(x) =\n'+col(['−2x₁+x₂+4x₃','3x₁+5x₂+7x₃','6x₁−x₃'])+'\n(b) Tₐ(x) =\n'+col(['−x₁+x₂','2x₁+4x₂','7x₁+8x₂']));
   s(21,[
-    'Theorem 1.8.2 gives two tests: adding inputs must add their outputs, and multiplying an input by any real number c must multiply its output by c. We must prove these for arbitrary inputs, not just a few examples.',
-    'Part a: let u=(u₁,u₂) and v=(v₁,v₂). Then T(u+v) = (2(u₁+v₁)+(u₂+v₂), (u₁+v₁)−(u₂+v₂)).',
-    'Expand and regroup: T(u+v) = (2u₁+u₂,u₁−u₂) + (2v₁+v₂,v₁−v₂) = T(u)+T(v). This proves the addition test.',
-    'For any scalar c, T(cu) = (2cu₁+cu₂,cu₁−cu₂) = c(2u₁+u₂,u₁−u₂) = cT(u). Both tests hold, so part a is a matrix transformation.',
-    'Part b: let u=(u₁,u₂,u₃) and v=(v₁,v₂,v₃). Substitution gives T(u+v) = (u₁+v₁,u₃+v₃,u₁+v₁+u₂+v₂).',
-    'Group the u-terms and v-terms: T(u+v) = (u₁,u₃,u₁+u₂)+(v₁,v₃,v₁+v₂) = T(u)+T(v).',
-    'Also T(cu) = (cu₁,cu₃,cu₁+cu₂) = c(u₁,u₃,u₁+u₂) = cT(u). Thus part b also passes both tests.',
-    'As a check, put the coefficients of each output into a row. The resulting standard matrices reproduce the two given formulas.'
-  ],'(a) Matrix transformation; A =\n'+matrix([[2,1],[1,-1]])+'\n(b) Matrix transformation; A =\n'+matrix([[1,0,0],[0,0,1],[1,1,0]]));
+    tr('Theorem 1.8.2 gives two tests: adding inputs must add their outputs, and multiplying an input by any real number c must multiply its output by c. We must prove these for arbitrary inputs, not just a few examples.',"Sats 1.8.2 ger två test: när indata adderas ska deras utdata adderas, och när indata multipliceras med ett godtyckligt reellt tal c ska utdatan multipliceras med c. Vi måste bevisa detta för godtyckliga indata, inte bara några exempel."),
+    tr('Part a: let u=(u₁,u₂) and v=(v₁,v₂). Then T(u+v) = (2(u₁+v₁)+(u₂+v₂), (u₁+v₁)−(u₂+v₂)).',"Del a: låt u=(u₁,u₂) och v=(v₁,v₂). Då är T(u+v) = (2(u₁+v₁)+(u₂+v₂), (u₁+v₁)−(u₂+v₂))."),
+    tr('Expand and regroup: T(u+v) = (2u₁+u₂,u₁−u₂) + (2v₁+v₂,v₁−v₂) = T(u)+T(v). This proves the addition test.',"Utveckla och gruppera om: T(u+v) = (2u₁+u₂,u₁−u₂) + (2v₁+v₂,v₁−v₂) = T(u)+T(v). Detta bevisar additionsvillkoret."),
+    tr('For any scalar c, T(cu) = (2cu₁+cu₂,cu₁−cu₂) = c(2u₁+u₂,u₁−u₂) = cT(u). Both tests hold, so part a is a matrix transformation.',"För varje skalär c gäller T(cu) = (2cu₁+cu₂,cu₁−cu₂) = c(2u₁+u₂,u₁−u₂) = cT(u). Båda villkoren gäller, så del a är en matrisavbildning."),
+    tr('Part b: let u=(u₁,u₂,u₃) and v=(v₁,v₂,v₃). Substitution gives T(u+v) = (u₁+v₁,u₃+v₃,u₁+v₁+u₂+v₂).',"Del b: låt u=(u₁,u₂,u₃) och v=(v₁,v₂,v₃). Insättning ger T(u+v) = (u₁+v₁,u₃+v₃,u₁+v₁+u₂+v₂)."),
+    tr('Group the u-terms and v-terms: T(u+v) = (u₁,u₃,u₁+u₂)+(v₁,v₃,v₁+v₂) = T(u)+T(v).',"Gruppera u-termerna och v-termerna: T(u+v) = (u₁,u₃,u₁+u₂)+(v₁,v₃,v₁+v₂) = T(u)+T(v)."),
+    tr('Also T(cu) = (cu₁,cu₃,cu₁+cu₂) = c(u₁,u₃,u₁+u₂) = cT(u). Thus part b also passes both tests.',"Dessutom är T(cu) = (cu₁,cu₃,cu₁+cu₂) = c(u₁,u₃,u₁+u₂) = cT(u). Därmed klarar även del b båda testen."),
+    tr('As a check, put the coefficients of each output into a row. The resulting standard matrices reproduce the two given formulas.',"Kontrollera genom att lägga koefficienterna för varje utdata i en rad. De standardmatriser som då bildas återskapar de två givna formlerna.")
+  ],tr('(a) Matrix transformation; A =\n',"(a) Matrisavbildning; A =\n")+matrix([[2,1],[1,-1]])+tr('\n(b) Matrix transformation; A =\n',"\n(b) Matrisavbildning; A =\n")+matrix([[1,0,0],[0,0,1],[1,1,0]]));
   s(22,[
-    'Use both parts of Theorem 1.8.2: T(u+v)=T(u)+T(v), and T(cu)=cT(u), for every input pair and scalar c. Here a scalar is simply a real number multiplying a vector.',
-    'Part a: take u=(u₁,u₂,u₃), v=(v₁,v₂,v₃). Then T(u+v) = (u₁+v₁+u₂+v₂,u₂+v₂+u₃+v₃,u₁+v₁).',
-    'Regroup each coordinate: T(u+v) = (u₁+u₂,u₂+u₃,u₁)+(v₁+v₂,v₂+v₃,v₁) = T(u)+T(v).',
-    'Next T(cu) = (cu₁+cu₂,cu₂+cu₃,cu₁) = c(u₁+u₂,u₂+u₃,u₁) = cT(u). Therefore part a is a matrix transformation.',
-    'Part b: take u=(u₁,u₂), v=(v₁,v₂). Swapping the coordinates of u+v gives T(u+v) = (u₂+v₂,u₁+v₁) = (u₂,u₁)+(v₂,v₁) = T(u)+T(v).',
-    'Swapping the coordinates of cu gives T(cu) = (cu₂,cu₁) = c(u₂,u₁) = cT(u). Therefore part b is also a matrix transformation.',
-    'Check by reading the coefficients of the outputs into rows: multiplying the final matrices by their input columns recovers the original formulas.'
-  ],'(a) Matrix transformation; A =\n'+matrix([[1,1,0],[0,1,1],[1,0,0]])+'\n(b) Matrix transformation; A =\n'+matrix([[0,1],[1,0]]));
+    tr('Use both parts of Theorem 1.8.2: T(u+v)=T(u)+T(v), and T(cu)=cT(u), for every input pair and scalar c. Here a scalar is simply a real number multiplying a vector.',"Använd båda delarna av sats 1.8.2: T(u+v)=T(u)+T(v) och T(cu)=cT(u), för varje par av indata och varje skalär c. En skalär är här helt enkelt ett reellt tal som multiplicerar en vektor."),
+    tr('Part a: take u=(u₁,u₂,u₃), v=(v₁,v₂,v₃). Then T(u+v) = (u₁+v₁+u₂+v₂,u₂+v₂+u₃+v₃,u₁+v₁).',"Del a: välj u=(u₁,u₂,u₃), v=(v₁,v₂,v₃). Då är T(u+v) = (u₁+v₁+u₂+v₂,u₂+v₂+u₃+v₃,u₁+v₁)."),
+    tr('Regroup each coordinate: T(u+v) = (u₁+u₂,u₂+u₃,u₁)+(v₁+v₂,v₂+v₃,v₁) = T(u)+T(v).',"Gruppera om varje koordinat: T(u+v) = (u₁+u₂,u₂+u₃,u₁)+(v₁+v₂,v₂+v₃,v₁) = T(u)+T(v)."),
+    tr('Next T(cu) = (cu₁+cu₂,cu₂+cu₃,cu₁) = c(u₁+u₂,u₂+u₃,u₁) = cT(u). Therefore part a is a matrix transformation.',"Sedan är T(cu) = (cu₁+cu₂,cu₂+cu₃,cu₁) = c(u₁+u₂,u₂+u₃,u₁) = cT(u). Därför är del a en matrisavbildning."),
+    tr('Part b: take u=(u₁,u₂), v=(v₁,v₂). Swapping the coordinates of u+v gives T(u+v) = (u₂+v₂,u₁+v₁) = (u₂,u₁)+(v₂,v₁) = T(u)+T(v).',"Del b: välj u=(u₁,u₂), v=(v₁,v₂). Om koordinaterna i u+v byter plats får vi T(u+v) = (u₂+v₂,u₁+v₁) = (u₂,u₁)+(v₂,v₁) = T(u)+T(v)."),
+    tr('Swapping the coordinates of cu gives T(cu) = (cu₂,cu₁) = c(u₂,u₁) = cT(u). Therefore part b is also a matrix transformation.',"Om koordinaterna i cu byter plats får vi T(cu) = (cu₂,cu₁) = c(u₂,u₁) = cT(u). Därför är även del b en matrisavbildning."),
+    tr('Check by reading the coefficients of the outputs into rows: multiplying the final matrices by their input columns recovers the original formulas.',"Kontrollera genom att läsa av utdatans koefficienter radvis: multiplicera de slutliga matriserna med deras indatakolonner så återfås de ursprungliga formlerna.")
+  ],tr('(a) Matrix transformation; A =\n',"(a) Matrisavbildning; A =\n")+matrix([[1,1,0],[0,1,1],[1,0,0]])+tr('\n(b) Matrix transformation; A =\n',"\n(b) Matrisavbildning; A =\n")+matrix([[0,1],[1,0]]));
   s(23,[
-    'A matrix transformation must satisfy T(cu)=cT(u) for every c and u. One counterexample is enough to prove that a proposed transformation fails this requirement.',
-    'Part a: choose u=(1,0) and c=2. First transform u: T(1,0)=(1²,0)=(1,0). Doubling this output gives 2T(u)=(2,0).',
-    'Now double the input first: 2u=(2,0), so T(2u)=(2²,0)=(4,0). Since (4,0) is not (2,0), the scalar test fails.',
-    'Part b: choose u=(1,0,1) and c=2. T(u)=(1,0,1×1)=(1,0,1), so 2T(u)=(2,0,2).',
-    'But T(2u)=T(2,0,2)=(2,0,2×2)=(2,0,4). The last coordinates differ: 4≠2. Part b fails the same test.'
-  ],'Neither (a) nor (b) is a matrix transformation.');
+    tr('A matrix transformation must satisfy T(cu)=cT(u) for every c and u. One counterexample is enough to prove that a proposed transformation fails this requirement.',"En matrisavbildning måste uppfylla T(cu)=cT(u) för varje c och u. Ett enda motexempel räcker för att bevisa att en föreslagen avbildning inte uppfyller kravet."),
+    tr('Part a: choose u=(1,0) and c=2. First transform u: T(1,0)=(1²,0)=(1,0). Doubling this output gives 2T(u)=(2,0).',"Del a: välj u=(1,0) och c=2. Avbilda först u: T(1,0)=(1²,0)=(1,0). Fördubbla denna utdata: 2T(u)=(2,0)."),
+    tr('Now double the input first: 2u=(2,0), so T(2u)=(2²,0)=(4,0). Since (4,0) is not (2,0), the scalar test fails.',"Fördubbla nu i stället indatan först: 2u=(2,0), så T(2u)=(2²,0)=(4,0). Eftersom (4,0) inte är (2,0) uppfylls inte skalärvillkoret."),
+    tr('Part b: choose u=(1,0,1) and c=2. T(u)=(1,0,1×1)=(1,0,1), so 2T(u)=(2,0,2).',"Del b: välj u=(1,0,1) och c=2. T(u)=(1,0,1×1)=(1,0,1), så 2T(u)=(2,0,2)."),
+    tr('But T(2u)=T(2,0,2)=(2,0,2×2)=(2,0,4). The last coordinates differ: 4≠2. Part b fails the same test.',"Men T(2u)=T(2,0,2)=(2,0,2×2)=(2,0,4). De sista koordinaterna skiljer sig: 4≠2. Del b misslyckas med samma test.")
+  ],tr('Neither (a) nor (b) is a matrix transformation.',"Varken (a) eller (b) är en matrisavbildning."));
   s(24,[
-    'A matrix transformation must pass the scalar test T(cu)=cT(u). Putting c=0 shows in particular that every matrix transformation must take the zero vector to the zero vector.',
-    'Part a: T(0,0)=(0,0+1)=(0,1). This is not (0,0), so the zero-input test fails. Equivalently, T(2(0,0))=(0,1) whereas 2T(0,0)=(0,2).',
-    'Part b: choose u=(0,0,1) and c=4, so that both square roots are real. T(u)=(0,0,1), and therefore 4T(u)=(0,0,4).',
-    'Transform the multiplied input instead: T(4u)=T(0,0,4)=(0,0,√4)=(0,0,2). Since 2≠4, the scalar test fails.',
-    'There is a further domain problem in part b: √x₃ is not a real number for negative x₃, so the displayed rule cannot define a real-valued transformation on all of ℝ³. The positive-input counterexample already proves the required failure of linearity.'
-  ],'Neither (a) nor (b) is a matrix transformation.');
+    tr('A matrix transformation must pass the scalar test T(cu)=cT(u). Putting c=0 shows in particular that every matrix transformation must take the zero vector to the zero vector.',"En matrisavbildning måste klara skalärtestet T(cu)=cT(u). Sätt c=0; då ser vi särskilt att varje matrisavbildning måste avbilda nollvektorn på nollvektorn."),
+    tr('Part a: T(0,0)=(0,0+1)=(0,1). This is not (0,0), so the zero-input test fails. Equivalently, T(2(0,0))=(0,1) whereas 2T(0,0)=(0,2).',"Del a: T(0,0)=(0,0+1)=(0,1). Detta är inte (0,0), så testet med nollindata misslyckas. Samma sak syns genom att T(2(0,0))=(0,1) medan 2T(0,0)=(0,2)."),
+    tr('Part b: choose u=(0,0,1) and c=4, so that both square roots are real. T(u)=(0,0,1), and therefore 4T(u)=(0,0,4).',"Del b: välj u=(0,0,1) och c=4 så att båda kvadratrötterna är reella. T(u)=(0,0,1), och därför är 4T(u)=(0,0,4)."),
+    tr('Transform the multiplied input instead: T(4u)=T(0,0,4)=(0,0,√4)=(0,0,2). Since 2≠4, the scalar test fails.',"Avbilda i stället den multiplicerade indatan: T(4u)=T(0,0,4)=(0,0,√4)=(0,0,2). Eftersom 2≠4 misslyckas skalärtestet."),
+    tr('There is a further domain problem in part b: √x₃ is not a real number for negative x₃, so the displayed rule cannot define a real-valued transformation on all of ℝ³. The positive-input counterexample already proves the required failure of linearity.',"Del b har också ett problem med definitionsmängden: √x₃ är inte ett reellt tal när x₃ är negativt, så den angivna regeln kan inte definiera en reellvärd avbildning på hela ℝ³. Motexemplet med positiv indata bevisar redan att avbildningen inte är linjär.")
+  ],tr('Neither (a) nor (b) is a matrix transformation.',"Varken (a) eller (b) är en matrisavbildning."));
   s(25,[
-    'A matrix transformation on ℝ uses a 1 × 1 matrix, say [a]. Its output is ax. There is no extra constant term.',
-    'Test zero in the given rule: f(0)=m×0+b=b. Every matrix transformation sends 0 to 0, so b must equal 0.',
-    'Conversely, when b=0, f(x)=mx=[m]x for every real x. This explicitly supplies the required matrix.',
-    'A straight-line graph can have a nonzero intercept b. In linear algebra, a linear transformation must also preserve the origin; this is why the two uses of “linear” differ here.'
-  ],'f is a matrix transformation if and only if b=0. In that case its standard matrix is [m].');
+    tr('A matrix transformation on ℝ uses a 1 × 1 matrix, say [a]. Its output is ax. There is no extra constant term.',"En matrisavbildning på ℝ använder en 1 × 1-matris, exempelvis [a]. Dess utdata är ax. Det finns ingen extra konstantterm."),
+    tr('Test zero in the given rule: f(0)=m×0+b=b. Every matrix transformation sends 0 to 0, so b must equal 0.',"Testa noll i den givna regeln: f(0)=m×0+b=b. Varje matrisavbildning skickar 0 till 0, så b måste vara 0."),
+    tr('Conversely, when b=0, f(x)=mx=[m]x for every real x. This explicitly supplies the required matrix.',"Omvänt, när b=0 är f(x)=mx=[m]x för varje reellt x. Där har vi uttryckligen den matris som behövs."),
+    tr('A straight-line graph can have a nonzero intercept b. In linear algebra, a linear transformation must also preserve the origin; this is why the two uses of “linear” differ here.',"En rät linje kan skära y-axeln vid ett nollskilt värde b. I linjär algebra måste en linjär avbildning också bevara origo; därför skiljer sig de två användningarna av ordet ”linjär” här.")
+  ],tr('f is a matrix transformation if and only if b=0. In that case its standard matrix is [m].',"f är en matrisavbildning om och endast om b=0. I så fall är standardmatrisen [m]."));
   s(26,[
-    'To show the first rule is a matrix operator, construct a matrix that produces it for every input. Use the 2 × 2 zero matrix.',
-    'Its product with (x,y) is (0x+0y,0x+0y)=(0,0). Thus the zero-output rule is exactly matrix multiplication.',
-    'For the second rule, test input (0,0). It produces (1,1). But multiplying any matrix by a zero column gives a zero column, because every product in each row is zero.',
-    'Therefore no matrix can produce the constant nonzero output (1,1) for all inputs.'
-  ],'T(x,y)=(0,0) has matrix\n'+matrix([[0,0],[0,0]])+'\nT(x,y)=(1,1) is not a matrix operator.');
+    tr('To show the first rule is a matrix operator, construct a matrix that produces it for every input. Use the 2 × 2 zero matrix.',"För att visa att den första regeln är en matrisoperator konstruerar vi en matris som ger regeln för varje indata. Använd nollmatrisen av storlek 2 × 2."),
+    tr('Its product with (x,y) is (0x+0y,0x+0y)=(0,0). Thus the zero-output rule is exactly matrix multiplication.',"Dess produkt med (x,y) är (0x+0y,0x+0y)=(0,0). Regeln som alltid ger noll är alltså exakt matrismultiplikation."),
+    tr('For the second rule, test input (0,0). It produces (1,1). But multiplying any matrix by a zero column gives a zero column, because every product in each row is zero.',"Testa indatan (0,0) i den andra regeln. Den ger (1,1). Men vilken matris som helst multiplicerad med en nollkolonn ger en nollkolonn, eftersom varje produkt i varje rad är noll."),
+    tr('Therefore no matrix can produce the constant nonzero output (1,1) for all inputs.',"Ingen matris kan därför ge den konstanta nollskilda utdatan (1,1) för alla indata.")
+  ],tr('T(x,y)=(0,0) has matrix\n',"T(x,y)=(0,0) har matrisen\n")+matrix([[0,0],[0,0]])+tr('\nT(x,y)=(1,1) is not a matrix operator.',"\nT(x,y)=(1,1) är inte en matrisoperator."));
   for(const [n,a,v]of [[27,[[1,0,4],[3,0,-3],[0,1,-1]],[2,1,0]],[28,[[2,-3,1],[1,-1,0],[3,0,2]],[3,2,1]]]){
     const out=mul(a,v.map(x=>[x])).map(r=>r[0]);
-    s(n,['The standard basis vectors are e₁=(1,0,0), e₂=(0,1,0), e₃=(0,0,1). Multiplying A by eⱼ selects column j, so the given T(e₁), T(e₂), T(e₃) must become the first, second and third columns.',
-      'Place the given output columns side by side, without rearranging their entries:\nA =\n'+matrix(a),
-      'The input is '+tuple(v)+' = '+v[0]+'e₁ + '+v[1]+'e₂ + '+v[2]+'e₃. By linearity, T(x) is the same weighted sum of the three given output vectors.',
-      ...a.map((row,i)=>'Output coordinate '+(i+1)+': '+dot(row,v)+' = '+out[i]+'.'),
-      'Check each column of A against its corresponding given T(eⱼ). This verifies the standard matrix; the row calculations verify the requested image.'
+    s(n,[tr('The standard basis vectors are e₁=(1,0,0), e₂=(0,1,0), e₃=(0,0,1). Multiplying A by eⱼ selects column j, so the given T(e₁), T(e₂), T(e₃) must become the first, second and third columns.',"Standardbasvektorerna är e₁=(1,0,0), e₂=(0,1,0), e₃=(0,0,1). Multiplikation av A med eⱼ väljer kolonn j, så de givna T(e₁), T(e₂), T(e₃) ska bli första, andra respektive tredje kolonnen."),
+      tr('Place the given output columns side by side, without rearranging their entries:\nA =\n',"Placera de givna utdatakolonnerna bredvid varandra utan att ändra elementens ordning:\nA =\n")+matrix(a),
+      tr('The input is ',"Indatan är ")+tuple(v)+' = '+v[0]+'e₁ + '+v[1]+'e₂ + '+v[2]+tr('e₃. By linearity, T(x) is the same weighted sum of the three given output vectors.',"e₃. Linjäriteten säger att T(x) är samma viktade summa av de tre givna utdatavektorerna."),
+      ...a.map((row,i)=>tr('Output coordinate ',"Utdatakoordinat ")+(i+1)+': '+dot(row,v)+' = '+out[i]+'.'),
+      tr('Check each column of A against its corresponding given T(eⱼ). This verifies the standard matrix; the row calculations verify the requested image.',"Kontrollera varje kolonn i A mot motsvarande givna T(eⱼ). Detta verifierar standardmatrisen; radberäkningarna verifierar den efterfrågade bilden.")
     ],'A =\n'+matrix(a)+'\nT(x) =\n'+col(out));
   }
   const fx=[[1,0],[0,-1]],fy=[[-1,0],[0,1]],swap=[[0,1],[1,0]],px=[[1,0],[0,0]],py=[[0,0],[0,1]];
@@ -214,20 +215,20 @@
   function geometry(n,v,matrices,descriptions,kind){
     const symbolic=typeof v[0]==='string';
     const results=matrices.map(a=>symbolic?a.map(row=>expression(row,v)):mul(a,v.map(x=>[x])).map(r=>r[0]));
-    const steps=[kind==='reflection'?'A reflection places a point the same perpendicular distance on the opposite side of the mirror. Coordinates parallel to the mirror stay unchanged.':'An orthogonal projection drops a point straight onto the chosen axis or plane. Coordinates along that axis or plane stay; perpendicular coordinates become zero.',
-      'Use one row for each output coordinate. Multiply the entries in that row by the matching input coordinates, then add.'];
+    const steps=[kind==='reflection'?tr('A reflection places a point the same perpendicular distance on the opposite side of the mirror. Coordinates parallel to the mirror stay unchanged.',"En spegling placerar en punkt på samma vinkelräta avstånd på andra sidan spegeln. Koordinater som löper parallellt med spegeln är oförändrade."):tr('An orthogonal projection drops a point straight onto the chosen axis or plane. Coordinates along that axis or plane stay; perpendicular coordinates become zero.',"En ortogonal projektion för en punkt rakt ner på den valda axeln eller det valda planet. Koordinater längs axeln eller planet behålls; vinkelräta koordinater blir noll."),
+      tr('Use one row for each output coordinate. Multiply the entries in that row by the matching input coordinates, then add.',"Använd en rad för varje utdatakoordinat. Multiplicera elementen i raden med motsvarande indatakoordinater och addera sedan.")];
     matrices.forEach((a,i)=>{
-      const label='Part '+letter(i)+': ';
-      steps.push(label+descriptions[i]+' Use the matrix\n'+matrix(a));
-      steps.push(label+'the row products are\n'+a.map((r,j)=>dot(r,v)+' = '+results[i][j]).join('\n')+'\nso the image is '+tuple(results[i])+'.');
+      const label=tr('Part ',"Del ")+letter(i)+': ';
+      steps.push(label+descriptions[i]+tr(' Use the matrix\n'," Använd matrisen\n")+matrix(a));
+      steps.push(label+tr('the row products are\n',"radprodukterna är\n")+a.map((r,j)=>dot(r,v)+' = '+results[i][j]).join('\n')+tr('\nso the image is ',"\nså bilden är ")+tuple(results[i])+'.');
     });
-    steps.push(kind==='reflection'?'Check the geometry: applying the same reflection twice restores each coordinate. The distance from the mirror is unchanged; only its side changes.':'Check the geometry: each answer lies on the specified axis or plane because the perpendicular coordinates are zero. Projecting the answer again leaves it unchanged.');
+    steps.push(kind==='reflection'?tr('Check the geometry: applying the same reflection twice restores each coordinate. The distance from the mirror is unchanged; only its side changes.',"Kontrollera geometrin: om samma spegling görs två gånger återställs varje koordinat. Avståndet till spegeln är oförändrat; bara sidan ändras."):tr('Check the geometry: each answer lies on the specified axis or plane because the perpendicular coordinates are zero. Projecting the answer again leaves it unchanged.',"Kontrollera geometrin: varje svar ligger på den angivna axeln eller i det angivna planet eftersom de vinkelräta koordinaterna är noll. Om svaret projiceras igen är det oförändrat."));
     s(n,steps,results.map((v,i)=>'('+letter(i)+') '+tuple(v)).join('\n'));
   }
-  const reflection2=['The x-axis is the mirror: keep x and negate y.','The y-axis is the mirror: negate x and keep y.','The line y=x is the mirror: exchange x and y.'];
-  const reflection3=['The xy-plane has z=0: keep x,y and negate z.','The xz-plane has y=0: keep x,z and negate y.','The yz-plane has x=0: keep y,z and negate x.'];
-  const projection2=['Onto the x-axis, keep x and set y=0.','Onto the y-axis, set x=0 and keep y.'];
-  const projection3=['Onto the xy-plane, keep x,y and set z=0.','Onto the xz-plane, keep x,z and set y=0.','Onto the yz-plane, keep y,z and set x=0.'];
+  const reflection2=[tr('The x-axis is the mirror: keep x and negate y.',"x-axeln är spegeln: behåll x och byt tecken på y."),tr('The y-axis is the mirror: negate x and keep y.',"y-axeln är spegeln: byt tecken på x och behåll y."),tr('The line y=x is the mirror: exchange x and y.',"Linjen y=x är spegeln: byt plats på x och y.")];
+  const reflection3=[tr('The xy-plane has z=0: keep x,y and negate z.',"xy-planet har z=0: behåll x,y och byt tecken på z."),tr('The xz-plane has y=0: keep x,z and negate y.',"xz-planet har y=0: behåll x,z och byt tecken på y."),tr('The yz-plane has x=0: keep y,z and negate x.',"yz-planet har x=0: behåll y,z och byt tecken på x.")];
+  const projection2=[tr('Onto the x-axis, keep x and set y=0.',"På x-axeln: behåll x och sätt y=0."),tr('Onto the y-axis, set x=0 and keep y.',"På y-axeln: sätt x=0 och behåll y.")];
+  const projection3=[tr('Onto the xy-plane, keep x,y and set z=0.',"På xy-planet: behåll x,y och sätt z=0."),tr('Onto the xz-plane, keep x,z and set y=0.',"På xz-planet: behåll x,z och sätt y=0."),tr('Onto the yz-plane, keep y,z and set x=0.',"På yz-planet: behåll y,z och sätt x=0.")];
   geometry(29,[-1,2],[fx,fy,swap],reflection2,'reflection');
   geometry(30,['a','b'],[fx,fy,swap],reflection2,'reflection');
   geometry(31,[2,-5,3],[fxy,fxz,fyz],reflection3,'reflection');
@@ -237,144 +238,144 @@
   geometry(35,[-2,1,3],[pxy,pxz,pyz],projection3,'projection');
   geometry(36,['a','b','c'],[pxy,pxz,pyz],projection3,'projection');
   s(37,[
-    'A counterclockwise rotation through θ has matrix Rθ =\n'+matrix([['cosθ','−sinθ'],['sinθ','cosθ']])+'. A negative θ turns clockwise. Multiply this matrix by the column (3,−4).',
-    'The row products give the formula (3cosθ+4sinθ, 3sinθ−4cosθ). The plus sign in the first coordinate comes from (−sinθ)×(−4).',
-    'Part a: cos30°=√3/2 and sin30°=1/2. First coordinate: 3√3/2+4/2=(3√3+4)/2. Second: 3/2−4√3/2=(3−4√3)/2.',
-    'Part b: cos(−60°)=1/2 and sin(−60°)=−√3/2. First coordinate: 3/2−4√3/2=(3−4√3)/2. Second: −3√3/2−4/2=(−3√3−4)/2.',
-    'Part c: cos45°=sin45°=√2/2. The output is ((3+4)√2/2,(3−4)√2/2)=(7√2/2,−√2/2).',
-    'Part d: cos90°=0 and sin90°=1. The output is (3×0+4×1,3×1−4×0)=(4,3).',
-    'A rotation preserves length. The original squared length is 3²+(−4)²=25. For example, part c gives (7√2/2)²+(−√2/2)²=49/2+1/2=25; part d gives 4²+3²=25. The same identity cos²θ+sin²θ=1 verifies the other two results.'
+    tr('A counterclockwise rotation through θ has matrix Rθ =\n',"En moturs rotation med vinkeln θ har matrisen Rθ =\n")+matrix([['cosθ','−sinθ'],['sinθ','cosθ']])+tr('. A negative θ turns clockwise. Multiply this matrix by the column (3,−4).',". Ett negativt θ ger en medurs rotation. Multiplicera denna matris med kolonnen (3,−4)."),
+    tr('The row products give the formula (3cosθ+4sinθ, 3sinθ−4cosθ). The plus sign in the first coordinate comes from (−sinθ)×(−4).',"Radprodukterna ger formeln (3cosθ+4sinθ, 3sinθ−4cosθ). Plustecknet i första koordinaten kommer från (−sinθ)×(−4)."),
+    tr('Part a: cos30°=√3/2 and sin30°=1/2. First coordinate: 3√3/2+4/2=(3√3+4)/2. Second: 3/2−4√3/2=(3−4√3)/2.',"Del a: cos30°=√3/2 och sin30°=1/2. Första koordinaten: 3√3/2+4/2=(3√3+4)/2. Andra: 3/2−4√3/2=(3−4√3)/2."),
+    tr('Part b: cos(−60°)=1/2 and sin(−60°)=−√3/2. First coordinate: 3/2−4√3/2=(3−4√3)/2. Second: −3√3/2−4/2=(−3√3−4)/2.',"Del b: cos(−60°)=1/2 och sin(−60°)=−√3/2. Första koordinaten: 3/2−4√3/2=(3−4√3)/2. Andra: −3√3/2−4/2=(−3√3−4)/2."),
+    tr('Part c: cos45°=sin45°=√2/2. The output is ((3+4)√2/2,(3−4)√2/2)=(7√2/2,−√2/2).',"Del c: cos45°=sin45°=√2/2. Utdata blir ((3+4)√2/2,(3−4)√2/2)=(7√2/2,−√2/2)."),
+    tr('Part d: cos90°=0 and sin90°=1. The output is (3×0+4×1,3×1−4×0)=(4,3).',"Del d: cos90°=0 och sin90°=1. Utdata blir (3×0+4×1,3×1−4×0)=(4,3)."),
+    tr('A rotation preserves length. The original squared length is 3²+(−4)²=25. For example, part c gives (7√2/2)²+(−√2/2)²=49/2+1/2=25; part d gives 4²+3²=25. The same identity cos²θ+sin²θ=1 verifies the other two results.',"En rotation bevarar längden. Den ursprungliga längden i kvadrat är 3²+(−4)²=25. Till exempel ger del c (7√2/2)²+(−√2/2)²=49/2+1/2=25; del d ger 4²+3²=25. Samma identitet cos²θ+sin²θ=1 verifierar de två andra resultaten.")
   ],'(a) ((3√3+4)/2, (3−4√3)/2)\n(b) ((3−4√3)/2, (−3√3−4)/2)\n(c) (7√2/2, −√2/2)\n(d) (4, 3)');
   s(38,[
-    'For a positive angle α, use the counterclockwise rotation matrix Rα =\n'+matrix([['cosα','−sinα'],['sinα','cosα']]),
-    'Multiply its first row by the column v: v₁cosα−v₂sinα. Multiply the second row: v₁sinα+v₂cosα. These two expressions form the image in part a.',
-    'For part b replace α by −α. The identities cos(−α)=cosα and sin(−α)=−sinα change the matrix to\n'+matrix([['cosα','sinα'],['−sinα','cosα']]),
-    'The two row products are v₁cosα+v₂sinα and −v₁sinα+v₂cosα. This is a clockwise turn of size α.',
-    'Check the signs using α=90°: part a becomes (−v₂,v₁), and part b becomes (v₂,−v₁), the familiar opposite quarter-turns.'
+    tr('For a positive angle α, use the counterclockwise rotation matrix Rα =\n',"För en positiv vinkel α använder vi matrisen för moturs rotation, Rα =\n")+matrix([['cosα','−sinα'],['sinα','cosα']]),
+    tr('Multiply its first row by the column v: v₁cosα−v₂sinα. Multiply the second row: v₁sinα+v₂cosα. These two expressions form the image in part a.',"Multiplicera första raden med kolonnen v: v₁cosα−v₂sinα. Multiplicera andra raden: v₁sinα+v₂cosα. Dessa två uttryck bildar bilden i del a."),
+    tr('For part b replace α by −α. The identities cos(−α)=cosα and sin(−α)=−sinα change the matrix to\n',"I del b ersätter vi α med −α. Identiteterna cos(−α)=cosα och sin(−α)=−sinα ändrar matrisen till\n")+matrix([['cosα','sinα'],['−sinα','cosα']]),
+    tr('The two row products are v₁cosα+v₂sinα and −v₁sinα+v₂cosα. This is a clockwise turn of size α.',"De två radprodukterna är v₁cosα+v₂sinα och −v₁sinα+v₂cosα. Detta är en medurs rotation med vinkeln α."),
+    tr('Check the signs using α=90°: part a becomes (−v₂,v₁), and part b becomes (v₂,−v₁), the familiar opposite quarter-turns.',"Kontrollera tecknen med α=90°: del a blir (−v₂,v₁) och del b blir (v₂,−v₁), de välbekanta kvartsvarven åt motsatta håll.")
   ],'(a) (v₁cosα−v₂sinα, v₁sinα+v₂cosα)\n(b) (v₁cosα+v₂sinα, −v₁sinα+v₂cosα)');
   s(39,[
-    'The standard basis vectors in ℝ² are e₁=(1,0) and e₂=(0,1). Their sum is e₁+e₂=(1,1).',
-    'Because T is linear, it preserves addition: T(1,1)=T(e₁+e₂)=T(e₁)+T(e₂).',
-    'Insert the two given images and add corresponding coordinates: (a,b)+(c,d)=(a+c,b+d).',
-    'Check with the standard matrix: its columns are (a,b) and (c,d), so multiplying by (1,1) adds those columns.'
+    tr('The standard basis vectors in ℝ² are e₁=(1,0) and e₂=(0,1). Their sum is e₁+e₂=(1,1).',"Standardbasvektorerna i ℝ² är e₁=(1,0) och e₂=(0,1). Deras summa är e₁+e₂=(1,1)."),
+    tr('Because T is linear, it preserves addition: T(1,1)=T(e₁+e₂)=T(e₁)+T(e₂).',"Eftersom T är linjär bevarar den addition: T(1,1)=T(e₁+e₂)=T(e₁)+T(e₂)."),
+    tr('Insert the two given images and add corresponding coordinates: (a,b)+(c,d)=(a+c,b+d).',"Sätt in de två givna bilderna och addera motsvarande koordinater: (a,b)+(c,d)=(a+c,b+d)."),
+    tr('Check with the standard matrix: its columns are (a,b) and (c,d), so multiplying by (1,1) adds those columns.',"Kontrollera med standardmatrisen: dess kolonner är (a,b) och (c,d), så multiplikation med (1,1) adderar kolonnerna.")
   ],'T(1,1) = (a+c, b+d).');
   s(40,[
-    'Multiplying A by e₁=(1,0) selects its first column (a,c). Multiplying by e₂=(0,1) selects its second column (b,d).',
-    'Part a: ke₁=(k,0), so A(ke₁)=(ak+b×0,ck+d×0)=k(a,c)=(ka,kc).',
-    'Part b: ke₁+le₂=(k,l). By linearity its image is k(a,c)+l(b,d).',
-    'Add the coordinates: k(a,c)+l(b,d)=(ka+lb,kc+ld). Setting l=0 recovers part a, which checks the formula.'
+    tr('Multiplying A by e₁=(1,0) selects its first column (a,c). Multiplying by e₂=(0,1) selects its second column (b,d).',"Multiplikation av A med e₁=(1,0) väljer första kolonnen (a,c). Multiplikation med e₂=(0,1) väljer andra kolonnen (b,d)."),
+    tr('Part a: ke₁=(k,0), so A(ke₁)=(ak+b×0,ck+d×0)=k(a,c)=(ka,kc).',"Del a: ke₁=(k,0), så A(ke₁)=(ak+b×0,ck+d×0)=k(a,c)=(ka,kc)."),
+    tr('Part b: ke₁+le₂=(k,l). By linearity its image is k(a,c)+l(b,d).',"Del b: ke₁+le₂=(k,l). Linjäriteten ger bilden k(a,c)+l(b,d)."),
+    tr('Add the coordinates: k(a,c)+l(b,d)=(ka+lb,kc+ld). Setting l=0 recovers part a, which checks the formula.',"Addera koordinaterna: k(a,c)+l(b,d)=(ka+lb,kc+ld). Om l=0 återfår vi del a, vilket kontrollerar formeln.")
   ],'(a) (ka, kc)\n(b) (ka+lb, kc+ld)');
   s(41,[
-    'Multiplying by a standard basis vector selects the matching matrix column: its single 1 keeps that column, while its zeros remove the other columns.',
-    'Part a: read column 1 to get Tₐ(e₁)=(−1,2,4); column 2 gives Tₐ(e₂)=(3,1,5); column 3 gives Tₐ(e₃)=(0,2,−3).',
-    'Part b: linearity says to add these three images. Coordinate by coordinate: (−1+3+0,2+1+2,4+5−3)=(2,5,6).',
-    'Part c: linearity also allows a scalar to pass through Tₐ. Thus Tₐ(7e₃)=7Tₐ(e₃)=7(0,2,−3)=(0,14,−21).',
-    'Check part b directly: e₁+e₂+e₃=(1,1,1), so multiplying A by this column indeed adds the entries across each row.'
+    tr('Multiplying by a standard basis vector selects the matching matrix column: its single 1 keeps that column, while its zeros remove the other columns.',"Multiplikation med en standardbasvektor väljer motsvarande matriskolonn: dess enda 1 behåller kolonnen, medan nollorna tar bort de andra kolonnerna."),
+    tr('Part a: read column 1 to get Tₐ(e₁)=(−1,2,4); column 2 gives Tₐ(e₂)=(3,1,5); column 3 gives Tₐ(e₃)=(0,2,−3).',"Del a: läs kolonn 1 för att få Tₐ(e₁)=(−1,2,4); kolonn 2 ger Tₐ(e₂)=(3,1,5); kolonn 3 ger Tₐ(e₃)=(0,2,−3)."),
+    tr('Part b: linearity says to add these three images. Coordinate by coordinate: (−1+3+0,2+1+2,4+5−3)=(2,5,6).',"Del b: linjäriteten säger att dessa tre bilder ska adderas. Koordinat för koordinat: (−1+3+0,2+1+2,4+5−3)=(2,5,6)."),
+    tr('Part c: linearity also allows a scalar to pass through Tₐ. Thus Tₐ(7e₃)=7Tₐ(e₃)=7(0,2,−3)=(0,14,−21).',"Del c: linjäriteten tillåter också att en skalär flyttas utanför Tₐ. Alltså är Tₐ(7e₃)=7Tₐ(e₃)=7(0,2,−3)=(0,14,−21)."),
+    tr('Check part b directly: e₁+e₂+e₃=(1,1,1), so multiplying A by this column indeed adds the entries across each row.',"Kontrollera del b direkt: e₁+e₂+e₃=(1,1,1), så multiplikation av A med denna kolonn adderar verkligen elementen i varje rad.")
   ],'(a) Tₐ(e₁)=(−1,2,4), Tₐ(e₂)=(3,1,5), Tₐ(e₃)=(0,2,−3).\n(b) (2,5,6).\n(c) (0,14,−21).');
   geometry(42,[1,2,3],[pxy,pxz,pyz],projection3,'projection');
   geometry(43,[1,2,3],[fxy,fxz,fyz],reflection3,'reflection');
   s(44,[
-    'A rotation by θ has matrix A =\n'+matrix([['cosθ','−sinθ'],['sinθ','cosθ']]),
-    'To transpose a matrix, turn its rows into columns. The diagonal entries stay put and the two off-diagonal entries exchange places:\nAᵀ =\n'+matrix([['cosθ','sinθ'],['−sinθ','cosθ']]),
-    'Use cos(−θ)=cosθ and sin(−θ)=−sinθ. Then Aᵀ has exactly the standard rotation form with angle −θ.',
-    'Thus Aᵀ rotates the original vector through −θ. It reverses the direction of the original rotation. As a check, doing A and then Aᵀ adds the angles θ+(−θ)=0 and restores every vector.'
-  ],'Multiplication by Aᵀ rotates x through −θ about the origin.');
-  sets['1.8'][45].steps.push('Carry out A=YX⁻¹: row 1 gives (1×3+(−2)×(−1), 1×(−2)+(−2)×1)=(5,−4); row 2 gives ((−2)×3+5×(−1), (−2)×(−2)+5×1)=(−11,9).');
-  sets['1.8'][45].steps.push('Verify both givens: A(1,1)=(5−4,−11+9)=(1,−2), and A(2,3)=(10−12,−22+27)=(−2,5).');
+    tr('A rotation by θ has matrix A =\n',"En rotation med vinkeln θ har matrisen A =\n")+matrix([['cosθ','−sinθ'],['sinθ','cosθ']]),
+    tr('To transpose a matrix, turn its rows into columns. The diagonal entries stay put and the two off-diagonal entries exchange places:\nAᵀ =\n',"Transponera en matris genom att göra dess rader till kolonner. Diagonalelementen ligger kvar och de två elementen utanför diagonalen byter plats:\nAᵀ =\n")+matrix([['cosθ','sinθ'],['−sinθ','cosθ']]),
+    tr('Use cos(−θ)=cosθ and sin(−θ)=−sinθ. Then Aᵀ has exactly the standard rotation form with angle −θ.',"Använd cos(−θ)=cosθ och sin(−θ)=−sinθ. Då har Aᵀ exakt standardformen för rotation med vinkeln −θ."),
+    tr('Thus Aᵀ rotates the original vector through −θ. It reverses the direction of the original rotation. As a check, doing A and then Aᵀ adds the angles θ+(−θ)=0 and restores every vector.',"Aᵀ roterar alltså den ursprungliga vektorn med −θ. Den vänder riktningen på den ursprungliga rotationen. Som kontroll: om A utförs först och sedan Aᵀ adderas vinklarna θ+(−θ)=0, så varje vektor återställs.")
+  ],tr('Multiplication by Aᵀ rotates x through −θ about the origin.',"Multiplikation med Aᵀ roterar x med −θ kring origo."));
+  sets['1.8'][45].steps.push(tr('Carry out A=YX⁻¹: row 1 gives (1×3+(−2)×(−1), 1×(−2)+(−2)×1)=(5,−4); row 2 gives ((−2)×3+5×(−1), (−2)×(−2)+5×1)=(−11,9).',"Beräkna A=YX⁻¹: rad 1 ger (1×3+(−2)×(−1), 1×(−2)+(−2)×1)=(5,−4); rad 2 ger ((−2)×3+5×(−1), (−2)×(−2)+5×1)=(−11,9)."));
+  sets['1.8'][45].steps.push(tr('Verify both givens: A(1,1)=(5−4,−11+9)=(1,−2), and A(2,3)=(10−12,−22+27)=(−2,5).',"Verifiera båda givna villkoren: A(1,1)=(5−4,−11+9)=(1,−2) och A(2,3)=(10−12,−22+27)=(−2,5)."));
   sets['1.8'][45].answer='A =\n'+matrix([[5,-4],[-11,9]]);
-  sets['1.8'][46].steps.push('Complete YX⁻¹ using its columns. Row 1 gives ((6−2+10)/7,(−10+8−5)/7,(4+1−5)/7)=(2,−1,0). Row 2 gives ((−9−6+22)/7,(15+24−11)/7,(−6+3−11)/7)=(1,4,−2). Row 3 gives ((30−16−14)/7,(−50+64+7)/7,(20+8+7)/7)=(0,3,5).');
-  sets['1.8'][46].steps.push('Check all three inputs: A(1,0,2)=(2,1−4,10)=(2,−3,10); A(1,1,1)=(2−1,1+4−2,3+5)=(1,3,8); A(−3,−1,2)=(−6+1,−3−4−4,−3+10)=(−5,−11,7).');
+  sets['1.8'][46].steps.push(tr('Complete YX⁻¹ using its columns. Row 1 gives ((6−2+10)/7,(−10+8−5)/7,(4+1−5)/7)=(2,−1,0). Row 2 gives ((−9−6+22)/7,(15+24−11)/7,(−6+3−11)/7)=(1,4,−2). Row 3 gives ((30−16−14)/7,(−50+64+7)/7,(20+8+7)/7)=(0,3,5).',"Slutför YX⁻¹ genom att använda dess kolonner. Rad 1 ger ((6−2+10)/7,(−10+8−5)/7,(4+1−5)/7)=(2,−1,0). Rad 2 ger ((−9−6+22)/7,(15+24−11)/7,(−6+3−11)/7)=(1,4,−2). Rad 3 ger ((30−16−14)/7,(−50+64+7)/7,(20+8+7)/7)=(0,3,5)."));
+  sets['1.8'][46].steps.push(tr('Check all three inputs: A(1,0,2)=(2,1−4,10)=(2,−3,10); A(1,1,1)=(2−1,1+4−2,3+5)=(1,3,8); A(−3,−1,2)=(−6+1,−3−4−4,−3+10)=(−5,−11,7).',"Kontrollera alla tre indata: A(1,0,2)=(2,1−4,10)=(2,−3,10); A(1,1,1)=(2−1,1+4−2,3+5)=(1,3,8); A(−3,−1,2)=(−6+1,−3−4−4,−3+10)=(−5,−11,7)."));
   sets['1.8'][46].answer='A =\n'+matrix([[2,-1,0],[1,4,-2],[0,3,5]]);
   s(47,[
-    'Read the expression in the order it acts on x. First Rθx rotates x about the origin through θ. Then adding x₀ moves the resulting point by the fixed displacement x₀.',
-    'This second action is a translation: every point moves the same distance and direction, described by x₀. The rotation occurs before that translation.',
-    'Test the origin: Rθ0=0, so T(0)=x₀+0=x₀. The question states that x₀ is nonzero.',
-    'Every matrix transformation sends the zero vector to zero. Since this transformation moves it to x₀≠0, it cannot be a matrix transformation.'
-  ],'Rotate by θ about the origin, then translate by x₀. This is not a matrix transformation because x₀≠0.');
+    tr('Read the expression in the order it acts on x. First Rθx rotates x about the origin through θ. Then adding x₀ moves the resulting point by the fixed displacement x₀.',"Läs uttrycket i den ordning det verkar på x. Först roterar Rθx vektorn x kring origo med vinkeln θ. Sedan flyttar addition av x₀ den erhållna punkten med den fasta förskjutningen x₀."),
+    tr('This second action is a translation: every point moves the same distance and direction, described by x₀. The rotation occurs before that translation.',"Den andra handlingen är en translation: varje punkt flyttas lika långt och i samma riktning, enligt x₀. Rotationen sker före translationen."),
+    tr('Test the origin: Rθ0=0, so T(0)=x₀+0=x₀. The question states that x₀ is nonzero.',"Testa origo: Rθ0=0, så T(0)=x₀+0=x₀. I frågan anges att x₀ är nollskild."),
+    tr('Every matrix transformation sends the zero vector to zero. Since this transformation moves it to x₀≠0, it cannot be a matrix transformation.',"Varje matrisavbildning skickar nollvektorn till noll. Eftersom denna avbildning flyttar den till x₀≠0 kan den inte vara en matrisavbildning.")
+  ],tr('Rotate by θ about the origin, then translate by x₀. This is not a matrix transformation because x₀≠0.',"Rotera med θ kring origo och förskjut sedan med x₀. Detta är inte en matrisavbildning eftersom x₀≠0."));
   s(48,[
-    'Read the labelled image in each diagram. To create a matrix, make each row pick the input coordinate required for that output: a 1 selects it, and zeros ignore the other coordinates.',
-    'Part a: (x,y,z) becomes (x,z,y). The first output picks x, the second picks z, and the third picks y. The rows are [1,0,0], [0,0,1], [0,1,0].',
-    'Part b: (x,y,z) becomes (z,y,x). The rows selecting z, y, x are [0,0,1], [0,1,0], [1,0,0].',
-    'Part c: (x,y,z) becomes (y,x,z). The rows selecting y, x, z are [0,1,0], [1,0,0], [0,0,1].',
-    'Check by multiplying each displayed matrix by the symbolic column (x,y,z). The results reproduce all three labels in the textbook figure. Each operation swaps two coordinates, so repeating it restores the original vector.'
+    tr('Read the labelled image in each diagram. To create a matrix, make each row pick the input coordinate required for that output: a 1 selects it, and zeros ignore the other coordinates.',"Läs av den markerade bilden i varje diagram. Skapa en matris genom att låta varje rad välja den indatakoordinat som behövs för motsvarande utdata: en 1 väljer den och nollorna ignorerar övriga koordinater."),
+    tr('Part a: (x,y,z) becomes (x,z,y). The first output picks x, the second picks z, and the third picks y. The rows are [1,0,0], [0,0,1], [0,1,0].',"Del a: (x,y,z) blir (x,z,y). Första utdatan väljer x, andra väljer z och tredje väljer y. Raderna är [1,0,0], [0,0,1], [0,1,0]."),
+    tr('Part b: (x,y,z) becomes (z,y,x). The rows selecting z, y, x are [0,0,1], [0,1,0], [1,0,0].',"Del b: (x,y,z) blir (z,y,x). Raderna som väljer z, y, x är [0,0,1], [0,1,0], [1,0,0]."),
+    tr('Part c: (x,y,z) becomes (y,x,z). The rows selecting y, x, z are [0,1,0], [1,0,0], [0,0,1].',"Del c: (x,y,z) blir (y,x,z). Raderna som väljer y, x, z är [0,1,0], [1,0,0], [0,0,1]."),
+    tr('Check by multiplying each displayed matrix by the symbolic column (x,y,z). The results reproduce all three labels in the textbook figure. Each operation swaps two coordinates, so repeating it restores the original vector.',"Kontrollera genom att multiplicera varje angiven matris med den symboliska kolonnen (x,y,z). Resultaten återskapar alla tre etiketterna i bokens figur. Varje operation byter plats på två koordinater, så en upprepning återställer den ursprungliga vektorn.")
   ],'(a)\n'+matrix([[1,0,0],[0,0,1],[0,1,0]])+'\n(b)\n'+matrix([[0,0,1],[0,1,0],[1,0,0]])+'\n(c)\n'+matrix([[0,1,0],[1,0,0],[0,0,1]]));
   s(49,[
-    'Compare the given matrix with the rotation pattern: the diagonal entries are a cosine, the bottom-left entry is a sine, and the top-right is its negative.',
-    'Use the double-angle identities cos(2θ)=cos²θ−sin²θ and sin(2θ)=2sinθcosθ.',
-    'Replacing those expressions gives A =\n'+matrix([['cos(2θ)','−sin(2θ)'],['sin(2θ)','cos(2θ)']])+'. This is the standard rotation matrix for the angle 2θ.',
-    'Check a familiar angle: θ=45° gives 2θ=90° and the matrix sends (x,y) to (−y,x), a quarter-turn.'
-  ],'Multiplication by A rotates x through 2θ about the origin (counterclockwise for a positive angle).');
+    tr('Compare the given matrix with the rotation pattern: the diagonal entries are a cosine, the bottom-left entry is a sine, and the top-right is its negative.',"Jämför den givna matrisen med rotationsmönstret: diagonalelementen är en cosinus, elementet nere till vänster är en sinus och elementet uppe till höger är dess negativa värde."),
+    tr('Use the double-angle identities cos(2θ)=cos²θ−sin²θ and sin(2θ)=2sinθcosθ.',"Använd formlerna för dubbla vinkeln: cos(2θ)=cos²θ−sin²θ och sin(2θ)=2sinθcosθ."),
+    tr('Replacing those expressions gives A =\n',"När dessa uttryck ersätts får vi A =\n")+matrix([['cos(2θ)','−sin(2θ)'],['sin(2θ)','cos(2θ)']])+tr('. This is the standard rotation matrix for the angle 2θ.',". Detta är standardmatrisen för rotation med vinkeln 2θ."),
+    tr('Check a familiar angle: θ=45° gives 2θ=90° and the matrix sends (x,y) to (−y,x), a quarter-turn.',"Kontrollera en bekant vinkel: θ=45° ger 2θ=90° och matrisen skickar (x,y) till (−y,x), ett kvartsvarv.")
+  ],tr('Multiplication by A rotates x through 2θ about the origin (counterclockwise for a positive angle).',"Multiplikation med A roterar x med 2θ kring origo (moturs för en positiv vinkel)."));
   s(50,[
-    'Part a: being a matrix transformation means there is a fixed m × n matrix A such that T(x)=Ax for every input x.',
-    'Set x=0. In each row of A0, every term is an entry of A multiplied by 0, so each row sum is 0. Hence T(0)=A0=0 in ℝᵐ.',
-    'Part b asks about the converse: whether sending zero to zero alone guarantees a matrix transformation. To disprove that, one example passing the zero test but failing linearity is enough.',
-    'Choose n=m=1 and T(x)=x². It does send 0 to 0 because 0²=0.',
-    'But T(2×1)=4 while 2T(1)=2. The scalar test fails, so this rule is not a matrix transformation. The zero test is necessary, but it is not sufficient.'
-  ],'(a) T(0)=0 for every matrix transformation.\n(b) Counterexample: T:ℝ→ℝ, T(x)=x². It fixes zero but is not a matrix transformation.');
+    tr('Part a: being a matrix transformation means there is a fixed m × n matrix A such that T(x)=Ax for every input x.',"Del a: att vara en matrisavbildning betyder att det finns en fast m × n-matris A sådan att T(x)=Ax för varje indata x."),
+    tr('Set x=0. In each row of A0, every term is an entry of A multiplied by 0, so each row sum is 0. Hence T(0)=A0=0 in ℝᵐ.',"Sätt x=0. I varje rad av A0 är varje term ett element i A multiplicerat med 0, så varje radsumma är 0. Alltså är T(0)=A0=0 i ℝᵐ."),
+    tr('Part b asks about the converse: whether sending zero to zero alone guarantees a matrix transformation. To disprove that, one example passing the zero test but failing linearity is enough.',"Del b frågar om omvändningen: räcker det att skicka noll till noll för att garantera en matrisavbildning? För att motbevisa det räcker ett exempel som klarar nolltestet men inte linjäriteten."),
+    tr('Choose n=m=1 and T(x)=x². It does send 0 to 0 because 0²=0.',"Välj n=m=1 och T(x)=x². Den skickar verkligen 0 till 0 eftersom 0²=0."),
+    tr('But T(2×1)=4 while 2T(1)=2. The scalar test fails, so this rule is not a matrix transformation. The zero test is necessary, but it is not sufficient.',"Men T(2×1)=4 medan 2T(1)=2. Skalärtestet misslyckas, så regeln är inte en matrisavbildning. Nolltestet är nödvändigt men inte tillräckligt.")
+  ],tr('(a) T(0)=0 for every matrix transformation.\n(b) Counterexample: T:ℝ→ℝ, T(x)=x². It fixes zero but is not a matrix transformation.',"(a) T(0)=0 för varje matrisavbildning.\n(b) Motexempel: T:ℝ→ℝ, T(x)=x². Den bevarar noll men är inte en matrisavbildning."));
   s('TF',[
-    'Part a: false. A 2 × 3 matrix needs an input column with 3 entries. Its domain is ℝ³; its two rows produce an output in ℝ².',
-    'Part b: false in general. An m × n matrix has m rows, so its codomain is ℝᵐ. The stated ℝⁿ is the domain; the two spaces coincide only when m=n.',
-    'Part c: true. Choose the zero transformation T(x)=0. For every x, T(2x)=0 and 4T(x)=4×0=0. The statement only asks for at least one transformation and some vector.',
-    'Part d: false. For a linear map on ℝⁿ, use T(e₁),…,T(eₙ) as the columns of A. Since x=x₁e₁+⋯+xₙeₙ, linearity gives T(x)=x₁T(e₁)+⋯+xₙT(eₙ)=Ax. Thus every such linear transformation has a matrix.',
-    'Part e: true. Test each basis vector eⱼ. Aeⱼ is column j, and the hypothesis says Aeⱼ=0. Every column of A is therefore zero.',
-    'Part f: false. Every matrix transformation satisfies T(−x)=A(−x)=−Ax=−T(x). There are many matrices with the required size, including the zero matrix and a matrix with a single nonzero entry.',
-    'Part g: false. T(0)=b≠0, whereas matrix multiplication always sends 0 to 0. A nonzero translation is not a matrix operator.'
-  ],'(a) False; (b) False; (c) True; (d) False; (e) True; (f) False; (g) False.');
+    tr('Part a: false. A 2 × 3 matrix needs an input column with 3 entries. Its domain is ℝ³; its two rows produce an output in ℝ².',"Del a: falskt. En 2 × 3-matris behöver en indatakolonn med 3 element. Definitionsmängden är ℝ³; dess två rader ger utdata i ℝ²."),
+    tr('Part b: false in general. An m × n matrix has m rows, so its codomain is ℝᵐ. The stated ℝⁿ is the domain; the two spaces coincide only when m=n.',"Del b: falskt i allmänhet. En m × n-matris har m rader, så målmängden är ℝᵐ. Angivna ℝⁿ är definitionsmängden; rummen sammanfaller bara när m=n."),
+    tr('Part c: true. Choose the zero transformation T(x)=0. For every x, T(2x)=0 and 4T(x)=4×0=0. The statement only asks for at least one transformation and some vector.',"Del c: sant. Välj nollavbildningen T(x)=0. För varje x är T(2x)=0 och 4T(x)=4×0=0. Påståendet kräver bara minst en avbildning och någon vektor."),
+    tr('Part d: false. For a linear map on ℝⁿ, use T(e₁),…,T(eₙ) as the columns of A. Since x=x₁e₁+⋯+xₙeₙ, linearity gives T(x)=x₁T(e₁)+⋯+xₙT(eₙ)=Ax. Thus every such linear transformation has a matrix.',"Del d: falskt. För en linjär avbildning på ℝⁿ använder vi T(e₁),…,T(eₙ) som kolonner i A. Eftersom x=x₁e₁+⋯+xₙeₙ ger linjäriteten T(x)=x₁T(e₁)+⋯+xₙT(eₙ)=Ax. Varje sådan linjär avbildning har alltså en matris."),
+    tr('Part e: true. Test each basis vector eⱼ. Aeⱼ is column j, and the hypothesis says Aeⱼ=0. Every column of A is therefore zero.',"Del e: sant. Testa varje basvektor eⱼ. Aeⱼ är kolonn j, och antagandet säger att Aeⱼ=0. Varje kolonn i A är därför noll."),
+    tr('Part f: false. Every matrix transformation satisfies T(−x)=A(−x)=−Ax=−T(x). There are many matrices with the required size, including the zero matrix and a matrix with a single nonzero entry.',"Del f: falskt. Varje matrisavbildning uppfyller T(−x)=A(−x)=−Ax=−T(x). Det finns många matriser med den storlek som krävs, bland annat nollmatrisen och en matris med ett enda nollskilt element."),
+    tr('Part g: false. T(0)=b≠0, whereas matrix multiplication always sends 0 to 0. A nonzero translation is not a matrix operator.',"Del g: falskt. T(0)=b≠0, medan matrismultiplikation alltid skickar 0 till 0. En nollskild translation är inte en matrisoperator.")
+  ],tr('(a) False; (b) False; (c) True; (d) False; (e) True; (f) False; (g) False.',"(a) Falskt; (b) Falskt; (c) Sant; (d) Falskt; (e) Sant; (f) Falskt; (g) Falskt."));
 
   t(1,[
-    'Two operators commute when doing them in either order gives the same result for every input. Read T₁∘T₂ from right to left: apply T₂ first, then T₁.',
-    'Part a: T₁(x,y)=(y,x), because reflection in y=x swaps coordinates. T₂(x,y)=(x,0), because projection onto the x-axis removes y.',
-    'Apply T₂ then T₁: (x,y) → (x,0) → (0,x). Reverse the order: (x,y) → (y,x) → (y,0). The resulting formulas differ.',
-    'For a concrete check, input (1,0) gives (0,1) in the first order and (0,0) in the reverse order. Therefore the operators in part a do not commute.',
-    'Part b: T₁(x,y)=(x,−y) and T₂(x,y)=(y,x). Applying T₂ then T₁ gives (y,−x); applying T₁ then T₂ gives (−y,x).',
-    'At input (1,0), these are (0,−1) and (0,1). One counterexample disproves equality for every vector, so part b also does not commute.'
-  ],'(a) Do not commute.\n(b) Do not commute.');
+    tr('Two operators commute when doing them in either order gives the same result for every input. Read T₁∘T₂ from right to left: apply T₂ first, then T₁.',"Två operatorer kommuterar när båda ordningsföljderna ger samma resultat för varje indata. Läs T₁∘T₂ från höger till vänster: utför först T₂ och sedan T₁."),
+    tr('Part a: T₁(x,y)=(y,x), because reflection in y=x swaps coordinates. T₂(x,y)=(x,0), because projection onto the x-axis removes y.',"Del a: T₁(x,y)=(y,x), eftersom spegling i y=x byter koordinaternas plats. T₂(x,y)=(x,0), eftersom projektion på x-axeln tar bort y."),
+    tr('Apply T₂ then T₁: (x,y) → (x,0) → (0,x). Reverse the order: (x,y) → (y,x) → (y,0). The resulting formulas differ.',"Utför T₂ och sedan T₁: (x,y) → (x,0) → (0,x). Vänd på ordningen: (x,y) → (y,x) → (y,0). Formlerna för resultaten skiljer sig."),
+    tr('For a concrete check, input (1,0) gives (0,1) in the first order and (0,0) in the reverse order. Therefore the operators in part a do not commute.',"Som konkret kontroll ger indatan (1,0) resultatet (0,1) i första ordningen och (0,0) i omvänd ordning. Operatorerna i del a kommuterar därför inte."),
+    tr('Part b: T₁(x,y)=(x,−y) and T₂(x,y)=(y,x). Applying T₂ then T₁ gives (y,−x); applying T₁ then T₂ gives (−y,x).',"Del b: T₁(x,y)=(x,−y) och T₂(x,y)=(y,x). T₂ följt av T₁ ger (y,−x); T₁ följt av T₂ ger (−y,x)."),
+    tr('At input (1,0), these are (0,−1) and (0,1). One counterexample disproves equality for every vector, so part b also does not commute.',"För indatan (1,0) blir detta (0,−1) respektive (0,1). Ett motexempel motbevisar likhet för alla vektorer, så inte heller del b kommuterar.")
+  ],tr('(a) Do not commute.\n(b) Do not commute.',"(a) Kommuterar inte.\n(b) Kommuterar inte."));
   t(2,[
-    'To prove commutation, show both orders agree for a general input. To disprove it, find one input for which they disagree.',
-    'Part a: T₁ projects onto x and T₂ projects onto y. For any (x,y), applying T₂ then T₁ gives (x,y) → (0,y) → (0,0).',
-    'Reverse the order: (x,y) → (x,0) → (0,0). Both orders are the zero operator, so these projections commute.',
-    'Part b: π/4 radians is 45°. Test e₁=(1,0). Reflecting in the y-axis first gives (−1,0), then a 45° rotation gives (−√2/2,−√2/2).',
-    'Rotate first instead: (1,0) → (√2/2,√2/2). Reflecting that in the y-axis gives (−√2/2,√2/2). The second coordinates have opposite signs, so these operators do not commute.'
-  ],'(a) Commute; both compositions send every vector to (0,0).\n(b) Do not commute.');
+    tr('To prove commutation, show both orders agree for a general input. To disprove it, find one input for which they disagree.',"Bevisa kommutativitet genom att visa att båda ordningsföljderna stämmer överens för godtycklig indata. Motbevisa den genom att hitta en indata där resultaten skiljer sig."),
+    tr('Part a: T₁ projects onto x and T₂ projects onto y. For any (x,y), applying T₂ then T₁ gives (x,y) → (0,y) → (0,0).',"Del a: T₁ projicerar på x och T₂ projicerar på y. För varje (x,y) ger T₂ följt av T₁: (x,y) → (0,y) → (0,0)."),
+    tr('Reverse the order: (x,y) → (x,0) → (0,0). Both orders are the zero operator, so these projections commute.',"Vänd på ordningen: (x,y) → (x,0) → (0,0). Båda ordningsföljderna är nolloperatorn, så dessa projektioner kommuterar."),
+    tr('Part b: π/4 radians is 45°. Test e₁=(1,0). Reflecting in the y-axis first gives (−1,0), then a 45° rotation gives (−√2/2,−√2/2).',"Del b: π/4 radianer är 45°. Testa e₁=(1,0). Spegling i y-axeln först ger (−1,0), och sedan ger en rotation med 45° resultatet (−√2/2,−√2/2)."),
+    tr('Rotate first instead: (1,0) → (√2/2,√2/2). Reflecting that in the y-axis gives (−√2/2,√2/2). The second coordinates have opposite signs, so these operators do not commute.',"Rotera i stället först: (1,0) → (√2/2,√2/2). Spegling i y-axeln ger då (−√2/2,√2/2). De andra koordinaterna har motsatta tecken, så operatorerna kommuterar inte.")
+  ],tr('(a) Commute; both compositions send every vector to (0,0).\n(b) Do not commute.',"(a) Kommuterar; båda sammansättningarna skickar varje vektor till (0,0).\n(b) Kommuterar inte."));
   t(3,[
-    'Reflection in the xy-plane keeps x,y and negates z, so T₁(x,y,z)=(x,y,−z). Projection onto the yz-plane removes x, so T₂(x,y,z)=(0,y,z).',
-    'Apply T₂ first: (x,y,z) → (0,y,z) → (0,y,−z). Thus T₁(T₂(x,y,z))=(0,y,−z).',
-    'Reverse the order: (x,y,z) → (x,y,−z) → (0,y,−z). Thus T₂(T₁(x,y,z)) has exactly the same formula.',
-    'Since x,y,z were arbitrary, equality holds for every vector. Geometrically one action changes x while the other changes z, so neither action interferes with the other.'
-  ],'They commute. Both compositions send (x,y,z) to (0,y,−z).');
+    tr('Reflection in the xy-plane keeps x,y and negates z, so T₁(x,y,z)=(x,y,−z). Projection onto the yz-plane removes x, so T₂(x,y,z)=(0,y,z).',"Spegling i xy-planet behåller x,y och byter tecken på z, så T₁(x,y,z)=(x,y,−z). Projektion på yz-planet tar bort x, så T₂(x,y,z)=(0,y,z)."),
+    tr('Apply T₂ first: (x,y,z) → (0,y,z) → (0,y,−z). Thus T₁(T₂(x,y,z))=(0,y,−z).',"Utför T₂ först: (x,y,z) → (0,y,z) → (0,y,−z). Alltså är T₁(T₂(x,y,z))=(0,y,−z)."),
+    tr('Reverse the order: (x,y,z) → (x,y,−z) → (0,y,−z). Thus T₂(T₁(x,y,z)) has exactly the same formula.',"Vänd på ordningen: (x,y,z) → (x,y,−z) → (0,y,−z). Alltså har T₂(T₁(x,y,z)) exakt samma formel."),
+    tr('Since x,y,z were arbitrary, equality holds for every vector. Geometrically one action changes x while the other changes z, so neither action interferes with the other.',"Eftersom x,y,z var godtyckliga gäller likheten för varje vektor. Geometriskt ändrar den ena handlingen x och den andra z, så ingen påverkar den andras verkan.")
+  ],tr('They commute. Both compositions send (x,y,z) to (0,y,−z).',"De kommuterar. Båda sammansättningarna skickar (x,y,z) till (0,y,−z)."));
   t(4,[
-    'Write the operations as coordinate rules: T₁(x,y,z)=(x,y,−z), and T₂(x,y,z)=(2x,3y,z).',
-    'Apply T₂ then T₁: (x,y,z) → (2x,3y,z) → (2x,3y,−z).',
-    'Apply T₁ then T₂: (x,y,z) → (x,y,−z) → (2x,3y,−z).',
-    'The two formulas agree for every input. Scaling the x and y coordinates does not affect the z-coordinate reflection, so the operators commute.'
-  ],'They commute. Both compositions send (x,y,z) to (2x,3y,−z).');
+    tr('Write the operations as coordinate rules: T₁(x,y,z)=(x,y,−z), and T₂(x,y,z)=(2x,3y,z).',"Skriv operationerna som koordinatregler: T₁(x,y,z)=(x,y,−z) och T₂(x,y,z)=(2x,3y,z)."),
+    tr('Apply T₂ then T₁: (x,y,z) → (2x,3y,z) → (2x,3y,−z).',"Utför T₂ och sedan T₁: (x,y,z) → (2x,3y,z) → (2x,3y,−z)."),
+    tr('Apply T₁ then T₂: (x,y,z) → (x,y,−z) → (2x,3y,−z).',"Utför T₁ och sedan T₂: (x,y,z) → (x,y,−z) → (2x,3y,−z)."),
+    tr('The two formulas agree for every input. Scaling the x and y coordinates does not affect the z-coordinate reflection, so the operators commute.',"De två formlerna stämmer överens för varje indata. Skalning av x- och y-koordinaterna påverkar inte speglingen av z-koordinaten, så operatorerna kommuterar.")
+  ],tr('They commute. Both compositions send (x,y,z) to (2x,3y,−z).',"De kommuterar. Båda sammansättningarna skickar (x,y,z) till (2x,3y,−z)."));
 
   function productSteps(left,right,label){
     const result=mul(left,right);
     return left.flatMap((row,i)=>[
-      label+', row '+(i+1)+': use the row '+tuple(row)+' from the left matrix. Pair it with each column of the right matrix, multiply matching entries and add.',
-      ...right[0].map((_,j)=>'Entry ('+(i+1)+','+(j+1)+'): '+dot(row,right.map(r=>r[j]))+' = '+result[i][j]+'.')
+      label+tr(', row ',", rad ")+(i+1)+tr(': use the row ',": använd raden ")+tuple(row)+tr(' from the left matrix. Pair it with each column of the right matrix, multiply matching entries and add.'," från den vänstra matrisen. Para ihop den med varje kolonn i den högra matrisen, multiplicera motsvarande element och addera."),
+      ...right[0].map((_,j)=>tr('Entry (',"Element (")+(i+1)+','+(j+1)+'): '+dot(row,right.map(r=>r[j]))+' = '+result[i][j]+'.')
     ]);
   }
   function composeMatrices(n,a,b,formulas=false,reverse=true,names=['x₁','x₂','x₃','x₄']){
     const ba=mul(b,a),ab=reverse?mul(a,b):null;
-    const steps=[formulas?'Part a: a standard matrix has one row per output and one column per input. Read each coefficient in input order, using 0 for an input absent from that output.':'A is the matrix for Tₐ and B is the matrix for Tᵦ. A composition performs one whole transformation and then feeds its result into the next.',
-      'The two matrices are\nA =\n'+matrix(a)+'\nB =\n'+matrix(b)+'. Their sizes are '+a.length+' × '+a[0].length+' and '+b.length+' × '+b[0].length+'.',
-      'For '+(formulas?'T₂∘T₁':'Tᵦ∘Tₐ')+', apply A first and B second: x → Ax → B(Ax)=(BA)x. The matrix for the first action is on the right. The product BA has size '+b.length+' × '+a[0].length+'.',
+    const steps=[formulas?tr('Part a: a standard matrix has one row per output and one column per input. Read each coefficient in input order, using 0 for an input absent from that output.',"Del a: en standardmatris har en rad per utdatan och en kolonn per indatan. Läs varje koefficient i indatans ordning och använd 0 för ett indatavärde som saknas i just dett utdatavärde."):tr('A is the matrix for Tₐ and B is the matrix for Tᵦ. A composition performs one whole transformation and then feeds its result into the next.',"A är matrisen för Tₐ och B är matrisen för Tᵦ. En sammansättning utför en hel avbildning och matar sedan dess resultat till nästa."),
+      tr('The two matrices are\nA =\n',"De två matriserna är\nA =\n")+matrix(a)+'\nB =\n'+matrix(b)+tr('. Their sizes are ',". Deras storlekar är ")+a.length+' × '+a[0].length+tr(' and '," och ")+b.length+' × '+b[0].length+'.',
+      tr('For ',"För ")+(formulas?'T₂∘T₁':'Tᵦ∘Tₐ')+tr(', apply A first and B second: x → Ax → B(Ax)=(BA)x. The matrix for the first action is on the right. The product BA has size ',", utför A först och B sedan: x → Ax → B(Ax)=(BA)x. Matrisen för den första handlingen står till höger. Produkten BA har storleken ")+b.length+' × '+a[0].length+'.',
       ...productSteps(b,a,'BA'),
-      'Collect those entries, keeping their row and column positions:\nBA =\n'+matrix(ba)];
+      tr('Collect those entries, keeping their row and column positions:\nBA =\n',"Samla dessa element och behåll deras rad- och kolonnpositioner:\nBA =\n")+matrix(ba)];
     if(reverse){
-      steps.push('For the reverse order, x → Bx → A(Bx)=(AB)x. Multiply A on the left of B. The resulting matrix has size '+a.length+' × '+b[0].length+'.',...productSteps(a,b,'AB'),'Collect the reverse-order entries:\nAB =\n'+matrix(ab));
+      steps.push(tr('For the reverse order, x → Bx → A(Bx)=(AB)x. Multiply A on the left of B. The resulting matrix has size ',"För omvänd ordning gäller x → Bx → A(Bx)=(AB)x. Multiplicera A till vänster om B. Den resulterande matrisen har storleken ")+a.length+' × '+b[0].length+'.',...productSteps(a,b,'AB'),tr('Collect the reverse-order entries:\nAB =\n',"Samla elementen för den omvända ordningen:\nAB =\n")+matrix(ab));
     }else{
-      steps.push('Part c: the reverse composition T₁∘T₂ would feed the '+b.length+' coordinates from T₂ into T₁, which accepts exactly '+a[0].length+' coordinates. Those sizes do not match. Equivalently, AB cannot be multiplied because '+a[0].length+'≠'+b.length+'.');
+      steps.push(tr('Part c: the reverse composition T₁∘T₂ would feed the ',"Del c: den omvända sammansättningen T₁∘T₂ skulle mata de ")+b.length+tr(' coordinates from T₂ into T₁, which accepts exactly '," koordinaterna från T₂ till T₁, som tar emot exakt ")+a[0].length+tr(' coordinates. Those sizes do not match. Equivalently, AB cannot be multiplied because '," koordinater. Dessa storlekar stämmer inte överens. På samma sätt går AB inte att multiplicera eftersom ")+a[0].length+'≠'+b.length+'.');
     }
     if(formulas){
-      steps.push('For the requested coordinate formula, multiply each row of the composite matrix by the input column. This turns each row of coefficients back into one output expression.',
+      steps.push(tr('For the requested coordinate formula, multiply each row of the composite matrix by the input column. This turns each row of coefficients back into one output expression.',"För den efterfrågade koordinatformeln multiplicerar vi varje rad i den sammansatta matrisen med indatakolonnen. Då blir varje rad av koefficienter åter ett uttryck för ett utdatavärde."),
         'T₂(T₁('+names.slice(0,a[0].length).join(',')+')) = '+tuple(ba.map(r=>expression(r,names)))+'.');
       if(reverse)steps.push('T₁(T₂('+names.slice(0,b[0].length).join(',')+')) = '+tuple(ab.map(r=>expression(r,names)))+'.');
-      steps.push('Check with direct substitution at the first standard basis vector: T₁(e₁) is column 1 of A; applying B to it gives column 1 of BA, '+tuple(ba.map(r=>r[0]))+'. This agrees with the first-input coefficients in the final formula.');
+      steps.push(tr('Check with direct substitution at the first standard basis vector: T₁(e₁) is column 1 of A; applying B to it gives column 1 of BA, ',"Kontrollera med direkt insättning av den första standardbasvektorn: T₁(e₁) är kolonn 1 i A; om B tillämpas på den får vi kolonn 1 i BA, ")+tuple(ba.map(r=>r[0]))+tr('. This agrees with the first-input coefficients in the final formula.',". Detta stämmer med koefficienterna för första indatan i den slutliga formeln."));
     }
-    const answer=(formulas?'(a) A =\n'+matrix(a)+'\nB =\n'+matrix(b)+'\n(b) ':'')+(formulas?'[T₂∘T₁]':'[Tᵦ∘Tₐ]')+' = BA =\n'+matrix(ba)+(reverse?'\n'+(formulas?'[T₁∘T₂]':'[Tₐ∘Tᵦ]')+' = AB =\n'+matrix(ab):'\n(c) T₁∘T₂ is not defined: the input and output dimensions do not match.')+(formulas?'\n'+(reverse?'(c) ':'(d) ')+'T₂(T₁('+names.slice(0,a[0].length).join(',')+')) = '+tuple(ba.map(r=>expression(r,names)))+(reverse?'\nT₁(T₂('+names.slice(0,b[0].length).join(',')+')) = '+tuple(ab.map(r=>expression(r,names))):''):'');
+    const answer=(formulas?'(a) A =\n'+matrix(a)+'\nB =\n'+matrix(b)+'\n(b) ':'')+(formulas?'[T₂∘T₁]':'[Tᵦ∘Tₐ]')+' = BA =\n'+matrix(ba)+(reverse?'\n'+(formulas?'[T₁∘T₂]':'[Tₐ∘Tᵦ]')+' = AB =\n'+matrix(ab):tr('\n(c) T₁∘T₂ is not defined: the input and output dimensions do not match.',"\n(c) T₁∘T₂ är inte definierad: indata- och utdatadimensionerna stämmer inte överens."))+(formulas?'\n'+(reverse?'(c) ':'(d) ')+'T₂(T₁('+names.slice(0,a[0].length).join(',')+')) = '+tuple(ba.map(r=>expression(r,names)))+(reverse?'\nT₁(T₂('+names.slice(0,b[0].length).join(',')+')) = '+tuple(ab.map(r=>expression(r,names))):''):'');
     t(n,steps,answer);
   }
   composeMatrices(5,[[1,-2],[4,1]],[[2,-3],[5,0]]);
@@ -385,146 +386,146 @@
   composeMatrices(14,[[1,2,3,0],[0,1,0,-1]],[[-1,0],[0,0],[1,1],[0,3]],true);
   composeMatrices(15,[[0,1],[1,0],[1,1],[1,-1]],[[1,0,0,1],[0,1,0,1],[0,0,1,1]],true,false,['x','y']);
   composeMatrices(16,[[1,2],[0,0],[2,1]],[[0,0,3],[1,-1,0],[0,0,3],[-1,1,0]],true,false,['x','y']);
-  const readRows='To turn a coordinate rule into its standard matrix, put the coefficients of x,y (and z in space) into successive rows. A missing variable has coefficient 0.';
+  const readRows=tr('To turn a coordinate rule into its standard matrix, put the coefficients of x,y (and z in space) into successive rows. A missing variable has coefficient 0.',"Gör om en koordinatregel till dess standardmatris genom att placera koefficienterna för x,y (och z i rummet) i på varandra följande rader. En variabel som saknas har koefficienten 0.");
   t(7,[
-    'Follow the geometric operations in the stated order. For a rotation use (x,y) → (xcosθ−ysinθ, xsinθ+ycosθ). '+readRows,
-    'Part a: a 90° rotation sends (x,y) to (−y,x). Reflection in y=x then swaps these coordinates, giving (x,−y).',
-    'The first output x has coefficients [1,0], and the second output −y has coefficients [0,−1]. These are the two matrix rows.',
-    'Part b: projection onto the y-axis gives (0,y). At 45°, cos45°=sin45°=√2/2. Rotate: (0×√2/2−y√2/2,0×√2/2+y√2/2)=(−y√2/2,y√2/2).',
-    'These outputs have x,y coefficient rows [0,−√2/2] and [0,√2/2]. The zero first column records that projection erased the original x-coordinate.',
-    'Part c: reflecting in the x-axis gives (x,−y). With cos60°=1/2 and sin60°=√3/2, rotation gives (x/2−(−y)√3/2,x√3/2+(−y)/2).',
-    'Simplify to (x/2+y√3/2,x√3/2−y/2). Read off rows [1/2,√3/2] and [√3/2,−1/2].',
-    'Check by multiplying each answer matrix by the generic input column (x,y). It must reproduce the corresponding two-stage coordinate result.'
+    tr('Follow the geometric operations in the stated order. For a rotation use (x,y) → (xcosθ−ysinθ, xsinθ+ycosθ). ',"Följ de geometriska operationerna i angiven ordning. För en rotation använder vi (x,y) → (xcosθ−ysinθ, xsinθ+ycosθ). ")+readRows,
+    tr('Part a: a 90° rotation sends (x,y) to (−y,x). Reflection in y=x then swaps these coordinates, giving (x,−y).',"Del a: en rotation med 90° skickar (x,y) till (−y,x). Spegling i y=x byter sedan plats på koordinaterna och ger (x,−y)."),
+    tr('The first output x has coefficients [1,0], and the second output −y has coefficients [0,−1]. These are the two matrix rows.',"Första utdatan x har koefficienterna [1,0] och andra utdatan −y har koefficienterna [0,−1]. Dessa är matrisens två rader."),
+    tr('Part b: projection onto the y-axis gives (0,y). At 45°, cos45°=sin45°=√2/2. Rotate: (0×√2/2−y√2/2,0×√2/2+y√2/2)=(−y√2/2,y√2/2).',"Del b: projektion på y-axeln ger (0,y). Vid 45° gäller cos45°=sin45°=√2/2. Rotera: (0×√2/2−y√2/2,0×√2/2+y√2/2)=(−y√2/2,y√2/2)."),
+    tr('These outputs have x,y coefficient rows [0,−√2/2] and [0,√2/2]. The zero first column records that projection erased the original x-coordinate.',"Dessa utdata har koefficientraderna [0,−√2/2] och [0,√2/2] för x,y. Nollorna i första kolonnen visar att projektionen raderade den ursprungliga x-koordinaten."),
+    tr('Part c: reflecting in the x-axis gives (x,−y). With cos60°=1/2 and sin60°=√3/2, rotation gives (x/2−(−y)√3/2,x√3/2+(−y)/2).',"Del c: spegling i x-axeln ger (x,−y). Med cos60°=1/2 och sin60°=√3/2 ger rotationen (x/2−(−y)√3/2,x√3/2+(−y)/2)."),
+    tr('Simplify to (x/2+y√3/2,x√3/2−y/2). Read off rows [1/2,√3/2] and [√3/2,−1/2].',"Förenkla till (x/2+y√3/2,x√3/2−y/2). Läs av raderna [1/2,√3/2] och [√3/2,−1/2]."),
+    tr('Check by multiplying each answer matrix by the generic input column (x,y). It must reproduce the corresponding two-stage coordinate result.',"Kontrollera genom att multiplicera varje svarsmatris med den allmänna indatakolonnen (x,y). Den måste återskapa motsvarande koordinatresultat efter de två handlingarna.")
   ],'(a)\n'+matrix([[1,0],[0,-1]])+'\n(b)\n'+matrix([[0,'−√2/2'],[0,'√2/2']])+'\n(c)\n'+matrix([['1/2','√3/2'],['√3/2','−1/2']]));
   t(8,[
-    'Track a general point through all three actions, keeping intermediate coordinates so that the order is clear. '+readRows,
-    'Part a: a 60° rotation produces (x/2−y√3/2,x√3/2+y/2). Call the first coordinate u=x/2−y√3/2.',
-    'Projection onto the x-axis gives (u,0), and reflection in y=x swaps this to (0,u). Thus the final rule is (0,x/2−y√3/2). Its matrix rows are [0,0] and [1/2,−√3/2].',
-    'Part b: projection onto the x-axis gives (x,0). A 45° rotation gives (x√2/2,x√2/2). Reflection in the y-axis negates only the first coordinate, giving (−x√2/2,x√2/2).',
-    'The rows are [−√2/2,0] and [√2/2,0]. Neither output depends on the original y because the first projection removed it.',
-    'Part c: all three rotations have the same centre, so add their angles: 15°+105°+60°=180°. A half-turn sends (x,y) to (−x,−y).',
-    'The coefficient rows for that half-turn are [−1,0] and [0,−1]. As a check, the matrices in a and b send every input to a single line, while c preserves length and reverses direction.'
+    tr('Track a general point through all three actions, keeping intermediate coordinates so that the order is clear. ',"Följ en godtycklig punkt genom alla tre handlingarna och behåll mellankoordinaterna så att ordningen blir tydlig. ")+readRows,
+    tr('Part a: a 60° rotation produces (x/2−y√3/2,x√3/2+y/2). Call the first coordinate u=x/2−y√3/2.',"Del a: en rotation med 60° ger (x/2−y√3/2,x√3/2+y/2). Kalla den första koordinaten u=x/2−y√3/2."),
+    tr('Projection onto the x-axis gives (u,0), and reflection in y=x swaps this to (0,u). Thus the final rule is (0,x/2−y√3/2). Its matrix rows are [0,0] and [1/2,−√3/2].',"Projektion på x-axeln ger (u,0) och spegling i y=x byter plats på koordinaterna till (0,u). Slutregeln är alltså (0,x/2−y√3/2). Matrisraderna är [0,0] och [1/2,−√3/2]."),
+    tr('Part b: projection onto the x-axis gives (x,0). A 45° rotation gives (x√2/2,x√2/2). Reflection in the y-axis negates only the first coordinate, giving (−x√2/2,x√2/2).',"Del b: projektion på x-axeln ger (x,0). En rotation med 45° ger (x√2/2,x√2/2). Spegling i y-axeln byter bara tecken på första koordinaten och ger (−x√2/2,x√2/2)."),
+    tr('The rows are [−√2/2,0] and [√2/2,0]. Neither output depends on the original y because the first projection removed it.',"Raderna är [−√2/2,0] och [√2/2,0]. Inget utdatavärde beror på det ursprungliga y eftersom första projektionen tog bort det."),
+    tr('Part c: all three rotations have the same centre, so add their angles: 15°+105°+60°=180°. A half-turn sends (x,y) to (−x,−y).',"Del c: alla tre rotationer har samma centrum, så addera vinklarna: 15°+105°+60°=180°. Ett halvt varv skickar (x,y) till (−x,−y)."),
+    tr('The coefficient rows for that half-turn are [−1,0] and [0,−1]. As a check, the matrices in a and b send every input to a single line, while c preserves length and reverses direction.',"Koefficientraderna för detta halva varv är [−1,0] och [0,−1]. Som kontroll skickar matriserna i a och b varje indata till en enda linje, medan c bevarar längden och vänder riktningen.")
   ],'(a)\n'+matrix([[0,0],['1/2','−√3/2']])+'\n(b)\n'+matrix([['−√2/2',0],['√2/2',0]])+'\n(c)\n'+matrix([[-1,0],[0,-1]]));
   t(9,[
-    'A reflection in a coordinate plane negates the perpendicular coordinate; a projection onto that plane sets the perpendicular coordinate to 0. '+readRows,
-    'Part a: reflect in yz, so (x,y,z) → (−x,y,z). Then project onto xz by removing y: (−x,0,z).',
-    'The outputs −x, 0, z have coefficient rows [−1,0,0], [0,0,0], [0,0,1].',
-    'Part b: reflect in xy, so (x,y,z) → (x,y,−z). Project onto xy and remove the third coordinate: (x,y,0). Its rows are [1,0,0], [0,1,0], [0,0,0].',
-    'Part c: project onto xy first: (x,y,z) → (x,y,0). Then reflect in yz by negating x: (−x,y,0). Its rows are [−1,0,0], [0,1,0], [0,0,0].',
-    'Check that each zero output in the final coordinate rules corresponds to a whole zero row. This is essential: a projection really does remove that coordinate.'
+    tr('A reflection in a coordinate plane negates the perpendicular coordinate; a projection onto that plane sets the perpendicular coordinate to 0. ',"Spegling i ett koordinatplan byter tecken på den vinkelräta koordinaten; projektion på planet sätter den vinkelräta koordinaten till 0. ")+readRows,
+    tr('Part a: reflect in yz, so (x,y,z) → (−x,y,z). Then project onto xz by removing y: (−x,0,z).',"Del a: spegla i yz, så (x,y,z) → (−x,y,z). Projicera sedan på xz genom att ta bort y: (−x,0,z)."),
+    tr('The outputs −x, 0, z have coefficient rows [−1,0,0], [0,0,0], [0,0,1].',"Utdata −x, 0, z har koefficientraderna [−1,0,0], [0,0,0], [0,0,1]."),
+    tr('Part b: reflect in xy, so (x,y,z) → (x,y,−z). Project onto xy and remove the third coordinate: (x,y,0). Its rows are [1,0,0], [0,1,0], [0,0,0].',"Del b: spegla i xy, så (x,y,z) → (x,y,−z). Projicera på xy och ta bort den tredje koordinaten: (x,y,0). Raderna är [1,0,0], [0,1,0], [0,0,0]."),
+    tr('Part c: project onto xy first: (x,y,z) → (x,y,0). Then reflect in yz by negating x: (−x,y,0). Its rows are [−1,0,0], [0,1,0], [0,0,0].',"Del c: projicera först på xy: (x,y,z) → (x,y,0). Spegla sedan i yz genom att byta tecken på x: (−x,y,0). Raderna är [−1,0,0], [0,1,0], [0,0,0]."),
+    tr('Check that each zero output in the final coordinate rules corresponds to a whole zero row. This is essential: a projection really does remove that coordinate.',"Kontrollera att varje nollutdata i de slutliga koordinatreglerna motsvarar en hel nollrad. Detta är viktigt: en projektion tar verkligen bort den koordinaten.")
   ],'(a)\n'+matrix([[-1,0,0],[0,0,0],[0,0,1]])+'\n(b)\n'+matrix(pxy)+'\n(c)\n'+matrix([[-1,0,0],[0,1,0],[0,0,0]]));
   t(10,[
-    'Work from the first stated action to the last, recording the coordinates after every action. '+readRows,
-    'Part a: (x,y,z) → (x,y,−z) after reflection in xy; → (x,0,−z) after projection onto xz; → (−x,0,z) after negating the whole vector.',
-    'The last negation changes −z back to z. Read the final coefficients into rows: [−1,0,0], [0,0,0], [0,0,1].',
-    'Part b: (x,y,z) → (x,y,−z) after reflection in xy; → (x,−y,−z) after reflection in xz; → (0,−y,−z) after projection onto yz.',
-    'This gives rows [0,0,0], [0,−1,0], [0,0,−1]. The projection removes x, while both reflected signs remain.',
-    'Part c: (x,y,z) → (0,y,z) after projection onto yz; → (0,2y,2z) after doubling; → (0,2y,−2z) after reflection in xy.',
-    'The rows are [0,0,0], [0,2,0], [0,0,−2]. Check by multiplying the final matrix by (x,y,z); both the doubling and the last sign change must appear.'
+    tr('Work from the first stated action to the last, recording the coordinates after every action. ',"Arbeta från den först angivna handlingen till den sista och skriv koordinaterna efter varje handling. ")+readRows,
+    tr('Part a: (x,y,z) → (x,y,−z) after reflection in xy; → (x,0,−z) after projection onto xz; → (−x,0,z) after negating the whole vector.',"Del a: (x,y,z) → (x,y,−z) efter spegling i xy; → (x,0,−z) efter projektion på xz; → (−x,0,z) efter teckenbyte på hela vektorn."),
+    tr('The last negation changes −z back to z. Read the final coefficients into rows: [−1,0,0], [0,0,0], [0,0,1].',"Det sista teckenbytet ändrar −z tillbaka till z. Läs de slutliga koefficienterna radvis: [−1,0,0], [0,0,0], [0,0,1]."),
+    tr('Part b: (x,y,z) → (x,y,−z) after reflection in xy; → (x,−y,−z) after reflection in xz; → (0,−y,−z) after projection onto yz.',"Del b: (x,y,z) → (x,y,−z) efter spegling i xy; → (x,−y,−z) efter spegling i xz; → (0,−y,−z) efter projektion på yz."),
+    tr('This gives rows [0,0,0], [0,−1,0], [0,0,−1]. The projection removes x, while both reflected signs remain.',"Detta ger raderna [0,0,0], [0,−1,0], [0,0,−1]. Projektionen tar bort x, medan båda speglade tecknen finns kvar."),
+    tr('Part c: (x,y,z) → (0,y,z) after projection onto yz; → (0,2y,2z) after doubling; → (0,2y,−2z) after reflection in xy.',"Del c: (x,y,z) → (0,y,z) efter projektion på yz; → (0,2y,2z) efter fördubbling; → (0,2y,−2z) efter spegling i xy."),
+    tr('The rows are [0,0,0], [0,2,0], [0,0,−2]. Check by multiplying the final matrix by (x,y,z); both the doubling and the last sign change must appear.',"Raderna är [0,0,0], [0,2,0], [0,0,−2]. Kontrollera genom att multiplicera slutmatrisen med (x,y,z); både fördubblingen och det sista teckenbytet måste synas.")
   ],'(a)\n'+matrix([[-1,0,0],[0,0,0],[0,0,1]])+'\n(b)\n'+matrix([[0,0,0],[0,-1,0],[0,0,-1]])+'\n(c)\n'+matrix([[0,0,0],[0,2,0],[0,0,-2]]));
   t(17,[
-    'Write w=Ax, where the rows of A contain the coefficients of x₁,x₂,… in the output equations. Theorem 1.5.3(c) says this square matrix is invertible exactly when its reduced row echelon form is the identity.',
-    'Part a, matrix form:\n'+col(['w₁','w₂'])+' =\n'+matrix([[8,4],[2,1]])+' ×\n'+col(['x₁','x₂']),
-    'Divide row 1 by 8: [8,4] becomes [1,1/2]. Then replace row 2 by row 2−2(row 1): [2−2,1−2×(1/2)]=[0,0].',
-    'The reduced row echelon form is\n'+matrix([[1,'1/2'],[0,0]])+'. It is not I₂ because its second row is zero. Therefore part a is not invertible.',
-    'Part b, matrix form:\n'+col(['w₁','w₂','w₃'])+' =\n'+matrix([[-1,3,2],[2,0,4],[1,3,6]])+' ×\n'+col(['x₁','x₂','x₃']),
-    'Swap rows 1 and 2, then divide the new row 1 by 2. This gives\n'+matrix([[1,0,2],[-1,3,2],[1,3,6]]),
-    'Add row 1 to row 2: [−1+1,3+0,2+2]=[0,3,4]. Subtract row 1 from row 3: [1−1,3−0,6−2]=[0,3,4]. The last two rows are identical.',
-    'Subtract row 2 from row 3, then divide row 2 by 3. The reduced row echelon form is\n'+matrix([[1,0,2],[0,1,'4/3'],[0,0,0]])+'. It is not I₃, so part b is not invertible.',
-    'A geometric check: a zero row in the reduced square matrix means some input information cannot be recovered uniquely. Neither operator can have an inverse.'
-  ],'(a) w=Ax with A=\n'+matrix([[8,4],[2,1]])+'\nNot invertible.\n(b) w=Ax with A=\n'+matrix([[-1,3,2],[2,0,4],[1,3,6]])+'\nNot invertible.');
+    tr('Write w=Ax, where the rows of A contain the coefficients of x₁,x₂,… in the output equations. Theorem 1.5.3(c) says this square matrix is invertible exactly when its reduced row echelon form is the identity.',"Skriv w=Ax, där raderna i A innehåller koefficienterna för x₁,x₂,… i utdataekvationerna. Sats 1.5.3(c) säger att denna kvadratiska matris är inverterbar precis när dess reducerade trappstegsform är identiteten."),
+    tr('Part a, matrix form:\n',"Del a, matrisform:\n")+col(['w₁','w₂'])+' =\n'+matrix([[8,4],[2,1]])+' ×\n'+col(['x₁','x₂']),
+    tr('Divide row 1 by 8: [8,4] becomes [1,1/2]. Then replace row 2 by row 2−2(row 1): [2−2,1−2×(1/2)]=[0,0].',"Dividera rad 1 med 8: [8,4] blir [1,1/2]. Ersätt sedan rad 2 med rad 2−2(rad 1): [2−2,1−2×(1/2)]=[0,0]."),
+    tr('The reduced row echelon form is\n',"Den reducerade trappstegsformen är\n")+matrix([[1,'1/2'],[0,0]])+tr('. It is not I₂ because its second row is zero. Therefore part a is not invertible.',". Den är inte I₂ eftersom andra raden är noll. Därför är del a inte inverterbar."),
+    tr('Part b, matrix form:\n',"Del b, matrisform:\n")+col(['w₁','w₂','w₃'])+' =\n'+matrix([[-1,3,2],[2,0,4],[1,3,6]])+' ×\n'+col(['x₁','x₂','x₃']),
+    tr('Swap rows 1 and 2, then divide the new row 1 by 2. This gives\n',"Byt plats på raderna 1 och 2 och dividera sedan den nya rad 1 med 2. Detta ger\n")+matrix([[1,0,2],[-1,3,2],[1,3,6]]),
+    tr('Add row 1 to row 2: [−1+1,3+0,2+2]=[0,3,4]. Subtract row 1 from row 3: [1−1,3−0,6−2]=[0,3,4]. The last two rows are identical.',"Addera rad 1 till rad 2: [−1+1,3+0,2+2]=[0,3,4]. Subtrahera rad 1 från rad 3: [1−1,3−0,6−2]=[0,3,4]. De två sista raderna är identiska."),
+    tr('Subtract row 2 from row 3, then divide row 2 by 3. The reduced row echelon form is\n',"Subtrahera rad 2 från rad 3 och dividera sedan rad 2 med 3. Den reducerade trappstegsformen är\n")+matrix([[1,0,2],[0,1,'4/3'],[0,0,0]])+tr('. It is not I₃, so part b is not invertible.',". Den är inte I₃, så del b är inte inverterbar."),
+    tr('A geometric check: a zero row in the reduced square matrix means some input information cannot be recovered uniquely. Neither operator can have an inverse.',"En geometrisk kontroll: en nollrad i den reducerade kvadratiska matrisen betyder att viss information om indatan inte kan återvinnas entydigt. Ingen av operatorerna kan ha en invers.")
+  ],tr('(a) w=Ax with A=\n',"(a) w=Ax med A=\n")+matrix([[8,4],[2,1]])+tr('\nNot invertible.\n(b) w=Ax with A=\n',"\nInte inverterbar.\n(b) w=Ax med A=\n")+matrix([[-1,3,2],[2,0,4],[1,3,6]])+tr('\nNot invertible.',"\nInte inverterbar."));
   t(18,[
-    'Theorem 1.5.3(c) asks whether row reduction turns the coefficient matrix into the identity. An identity row has one 1 in its own coordinate and 0 in every other coordinate.',
-    'Part a, matrix form:\n'+col(['w₁','w₂'])+' =\n'+matrix([[2,-3],[5,1]])+' ×\n'+col(['x₁','x₂']),
-    'Divide row 1 by 2 to obtain [1,−3/2]. Replace row 2 by row 2−5(row 1): [5−5,1−5×(−3/2)]=[0,17/2].',
-    'Multiply row 2 by 2/17 to make [0,1]. Add (3/2) times row 2 to row 1 to make [1,0]. The result is I₂, so part a is invertible.',
-    'Part b, matrix form:\n'+col(['w₁','w₂','w₃'])+' =\n'+matrix([[1,2,3],[2,5,3],[1,0,8]])+' ×\n'+col(['x₁','x₂','x₃']),
-    'Replace row 2 by row 2−2(row 1): [0,1,−3]. Replace row 3 by row 3−row 1: [0,−2,5]. The matrix is now\n'+matrix([[1,2,3],[0,1,-3],[0,-2,5]]),
-    'Add twice row 2 to row 3: [0,−2+2,5−6]=[0,0,−1]. Multiply row 3 by −1 to obtain [0,0,1].',
-    'Add 3 times row 3 to row 2, making [0,1,0]. Subtract 3 times row 3 from row 1, making [1,2,0]. Finally subtract twice row 2 from row 1, making [1,0,0].',
-    'The final matrix is I₃. Both matrices reduced to identities, so each output has exactly one recoverable input and both operators are invertible.'
-  ],'(a) w=Ax with A=\n'+matrix([[2,-3],[5,1]])+'\nInvertible; reduced row echelon form I₂.\n(b) w=Ax with A=\n'+matrix([[1,2,3],[2,5,3],[1,0,8]])+'\nInvertible; reduced row echelon form I₃.');
-  sets['1.9'][19].steps.push('Part a: multiply the inverse by the output column. Its rows give x₁=(w₁−2w₂)/3 and x₂=(w₁+w₂)/3. Substitution checks both original equations: x₁+2x₂=(w₁−2w₂+2w₁+2w₂)/3=w₁; −x₁+x₂=(−w₁+2w₂+w₁+w₂)/3=w₂.');
-  sets['1.9'][19].steps.push('Part b has no inverse because different inputs collapse to the same output. For example (0,0) and (3,2) both give (0,0): 4×3−6×2=0 and −2×3+3×2=0.');
-  sets['1.9'][19].answer='(a) Invertible; A⁻¹ =\n'+matrix([['1/3','−2/3'],['1/3','1/3']])+'\nT⁻¹(w₁,w₂)=((w₁−2w₂)/3,(w₁+w₂)/3).\n(b) Not invertible; no inverse operator exists.';
-  sets['1.9'][20].steps.push('Part a: the rows of A⁻¹ give x₁=w₁−2w₂+4w₃, x₂=−w₁+2w₂−3w₃, x₃=−w₁+3w₂−5w₃. These are the three coordinates of T⁻¹(w₁,w₂,w₃).');
-  sets['1.9'][20].steps.push('Check by substituting those expressions into the original equations. For w₁, the coefficients become (1+2−2)w₁+(−2−4+6)w₂+(4+6−10)w₃=w₁. For w₂ they become (2−1−1)w₁+(−4+2+3)w₂+(8−3−5)w₃=w₂. Finally x₁+x₂=(1−1)w₁+(−2+2)w₂+(4−3)w₃=w₃.');
-  sets['1.9'][20].steps.push('Part b: row 3 equals row 1+row 2. One output equation repeats information already in the other two; row reduction confirms the missing pivot and the absence of an inverse.');
-  sets['1.9'][20].answer='(a) Invertible; A⁻¹ =\n'+matrix([[1,-2,4],[-1,2,-3],[-1,3,-5]])+'\nT⁻¹(w₁,w₂,w₃)=(w₁−2w₂+4w₃,−w₁+2w₂−3w₃,−w₁+3w₂−5w₃).\n(b) Not invertible; no inverse operator exists.';
+    tr('Theorem 1.5.3(c) asks whether row reduction turns the coefficient matrix into the identity. An identity row has one 1 in its own coordinate and 0 in every other coordinate.',"Sats 1.5.3(c) frågar om radreduktion omvandlar koefficientmatrisen till identiteten. En identitetsrad har en 1 i sin egen koordinat och 0 i varje annan koordinat."),
+    tr('Part a, matrix form:\n',"Del a, matrisform:\n")+col(['w₁','w₂'])+' =\n'+matrix([[2,-3],[5,1]])+' ×\n'+col(['x₁','x₂']),
+    tr('Divide row 1 by 2 to obtain [1,−3/2]. Replace row 2 by row 2−5(row 1): [5−5,1−5×(−3/2)]=[0,17/2].',"Dividera rad 1 med 2 för att få [1,−3/2]. Ersätt rad 2 med rad 2−5(rad 1): [5−5,1−5×(−3/2)]=[0,17/2]."),
+    tr('Multiply row 2 by 2/17 to make [0,1]. Add (3/2) times row 2 to row 1 to make [1,0]. The result is I₂, so part a is invertible.',"Multiplicera rad 2 med 2/17 för att få [0,1]. Addera (3/2) gånger rad 2 till rad 1 för att få [1,0]. Resultatet är I₂, så del a är inverterbar."),
+    tr('Part b, matrix form:\n',"Del b, matrisform:\n")+col(['w₁','w₂','w₃'])+' =\n'+matrix([[1,2,3],[2,5,3],[1,0,8]])+' ×\n'+col(['x₁','x₂','x₃']),
+    tr('Replace row 2 by row 2−2(row 1): [0,1,−3]. Replace row 3 by row 3−row 1: [0,−2,5]. The matrix is now\n',"Ersätt rad 2 med rad 2−2(rad 1): [0,1,−3]. Ersätt rad 3 med rad 3−rad 1: [0,−2,5]. Matrisen är nu\n")+matrix([[1,2,3],[0,1,-3],[0,-2,5]]),
+    tr('Add twice row 2 to row 3: [0,−2+2,5−6]=[0,0,−1]. Multiply row 3 by −1 to obtain [0,0,1].',"Addera två gånger rad 2 till rad 3: [0,−2+2,5−6]=[0,0,−1]. Multiplicera rad 3 med −1 för att få [0,0,1]."),
+    tr('Add 3 times row 3 to row 2, making [0,1,0]. Subtract 3 times row 3 from row 1, making [1,2,0]. Finally subtract twice row 2 from row 1, making [1,0,0].',"Addera 3 gånger rad 3 till rad 2, vilket ger [0,1,0]. Subtrahera 3 gånger rad 3 från rad 1, vilket ger [1,2,0]. Subtrahera slutligen två gånger rad 2 från rad 1, vilket ger [1,0,0]."),
+    tr('The final matrix is I₃. Both matrices reduced to identities, so each output has exactly one recoverable input and both operators are invertible.',"Slutmatrisen är I₃. Båda matriserna reducerades till identiteter, så varje utdata har exakt en återvinningsbar indata och båda operatorerna är inverterbara.")
+  ],tr('(a) w=Ax with A=\n',"(a) w=Ax med A=\n")+matrix([[2,-3],[5,1]])+tr('\nInvertible; reduced row echelon form I₂.\n(b) w=Ax with A=\n',"\nInverterbar; reducerad trappstegsform I₂.\n(b) w=Ax med A=\n")+matrix([[1,2,3],[2,5,3],[1,0,8]])+tr('\nInvertible; reduced row echelon form I₃.',"\nInverterbar; reducerad trappstegsform I₃."));
+  sets['1.9'][19].steps.push(tr('Part a: multiply the inverse by the output column. Its rows give x₁=(w₁−2w₂)/3 and x₂=(w₁+w₂)/3. Substitution checks both original equations: x₁+2x₂=(w₁−2w₂+2w₁+2w₂)/3=w₁; −x₁+x₂=(−w₁+2w₂+w₁+w₂)/3=w₂.',"Del a: multiplicera inversen med utdatakolonnen. Dess rader ger x₁=(w₁−2w₂)/3 och x₂=(w₁+w₂)/3. Insättning kontrollerar båda ursprungliga ekvationerna: x₁+2x₂=(w₁−2w₂+2w₁+2w₂)/3=w₁; −x₁+x₂=(−w₁+2w₂+w₁+w₂)/3=w₂."));
+  sets['1.9'][19].steps.push(tr('Part b has no inverse because different inputs collapse to the same output. For example (0,0) and (3,2) both give (0,0): 4×3−6×2=0 and −2×3+3×2=0.',"Del b har ingen invers eftersom olika indata faller samman till samma utdata. Till exempel ger både (0,0) och (3,2) resultatet (0,0): 4×3−6×2=0 och −2×3+3×2=0."));
+  sets['1.9'][19].answer=tr('(a) Invertible; A⁻¹ =\n',"(a) Inverterbar; A⁻¹ =\n")+matrix([['1/3','−2/3'],['1/3','1/3']])+tr('\nT⁻¹(w₁,w₂)=((w₁−2w₂)/3,(w₁+w₂)/3).\n(b) Not invertible; no inverse operator exists.',"\nT⁻¹(w₁,w₂)=((w₁−2w₂)/3,(w₁+w₂)/3).\n(b) Inte inverterbar; ingen invers operator finns.");
+  sets['1.9'][20].steps.push(tr('Part a: the rows of A⁻¹ give x₁=w₁−2w₂+4w₃, x₂=−w₁+2w₂−3w₃, x₃=−w₁+3w₂−5w₃. These are the three coordinates of T⁻¹(w₁,w₂,w₃).',"Del a: raderna i A⁻¹ ger x₁=w₁−2w₂+4w₃, x₂=−w₁+2w₂−3w₃, x₃=−w₁+3w₂−5w₃. Dessa är de tre koordinaterna i T⁻¹(w₁,w₂,w₃)."));
+  sets['1.9'][20].steps.push(tr('Check by substituting those expressions into the original equations. For w₁, the coefficients become (1+2−2)w₁+(−2−4+6)w₂+(4+6−10)w₃=w₁. For w₂ they become (2−1−1)w₁+(−4+2+3)w₂+(8−3−5)w₃=w₂. Finally x₁+x₂=(1−1)w₁+(−2+2)w₂+(4−3)w₃=w₃.',"Kontrollera genom att sätta in dessa uttryck i de ursprungliga ekvationerna. För w₁ blir koefficienterna (1+2−2)w₁+(−2−4+6)w₂+(4+6−10)w₃=w₁. För w₂ blir de (2−1−1)w₁+(−4+2+3)w₂+(8−3−5)w₃=w₂. Slutligen är x₁+x₂=(1−1)w₁+(−2+2)w₂+(4−3)w₃=w₃."));
+  sets['1.9'][20].steps.push(tr('Part b: row 3 equals row 1+row 2. One output equation repeats information already in the other two; row reduction confirms the missing pivot and the absence of an inverse.',"Del b: rad 3 är lika med rad 1+rad 2. En utdataekvation upprepar information som redan finns i de andra två; radreduktion bekräftar den saknade pivoten och att ingen invers finns."));
+  sets['1.9'][20].answer=tr('(a) Invertible; A⁻¹ =\n',"(a) Inverterbar; A⁻¹ =\n")+matrix([[1,-2,4],[-1,2,-3],[-1,3,-5]])+tr('\nT⁻¹(w₁,w₂,w₃)=(w₁−2w₂+4w₃,−w₁+2w₂−3w₃,−w₁+3w₂−5w₃).\n(b) Not invertible; no inverse operator exists.',"\nT⁻¹(w₁,w₂,w₃)=(w₁−2w₂+4w₃,−w₁+2w₂−3w₃,−w₁+3w₂−5w₃).\n(b) Inte inverterbar; ingen invers operator finns.");
   t(21,[
-    'An inverse must undo the transformation and recover the original point from every output. If two different points have the same output, this is impossible.',
-    'Part a: reflection in the x-axis sends (x,y) to (x,−y). Reflect again: (x,−y) → (x,−(−y))=(x,y). It undoes itself for every point.',
-    'Part b: the original rotation turns counterclockwise by 60°. A clockwise turn of 60°, that is a rotation by −60°, cancels it because 60°+(−60°)=0°.',
-    'Part c: projection onto the x-axis sends (x,y) to (x,0), losing the original y-coordinate. For example, (1,0) and (1,2) both become (1,0). An inverse would have to choose two different answers for the same output, so it cannot exist.'
-  ],'(a) Invertible; its inverse is reflection in the x-axis again.\n(b) Invertible; its inverse is a clockwise 60° rotation about the origin.\n(c) Not invertible.');
+    tr('An inverse must undo the transformation and recover the original point from every output. If two different points have the same output, this is impossible.',"En invers måste göra avbildningen ogjord och återfå den ursprungliga punkten från varje utdata. Om två olika punkter har samma utdata är detta omöjligt."),
+    tr('Part a: reflection in the x-axis sends (x,y) to (x,−y). Reflect again: (x,−y) → (x,−(−y))=(x,y). It undoes itself for every point.',"Del a: spegling i x-axeln skickar (x,y) till (x,−y). Spegla igen: (x,−y) → (x,−(−y))=(x,y). Den gör sig själv ogjord för varje punkt."),
+    tr('Part b: the original rotation turns counterclockwise by 60°. A clockwise turn of 60°, that is a rotation by −60°, cancels it because 60°+(−60°)=0°.',"Del b: den ursprungliga rotationen går moturs med 60°. Ett medurs varv på 60°, alltså en rotation med −60°, upphäver den eftersom 60°+(−60°)=0°."),
+    tr('Part c: projection onto the x-axis sends (x,y) to (x,0), losing the original y-coordinate. For example, (1,0) and (1,2) both become (1,0). An inverse would have to choose two different answers for the same output, so it cannot exist.',"Del c: projektion på x-axeln skickar (x,y) till (x,0), så den ursprungliga y-koordinaten går förlorad. Till exempel blir både (1,0) och (1,2) lika med (1,0). En invers skulle behöva välja två olika svar för samma utdata och kan därför inte finnas.")
+  ],tr('(a) Invertible; its inverse is reflection in the x-axis again.\n(b) Invertible; its inverse is a clockwise 60° rotation about the origin.\n(c) Not invertible.',"(a) Inverterbar; inversen är spegling i x-axeln igen.\n(b) Inverterbar; inversen är en medurs rotation med 60° kring origo.\n(c) Inte inverterbar."));
   t(22,[
-    'To find an inverse, seek an operation that restores every starting point. To show there is none, find two starting points that become indistinguishable.',
-    'Part a: reflection in y=x swaps the coordinates: (x,y) → (y,x). Swapping again gives (x,y), so the same reflection is the inverse.',
-    'Part b: projection onto the y-axis gives (0,y), erasing x. The distinct points (0,1) and (2,1) both become (0,1). There is no unique way to recover the input, so no inverse exists.',
-    'Part c: reflection about the origin gives (−x,−y). Apply it again: (−(−x),−(−y))=(x,y). Thus this operator is also its own inverse.'
-  ],'(a) Invertible; reflect in y=x again.\n(b) Not invertible.\n(c) Invertible; reflect about the origin again.');
-  sets['1.9'][23].steps.push('Part a: now apply the inverse to the requested vector, rather than stopping at the inverse matrix. The row products give (−1)×1+2×2=3 and 1×1+(−1)×2=−1. Thus Tₐ⁻¹(x)=(3,−1). Check: A(3,−1)=(3−2,3−1)=(1,2)=x.');
-  sets['1.9'][23].steps.push('Part b: every output has equal coordinates (u+v,u+v). In particular the requested vector (1,2) is not even an output. The singular matrix has no inverse operator.');
-  sets['1.9'][23].answer='(a) Invertible; Tₐ⁻¹(x)=\n'+col([3,-1])+'\n(b) Not invertible; Tₐ⁻¹ does not exist.';
-  sets['1.9'][24].steps.push('Part b: apply A⁻¹ to (1,2,3). First row: (1−2+3)/2=1. Second row: (1+2−3)/2=0. Third row: (−1+2+3)/2=2. Thus the inverse image is (1,0,2).');
-  sets['1.9'][24].steps.push('Check with the original matrix in part b: A(1,0,2)=(1+0,0+2,1+2)=(1,2,3), exactly the requested x. Part a has no inverse because its third row is the sum of its first two rows.');
-  sets['1.9'][24].answer='(a) Not invertible; Tₐ⁻¹ does not exist.\n(b) Invertible; Tₐ⁻¹(x)=\n'+col([1,0,2]);
+    tr('To find an inverse, seek an operation that restores every starting point. To show there is none, find two starting points that become indistinguishable.',"Sök en operation som återställer varje startpunkt för att hitta en invers. Visa att ingen finns genom att hitta två startpunkter som inte går att skilja åt efter avbildningen."),
+    tr('Part a: reflection in y=x swaps the coordinates: (x,y) → (y,x). Swapping again gives (x,y), so the same reflection is the inverse.',"Del a: spegling i y=x byter plats på koordinaterna: (x,y) → (y,x). Ett nytt byte ger (x,y), så samma spegling är inversen."),
+    tr('Part b: projection onto the y-axis gives (0,y), erasing x. The distinct points (0,1) and (2,1) both become (0,1). There is no unique way to recover the input, so no inverse exists.',"Del b: projektion på y-axeln ger (0,y) och raderar x. De olika punkterna (0,1) och (2,1) blir båda (0,1). Det finns inget entydigt sätt att återfå indatan, så ingen invers finns."),
+    tr('Part c: reflection about the origin gives (−x,−y). Apply it again: (−(−x),−(−y))=(x,y). Thus this operator is also its own inverse.',"Del c: spegling i origo ger (−x,−y). Gör det igen: (−(−x),−(−y))=(x,y). Även denna operator är alltså sin egen invers.")
+  ],tr('(a) Invertible; reflect in y=x again.\n(b) Not invertible.\n(c) Invertible; reflect about the origin again.',"(a) Inverterbar; spegla i y=x igen.\n(b) Inte inverterbar.\n(c) Inverterbar; spegla i origo igen."));
+  sets['1.9'][23].steps.push(tr('Part a: now apply the inverse to the requested vector, rather than stopping at the inverse matrix. The row products give (−1)×1+2×2=3 and 1×1+(−1)×2=−1. Thus Tₐ⁻¹(x)=(3,−1). Check: A(3,−1)=(3−2,3−1)=(1,2)=x.',"Del a: tillämpa nu inversen på den efterfrågade vektorn i stället för att stanna vid inversmatrisen. Radprodukterna ger (−1)×1+2×2=3 och 1×1+(−1)×2=−1. Alltså är Tₐ⁻¹(x)=(3,−1). Kontroll: A(3,−1)=(3−2,3−1)=(1,2)=x."));
+  sets['1.9'][23].steps.push(tr('Part b: every output has equal coordinates (u+v,u+v). In particular the requested vector (1,2) is not even an output. The singular matrix has no inverse operator.',"Del b: varje utdata har lika koordinater (u+v,u+v). Den efterfrågade vektorn (1,2) är alltså inte ens en möjlig utdata. Den singulära matrisen har ingen invers operator."));
+  sets['1.9'][23].answer=tr('(a) Invertible; Tₐ⁻¹(x)=\n',"(a) Inverterbar; Tₐ⁻¹(x)=\n")+col([3,-1])+tr('\n(b) Not invertible; Tₐ⁻¹ does not exist.',"\n(b) Inte inverterbar; Tₐ⁻¹ finns inte.");
+  sets['1.9'][24].steps.push(tr('Part b: apply A⁻¹ to (1,2,3). First row: (1−2+3)/2=1. Second row: (1+2−3)/2=0. Third row: (−1+2+3)/2=2. Thus the inverse image is (1,0,2).',"Del b: tillämpa A⁻¹ på (1,2,3). Första raden: (1−2+3)/2=1. Andra raden: (1+2−3)/2=0. Tredje raden: (−1+2+3)/2=2. Bilden under inversen är alltså (1,0,2)."));
+  sets['1.9'][24].steps.push(tr('Check with the original matrix in part b: A(1,0,2)=(1+0,0+2,1+2)=(1,2,3), exactly the requested x. Part a has no inverse because its third row is the sum of its first two rows.',"Kontrollera med den ursprungliga matrisen i del b: A(1,0,2)=(1+0,0+2,1+2)=(1,2,3), precis det efterfrågade x. Del a har ingen invers eftersom tredje raden är summan av de två första."));
+  sets['1.9'][24].answer=tr('(a) Not invertible; Tₐ⁻¹ does not exist.\n(b) Invertible; Tₐ⁻¹(x)=\n',"(a) Inte inverterbar; Tₐ⁻¹ finns inte.\n(b) Inverterbar; Tₐ⁻¹(x)=\n")+col([1,0,2]);
   t(25,[
-    'Multiply the matrix by a general input: the first output is 0x−y=−y; the second is −x+0y=−x. Hence Tₐ(x,y)=(−y,−x).',
-    'To identify its mirror line, take a point on y=−x, say (r,−r). Its image is (r,−r), so every point on that line is fixed.',
-    'A vector perpendicular to that line has the form (r,r); it is sent to (−r,−r), reversing its direction. Keeping the mirror-line component and reversing the perpendicular component is reflection across y=−x.',
-    'For part b, first swap the coordinates by reflection in y=x: S(x,y)=(y,x). Then reflect about the origin: N(u,v)=(−u,−v). The composite N(S(x,y))=(−y,−x) is exactly Tₐ.',
-    'Both steps are linear. Their matrices multiply in the same order: [N][S] = (−I₂) ×\n'+matrix(swap)+' =\n'+matrix([[0,-1],[-1,0]])+'. This verifies the composition.'
-  ],'(a) Reflection across the line y=−x.\n(b) Tₐ=N∘S, where S reflects in y=x and N reflects about the origin.');
+    tr('Multiply the matrix by a general input: the first output is 0x−y=−y; the second is −x+0y=−x. Hence Tₐ(x,y)=(−y,−x).',"Multiplicera matrisen med en godtycklig indata: första utdatan är 0x−y=−y; andra är −x+0y=−x. Alltså är Tₐ(x,y)=(−y,−x)."),
+    tr('To identify its mirror line, take a point on y=−x, say (r,−r). Its image is (r,−r), so every point on that line is fixed.',"Identifiera spegellinjen genom att välja en punkt på y=−x, exempelvis (r,−r). Dess bild är (r,−r), så varje punkt på linjen ligger kvar."),
+    tr('A vector perpendicular to that line has the form (r,r); it is sent to (−r,−r), reversing its direction. Keeping the mirror-line component and reversing the perpendicular component is reflection across y=−x.',"En vektor vinkelrät mot linjen har formen (r,r); den skickas till (−r,−r) och byter riktning. Att behålla komponenten längs spegellinjen och vända den vinkelräta komponenten är spegling i y=−x."),
+    tr('For part b, first swap the coordinates by reflection in y=x: S(x,y)=(y,x). Then reflect about the origin: N(u,v)=(−u,−v). The composite N(S(x,y))=(−y,−x) is exactly Tₐ.',"I del b byter vi först koordinaternas plats genom spegling i y=x: S(x,y)=(y,x). Spegla sedan i origo: N(u,v)=(−u,−v). Sammansättningen N(S(x,y))=(−y,−x) är exakt Tₐ."),
+    tr('Both steps are linear. Their matrices multiply in the same order: [N][S] = (−I₂) ×\n',"Båda stegen är linjära. Deras matriser multipliceras i samma ordning: [N][S] = (−I₂) ×\n")+matrix(swap)+' =\n'+matrix([[0,-1],[-1,0]])+tr('. This verifies the composition.',". Detta verifierar sammansättningen.")
+  ],tr('(a) Reflection across the line y=−x.\n(b) Tₐ=N∘S, where S reflects in y=x and N reflects about the origin.',"(a) Spegling i linjen y=−x.\n(b) Tₐ=N∘S, där S speglar i y=x och N speglar i origo."));
   t(26,[
-    'Use cos(2θ)=cos²θ−sin²θ and sin(2θ)=2sinθcosθ to rewrite the given matrix as\n'+matrix([['cos(2θ)','−sin(2θ)'],['sin(2θ)','cos(2θ)']]),
-    'This is the standard rotation matrix R₂θ. Therefore applying it to any vector rotates that vector through 2θ about the origin.',
-    'For part b, choose two successive rotations through θ about the same origin. Their angles add, giving θ+θ=2θ.',
-    'Verify by multiplication: RθRθ has entries cosθcosθ−sinθsinθ, −cosθsinθ−sinθcosθ, sinθcosθ+cosθsinθ, and −sinθsinθ+cosθcosθ.',
-    'Simplifying those four entries produces precisely the matrix in the question. Thus the proposed composition works for every vector, not just for one example.'
-  ],'(a) Rotation through 2θ about the origin.\n(b) Tₐ=Rθ∘Rθ: perform two rotations through θ.');
+    tr('Use cos(2θ)=cos²θ−sin²θ and sin(2θ)=2sinθcosθ to rewrite the given matrix as\n',"Använd cos(2θ)=cos²θ−sin²θ och sin(2θ)=2sinθcosθ för att skriva om den givna matrisen som\n")+matrix([['cos(2θ)','−sin(2θ)'],['sin(2θ)','cos(2θ)']]),
+    tr('This is the standard rotation matrix R₂θ. Therefore applying it to any vector rotates that vector through 2θ about the origin.',"Detta är standardmatrisen för rotation R₂θ. När den tillämpas på en vektor roteras därför vektorn med 2θ kring origo."),
+    tr('For part b, choose two successive rotations through θ about the same origin. Their angles add, giving θ+θ=2θ.',"I del b väljer vi två rotationer med θ efter varandra kring samma origo. Vinklarna adderas och ger θ+θ=2θ."),
+    tr('Verify by multiplication: RθRθ has entries cosθcosθ−sinθsinθ, −cosθsinθ−sinθcosθ, sinθcosθ+cosθsinθ, and −sinθsinθ+cosθcosθ.',"Verifiera genom multiplikation: RθRθ har elementen cosθcosθ−sinθsinθ, −cosθsinθ−sinθcosθ, sinθcosθ+cosθsinθ och −sinθsinθ+cosθcosθ."),
+    tr('Simplifying those four entries produces precisely the matrix in the question. Thus the proposed composition works for every vector, not just for one example.',"När dessa fyra element förenklas får vi precis matrisen i frågan. Den föreslagna sammansättningen fungerar alltså för varje vektor, inte bara för ett exempel.")
+  ],tr('(a) Rotation through 2θ about the origin.\n(b) Tₐ=Rθ∘Rθ: perform two rotations through θ.',"(a) Rotation med 2θ kring origo.\n(b) Tₐ=Rθ∘Rθ: utför två rotationer med θ."));
   t(27,[
-    '“If and only if” asks for two directions. Matrices commute means AB=BA. Transformations commute means doing them in either order gives the same output for every input.',
-    'First assume AB=BA. For any x, Tₐ(Tᵦ(x))=A(Bx)=(AB)x. Since AB=BA, this equals (BA)x=B(Ax)=Tᵦ(Tₐ(x)). The transformations therefore commute.',
-    'Now assume the transformations commute. Replacing each transformation by its matrix product gives (AB)x=(BA)x for every x.',
-    'Choose x=e₁, then e₂, and so on. Multiplying a matrix by eⱼ selects its jth column, so column j of AB equals column j of BA for every j.',
-    'Matrices with identical corresponding columns are equal. Hence AB=BA, which proves the converse and completes both directions.'
-  ],'Tₐ and Tᵦ commute if and only if AB=BA.');
+    tr('“If and only if” asks for two directions. Matrices commute means AB=BA. Transformations commute means doing them in either order gives the same output for every input.',"”Om och endast om” kräver två riktningar. Att matriser kommuterar betyder AB=BA. Att avbildningar kommuterar betyder att båda ordningsföljderna ger samma utdata för varje indata."),
+    tr('First assume AB=BA. For any x, Tₐ(Tᵦ(x))=A(Bx)=(AB)x. Since AB=BA, this equals (BA)x=B(Ax)=Tᵦ(Tₐ(x)). The transformations therefore commute.',"Anta först AB=BA. För varje x gäller Tₐ(Tᵦ(x))=A(Bx)=(AB)x. Eftersom AB=BA är detta lika med (BA)x=B(Ax)=Tᵦ(Tₐ(x)). Avbildningarna kommuterar därför."),
+    tr('Now assume the transformations commute. Replacing each transformation by its matrix product gives (AB)x=(BA)x for every x.',"Anta nu att avbildningarna kommuterar. Ersätt varje avbildning med dess matrisprodukt så får vi (AB)x=(BA)x för varje x."),
+    tr('Choose x=e₁, then e₂, and so on. Multiplying a matrix by eⱼ selects its jth column, so column j of AB equals column j of BA for every j.',"Välj x=e₁, sedan e₂ och så vidare. Multiplikation av en matris med eⱼ väljer dess j:te kolonn, så kolonn j i AB är lika med kolonn j i BA för varje j."),
+    tr('Matrices with identical corresponding columns are equal. Hence AB=BA, which proves the converse and completes both directions.',"Matriser med identiska motsvarande kolonner är lika. Alltså gäller AB=BA, vilket bevisar omvändningen och slutför båda riktningarna.")
+  ],tr('Tₐ and Tᵦ commute if and only if AB=BA.',"Tₐ och Tᵦ kommuterar om och endast om AB=BA."));
   t(28,[
-    'The composite Tₐ∘Tᵦ has standard matrix AB because B acts first. Therefore the question is whether AB is invertible exactly when both square matrices A and B are invertible.',
-    'First assume A and B are invertible. Undo A first and then B; the candidate inverse matrix is B⁻¹A⁻¹.',
-    'Check both sides: (AB)(B⁻¹A⁻¹)=A(BB⁻¹)A⁻¹=AIA⁻¹=I, and (B⁻¹A⁻¹)(AB)=B⁻¹(A⁻¹A)B=B⁻¹IB=I. Thus AB is invertible.',
-    'For the reverse direction, assume AB is invertible. If Bx=0, then (AB)x=A(Bx)=A0=0. Multiply by (AB)⁻¹ to conclude x=0.',
-    'Thus Bx=0 has only the zero solution. For a square matrix, Theorem 1.5.3 says this is equivalent to invertibility. So B is invertible.',
-    'Recover A as A=(AB)B⁻¹. Both factors on the right are invertible, so their product is invertible by the first direction just proved. Explicitly, A has inverse B(AB)⁻¹.',
-    'Both A and B are therefore invertible. Translating back to transformations proves the required equivalence; the inverse of the composition performs the two inverse operations in reverse order.'
-  ],'Tₐ∘Tᵦ is invertible if and only if both Tₐ and Tᵦ are invertible. When they are, (Tₐ∘Tᵦ)⁻¹=Tᵦ⁻¹∘Tₐ⁻¹.');
+    tr('The composite Tₐ∘Tᵦ has standard matrix AB because B acts first. Therefore the question is whether AB is invertible exactly when both square matrices A and B are invertible.',"Sammansättningen Tₐ∘Tᵦ har standardmatrisen AB eftersom B verkar först. Frågan är alltså om AB är inverterbar precis när båda de kvadratiska matriserna A och B är inverterbara."),
+    tr('First assume A and B are invertible. Undo A first and then B; the candidate inverse matrix is B⁻¹A⁻¹.',"Anta först att A och B är inverterbara. Gör A ogjord först och sedan B; kandidaten till inversmatris är B⁻¹A⁻¹."),
+    tr('Check both sides: (AB)(B⁻¹A⁻¹)=A(BB⁻¹)A⁻¹=AIA⁻¹=I, and (B⁻¹A⁻¹)(AB)=B⁻¹(A⁻¹A)B=B⁻¹IB=I. Thus AB is invertible.',"Kontrollera båda sidor: (AB)(B⁻¹A⁻¹)=A(BB⁻¹)A⁻¹=AIA⁻¹=I och (B⁻¹A⁻¹)(AB)=B⁻¹(A⁻¹A)B=B⁻¹IB=I. Alltså är AB inverterbar."),
+    tr('For the reverse direction, assume AB is invertible. If Bx=0, then (AB)x=A(Bx)=A0=0. Multiply by (AB)⁻¹ to conclude x=0.',"För den omvända riktningen antar vi att AB är inverterbar. Om Bx=0 så är (AB)x=A(Bx)=A0=0. Multiplicera med (AB)⁻¹ för att dra slutsatsen x=0."),
+    tr('Thus Bx=0 has only the zero solution. For a square matrix, Theorem 1.5.3 says this is equivalent to invertibility. So B is invertible.',"Bx=0 har alltså bara nollösningen. För en kvadratisk matris säger sats 1.5.3 att detta är likvärdigt med inverterbarhet. B är därför inverterbar."),
+    tr('Recover A as A=(AB)B⁻¹. Both factors on the right are invertible, so their product is invertible by the first direction just proved. Explicitly, A has inverse B(AB)⁻¹.',"Återfå A som A=(AB)B⁻¹. Båda faktorerna till höger är inverterbara, så produkten är inverterbar enligt den första riktningen som nyss bevisades. Uttryckligen har A inversen B(AB)⁻¹."),
+    tr('Both A and B are therefore invertible. Translating back to transformations proves the required equivalence; the inverse of the composition performs the two inverse operations in reverse order.',"Både A och B är därför inverterbara. Översatt tillbaka till avbildningar bevisar detta den efterfrågade ekvivalensen; sammansättningens invers utför de två inversa operationerna i omvänd ordning.")
+  ],tr('Tₐ∘Tᵦ is invertible if and only if both Tₐ and Tᵦ are invertible. When they are, (Tₐ∘Tᵦ)⁻¹=Tᵦ⁻¹∘Tₐ⁻¹.',"Tₐ∘Tᵦ är inverterbar om och endast om både Tₐ och Tᵦ är inverterbara. När de är det gäller (Tₐ∘Tᵦ)⁻¹=Tᵦ⁻¹∘Tₐ⁻¹."));
   t(29,[
-    'The equation Tₐ(x)=b is the same as Ax=b. An inverse would recover the input x from any output b. We must prove both directions of the statement.',
-    'Assume Tₐ is invertible, so A⁻¹ exists. For any b choose x=A⁻¹b. Then Ax=AA⁻¹b=Ib=b, so a solution exists.',
-    'To prove uniqueness, suppose y is another solution: Ay=b. Multiply by A⁻¹ to obtain y=A⁻¹b=x. Thus there cannot be a second different solution.',
-    'Conversely, assume that for every b there is exactly one x satisfying Ax=b. In particular, choose b=0. The vector x=0 is already a solution, so uniqueness says it is the only solution.',
-    'Theorem 1.5.3 says that a square matrix with only the zero solution to Ax=0 is invertible. Therefore A is invertible and Tₐ has the inverse Tₐ⁻¹(b)=A⁻¹b.',
-    'Existence means no requested output is missing; uniqueness means no two inputs compete for that output. Together they give precisely the ability to undo the transformation.'
-  ],'Tₐ is invertible exactly when Ax=b has one and only one solution x for every b∈ℝⁿ.');
+    tr('The equation Tₐ(x)=b is the same as Ax=b. An inverse would recover the input x from any output b. We must prove both directions of the statement.',"Ekvationen Tₐ(x)=b är samma sak som Ax=b. En invers skulle återfå indatan x från varje utdata b. Vi måste bevisa båda riktningarna i påståendet."),
+    tr('Assume Tₐ is invertible, so A⁻¹ exists. For any b choose x=A⁻¹b. Then Ax=AA⁻¹b=Ib=b, so a solution exists.',"Anta att Tₐ är inverterbar, så A⁻¹ finns. Välj x=A⁻¹b för ett godtyckligt b. Då är Ax=AA⁻¹b=Ib=b, så en lösning finns."),
+    tr('To prove uniqueness, suppose y is another solution: Ay=b. Multiply by A⁻¹ to obtain y=A⁻¹b=x. Thus there cannot be a second different solution.',"För att bevisa entydighet antar vi att y är en annan lösning: Ay=b. Multiplicera med A⁻¹ för att få y=A⁻¹b=x. Det kan alltså inte finnas en andra, annorlunda lösning."),
+    tr('Conversely, assume that for every b there is exactly one x satisfying Ax=b. In particular, choose b=0. The vector x=0 is already a solution, so uniqueness says it is the only solution.',"Omvänt antar vi att det för varje b finns exakt ett x som uppfyller Ax=b. Välj särskilt b=0. Vektorn x=0 är redan en lösning, så entydigheten säger att den är den enda."),
+    tr('Theorem 1.5.3 says that a square matrix with only the zero solution to Ax=0 is invertible. Therefore A is invertible and Tₐ has the inverse Tₐ⁻¹(b)=A⁻¹b.',"Sats 1.5.3 säger att en kvadratisk matris där Ax=0 bara har nollösningen är inverterbar. Därför är A inverterbar och Tₐ har inversen Tₐ⁻¹(b)=A⁻¹b."),
+    tr('Existence means no requested output is missing; uniqueness means no two inputs compete for that output. Together they give precisely the ability to undo the transformation.',"Existens betyder att ingen efterfrågad utdata saknas; entydighet betyder att inga två indata konkurrerar om samma utdata. Tillsammans ger de precis möjligheten att göra avbildningen ogjord.")
+  ],tr('Tₐ is invertible exactly when Ax=b has one and only one solution x for every b∈ℝⁿ.',"Tₐ är inverterbar precis när Ax=b har en och endast en lösning x för varje b∈ℝⁿ."));
   t('TF',[
-    'Part a: false. Choose A as reflection in y=x and B as projection onto the x-axis. At x=(1,0), ABx=(0,1), whereas BAx=(0,0). Composition order can change the result.',
-    'Part b: true. Tₐ acts first, giving Ax; Tᵦ then gives B(Ax)=(BA)x=BAx. The rightmost matrix acts first.',
-    'Part c: true. Rotations about the same origin add angles: RαRβ=R(α+β). A sum of 0° gives the identity, which is the zero-angle rotation.',
-    'Part d: false. Reflect first in the x-axis and then in the line y=x: (x,y) → (x,−y) → (−y,x). This is a 90° rotation. It is neither a reflection in a line nor reflection about the origin. For example, doing this quarter-turn twice sends (1,0) to (−1,0), whereas doing any reflection twice restores the original point.',
-    'Part e: true. Reflection in y=x swaps the coordinates. Swapping twice sends (x,y) → (y,x) → (x,y), so it is its own inverse.',
-    'Part f: false. Two positive 90° rotations add to 180°, not 0°. The inverse of a positive 90° rotation is a −90° rotation, equivalently a positive 270° rotation.',
-    'Part g: true. Reflection about the origin negates both coordinates. Applying it twice gives (−(−x),−(−y))=(x,y), so it is its own inverse.'
-  ],'(a) False; (b) True; (c) True; (d) False; (e) True; (f) False; (g) True.');
+    tr('Part a: false. Choose A as reflection in y=x and B as projection onto the x-axis. At x=(1,0), ABx=(0,1), whereas BAx=(0,0). Composition order can change the result.',"Del a: falskt. Välj A som spegling i y=x och B som projektion på x-axeln. Vid x=(1,0) är ABx=(0,1), medan BAx=(0,0). Sammansättningens ordning kan ändra resultatet."),
+    tr('Part b: true. Tₐ acts first, giving Ax; Tᵦ then gives B(Ax)=(BA)x=BAx. The rightmost matrix acts first.',"Del b: sant. Tₐ verkar först och ger Ax; Tᵦ ger sedan B(Ax)=(BA)x=BAx. Matrisen längst till höger verkar först."),
+    tr('Part c: true. Rotations about the same origin add angles: RαRβ=R(α+β). A sum of 0° gives the identity, which is the zero-angle rotation.',"Del c: sant. Rotationer kring samma origo adderar vinklar: RαRβ=R(α+β). En summa på 0° ger identiteten, som är rotationen med nollvinkel."),
+    tr('Part d: false. Reflect first in the x-axis and then in the line y=x: (x,y) → (x,−y) → (−y,x). This is a 90° rotation. It is neither a reflection in a line nor reflection about the origin. For example, doing this quarter-turn twice sends (1,0) to (−1,0), whereas doing any reflection twice restores the original point.',"Del d: falskt. Spegla först i x-axeln och sedan i linjen y=x: (x,y) → (x,−y) → (−y,x). Detta är en rotation med 90°. Den är varken en spegling i en linje eller en spegling i origo. Till exempel skickar två sådana kvartsvarv (1,0) till (−1,0), medan en spegling som upprepas två gånger återställer den ursprungliga punkten."),
+    tr('Part e: true. Reflection in y=x swaps the coordinates. Swapping twice sends (x,y) → (y,x) → (x,y), so it is its own inverse.',"Del e: sant. Spegling i y=x byter plats på koordinaterna. Två byten skickar (x,y) → (y,x) → (x,y), så den är sin egen invers."),
+    tr('Part f: false. Two positive 90° rotations add to 180°, not 0°. The inverse of a positive 90° rotation is a −90° rotation, equivalently a positive 270° rotation.',"Del f: falskt. Två positiva rotationer med 90° adderas till 180°, inte 0°. Inversen till en positiv rotation med 90° är en rotation med −90°, eller likvärdigt en positiv rotation med 270°."),
+    tr('Part g: true. Reflection about the origin negates both coordinates. Applying it twice gives (−(−x),−(−y))=(x,y), so it is its own inverse.',"Del g: sant. Spegling i origo byter tecken på båda koordinaterna. Två tillämpningar ger (−(−x),−(−y))=(x,y), så den är sin egen invers.")
+  ],tr('(a) False; (b) True; (c) True; (d) False; (e) True; (f) False; (g) True.',"(a) Falskt; (b) Sant; (c) Sant; (d) Falskt; (e) Sant; (f) Falskt; (g) Sant."));
   t('T1',[
-    'Use degree mode on the calculator because the angles are in degrees. Write Rα=[[cosα,−sinα],[sinα,cosα]] and F=[[-1,0],[0,1]] for reflection in the y-axis.',
-    'The operations act in the order R47°, then F, then R33°. Therefore the standard matrix is A=R33° F R47°; the first action is the rightmost factor.',
-    'First multiply F R47°. Reflection negates its first row, giving\n'+matrix([['−cos47°','sin47°'],['sin47°','cos47°']]),
-    'Now multiply R33° on the left. Entry (1,1) is −cos33°cos47°−sin33°sin47°=−cos(47°−33°)=−cos14°. Entry (1,2) is cos33°sin47°−sin33°cos47°=sin14°.',
-    'Entry (2,1) is −sin33°cos47°+cos33°sin47°=sin14°. Entry (2,2) is sin33°sin47°+cos33°cos47°=cos14°. Thus A=[[-cos14°,sin14°],[sin14°,cos14°]].',
-    'Evaluate only at the end: cos14°≈0.9702957263 and sin14°≈0.2419218956. Hence A≈[[-0.97029573,0.24192190],[0.24192190,0.97029573]].',
-    'Part b: multiply by (1,1). The first coordinate is −cos14°+sin14°≈−0.7283738307; the second is sin14°+cos14°≈1.2122176219.',
-    'Check the length: rotations and reflections preserve it. The original squared length is 1²+1²=2; the exact output has squared length (−c+s)²+(s+c)²=2(c²+s²)=2, where c=cos14° and s=sin14°.'
+    tr('Use degree mode on the calculator because the angles are in degrees. Write Rα=[[cosα,−sinα],[sinα,cosα]] and F=[[-1,0],[0,1]] for reflection in the y-axis.',"Använd gradläge på räknaren eftersom vinklarna anges i grader. Skriv Rα=[[cosα,−sinα],[sinα,cosα]] och F=[[-1,0],[0,1]] för spegling i y-axeln."),
+    tr('The operations act in the order R47°, then F, then R33°. Therefore the standard matrix is A=R33° F R47°; the first action is the rightmost factor.',"Operationerna verkar i ordningen R47°, sedan F och sedan R33°. Standardmatrisen är därför A=R33° F R47°; den första handlingen är faktorn längst till höger."),
+    tr('First multiply F R47°. Reflection negates its first row, giving\n',"Multiplicera först F R47°. Speglingen byter tecken på första raden och ger\n")+matrix([['−cos47°','sin47°'],['sin47°','cos47°']]),
+    tr('Now multiply R33° on the left. Entry (1,1) is −cos33°cos47°−sin33°sin47°=−cos(47°−33°)=−cos14°. Entry (1,2) is cos33°sin47°−sin33°cos47°=sin14°.',"Multiplicera nu R33° från vänster. Element (1,1) är −cos33°cos47°−sin33°sin47°=−cos(47°−33°)=−cos14°. Element (1,2) är cos33°sin47°−sin33°cos47°=sin14°."),
+    tr('Entry (2,1) is −sin33°cos47°+cos33°sin47°=sin14°. Entry (2,2) is sin33°sin47°+cos33°cos47°=cos14°. Thus A=[[-cos14°,sin14°],[sin14°,cos14°]].',"Element (2,1) är −sin33°cos47°+cos33°sin47°=sin14°. Element (2,2) är sin33°sin47°+cos33°cos47°=cos14°. Alltså är A=[[-cos14°,sin14°],[sin14°,cos14°]]."),
+    tr('Evaluate only at the end: cos14°≈0.9702957263 and sin14°≈0.2419218956. Hence A≈[[-0.97029573,0.24192190],[0.24192190,0.97029573]].',"Beräkna decimalvärden först i slutet: cos14°≈0.9702957263 och sin14°≈0.2419218956. Alltså är A≈[[-0.97029573,0.24192190],[0.24192190,0.97029573]]."),
+    tr('Part b: multiply by (1,1). The first coordinate is −cos14°+sin14°≈−0.7283738307; the second is sin14°+cos14°≈1.2122176219.',"Del b: multiplicera med (1,1). Första koordinaten är −cos14°+sin14°≈−0.7283738307; andra är sin14°+cos14°≈1.2122176219."),
+    tr('Check the length: rotations and reflections preserve it. The original squared length is 1²+1²=2; the exact output has squared length (−c+s)²+(s+c)²=2(c²+s²)=2, where c=cos14° and s=sin14°.',"Kontrollera längden: rotationer och speglingar bevarar den. Den ursprungliga längden i kvadrat är 1²+1²=2; den exakta utdatans längd i kvadrat är (−c+s)²+(s+c)²=2(c²+s²)=2, där c=cos14° och s=sin14°.")
   ],'(a) A =\n'+matrix([['−cos14°','sin14°'],['sin14°','cos14°']])+'\n≈\n'+matrix([['−0.97029573','0.24192190'],['0.24192190','0.97029573']])+'\n(b) T(1,1)=(−cos14°+sin14°,sin14°+cos14°)≈(−0.72837383,1.21221762).');
 
   const standardAnswers={
@@ -541,9 +542,9 @@
   for(const n of [45,46]){
     // These traces invert the input-column matrix X, not the unknown answer A.
     const steps=sets['1.8'][n].steps;
-    for(let i=2;i<steps.length-3;i++)steps[i]=steps[i].replaceAll('A⁻¹','X⁻¹').replaceAll('undo A','undo X').replaceAll('A from I','X from I').replaceAll('turn A into','turn X into');
+    for(let i=2;i<steps.length-3;i++)steps[i]=steps[i].replaceAll('A⁻¹','X⁻¹').replaceAll('undo A','undo X').replaceAll('A from I','X from I').replaceAll('turn A into','turn X into').replaceAll('A:s','X:s').replaceAll('A från I','X från I').replaceAll('omvandla A till','omvandla X till');
   }
 
   window.EmberMathQuestions=window.EmberMathQuestions||{};
   Object.assign(window.EmberMathQuestions,sets);
-})();
+});
