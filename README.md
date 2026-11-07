@@ -4,6 +4,18 @@
 
 A warm, interactive study kit for learning computer science, mathematics and physics by experimenting. The home page lets visitors choose a subject.
 
+## Computer science · Chapter 1
+
+Open `computer-science.html` for **Data Storage**, Chapter 1 of Brookshear and Brylow, *Computer Science: An Overview*, 13th Global Edition (2020). Ten short lessons follow sections 1.1–1.10: bits, memory, storage, information encoding, binary numbers, signed integers, fractions, programming, compression and error control. Every lesson includes a worked example, a check of understanding and a link to a relevant experiment.
+
+The book bank contains all **131 entries**: 63 section exercises, 61 review problems and seven discussion questions. Full source questions and necessary diagrams appear before separate **Write my answer** and **Show worked solution** panels. Original explanations label each step, explain why it is useful and finish with the final answer. Written work stays editable and appears beside the solution for comparison. Discussion responses are examples of reasoned answers, not unique correct conclusions. Drafts and lesson progress are stored in this browser when storage is available; written answers are not automatically graded.
+
+The six experiment tabs cover bits and addressed memory, number representations, the book’s eight-bit floating-point format, text and raw media sizes, compression, and error control. The memory model has an interactive 3D view with touch, keyboard, rotation, tilt, layer separation and a full-screen workspace, alongside an exact textual byte table. Each model explains its assumptions. The quiz has 120 original questions covering all ten sections, four difficulty levels and three types: problems, terminology and computer-science language. Revealing an answer earns no point.
+
+The language selector switches lessons, questions, worked steps, figures, experiments, quizzes, feedback and accessibility text between English and Swedish. Direct links can use `?lang=en` or `?lang=sv`. Changing language preserves the lesson, writing, open answer panels, quiz order and results, and experiment values and camera. Search accepts either language. The chapter uses the independent `ember-cs-chapter1:` storage prefix.
+
+`cs-chapter-base.js` manages language, the content modules provide lessons and exercise records, and `cs-chapter.js` renders the learning interface. `cs-chapter-models.js` contains independently testable calculations; `cs-chapter-labs.js` connects the experiments. The earlier English logic workbench remains at `computer-science-labs.html`; existing links with its section hashes redirect there. See [SOURCES.md](SOURCES.md) for source scope, numerical conventions and corrections to printed answers.
+
 ## Physics
 
 Open `physics.html` for Chapter 1 of Young and Freedman, *University Physics with Modern Physics in SI Units*, 15th edition (2019): units, physical quantities and vectors. Ten beginner lessons introduce the concepts, notation and calculations. A unit machine explains length, area and volume conversions; a block-cube experiment shows why area and volume scale differently.
@@ -52,7 +64,7 @@ Boolean expressions use explicit operators and this precedence: parentheses, NOT
 
 ## Files
 
-`index.html` contains the shared app shell. `app.js` and `logic.js` provide the logic lessons. `numbers.js` and `number-ui.js` provide number conversion and its learning interface. `circuit.js` and `circuit-ui.js` provide the connected-gate simulator. The stylesheets define the responsive design.
+`index.html` is the subject hub. `computer-science.html` contains the bilingual textbook chapter, while `computer-science-labs.html` contains the original workbench shell. `app.js` and `logic.js` provide its logic lessons. `numbers.js` and `number-ui.js` provide number conversion and its learning interface. `circuit.js` and `circuit-ui.js` provide the connected-gate simulator. The stylesheets define the responsive design.
 
 The conversion checks exhaust all values from 0 to 65,535 across all four bases, then cover large unsigned 64-bit boundaries and representative patterns. Logic-gate, flip-flop, and browser interaction checks also pass.
 
@@ -80,7 +92,7 @@ Every simulation workshop has a shared 3D inspector linked to its current model 
 
 ## Subject hub and mathematics
 
-The home page lets you choose Mathematics, Computer Science or Physics. The original logic workbench is at `computer-science.html`. Old home-page links with a workbench section hash redirect there.
+The home page lets you choose Mathematics, Computer Science or Physics. Computer Science opens the textbook chapter; the original logic workbench is at `computer-science-labs.html`. Old home-page and computer-science links with a workbench section hash still reach the original workshop.
 
 Mathematics opens a Chapter 1 linear algebra lab based on the topic order in Howard Anton and Anton Kaul's *Elementary Linear Algebra*, 12th edition. It includes an editable 3D plane intersection and matrix transformation visualizer, original worked practice for all eleven sections, worked solutions for every numbered exercise, true/false set, technology exercise, and supplementary exercise in Chapter 1, and configurable quizzes. Written attempts are saved only in the current browser when local storage is available. Quiz problems use self-marking after showing the worked solution.
 

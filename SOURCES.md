@@ -2,6 +2,30 @@
 
 Created by Noah J.G TELTA Student MIUN 2026.
 
+## Computer science · Data Storage, Chapter 1
+
+Source: J. Glenn Brookshear and Dennis Brylow, *Computer Science: An Overview*, 13th edition, Global Edition, Pearson (2020), the user-supplied textbook. Chapter 1 begins on page 39; sections 1.1–1.10 occupy pages 40–101, review problems pages 102–107, and social discussion questions pages 107–108. The answer bank includes all 63 numbered section exercises, all 61 review problems and all seven discussion questions. English question wording follows the supplied book, with readable line breaks and mathematical symbols. Necessary question diagrams are cropped from the supplied PDF and embedded in standalone SVG files under `assets/computer-science/questions/`; Swedish versions translate the prose labels while preserving the circuit topology. The NAND-only solution diagram is an original redraw. The original PDF and full textbook pages are not published. Swedish questions and figure labels are translations. The ten lessons, worked solutions, interactive experiments and 120 quiz questions are original teaching material, not a publisher-issued solution manual or translation.
+
+Solutions use small, explicit steps and distinguish a calculation from its meaning. Every question can be read without revealing its answer. Optional writing and worked solutions are independently controlled; saved drafts remain in the browser, not on a server. Written reasoning and discussion answers are not automatically graded. The previous English workbench remains available separately, preserving its existing storage keys and links.
+
+Chapter-specific conventions:
+
+- The floating-point experiment follows **the book’s eight-bit format**, not IEEE 754: one sign bit, three excess-four exponent bits, and four fraction bits interpreted as `.bbbb`. Normalized nonzero values have a leading fraction bit of 1; the canonical zero is `00000000`. Encoding discards extra fraction bits unless a question explicitly asks for the closest value. The smallest positive normalized value is 1/32, and the largest stored positive value is 7.5. Raw, unnormalized patterns are decoded as written. This model has no IEEE infinities, NaNs or subnormal convention. Review problem 40 explicitly considers nearest approximations.
+- Signed-magnitude, excess notation and two’s complement are separate representations. Arithmetic uses exact intermediate values, fixed-width bit results and explicit overflow checks. A discarded carry is not by itself signed overflow.
+- The memory experiment is a tiny byte-addressed teaching model. Its spatial layers explain addresses and bits; they are not a measured chip layout. Power loss means unknown volatile contents, not a promise of zero. Controls and a textual byte table provide alternatives to rotating the 3D view.
+- ASCII uses seven data bits. An eighth high-order bit can be supplied for parity. Curly printed quotation marks are normalized to straight ASCII quotes where the exercise explicitly asks for ASCII; solution text explains that choice and any spaces. UTF-8 is explained separately. Image and audio payload calculations exclude compression and file overhead unless stated.
+- The book’s “LZW” example adds whole-word dictionary entries at word boundaries. It is a simplified teaching example; standard LZW builds character sequences. The compression experiment uses explicitly described run-length records. A shorter example is not a universal compression guarantee.
+- Figure 1.27 uses eight six-bit codewords with minimum Hamming distance three. A one-bit error can be corrected. Codeword membership detects up to two errors, but blindly correcting a two-bit error can select the wrong codeword. Parity detects every odd count of flips and can miss even counts; it does not identify the flipped position.
+- Storage-size assumptions distinguish decimal MB from binary MiB when the wording is ambiguous. Calculations using a stated average rotational delay do not divide that average by two again.
+
+The printed question statements were checked independently of the appendix. Section 1.2 retains the four question numbers printed on page 51 even where appendix grouping differs. For 1.6 question 7(b), `3 − (−2)` is 5; the explanation identifies the conflicting printed answer. Odd-parity strings in 1.10 question 4 are recalculated from the requested parity rule. Review 17 uses the supplied average rotational delay and gives 19 ms. Worked answers explain assumptions instead of silently replacing contradictory data.
+
+Review questions about currency use dated illustrative rates and a runnable example for obtaining a fresh table. Reference data checked for 6 November 2026: [European Central Bank euro reference rates](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html). Rates quoted per euro are converted to rates per US dollar by division. Currency symbols are checked against the [Unicode currency symbols chart](https://www.unicode.org/charts/PDF/U20A0.pdf). These examples teach data representation and programming; a saved rate table does not update itself.
+
+Validation includes independent coverage of all source question IDs, bilingual field parity, every normalized eight-bit float round trip, all four-bit two’s-complement additions, single-bit parity/Hamming errors, UTF-8 byte comparisons, memory power behavior, and DOM interactions for drafts, hidden solutions, filters, language, quiz scoring and legacy navigation. Automated checks do not replace a real-browser layout review or testing on a physical phone.
+
+## Original workbench references
+
 References checked 24 October 2026. The app links to these sources in its reference disclosures. Its diagrams and ASCII tiles are original HTML/SVG, not reproduced source charts. Standard ASCII assignments are stable; an updated Unicode version does not create a new ASCII version.
 
 - [RFC 20: ASCII](https://www.rfc-editor.org/rfc/rfc20) — seven-bit US-ASCII, embedded in an eight-bit byte with the high bit zero.
