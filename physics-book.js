@@ -1,7 +1,8 @@
 (function(root,factory){
-  const api=factory(typeof module==='object'&&module.exports?require('./physics-core.js'):root.Physics);
+  const common=typeof module==='object'&&module.exports;
+  const api=factory(common?require('./physics-core.js'):root.Physics,common?require('./physics-questions.js'):root.PhysicsQuestions);
   if(typeof module==='object'&&module.exports) module.exports=api; else root.PhysicsBook=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(P){
+})(typeof globalThis!=='undefined'?globalThis:this,function(P,Q){
   'use strict';
   const items=[];
   const {fmt:f,tuple:t,polar:pol,add,sub,scale,sum,norm,dot,cross,angle,direction,unit}=P;
@@ -9,7 +10,8 @@
   function entry(id,title,topic,prompt,steps,answer,extra={}){
     const n=Number(id.replace('1.',''));
     const page=id.startsWith('Q')?55:id.startsWith('VP')||id==='Bridge'?54:n<=6?55:n<=25?56:n<=49?57:n<=62?58:n<=81?59:n<=91?60:61;
-    const item={id,title,topic,prompt,steps,answer,page,level:n>=90?4:n>=49?3:n>=21?2:1,...extra};
+    if(!Q.get(id))throw new Error(`Missing textbook question ${id}`);
+    const item={id,title,topic,prompt:Q.text[id],steps,answer,page,level:n>=90?4:n>=49?3:n>=21?2:1,...extra};
     items.push(item); return item;
   }
   const q=(n,title,topic,prompt,steps,answer)=>entry('Q1.'+n,title,topic,prompt,steps,answer,{level: n>=18?3:1});

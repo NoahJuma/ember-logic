@@ -1,4 +1,26 @@
 .physics{--accent:#1e6572;--green:#246349;--soft:#e0eeee}
+.question-body{margin:1.2rem 0 1.5rem;max-width:80ch;min-width:0}
+.question-body h4{margin:0 0 .65rem;color:var(--accent);font-size:1rem}
+.question-body h5{font-size:.9rem;margin:0 0 .5rem}
+.question-text p,.question-passage p,.question-reference p{overflow-wrap:anywhere;line-height:1.75}
+.question-text p:last-child,.question-reference p:last-child{margin-bottom:0}
+.question-passage,.question-reference{padding:1rem;border:1px solid var(--line);border-radius:9px;background:#f0f5f2;margin:1rem 0}
+.question-table-wrap{max-width:100%;overflow-x:auto;margin:1rem 0 1.2rem;border:1px solid var(--line);border-radius:9px}
+.question-table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums;background:var(--card)}
+.question-table caption{text-align:left;padding:.7rem .8rem;font-weight:700;background:#e8f0ee}
+.question-table th,.question-table td{text-align:left;padding:.65rem .8rem;border-bottom:1px solid var(--line);white-space:nowrap}
+.question-table th{font-weight:650}.question-table tbody tr:last-child>*{border-bottom:0}
+.question-figure{margin:1.2rem 0;padding:1rem;background:#fff;border:1px solid var(--line);border-radius:10px}
+.question-figure img{display:block;max-width:100%;height:auto;margin:auto}
+.question-figure figcaption{font-size:.85rem;color:var(--muted);margin-top:.75rem;line-height:1.7}
+.question-figure figcaption a{display:inline-block;padding:.4rem 0;color:var(--accent)}
+.figure-description{margin-top:.4rem;font-size:.85rem}.figure-description p{margin-top:.5rem}
+.physics .exercise .numbered-solution{list-style:none;padding:0;margin:1rem 0 1.5rem}
+.physics .exercise .numbered-solution li{padding:.9rem 1rem;border-left:3px solid #87aaa2;background:#f2f6f3;border-radius:0 8px 8px 0;white-space:normal}
+.solution-step-label{display:block;color:var(--accent);font-size:.85rem;margin-bottom:.4rem}
+.numbered-solution p{margin:0;white-space:pre-wrap;line-height:1.75}
+.physics .comparison{margin-top:1.5rem;padding-top:.8rem;border-top:1px solid var(--line)}
+.final-answer{min-width:0}.final-answer h4{color:var(--green)}
 .hero-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}.hero-links a{text-decoration:none}
 .physics-hero h1{font-size:clamp(3.2rem,7.5vw,6.2rem)}
 .physics-orbit{position:absolute;right:3%;top:18%;width:190px;height:190px;border:1px solid #85aaa8;border-radius:50%;z-index:-1;opacity:.6;transform:rotate(-25deg)}

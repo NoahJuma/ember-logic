@@ -21,7 +21,7 @@ function fixture(width=390,storage={}){
   w.ResizeObserver=class{constructor(cb){this.cb=cb;}observe(){this.cb();}disconnect(){}};
   w.requestAnimationFrame=cb=>{frames.set(++frame,cb);return frame;};w.cancelAnimationFrame=id=>frames.delete(id);
   for(const [k,v]of Object.entries(storage))w.localStorage.setItem(k,v);
-  for(const file of ['physics-core.js','physics-content.js','physics-book.js','physics-lab.js','physics.js'])w.eval(read(file));
+  for(const file of ['physics-core.js','physics-content.js','physics-questions.js','physics-book.js','physics-lab.js','physics.js'])w.eval(read(file));
   const $=s=>d.querySelector(s),all=s=>[...d.querySelectorAll(s)];
   const input=(el,value,event='input')=>{if(typeof el==='string')el=$(el);el.value=String(value);el.dispatchEvent(new w.Event(event,{bubbles:true}));};
   const click=s=>{const el=typeof s==='string'?$(s):s;assert.ok(el,`Missing element ${s}`);el.click();};
@@ -46,10 +46,42 @@ test('measurement controls show squared, cubed and microscopic conversions witho
 });
 test('all 129 answer cards render; solutions stay closed; filters and exact exercise search work',()=>{
   const f=fixture();f.input('#physics-set','all','change');const ids=[];
-  do{ids.push(...f.all('#physics-exercises article').map(a=>a.dataset.question));assert.equal(f.all('.solution-panel[open]').length,0);assert.doesNotMatch(f.$('#physics-exercises').innerHTML,/NaN|Infinity/);if(f.$('#physics-next').disabled)break;f.click('#physics-next');}while(true);
+  do{
+    for(const card of f.all('#physics-exercises article')){
+      const id=card.dataset.question,q=f.w.PhysicsQuestions.get(id),question=card.querySelector('.question-body'),solution=card.querySelector('.solution-panel');ids.push(id);
+      assert.equal([...question.querySelectorAll('.question-text>p')].map(p=>p.textContent).join('\n'),q.text,id);
+      assert.equal(question.closest('details'),null,id);
+      assert.ok(question.compareDocumentPosition(card.querySelector('.attempt-panel'))&4,id);
+      assert.equal(solution.open,false,id);
+      const steps=[...solution.querySelectorAll('.numbered-solution>li')];
+      assert.ok(steps.length>=3,id);
+      steps.forEach((li,i)=>assert.equal(li.querySelector('.solution-step-label').textContent,`Step ${i+1}`,id));
+      const final=solution.querySelector('.final-answer');
+      assert.equal(final.querySelector('h4').textContent,'The final answer is…',id);
+      assert.ok(steps.at(-1).compareDocumentPosition(final)&4,id);
+      assert.equal(final.querySelector('.answer').textContent,f.w.PhysicsBook.items.find(i=>i.id===id).answer,id);
+      assert.equal(solution.lastElementChild.lastElementChild,final,id);
+      if(q.figure)assert.equal(question.querySelector('img').getAttribute('src'),'assets/physics/questions/'+q.figure.file,id);
+    }
+    assert.equal(f.all('.solution-panel[open]').length,0);assert.doesNotMatch(f.$('#physics-exercises').innerHTML,/NaN|Infinity/);if(f.$('#physics-next').disabled)break;f.click('#physics-next');
+  }while(true);
   assert.equal(ids.length,129);assert.equal(new Set(ids).size,129);
   f.search('1.1');assert.equal(f.all('#physics-exercises article').length,1);assert.equal(f.$('article[data-question]').dataset.question,'1.1');
   f.search('does not exist');assert.equal(f.all('#physics-exercises article').length,0);assert.match(f.$('#physics-exercises').textContent,/No questions match/);
+  assert.deepEqual(f.errors,[]);f.close();
+});
+test('tables and shared passages are readable before opening answers, and full wording is searchable',()=>{
+  const f=fixture();
+  for(const id of ['1.87','1.88','1.89']){
+    f.search(id);const table=f.$('.question-table');assert.equal(table.closest('details'),null);
+    assert.equal(table.parentElement.previousElementSibling,f.$('.question-text>p'));
+    assert.equal(table.querySelectorAll('tbody tr').length,{'1.87':6,'1.88':4,'1.89':2}[id]);
+    if(id==='1.87'){assert.match(table.textContent,/6.00 µg/);assert.match(table.textContent,/9.38 × 10⁶ µm³/);}
+    assert.equal(f.$('.solution-panel').open,false);
+  }
+  for(const id of ['1.92','1.93','1.94']){f.search(id);assert.match(f.$('.question-passage').textContent,/480 × 10⁶/);assert.match(f.$('.question-passage').textContent,/4.2 × 10⁶ µm³/);}
+  f.search('microwave and radio-wave bands');assert.equal(f.$('article[data-question]').dataset.question,'1.50');
+  f.search('VP1.7.2');assert.match(f.$('.question-reference').textContent,/72.4 m/);assert.match(f.$('.question-text').textContent,/A⃗ − B⃗ \+ C⃗/);
   assert.deepEqual(f.errors,[]);f.close();
 });
 test('users can reveal without writing, retain an independent attempt and safely reload saved text',async()=>{
