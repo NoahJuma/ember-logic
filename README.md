@@ -26,6 +26,14 @@ The language selector switches lessons, questions, worked steps, figures, experi
 
 `cs-chapter-base.js` manages language, the content modules provide lessons and exercise records, and `cs-chapter.js` renders the learning interface. `cs-chapter-models.js` contains independently testable calculations; `cs-chapter-labs.js` connects the experiments. The earlier English logic workbench remains at `computer-science-labs.html`; existing links with its section hashes redirect there. See [SOURCES.md](SOURCES.md) for source scope, numerical conventions and corrections to printed answers.
 
+## Physics · Chapter 2
+
+Open `physics-chapter2.html` for **Motion Along a Straight Line**, sections 2.1–2.6 of the user-supplied Young and Freedman SI textbook. Six bilingual lessons build from position and signed displacement through velocity, acceleration, constant acceleration, free fall, and integration. Each includes mathematical prerequisites, examples, misconceptions and a check. The motion lab lets learners change the initial conditions, predict a velocity and compare position, velocity and acceleration graphs; it offers reset and full screen where supported.
+
+The searchable source bank contains 134 cards: 92 numbered questions, 22 discussion questions, 12 guided variations, the bridging problem, six section checks and the opening question. Each has independent writing, hint, solution and video panels. Written reasoning is compared by the learner; it is not automatically graded. Drafts, disclosures, language and quiz state are stored locally when browser storage is available.
+
+The 132-question bilingual quiz combines 72 numerical variants, 48 conceptual questions, six graph questions and six labelled textbook questions. It offers four levels and learning, topic, mixed and chapter-test modes; feedback separates independent answers, hints, revealed solutions and remaining questions. Numerical tolerance is the greater of 1% or 0.01 in the requested unit. Links to videos name their language and teacher or publisher; they are topic guidance, not recordings of these exact solutions. See [PHYSICS-CHAPTER-2-COVERAGE.md](PHYSICS-CHAPTER-2-COVERAGE.md) and [SOURCES.md](SOURCES.md).
+
 ## Physics
 
 Open `physics.html` for Chapter 1 of Young and Freedman, *University Physics with Modern Physics in SI Units*, 15th edition (2019): units, physical quantities and vectors. Ten beginner lessons introduce the concepts, notation and calculations. A unit machine explains length, area and volume conversions; a block-cube experiment shows why area and volume scale differently.

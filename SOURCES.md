@@ -2,6 +2,20 @@
 
 Created by Noah J.G TELTA Student MIUN 2026.
 
+## Physics · Motion Along a Straight Line, Chapter 2
+
+Source: Hugh D. Young and Roger A. Freedman, *University Physics with Modern Physics in SI Units*, 15th edition, Pearson (2019), the user-supplied PDF. Chapter 2 spans printed pages 62–93 (PDF pages 64–95). English exercise wording follows the source; Swedish wording is a translation. Lessons, solutions, quiz variants and most figures are independently produced teaching material. Figure 2.9 is a limited crop from the source. The complete book is not published. See [PHYSICS-CHAPTER-2-COVERAGE.md](PHYSICS-CHAPTER-2-COVERAGE.md) for section-to-practice mapping and verification scope.
+
+Solution conventions and source ambiguities:
+
+- 2.13(d) has three positive times at a 10 cm displacement; the corresponding exact speed rounds to 1.22 cm/s to three significant figures, while the printed answer says 1.23 cm/s.
+- 2.52 uses x-components for the acceleration and velocity in the model; part (c) prints y-components, which are not determined by the stated x-motion without an extra assumption.
+- 2.76 states a constant-acceleration assumption for the second stage, since its final velocity and duration alone do not determine the distance.
+- 2.84 uses approximate readings from the plotted data and labels its fit accordingly. In 2.86, sensor magnitudes are treated as forward accelerations, an explicit assumption.
+- In 2.89(a), using the stated 20.0 m height, 1.00 s delay and g = 9.80 m/s² gives 8.18 m/s; the book appendix prints 8.3 m/s. The displayed solution checks simultaneous impact directly.
+
+Chapter 2 video links were checked for availability and identity on 8 November 2026. YouTube oEmbed identified [Börje Sundvall’s Swedish introduction to motion](https://www.youtube.com/watch?v=Dzcs-adFwR0) and [Tomas Rönnåbakk Sverin’s Swedish free-fall lesson](https://www.youtube.com/watch?v=kdb9O5SNq3I). The linked Khan Academy lessons cover [position–time graphs](https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/v/position-vs-time-graphs), [velocity–time graphs](https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/v/velocity-time-graphs), [vertical motion](https://www.khanacademy.org/science/physics-library-intl/x10bf974b5c2ada11%3Aone-dimensional-motion/x10bf974b5c2ada11%3Akinematic-formulas/v/projectile-height-given-time), and [one-dimensional motion with calculus](https://www.khanacademy.org/v/one-dimensional-motion-with-calculus). Link and metadata checks do not mean that every video was watched in full; availability can change.
+
 ## Mathematics and physics video references
 
 The video collection was checked on 7 November 2026. `study-video-data.js` records each exact video URL, publisher/teacher, original title, spoken language, topic mapping and source page. It includes 37 mathematics resources and 22 physics resources (36 English and 23 Swedish). Titles and short bilingual viewing suggestions are editorial guidance; changing the interface language does not change the video's audio. No claim is made about subtitle availability or the length of a video unless stated by its source.
