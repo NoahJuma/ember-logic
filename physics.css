@@ -43,3 +43,6 @@
 .physics-language{display:flex;align-items:center;gap:.55rem;color:var(--ink);font-weight:650}
 .physics-language select{min-height:44px;min-width:115px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.4rem .7rem}
 @media(max-width:520px){.physics .study-top{align-items:flex-start;flex-wrap:wrap}.physics-header-actions{width:100%;justify-content:space-between;gap:.5rem}.physics-language{font-size:.9rem}}
+
+.chapter1-quiz-figure{display:block;width:min(100%,460px);height:auto;background:#fff;border:1px solid var(--line);border-radius:10px;margin:1rem 0}
+@media(max-width:800px){.physics-orbit{right:10%}}

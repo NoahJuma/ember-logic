@@ -9,7 +9,7 @@ const read=file=>fs.readFileSync(path.join(root,file.split('?')[0]),'utf8');
 // Run the actual page scripts. These checks cover navigation and retained work,
 // not third-party playback, which takes place on the linked provider's website.
 function fixture(subject,language='en'){
-  const page=subject==='math'?'linear-algebra.html':'physics.html',errors=[];
+  const page=subject==='math'?'linear-algebra.html':'physics-chapter1.html',errors=[];
   const virtualConsole=new VirtualConsole();virtualConsole.on('jsdomError',e=>errors.push(e.message));
   const dom=new JSDOM(read(page),{url:'https://example.test/'+page+'?lang='+language,runScripts:'outside-only',pretendToBeVisual:true,virtualConsole});
   const w=dom.window,d=w.document;w.structuredClone=globalThis.structuredClone;
@@ -89,7 +89,7 @@ test('physics lessons and all exercise pages offer independent video help while 
   f.$('#lesson .lesson-check details').open=true;
   f.input('#physics-set','all','change');let count=0;
   for(;;){for(const card of f.all('#physics-exercises>article')){assertHelp(card);count++;}if(f.$('#physics-next').disabled)break;f.$('#physics-next').click();}
-  assert.equal(count,129);
+  assert.equal(count,136);
   f.input('#physics-search','1.84');let card=f.$('#physics-exercises>article');assertHelp(card).open=true;
   card.querySelector('.attempt-panel').open=true;card.querySelector('.solution-panel').open=true;
   f.input(card.querySelector('textarea'),'The opposite normal direction also works.');

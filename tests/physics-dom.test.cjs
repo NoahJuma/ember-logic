@@ -10,7 +10,7 @@ const read=name=>fs.readFileSync(path.join(__dirname,'..',name),'utf8');
 function fixture(width=390,storage={}){
   const errors=[],frames=new Map();let frame=0;
   const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
-  const dom=new JSDOM(read('physics.html'),{url:'https://example.test/physics.html',runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
+  const dom=new JSDOM(read('physics-chapter1.html'),{url:'https://example.test/physics-chapter1.html',runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
   const w=dom.window,d=w.document;
   w.Element.prototype.scrollIntoView=function(){};
   w.Element.prototype.setPointerCapture=function(){};
@@ -124,7 +124,7 @@ test('quiz refuses blank scoring, explains an answer, prevents double scoring, a
   const prompt=f.$('#physics-quiz h3').textContent,q=f.w.PhysicsContent.quiz.find(q=>q.prompt===prompt),correct=f.all('#physics-quiz input').find(el=>Number(el.value)===q.answer);
   correct.checked=true;correct.dispatchEvent(new f.w.Event('change',{bubbles:true}));f.click('[data-quiz-action="check"]');assert.match(f.$('#physics-quiz-feedback').textContent,/Correct/);assert.equal(f.$('[data-quiz-action="check"]').disabled,true);
   f.click('[data-quiz-action="next"]');f.click('[data-quiz-action="reveal"]');assert.match(f.$('#physics-quiz-feedback').textContent,/not scored/);
-  for(let i=0;i<3;i++){f.click('[data-quiz-action="next"]');f.click('[data-quiz-action="reveal"]');}f.click('[data-quiz-action="next"]');assert.match(f.$('#physics-quiz').textContent,/1 correct out of 5/);assert.match(f.$('#physics-quiz').textContent,/4 solutions viewed/);
+  for(let i=0;i<3;i++){f.click('[data-quiz-action="next"]');f.click('[data-quiz-action="reveal"]');}f.click('[data-quiz-action="next"]');assert.match(f.$('#physics-quiz').textContent,/1 independent correct out of 5/);assert.match(f.$('#physics-quiz').textContent,/Solutions viewed: 4/);
   for(let level=1;level<=4;level++)for(const type of ['problems','terms','language']){f.input('#physics-level',level,'change');f.input('#physics-quiz-type',type,'change');f.$('#physics-quiz-form').dispatchEvent(new f.w.Event('submit',{bubbles:true,cancelable:true}));assert.match(f.$('#physics-quiz').textContent,/OF 4/);}
   assert.deepEqual(f.errors,[]);f.close();
 });

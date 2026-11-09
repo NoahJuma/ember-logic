@@ -10,7 +10,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 // Browser geometry and native dialogs are simulated; no visual-layout claims.
 function fixture({lang='en',stored={},browserLanguage='en-US'}={}){
   const errors=[],vc=new VirtualConsole();vc.on('jsdomError',error=>errors.push(error.message));
-  const dom=new JSDOM(read('physics.html'),{url:'https://example.test/physics.html'+(lang?'?lang='+lang:''),runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
+  const dom=new JSDOM(read('physics-chapter1.html'),{url:'https://example.test/physics-chapter1.html'+(lang?'?lang='+lang:''),runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:vc});
   const w=dom.window,d=w.document;
   Object.defineProperty(w.navigator,'language',{value:browserLanguage});
   w.Element.prototype.scrollIntoView=function(){};
@@ -44,15 +44,15 @@ test('physics language follows URL, saved choice and browser preference in that 
   }
 });
 
-test('all Swedish lessons, quiz questions and 129 worked entries retain numerical data and structure',()=>{
+test('all Swedish lessons, quiz questions and 136 worked entries retain numerical data and structure',()=>{
   const f=fixture(),english=JSON.parse(JSON.stringify({content:f.w.PhysicsContent,items:f.w.PhysicsBook.items}));
   const sourceQuestions=Object.fromEntries(f.w.PhysicsBook.items.map(item=>[item.id,JSON.parse(JSON.stringify(f.w.PhysicsQuestions.get(item.id)))]));
-  const numbers=text=>String(text).match(/[−-]?\d+(?:[.,]\d+)?|[⁺⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉]+/g)||[];
+  const numbers=text=>(String(text).match(/[−-]?\d+(?:[.,]\d+)?|[⁺⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉]+/g)||[]).map(n=>n.replace(',','.'));
   f.language('sv');const swedish=f.w.PhysicsContent;
-  assert.equal(swedish.lessons.length,10);assert.equal(swedish.glossary.length,16);assert.equal(swedish.quiz.length,48);
+  assert.equal(swedish.lessons.length,10);assert.equal(swedish.glossary.length,16);assert.equal(swedish.quiz.length,72);
   swedish.lessons.forEach((lesson,i)=>{assert.equal(lesson.id,english.content.lessons[i].id);assert.equal(lesson.steps.length,english.content.lessons[i].steps.length);assert.notEqual(lesson.title,english.content.lessons[i].title);});
   swedish.quiz.forEach((question,i)=>{const en=english.content.quiz[i];assert.equal(question.id,en.id);assert.equal(question.answer,en.answer);assert.equal(question.level,en.level);assert.equal(question.type,en.type);assert.equal(question.options.length,en.options.length);assert.notEqual(question.prompt,en.prompt);if(question.why===en.why)assert.equal(question.why,'ΔA≈WΔL+LΔW=2×0.1+10×0.1=1.2 cm².');});
-  assert.equal(Object.keys(f.w.PhysicsLocales.sv.items).length,129);
+  assert.equal(Object.keys(f.w.PhysicsLocales.sv.items).length,136);
   f.w.PhysicsBook.items.forEach((item,i)=>{
     const en=english.items[i];assert.equal(item.id,en.id);assert.equal(item.steps.length,en.steps.length,item.id);assert.notEqual(item.title,en.title,item.id);assert.notEqual(item.prompt,en.prompt,item.id);
     item.steps.forEach((step,n)=>assert.deepEqual(numbers(step),numbers(en.steps[n]),item.id+' step '+n));
@@ -67,7 +67,7 @@ test('all Swedish lessons, quiz questions and 129 worked entries retain numerica
   assert.deepEqual(f.errors,[]);f.close();
 });
 
-test('all 129 Swedish cards show full translated questions, numbered steps, tables and Swedish figures',()=>{
+test('all 136 Swedish cards show full translated questions, numbered steps, tables and Swedish figures',()=>{
   const f=fixture({lang:'sv'});f.input('#physics-set','all','change');const seen=new Set();let figures=0;
   do{
     for(const card of f.all('#physics-exercises article')){
@@ -83,7 +83,7 @@ test('all 129 Swedish cards show full translated questions, numbered steps, tabl
     }
     if(f.$('#physics-next').disabled)break;f.click('#physics-next');
   }while(true);
-  assert.equal(seen.size,129);assert.ok(figures>=11);assert.equal(f.w.PhysicsI18n.missing.size,0);assert.deepEqual(f.errors,[]);f.close();
+  assert.equal(seen.size,136);assert.ok(figures>=11);assert.equal(f.w.PhysicsI18n.missing.size,0);assert.deepEqual(f.errors,[]);f.close();
 });
 
 test('language changes preserve written work, vector components, disclosure state and saved keys',()=>{
