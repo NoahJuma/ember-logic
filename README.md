@@ -125,3 +125,7 @@ Both `mathematics.html` and `linear-algebra.html` have a Swedish/English selecto
 ## Physics · Chapter 9
 
 `physics-chapter9.html` covers rotation of rigid bodies in Swedish and English. It includes 137 source-based exercises and checks, 100 quiz questions and variants, and a rotation lab. See [PHYSICS_CHAPTER9_COVERAGE.md](PHYSICS_CHAPTER9_COVERAGE.md) for the source inventory, diagrams and assumptions.
+
+## Physics · Chapter 10
+
+`physics-chapter10.html` covers torque, rolling, rotational work, angular momentum and gyroscopes in Swedish and English. It includes 148 source-based exercises and checks, 112 quiz questions and variants, and a torque lab. See [PHYSICS_CHAPTER10_COVERAGE.md](PHYSICS_CHAPTER10_COVERAGE.md) for coverage, figures and assumptions.

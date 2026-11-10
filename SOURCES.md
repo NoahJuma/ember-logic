@@ -138,3 +138,7 @@ Chapter 8 uses the privately supplied Young and Freedman SI edition, printed pag
 ## Physics Chapter 9
 
 Chapter 9 uses the same privately supplied Young and Freedman SI edition, printed pages 300–329. The complete PDF remains private. See [PHYSICS_CHAPTER9_COVERAGE.md](PHYSICS_CHAPTER9_COVERAGE.md) for the exercise inventory, diagram provenance, supplementary videos and assumptions. The rotation lab is an ideal rigid-body model with constant angular acceleration.
+
+## Physics Chapter 10
+
+Chapter 10 uses the same privately supplied Young and Freedman SI edition, printed pages 330–364. The complete PDF remains private. See [PHYSICS_CHAPTER10_COVERAGE.md](PHYSICS_CHAPTER10_COVERAGE.md) for the exercise inventory, figure provenance, supplementary videos and assumptions. The torque lab assumes a fixed axis and constant force and torque.

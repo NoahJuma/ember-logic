@@ -1,0 +1,4 @@
+(function(root){'use strict';
+function solve({force,radius,angle,inertia,omega0,time}){for(const x of [force,radius,angle,inertia,omega0,time])if(!Number.isFinite(x))throw Error('Finite values required');if(force<0||radius<0||inertia<=0||time<0)throw Error('Require force, radius, time ≥ 0 and inertia > 0');const torque=radius*force*Math.sin(angle*Math.PI/180),alpha=torque/inertia,omega=omega0+alpha*time,theta=omega0*time+alpha*time*time/2,work=torque*theta,energy=0.5*inertia*omega*omega,power=torque*omega;if(![torque,alpha,omega,theta,work,energy,power].every(Number.isFinite))throw Error('Result out of range');return{torque,alpha,omega,theta,work,energy,power}}
+const model={solve};if(typeof module!=='undefined'&&module.exports)module.exports=model;else root.EmberChapter10Models=model;
+})(typeof window==='undefined'?globalThis:window);
