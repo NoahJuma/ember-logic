@@ -145,3 +145,5 @@ Gravitation has eight bilingual lessons, 127 adapted textbook entries, a four-mo
 ## Physics · Chapter 14
 
 Periodic motion has eight bilingual lessons, 137 adapted textbook entries, a four-mode quiz and an interactive oscillator lab. See [Chapter 14 coverage](PHYSICS_CHAPTER14_COVERAGE.md) for source mapping and assumptions.
+
+Physics Chapter 15 covers mechanical waves, string speed, wave energy, interference and standing waves. See [the coverage notes](PHYSICS_CHAPTER15_COVERAGE.md) for the source mapping and assumptions.
