@@ -134,3 +134,7 @@ The mathematics companion offers English and an independent Swedish translation 
 ## Physics Chapter 8
 
 Chapter 8 uses the privately supplied Young and Freedman SI edition, printed pages 263–299. The complete PDF remains private. See [PHYSICS_CHAPTER8_COVERAGE.md](PHYSICS_CHAPTER8_COVERAGE.md) for the section matrix, source exercises, diagram provenance, supplementary video links and explicit assumptions for ambiguous source questions. The labs are ideal models and are not a substitute for treating external impulses or detailed deformation when those matter.
+
+## Physics Chapter 9
+
+Chapter 9 uses the same privately supplied Young and Freedman SI edition, printed pages 300–329. The complete PDF remains private. See [PHYSICS_CHAPTER9_COVERAGE.md](PHYSICS_CHAPTER9_COVERAGE.md) for the exercise inventory, diagram provenance, supplementary videos and assumptions. The rotation lab is an ideal rigid-body model with constant angular acceleration.

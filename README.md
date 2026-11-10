@@ -121,3 +121,7 @@ Both `mathematics.html` and `linear-algebra.html` have a Swedish/English selecto
 ## Physics · Chapter 8
 
 `physics-chapter8.html` covers momentum, impulse, conservation, collisions, center of mass and rocket propulsion, in Swedish and English. It includes 155 bilingual source-based exercises and checks, 100 quiz questions and variants, and separate one-dimensional collision and two-dimensional momentum-vector labs. Attempts and settings are retained locally when storage is available. See [PHYSICS_CHAPTER8_COVERAGE.md](PHYSICS_CHAPTER8_COVERAGE.md) for the source inventory, diagrams, assumptions and learning goals.
+
+## Physics · Chapter 9
+
+`physics-chapter9.html` covers rotation of rigid bodies in Swedish and English. It includes 137 source-based exercises and checks, 100 quiz questions and variants, and a rotation lab. See [PHYSICS_CHAPTER9_COVERAGE.md](PHYSICS_CHAPTER9_COVERAGE.md) for the source inventory, diagrams and assumptions.
