@@ -141,3 +141,7 @@ Fluid mechanics has six bilingual lessons, 142 adapted textbook entries, a four-
 ## Physics · Chapter 13
 
 Gravitation has eight bilingual lessons, 127 adapted textbook entries, a four-mode quiz and an interactive orbit lab. See [Chapter 13 coverage](PHYSICS_CHAPTER13_COVERAGE.md) for source mapping and assumptions.
+
+## Physics · Chapter 14
+
+Periodic motion has eight bilingual lessons, 137 adapted textbook entries, a four-mode quiz and an interactive oscillator lab. See [Chapter 14 coverage](PHYSICS_CHAPTER14_COVERAGE.md) for source mapping and assumptions.
