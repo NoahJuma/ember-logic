@@ -1,0 +1,6 @@
+/* Pure Chapter 5 models; SI units, no hidden forces. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.EmberChapter5Models=api;})(typeof window==='undefined'?null:window,function(){'use strict';
+function values(xs){if(xs.some(x=>!Number.isFinite(x)))throw new RangeError('Inputs must be finite')}
+function incline(mass,angle,muS,muK,pull,g=9.8){values([mass,angle,muS,muK,pull,g]);if(mass<=0||angle<0||angle>=90||muS<0||muK<0||muK>muS||g<=0)throw new RangeError('Invalid model inputs');const a=angle*Math.PI/180,normal=mass*g*Math.cos(a),gravityDown=mass*g*Math.sin(a),drive=pull-gravityDown,limit=muS*normal;let friction,acceleration,motion;if(Math.abs(drive)<=limit+1e-12){friction=-drive;acceleration=0;motion='rest'}else{motion=drive>0?'up':'down';friction=-Math.sign(drive)*muK*normal;acceleration=(drive+friction)/mass}return {normal,gravityDown,drive,limit,friction,acceleration,motion}}
+function flatTurn(mass,radius,muS,speed,g=9.8){values([mass,radius,muS,speed,g]);if(mass<=0||radius<=0||muS<0||speed<0||g<=0)throw new RangeError('Invalid model inputs');const required=mass*speed**2/radius,available=muS*mass*g,limit=Math.sqrt(muS*radius*g);return{required,available,limit,feasible:required<=available+1e-12,acceleration:speed**2/radius}}
+return{incline,flatTurn};});
