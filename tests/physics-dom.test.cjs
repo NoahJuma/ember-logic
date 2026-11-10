@@ -81,7 +81,7 @@ test('tables and shared passages are readable before opening answers, and full w
   }
   for(const id of ['1.92','1.93','1.94']){f.search(id);assert.match(f.$('.question-passage').textContent,/480 × 10⁶/);assert.match(f.$('.question-passage').textContent,/4.2 × 10⁶ µm³/);}
   f.search('microwave and radio-wave bands');assert.equal(f.$('article[data-question]').dataset.question,'1.50');
-  f.search('VP1.7.2');assert.match(f.$('.question-reference').textContent,/72.4 m/);assert.match(f.$('.question-text').textContent,/A⃗ − B⃗ \+ C⃗/);
+  f.search('VP1.7.2');assert.match(f.$('.question-reference').textContent,/72.4 m/);assert.match(f.$('.question-text').textContent,/vec\(A\) − vec\(B\) \+ vec\(C\)/);
   assert.deepEqual(f.errors,[]);f.close();
 });
 test('users can reveal without writing, retain an independent attempt and safely reload saved text',async()=>{

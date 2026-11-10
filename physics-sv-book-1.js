@@ -285,11 +285,11 @@
     "answer": "Största möjliga summa: parallella och åt samma håll. Nollsumma: lika långa och motriktade.",
     "interactive": [],
     "question": {
-      "text": "Om C⃗ = A⃗ + B⃗, vad måste då gälla för riktningarna och beloppen hos A⃗ och B⃗ om C = A + B? Vad måste gälla för riktningarna och beloppen hos A⃗ och B⃗ om C = 0?",
+      "text": "Om vec(C) = vec(A) + vec(B), vad måste då gälla för riktningarna och beloppen hos vec(A) och vec(B) om C = A + B? Vad måste gälla för riktningarna och beloppen hos vec(A) och vec(B) om C = 0?",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Beteckningar: A⃗, B⃗ och C⃗ betecknar vektorer. A, B och C utan pilar betecknar deras belopp."
+      "reference": "Beteckningar: vec(A), vec(B) och vec(C) betecknar vektorer. A, B och C utan pilar betecknar deras belopp."
     }
   },
   "Q1.18": {
@@ -302,7 +302,7 @@
     "answer": "Nej: vektorer som inte är noll kan inte samtidigt ha skalärprodukten noll och kryssprodukten noll.",
     "interactive": [],
     "question": {
-      "text": "Om A⃗ och B⃗ är vektorer som inte är noll, är det då möjligt att både A⃗ · B⃗ och A⃗ × B⃗ är noll? Förklara.",
+      "text": "Om vec(A) och vec(B) är vektorer som inte är noll, är det då möjligt att både vec(A) · vec(B) och vec(A) × vec(B) är noll? Förklara.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -319,7 +319,7 @@
     "answer": "A·A = |A|²; A×A = (0,0,0).",
     "interactive": [],
     "question": {
-      "text": "Vad ger A⃗ · A⃗, skalärprodukten av en vektor med sig själv? Vad ger A⃗ × A⃗, vektorprodukten av en vektor med sig själv?",
+      "text": "Vad ger vec(A) · vec(A), skalärprodukten av en vektor med sig själv? Vad ger vec(A) × vec(A), vektorprodukten av en vektor med sig själv?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -336,11 +336,11 @@
     "answer": "A/|A| är en enhetsvektor i A:s riktning; dess x-komponent är cos θ.",
     "interactive": [],
     "question": {
-      "text": "Låt A⃗ beteckna en godtycklig vektor som inte är noll. Varför är A⃗/A en enhetsvektor, och vilken riktning har den? Om θ är vinkeln mellan A⃗ och den positiva x-axeln, förklara varför (A⃗/A) · î kallas riktningscosinus för den axeln.",
+      "text": "Låt vec(A) beteckna en godtycklig vektor som inte är noll. Varför är vec(A)/A en enhetsvektor, och vilken riktning har den? Om θ är vinkeln mellan vec(A) och den positiva x-axeln, förklara varför (vec(A)/A) · î kallas riktningscosinus för den axeln.",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Beteckningar: A utan pil betecknar det icke-negativa beloppet av A⃗."
+      "reference": "Beteckningar: A utan pil betecknar det icke-negativa beloppet av vec(A)."
     }
   },
   "Q1.21": {
@@ -372,7 +372,7 @@
     "answer": "(a)–(d) är giltiga; (e) är inte giltigt.",
     "interactive": [],
     "question": {
-      "text": "Vilka av följande är giltiga matematiska operationer:\n(a) A⃗ · (B⃗ − C⃗);\n(b) (A⃗ − B⃗) × C⃗;\n(c) A⃗ · (B⃗ × C⃗);\n(d) A⃗ × (B⃗ × C⃗);\n(e) A⃗ × (B⃗ · C⃗)?\nMotivera ditt svar i varje fall.",
+      "text": "Vilka av följande är giltiga matematiska operationer:\n(a) vec(A) · (vec(B) − vec(C));\n(b) (vec(A) − vec(B)) × vec(C);\n(c) vec(A) · (vec(B) × vec(C));\n(d) vec(A) × (vec(B) × vec(C));\n(e) vec(A) × (vec(B) · vec(C))?\nMotivera ditt svar i varje fall.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -390,7 +390,7 @@
     "answer": "Kryssprodukten är inte associativ; parenteserna kan i allmänhet inte flyttas.",
     "interactive": [],
     "question": {
-      "text": "Betrakta vektorprodukterna A⃗ × (B⃗ × C⃗) och (A⃗ × B⃗) × C⃗. Ge ett exempel som illustrerar den allmänna regeln att dessa två vektorprodukter inte har samma belopp eller riktning. Kan du välja vektorerna A⃗, B⃗ och C⃗ så att de två vektorprodukterna är lika? Ge i så fall ett exempel.",
+      "text": "Betrakta vektorprodukterna vec(A) × (vec(B) × vec(C)) och (vec(A) × vec(B)) × vec(C). Ge ett exempel som illustrerar den allmänna regeln att dessa två vektorprodukter inte har samma belopp eller riktning. Kan du välja vektorerna vec(A), vec(B) och vec(C) så att de två vektorprodukterna är lika? Ge i så fall ett exempel.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -407,7 +407,7 @@
     "answer": "Resultatet är alltid noll.",
     "interactive": [],
     "question": {
-      "text": "Visa att A⃗ · (A⃗ × B⃗) = 0, oavsett vilka A⃗ och B⃗ är. (Ledtråd: Sök inte efter ett komplicerat matematiskt bevis. Utgå från definitionen av kryssproduktens riktning.)",
+      "text": "Visa att vec(A) · (vec(A) × vec(B)) = 0, oavsett vilka vec(A) och vec(B) är. (Ledtråd: Sök inte efter ett komplicerat matematiskt bevis. Utgå från definitionen av kryssproduktens riktning.)",
       "passage": null,
       "table": null,
       "figure": null,
@@ -424,7 +424,7 @@
     "answer": "Inget av påståendena kräver att någon av de ingående vektorerna är noll.",
     "interactive": [],
     "question": {
-      "text": "(a) Om A⃗ · B⃗ = 0, följer det då nödvändigtvis att A = 0 eller B = 0? Förklara.\n(b) Om A⃗ × B⃗ = 0, följer det då nödvändigtvis att A = 0 eller B = 0? Förklara.",
+      "text": "(a) Om vec(A) · vec(B) = 0, följer det då nödvändigtvis att A = 0 eller B = 0? Förklara.\n(b) Om vec(A) × vec(B) = 0, följer det då nödvändigtvis att A = 0 eller B = 0? Förklara.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -441,7 +441,7 @@
     "answer": "Ax = Ay = 0.",
     "interactive": [],
     "question": {
-      "text": "Om A⃗ = 0 för en vektor i xy-planet, följer det då att Aₓ = −Aᵧ? Vad kan du säga om Aₓ och Aᵧ?",
+      "text": "Om vec(A) = 0 för en vektor i xy-planet, följer det då att Aₓ = −Aᵧ? Vad kan du säga om Aₓ och Aᵧ?",
       "passage": null,
       "table": null,
       "figure": null,

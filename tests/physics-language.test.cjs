@@ -141,3 +141,18 @@ test('bilingual search and language switching remain useful when storage is unav
   f.input('#cube-size',4);assert.match(f.$('#cube-result').textContent,/64/);assert.doesNotMatch(f.$('#cube-result').textContent,/blocks|cubic units|Doubling/);
   assert.deepEqual(f.errors,[]);f.close();
 });
+
+test('guided vector questions remain readable in both languages',()=>{
+  for(const lang of ['sv','en']){
+    const f=fixture({lang});
+    for(const id of ['VP1.7.1','VP1.7.2','VP1.10.1']){
+      f.search(id);
+      const card=f.$(`article[data-question="${id}"]`);
+      assert.ok(card,id);
+      assert.match(card.querySelector('.question-text').textContent,/vec\([A-D]\)/,id);
+      assert.doesNotMatch(card.textContent,/\u20d7/,id);
+    }
+    assert.match(f.$('[data-i18n="translationNote"]').textContent,/vec\(A\)/);
+    assert.deepEqual(f.errors,[]);f.close();
+  }
+});

@@ -17,7 +17,7 @@
       }
     ],
     "question": {
-      "text": "Axel ur led. En patient med en axel ur led placeras i en sträckapparat enligt figur P1.61. Dragkrafterna A⃗ och B⃗ har lika stora belopp och ska tillsammans ge en utåtriktad sträckkraft på 5.52 N på patientens arm. Hur stora ska dessa dragkrafter vara?",
+      "text": "Axel ur led. En patient med en axel ur led placeras i en sträckapparat enligt figur P1.61. Dragkrafterna vec(A) och vec(B) har lika stora belopp och ska tillsammans ge en utåtriktad sträckkraft på 5.52 N på patientens arm. Hur stora ska dessa dragkrafter vara?",
       "passage": null,
       "table": null,
       "figure": {
@@ -429,7 +429,7 @@
       }
     ],
     "question": {
-      "text": "Arbetet W som en konstant kraft F⃗ utför på ett föremål som genomgår förskjutningen s⃗ från punkt 1 till punkt 2 är W = F⃗ · s⃗. När F anges i newton (N) och s i meter (m) anges W i joule (J). Om F⃗ under föremålets förskjutning har den konstanta riktningen 60.0° ovanför −x-axeln och det konstanta beloppet 5.00 N, och förskjutningen är 0.800 m i +x-riktningen, vilket arbete utför då kraften F⃗?",
+      "text": "Arbetet W som en konstant kraft vec(F) utför på ett föremål som genomgår förskjutningen vec(s) från punkt 1 till punkt 2 är W = vec(F) · vec(s). När F anges i newton (N) och s i meter (m) anges W i joule (J). Om vec(F) under föremålets förskjutning har den konstanta riktningen 60.0° ovanför −x-axeln och det konstanta beloppet 5.00 N, och förskjutningen är 0.800 m i +x-riktningen, vilket arbete utför då kraften vec(F)?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -452,7 +452,7 @@
       }
     ],
     "question": {
-      "text": "Magnetfält skapas av rörliga laddningar och utövar krafter på rörliga laddningar. När en partikel med laddningen q rör sig med hastigheten v⃗ i ett magnetfält B⃗ ges kraften F⃗ som fältet utövar på partikeln av F⃗ = qv⃗ × B⃗. SI-enheterna är följande: för laddning coulomb (C), för magnetfält tesla (T), för kraft newton (N) och för hastighet m/s. Om q = −8.00 × 10⁻⁶ C, v⃗ är 3.00 × 10⁴ m/s i +x-riktningen och B⃗ är 5.00 T i −y-riktningen, vilket belopp och vilken riktning har kraften som magnetfältet utövar på den laddade partikeln?",
+      "text": "Magnetfält skapas av rörliga laddningar och utövar krafter på rörliga laddningar. När en partikel med laddningen q rör sig med hastigheten vec(v) i ett magnetfält vec(B) ges kraften vec(F) som fältet utövar på partikeln av vec(F) = qvec(v) × vec(B). SI-enheterna är följande: för laddning coulomb (C), för magnetfält tesla (T), för kraft newton (N) och för hastighet m/s. Om q = −8.00 × 10⁻⁶ C, vec(v) är 3.00 × 10⁴ m/s i +x-riktningen och vec(B) är 5.00 T i −y-riktningen, vilket belopp och vilken riktning har kraften som magnetfältet utövar på den laddade partikeln?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -470,7 +470,7 @@
     "answer": "θ ≈ 127.9°",
     "interactive": [],
     "question": {
-      "text": "Vektorerna A⃗ och B⃗ har skalärprodukten −7.00, och deras kryssprodukt har beloppet +9.00. Vilken är vinkeln mellan dessa två vektorer?",
+      "text": "Vektorerna vec(A) och vec(B) har skalärprodukten −7.00, och deras kryssprodukt har beloppet +9.00. Vilken är vinkeln mellan dessa två vektorer?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -497,7 +497,7 @@
       }
     ],
     "question": {
-      "text": "Vridmoment är en vektorstorhet som beskriver hur effektivt en kraft får ett föremål att rotera. Vridmomentet som en kraft F⃗ utövar på en stel kropp beror på var kraften angriper och var rotationsaxeln ligger. Om r⃗ är lägesvektorn från axeln till kraftens angreppspunkt är vridmomentet r⃗ × F⃗. Om F⃗ är 22.0 N i −y-riktningen och r⃗ ligger i xy-planet i en vinkel på 36° från +y-axeln mot −x-axeln och har beloppet 4.0 m, vilket belopp och vilken riktning har vridmomentet som F⃗ utövar?",
+      "text": "Vridmoment är en vektorstorhet som beskriver hur effektivt en kraft får ett föremål att rotera. Vridmomentet som en kraft vec(F) utövar på en stel kropp beror på var kraften angriper och var rotationsaxeln ligger. Om vec(r) är lägesvektorn från axeln till kraftens angreppspunkt är vridmomentet vec(r) × vec(F). Om vec(F) är 22.0 N i −y-riktningen och vec(r) ligger i xy-planet i en vinkel på 36° från +y-axeln mot −x-axeln och har beloppet 4.0 m, vilket belopp och vilken riktning har vridmomentet som vec(F) utövar?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -523,7 +523,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ = aî − bk̂ och vektorn B⃗ = −cĵ + dk̂.\n(a) Uttryck A⃗ · B⃗ och A⃗ × B⃗ med hjälp av de positiva skalärerna a, b, c och d.\n(b) Om c = 0, vilket belopp har A⃗ · B⃗, och vilket belopp och vilken riktning har A⃗ × B⃗? Stämmer din riktning för A⃗ × B⃗ med det resultat du får om du skissar A⃗ och B⃗ i xz-planet och använder högerhandsregeln? Skalärprodukten kan beskrivas som beloppet av B⃗ multiplicerat med den komponent av A⃗ som är parallell med B⃗. Stämmer detta med ditt resultat? Kryssproduktens belopp kan beskrivas som beloppet av B⃗ multiplicerat med den komponent av A⃗ som är vinkelrät mot B⃗. Stämmer detta med ditt resultat?",
+      "text": "Vektorn vec(A) = aî − bk̂ och vektorn vec(B) = −cĵ + dk̂.\n(a) Uttryck vec(A) · vec(B) och vec(A) × vec(B) med hjälp av de positiva skalärerna a, b, c och d.\n(b) Om c = 0, vilket belopp har vec(A) · vec(B), och vilket belopp och vilken riktning har vec(A) × vec(B)? Stämmer din riktning för vec(A) × vec(B) med det resultat du får om du skissar vec(A) och vec(B) i xz-planet och använder högerhandsregeln? Skalärprodukten kan beskrivas som beloppet av vec(B) multiplicerat med den komponent av vec(A) som är parallell med vec(B). Stämmer detta med ditt resultat? Kryssproduktens belopp kan beskrivas som beloppet av vec(B) multiplicerat med den komponent av vec(A) som är vinkelrät mot vec(B). Stämmer detta med ditt resultat?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -541,7 +541,7 @@
     "answer": "(a) 0° eller 180°, kryssproduktens belopp 0; (b) 90°, skalärprodukt 0; (c) 26.6°",
     "interactive": [],
     "question": {
-      "text": "Vektorerna A⃗ och B⃗ ligger i xy-planet. Vektorn A⃗ är riktad längs +x, och vektorn B⃗ har riktningen θ från +x-axeln, mätt mot +y-axeln.\n(a) Om θ ligger i intervallet 0° ≤ θ ≤ 180°, vid vilka två värden på θ har skalärprodukten A⃗ · B⃗ sitt största belopp? Vilket belopp har kryssprodukten A⃗ × B⃗ vid vart och ett av dessa värden på θ?\n(b) Om θ ligger i intervallet 0° ≤ θ ≤ 180°, vid vilket värde på θ har kryssprodukten A⃗ × B⃗ sitt största värde? Vilket belopp har skalärprodukten A⃗ · B⃗ vid detta värde på θ?\n(c) Vilken vinkel θ i intervallet 0° ≤ θ ≤ 180° ger A⃗ · B⃗ som är dubbelt så stor som |A⃗ × B⃗|?",
+      "text": "Vektorerna vec(A) och vec(B) ligger i xy-planet. Vektorn vec(A) är riktad längs +x, och vektorn vec(B) har riktningen θ från +x-axeln, mätt mot +y-axeln.\n(a) Om θ ligger i intervallet 0° ≤ θ ≤ 180°, vid vilka två värden på θ har skalärprodukten vec(A) · vec(B) sitt största belopp? Vilket belopp har kryssprodukten vec(A) × vec(B) vid vart och ett av dessa värden på θ?\n(b) Om θ ligger i intervallet 0° ≤ θ ≤ 180°, vid vilket värde på θ har kryssprodukten vec(A) × vec(B) sitt största värde? Vilket belopp har skalärprodukten vec(A) · vec(B) vid detta värde på θ?\n(c) Vilken vinkel θ i intervallet 0° ≤ θ ≤ 180° ger vec(A) · vec(B) som är dubbelt så stor som |vec(A) × vec(B)|?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -559,7 +559,7 @@
     "answer": "|A×B| ≈122 m²",
     "interactive": [],
     "question": {
-      "text": "Vektorn A⃗ har beloppet 12.0 m och vektorn B⃗ har beloppet 12.0 m. Skalärprodukten A⃗ · B⃗ är 76.0 m². Vilket belopp har kryssprodukten mellan dessa två vektorer?",
+      "text": "Vektorn vec(A) har beloppet 12.0 m och vektorn vec(B) har beloppet 12.0 m. Skalärprodukten vec(A) · vec(B) är 76.0 m². Vilket belopp har kryssprodukten mellan dessa två vektorer?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -583,7 +583,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har beloppet 5.00 m och ligger i xy-planet i riktningen 53.0° från +x-axeln, mätt mot +y-axeln. Vektorn B⃗ har beloppet 8.00 m och en riktning som du kan ändra.\n(a) Du vill att kryssprodukten A⃗ × B⃗ ska ha en positiv z-komponent med så stort belopp som möjligt. Vilken riktning ska du välja för vektorn B⃗?\n(b) Vilken riktning ska B⃗ ha för att A⃗ × B⃗ ska få den mest negativa z-komponenten?\n(c) Vilka två riktningar för B⃗ gör att A⃗ × B⃗ blir noll?",
+      "text": "Vektorn vec(A) har beloppet 5.00 m och ligger i xy-planet i riktningen 53.0° från +x-axeln, mätt mot +y-axeln. Vektorn vec(B) har beloppet 8.00 m och en riktning som du kan ändra.\n(a) Du vill att kryssprodukten vec(A) × vec(B) ska ha en positiv z-komponent med så stort belopp som möjligt. Vilken riktning ska du välja för vektorn vec(B)?\n(b) Vilken riktning ska vec(B) ha för att vec(A) × vec(B) ska få den mest negativa z-komponenten?\n(c) Vilka två riktningar för vec(B) gör att vec(A) × vec(B) blir noll?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -606,7 +606,7 @@
       }
     ],
     "question": {
-      "text": "Skalärprodukten av vektorerna A⃗ och B⃗ är +59.0 m². Vektorn A⃗ har beloppet 9.00 m och riktningen 28.0° väster om söder. Om vektorn B⃗ har riktningen 39.0° söder om öster, vilket belopp har B⃗?",
+      "text": "Skalärprodukten av vektorerna vec(A) och vec(B) är +59.0 m². Vektorn vec(A) har beloppet 9.00 m och riktningen 28.0° väster om söder. Om vektorn vec(B) har riktningen 39.0° söder om öster, vilket belopp har vec(B)?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -637,7 +637,7 @@
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Vektorerna från uppgift 1.39: A⃗ = −2.00î + 3.00ĵ + 4.00k̂; B⃗ = 3.00î + 1.00ĵ − 3.00k̂."
+      "reference": "Vektorerna från uppgift 1.39: vec(A) = −2.00î + 3.00ĵ + 4.00k̂; vec(B) = 3.00î + 1.00ĵ − 3.00k̂."
     }
   },
   "1.85": {
@@ -657,7 +657,7 @@
       }
     ],
     "question": {
-      "text": "Du har vektorerna A⃗ = 5.0î − 6.5ĵ och B⃗ = 3.5î − 7.0ĵ. En tredje vektor, C⃗, ligger i xy-planet. Vektorn C⃗ är vinkelrät mot vektorn A⃗, och skalärprodukten av C⃗ och B⃗ är 15.0. Bestäm komponenterna i vektorn C⃗ utifrån denna information.",
+      "text": "Du har vektorerna vec(A) = 5.0î − 6.5ĵ och vec(B) = 3.5î − 7.0ĵ. En tredje vektor, vec(C), ligger i xy-planet. Vektorn vec(C) är vinkelrät mot vektorn vec(A), och skalärprodukten av vec(C) och vec(B) är 15.0. Bestäm komponenterna i vektorn vec(C) utifrån denna information.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -675,7 +675,7 @@
     "answer": "θ ≈36.75° eller 143.2°",
     "interactive": [],
     "question": {
-      "text": "Två vektorer A⃗ och B⃗ har beloppen A = 3.00 och B = 3.00. Deras kryssprodukt är A⃗ × B⃗ = −5.00k̂ + 2.00î. Vilken är vinkeln mellan A⃗ och B⃗?",
+      "text": "Två vektorer vec(A) och vec(B) har beloppen A = 3.00 och B = 3.00. Deras kryssprodukt är vec(A) × vec(B) = −5.00k̂ + 2.00î. Vilken är vinkeln mellan vec(A) och vec(B)?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -762,7 +762,7 @@
       }
     ],
     "question": {
-      "text": "Du arbetar som maskiningenjör på ett tillverkningsföretag. Två krafter, F⃗₁ och F⃗₂, verkar på en del i en utrustning. Din chef har bett dig bestämma beloppet av den större av dessa två krafter. Du kan ändra vinkeln mellan F⃗₁ och F⃗₂ från 0° till 90°, medan varje krafts belopp förblir konstant. Du kan också mäta beloppet av den resulterande kraften (deras vektorsumma), men du kan inte mäta varje enskild krafts belopp direkt. Du mäter den resulterande kraftens belopp för fyra vinklar θ mellan de två krafternas riktningar enligt följande:\n(a) Vilket belopp har den större av de två krafterna?\n(b) När utrustningen används i produktionslinjen är vinkeln mellan krafterna 30.0°. Vilket belopp har den resulterande kraften i detta fall?",
+      "text": "Du arbetar som maskiningenjör på ett tillverkningsföretag. Två krafter, vec(F)₁ och vec(F)₂, verkar på en del i en utrustning. Din chef har bett dig bestämma beloppet av den större av dessa två krafter. Du kan ändra vinkeln mellan vec(F)₁ och vec(F)₂ från 0° till 90°, medan varje krafts belopp förblir konstant. Du kan också mäta beloppet av den resulterande kraften (deras vektorsumma), men du kan inte mäta varje enskild krafts belopp direkt. Du mäter den resulterande kraftens belopp för fyra vinklar θ mellan de två krafternas riktningar enligt följande:\n(a) Vilket belopp har den större av de två krafterna?\n(b) När utrustningen används i produktionslinjen är vinkeln mellan krafterna 30.0°. Vilket belopp har den resulterande kraften i detta fall?",
       "passage": null,
       "table": {
         "caption": "Uppmätt resulterande kraft",
@@ -994,11 +994,11 @@
       }
     ],
     "question": {
-      "text": "Betrakta de tre vektorerna A⃗, B⃗ och C⃗ i exempel 1.7. Om en fjärde vektor D⃗ adderas till A⃗ + B⃗ + C⃗ blir resultatet noll: A⃗ + B⃗ + C⃗ + D⃗ = 0. Bestäm beloppet och riktningen för D⃗. Ange riktningen för D⃗ som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
+      "text": "Betrakta de tre vektorerna vec(A), vec(B) och vec(C) i exempel 1.7. Om en fjärde vektor vec(D) adderas till vec(A) + vec(B) + vec(C) blir resultatet noll: vec(A) + vec(B) + vec(C) + vec(D) = 0. Bestäm beloppet och riktningen för vec(D). Ange riktningen för vec(D) som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Givet i exempel 1.7: A⃗ är 72.4 m i riktningen 32.0° öster om norr; B⃗ är 57.3 m i riktningen 36.0° söder om väster; C⃗ är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
+      "reference": "Givet i exempel 1.7: vec(A) är 72.4 m i riktningen 32.0° öster om norr; vec(B) är 57.3 m i riktningen 36.0° söder om väster; vec(C) är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
     }
   },
   "VP1.7.2": {
@@ -1024,11 +1024,11 @@
       }
     ],
     "question": {
-      "text": "Betrakta de tre vektorerna A⃗, B⃗ och C⃗ i exempel 1.7. Beräkna beloppet och riktningen för vektorn S⃗ = A⃗ − B⃗ + C⃗. Ange riktningen för S⃗ som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger. (Ledtråd: komponenterna i −B⃗ är helt enkelt komponenterna i B⃗ med omvända tecken.)",
+      "text": "Betrakta de tre vektorerna vec(A), vec(B) och vec(C) i exempel 1.7. Beräkna beloppet och riktningen för vektorn vec(S) = vec(A) − vec(B) + vec(C). Ange riktningen för vec(S) som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger. (Ledtråd: komponenterna i −vec(B) är helt enkelt komponenterna i vec(B) med omvända tecken.)",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Givet i exempel 1.7: A⃗ är 72.4 m i riktningen 32.0° öster om norr; B⃗ är 57.3 m i riktningen 36.0° söder om väster; C⃗ är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
+      "reference": "Givet i exempel 1.7: vec(A) är 72.4 m i riktningen 32.0° öster om norr; vec(B) är 57.3 m i riktningen 36.0° söder om väster; vec(C) är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
     }
   },
   "VP1.7.3": {
@@ -1054,11 +1054,11 @@
       }
     ],
     "question": {
-      "text": "Betrakta de tre vektorerna A⃗, B⃗ och C⃗ i exempel 1.7.\n(a) Bestäm komponenterna i vektorn T⃗ = A⃗ + B⃗ + 2C⃗.\n(b) Bestäm beloppet och riktningen för T⃗. Ange riktningen för T⃗ som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
+      "text": "Betrakta de tre vektorerna vec(A), vec(B) och vec(C) i exempel 1.7.\n(a) Bestäm komponenterna i vektorn vec(T) = vec(A) + vec(B) + 2vec(C).\n(b) Bestäm beloppet och riktningen för vec(T). Ange riktningen för vec(T) som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Givet i exempel 1.7: A⃗ är 72.4 m i riktningen 32.0° öster om norr; B⃗ är 57.3 m i riktningen 36.0° söder om väster; C⃗ är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
+      "reference": "Givet i exempel 1.7: vec(A) är 72.4 m i riktningen 32.0° öster om norr; vec(B) är 57.3 m i riktningen 36.0° söder om väster; vec(C) är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
     }
   },
   "VP1.7.4": {
@@ -1083,11 +1083,11 @@
       }
     ],
     "question": {
-      "text": "En vandrare genomgår förskjutningen A⃗ som visas i exempel 1.7. Därefter gör hon en andra förskjutning så att hon hamnar 38.0 m från startpunkten, i riktningen 37.0° väster om norr räknat från startpunkten. Bestäm beloppet och riktningen för denna andra förskjutning. Ange riktningen som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
+      "text": "En vandrare genomgår förskjutningen vec(A) som visas i exempel 1.7. Därefter gör hon en andra förskjutning så att hon hamnar 38.0 m från startpunkten, i riktningen 37.0° väster om norr räknat från startpunkten. Bestäm beloppet och riktningen för denna andra förskjutning. Ange riktningen som en vinkel mätt moturs från den positiva x-axeln och ange i vilken kvadrant vinkeln ligger.",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Givet i exempel 1.7: A⃗ är 72.4 m i riktningen 32.0° öster om norr; B⃗ är 57.3 m i riktningen 36.0° söder om väster; C⃗ är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
+      "reference": "Givet i exempel 1.7: vec(A) är 72.4 m i riktningen 32.0° öster om norr; vec(B) är 57.3 m i riktningen 36.0° söder om väster; vec(C) är 17.8 m rakt söderut. Standardvinklarna från +x är 58°, 216° respektive 270°."
     }
   },
   "VP1.10.1": {
@@ -1107,7 +1107,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har beloppet 5.00 och riktningen 36.9° söder om öster. Vektorn B⃗ har beloppet 6.40 och riktningen 20.0° väster om norr.\n(a) Välj den positiva x-riktningen åt öster och den positiva y-riktningen åt norr. Bestäm komponenterna i A⃗ och B⃗.\n(b) Beräkna skalärprodukten A⃗ · B⃗.",
+      "text": "Vektorn vec(A) har beloppet 5.00 och riktningen 36.9° söder om öster. Vektorn vec(B) har beloppet 6.40 och riktningen 20.0° väster om norr.\n(a) Välj den positiva x-riktningen åt öster och den positiva y-riktningen åt norr. Bestäm komponenterna i vec(A) och vec(B).\n(b) Beräkna skalärprodukten vec(A) · vec(B).",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1131,7 +1131,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn C⃗ har beloppet 6.50 och vinkeln 55.0° mätt moturs från +x-axeln mot +y-axeln. Vektorn D⃗ har komponenterna Dₓ = +4.80 och Dᵧ = −8.40.\n(a) Beräkna skalärprodukten C⃗ · D⃗.\n(b) Bestäm vinkeln φ mellan vektorerna C⃗ och D⃗.",
+      "text": "Vektorn vec(C) har beloppet 6.50 och vinkeln 55.0° mätt moturs från +x-axeln mot +y-axeln. Vektorn vec(D) har komponenterna Dₓ = +4.80 och Dᵧ = −8.40.\n(a) Beräkna skalärprodukten vec(C) · vec(D).\n(b) Bestäm vinkeln φ mellan vektorerna vec(C) och vec(D).",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1155,7 +1155,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har komponenterna Aₓ = −5.00, Aᵧ = 3.00 och A_z = 0. Vektorn B⃗ har komponenterna Bₓ = 2.50, Bᵧ = 4.00 och B_z = −1.50. Bestäm vinkeln mellan de två vektorerna.",
+      "text": "Vektorn vec(A) har komponenterna Aₓ = −5.00, Aᵧ = 3.00 och A_z = 0. Vektorn vec(B) har komponenterna Bₓ = 2.50, Bᵧ = 4.00 och B_z = −1.50. Bestäm vinkeln mellan de två vektorerna.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1181,7 +1181,7 @@
       }
     ],
     "question": {
-      "text": "Om en kraft F⃗ verkar på ett föremål medan föremålet genomgår en förskjutning s⃗ är arbetet som kraften utför lika med skalärprodukten av F⃗ och s⃗: W = F⃗ · s⃗. Ett föremål genomgår förskjutningen s⃗ = (4.00 m)î + (5.00 m)ĵ. Under rörelsen påverkas det av kraften F⃗, vars x-komponent är Fₓ = −12.0 N (1 N = 1 newton är SI-enheten för kraft). Arbetet som denna kraft utför är 26.0 N·m = 26.0 J (1 J = 1 joule = 1 newtonmeter är SI-enheten för arbete).\n(a) Bestäm y-komponenten av F⃗.\n(b) Bestäm vinkeln mellan F⃗ och s⃗.",
+      "text": "Om en kraft vec(F) verkar på ett föremål medan föremålet genomgår en förskjutning vec(s) är arbetet som kraften utför lika med skalärprodukten av vec(F) och vec(s): W = vec(F) · vec(s). Ett föremål genomgår förskjutningen vec(s) = (4.00 m)î + (5.00 m)ĵ. Under rörelsen påverkas det av kraften vec(F), vars x-komponent är Fₓ = −12.0 N (1 N = 1 newton är SI-enheten för kraft). Arbetet som denna kraft utför är 26.0 N·m = 26.0 J (1 J = 1 joule = 1 newtonmeter är SI-enheten för arbete).\n(a) Bestäm y-komponenten av vec(F).\n(b) Bestäm vinkeln mellan vec(F) och vec(s).",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1206,7 +1206,7 @@
       }
     ],
     "question": {
-      "text": "Vektorer på taket. Ett luftkonditioneringsaggregat är fastsatt på ett tak som lutar 35° över horisontalplanet (figur 1.33). Dess tyngd är en kraft F⃗ på aggregatet som är riktad lodrätt nedåt. För att aggregatet inte ska krossa takpannorna får tyngdkraftens komponent vinkelrätt mot taket inte överstiga 425 N. (En newton, eller 1 N, är SI-enheten för kraft.)\n(a) Vilken är aggregatets största tillåtna tyngd?\n(b) Om fästena lossnar glider aggregatet 1.50 m längs taket innan det stannar mot en kant. Hur stort arbete utför tyngdkraften på aggregatet under glidningen om dess tyngd är den som beräknades i del (a)?\nArbetet som en kraft F⃗ utför på ett föremål som genomgår förskjutningen s⃗ är W = F⃗ · s⃗.",
+      "text": "Vektorer på taket. Ett luftkonditioneringsaggregat är fastsatt på ett tak som lutar 35° över horisontalplanet (figur 1.33). Dess tyngd är en kraft vec(F) på aggregatet som är riktad lodrätt nedåt. För att aggregatet inte ska krossa takpannorna får tyngdkraftens komponent vinkelrätt mot taket inte överstiga 425 N. (En newton, eller 1 N, är SI-enheten för kraft.)\n(a) Vilken är aggregatets största tillåtna tyngd?\n(b) Om fästena lossnar glider aggregatet 1.50 m längs taket innan det stannar mot en kant. Hur stort arbete utför tyngdkraften på aggregatet under glidningen om dess tyngd är den som beräknades i del (a)?\nArbetet som en kraft vec(F) utför på ett föremål som genomgår förskjutningen vec(s) är W = vec(F) · vec(s).",
       "passage": null,
       "table": null,
       "figure": {

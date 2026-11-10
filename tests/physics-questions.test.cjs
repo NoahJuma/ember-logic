@@ -16,10 +16,10 @@ test('every Physics answer has a complete question with the original multipart r
   assert.match(Q.text['1.8'],/\(d\).*0.000070 g\/day.*mg\/day/);
   assert.match(Q.text['1.79'],/\(b\) If c = 0/);
   assert.match(Q.text['1.79'],/xz-plane and apply the right-hand rule/);
-  assert.match(Q.text['1.79'],/component of A⃗ that is perpendicular to B⃗/);
+  assert.match(Q.text['1.79'],/component of vec\(A\) that is perpendicular to vec\(B\)/);
   assert.match(Q.text['Bridge'],/425 N/);
   assert.match(Q.text['Bridge'],/1.50 m/);
-  assert.match(Q.text['VP1.7.2'],/A⃗ − B⃗ \+ C⃗/);
+  assert.match(Q.text['VP1.7.2'],/vec\(A\) − vec\(B\) \+ vec\(C\)/);
 });
 
 test('all required textbook figure references have usable local image assets and accessible descriptions',()=>{

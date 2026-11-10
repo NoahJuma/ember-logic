@@ -20,7 +20,7 @@
     fullscreenAlt:'Fysikens vektorlabb i helskärm',bookKicker:'04 / STÖD TILL DIN LÄROBOK',bookTitle:'Prova själv och följ sedan varje steg',
     bookSource:'Young och Freedman, <cite>University Physics with Modern Physics in SI Units</cite>, 15:e upplagan (2019). Kapitel 1: <strong>Enheter, fysikaliska storheter och vektorer</strong>, bokens tryckta sidor 29–61.',
     bookIntro:'Alla 94 numrerade uppgifter, 26 diskussionsfrågor, åtta övningsvarianter, takuppgiften och inlednings- och kontrollfrågorna finns här med fullständig frågetext samt de figurer, tabeller och referensvärden som behövs. Öppna en lösning och följ Steg 1, Steg 2 och så vidare. Det slutliga svaret kommer sist.',
-    translationNote:'Den svenska versionen översätter frågorna och våra förklaringar. Uppgiftsnummer, värden och formler är desamma på båda språken.',
+    translationNote:'Den svenska versionen översätter frågorna och våra förklaringar. Uppgiftsnummer, värden och formler är desamma på båda språken. Beteckning: vec(A) betyder vektorn A.',
     exerciseSet:'Uppgiftssamling',numbered:'Numrerade uppgifter 1.1–1.94',discussion:'Diskussionsfrågor Q1.1–Q1.26',guided:'Övningsvarianter och takuppgiften',checks:'Inlednings- och kontrollfrågor',allQuestions:'Alla frågor',
     topic:'Område',allTopics:'Alla områden',findQuestion:'Hitta en fråga',searchPlaceholder:'t.ex. 1.66, kryssprodukt, densitet',previous:'← Föregående',next:'Nästa →',
     answerStorage:'Dina skrivna svar och vektorförsök sparas i den här webbläsaren när lagring är tillgänglig. Vektorkontrollen jämför komponenterna med en liten tolerans för avrundning. Dina skrivna resonemang kan jämföras med lösningen men rättas inte automatiskt.',

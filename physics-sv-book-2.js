@@ -141,7 +141,7 @@
       }
     ],
     "question": {
-      "text": "Använd en skalenlig ritning för att bestämma belopp och riktning för följande, utifrån vektorerna A⃗ och B⃗ i figur E1.22:\n(a) vektorsumman A⃗ + B⃗ och\n(b) vektordifferensen A⃗ − B⃗.\nAnvänd dina svar för att bestämma belopp och riktning för\n(c) −A⃗ − B⃗ och\n(d) B⃗ − A⃗.\n(Se även uppgift 1.29 för en annan metod.)",
+      "text": "Använd en skalenlig ritning för att bestämma belopp och riktning för följande, utifrån vektorerna vec(A) och vec(B) i figur E1.22:\n(a) vektorsumman vec(A) + vec(B) och\n(b) vektordifferensen vec(A) − vec(B).\nAnvänd dina svar för att bestämma belopp och riktning för\n(c) −vec(A) − vec(B) och\n(d) vec(B) − vec(A).\n(Se även uppgift 1.29 för en annan metod.)",
       "passage": null,
       "table": null,
       "figure": {
@@ -226,7 +226,7 @@
       }
     ],
     "question": {
-      "text": "Låt θ vara vinkeln som vektorn A⃗ bildar med +x-axeln, mätt moturs från denna axel. Bestäm vinkeln θ för en vektor som har följande komponenter:\n(a) Aₓ = 2.00 m, Aᵧ = −1.00 m;\n(b) Aₓ = 2.00 m, Aᵧ = 1.00 m;\n(c) Aₓ = −2.00 m, Aᵧ = 1.00 m;\n(d) Aₓ = −2.00 m, Aᵧ = −1.00 m.",
+      "text": "Låt θ vara vinkeln som vektorn vec(A) bildar med +x-axeln, mätt moturs från denna axel. Bestäm vinkeln θ för en vektor som har följande komponenter:\n(a) Aₓ = 2.00 m, Aᵧ = −1.00 m;\n(b) Aₓ = 2.00 m, Aᵧ = 1.00 m;\n(c) Aₓ = −2.00 m, Aᵧ = 1.00 m;\n(d) Aₓ = −2.00 m, Aᵧ = −1.00 m.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -276,7 +276,7 @@
       }
     ],
     "question": {
-      "text": "Beräkna x- och y-komponenterna för vektorerna A⃗, B⃗, C⃗ och D⃗ i figur E1.22.",
+      "text": "Beräkna x- och y-komponenterna för vektorerna vec(A), vec(B), vec(C) och vec(D) i figur E1.22.",
       "passage": null,
       "table": null,
       "figure": {
@@ -306,7 +306,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har riktningen 40.0° medurs från −y-axeln. Vektorns x-komponent är Aₓ = −20.0 m.\n(a) Vilken är A⃗:s y-komponent?\n(b) Vilket belopp har A⃗?",
+      "text": "Vektorn vec(A) har riktningen 40.0° medurs från −y-axeln. Vektorns x-komponent är Aₓ = −20.0 m.\n(a) Vilken är vec(A):s y-komponent?\n(b) Vilket belopp har vec(A)?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -332,7 +332,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har y-komponenten Aᵧ = +13.0 m. A⃗ bildar vinkeln 32.0° moturs från +y-axeln.\n(a) Vilken är A⃗:s x-komponent?\n(b) Vilket belopp har A⃗?",
+      "text": "Vektorn vec(A) har y-komponenten Aᵧ = +13.0 m. vec(A) bildar vinkeln 32.0° moturs från +y-axeln.\n(a) Vilken är vec(A):s x-komponent?\n(b) Vilket belopp har vec(A)?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -421,7 +421,7 @@
       }
     ],
     "question": {
-      "text": "Använd komponentmetoden för att bestämma belopp och riktning för följande, utifrån vektorerna A⃗ och B⃗ i figur E1.22:\n(a) vektorsumman A⃗ + B⃗;\n(b) vektorsumman B⃗ + A⃗;\n(c) vektordifferensen A⃗ − B⃗;\n(d) vektordifferensen B⃗ − A⃗.",
+      "text": "Använd komponentmetoden för att bestämma belopp och riktning för följande, utifrån vektorerna vec(A) och vec(B) i figur E1.22:\n(a) vektorsumman vec(A) + vec(B);\n(b) vektorsumman vec(B) + vec(A);\n(c) vektordifferensen vec(A) − vec(B);\n(d) vektordifferensen vec(B) − vec(A).",
       "passage": null,
       "table": null,
       "figure": {
@@ -523,7 +523,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ har beloppet 8.00 m och ligger i xy-planet med vinkeln 127° moturs från +x-axeln (37° förbi +y-axeln). Vilket belopp och vilken riktning har vektorn B⃗ om summan A⃗ + B⃗ är riktad i −y-riktningen och har beloppet 12.0 m?",
+      "text": "Vektorn vec(A) har beloppet 8.00 m och ligger i xy-planet med vinkeln 127° moturs från +x-axeln (37° förbi +y-axeln). Vilket belopp och vilken riktning har vektorn vec(B) om summan vec(A) + vec(B) är riktad i −y-riktningen och har beloppet 12.0 m?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -567,7 +567,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ är 2.80 cm lång och ligger 60.0° ovanför x-axeln i första kvadranten. Vektorn B⃗ är 1.90 cm lång och ligger 60.0° nedanför x-axeln i fjärde kvadranten (figur E1.33). Använd komponenter för att bestämma belopp och riktning för\n(a) A⃗ + B⃗;\n(b) A⃗ − B⃗;\n(c) B⃗ − A⃗.\nSkissa vektoradditionen eller vektorsubtraktionen i varje fall och visa att dina numeriska svar kvalitativt stämmer överens med skissen.",
+      "text": "Vektorn vec(A) är 2.80 cm lång och ligger 60.0° ovanför x-axeln i första kvadranten. Vektorn vec(B) är 1.90 cm lång och ligger 60.0° nedanför x-axeln i fjärde kvadranten (figur E1.33). Använd komponenter för att bestämma belopp och riktning för\n(a) vec(A) + vec(B);\n(b) vec(A) − vec(B);\n(c) vec(B) − vec(A).\nSkissa vektoradditionen eller vektorsubtraktionen i varje fall och visa att dina numeriska svar kvalitativt stämmer överens med skissen.",
       "passage": null,
       "table": null,
       "figure": {
@@ -621,7 +621,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm vektorn A⃗:s x- och y-komponenter i varje fall:\n(a) A⃗ = 3.20î − 6.50ĵ;\n(b) A⃗ = 18.2ĵ − 7.91î;\n(c) A⃗ = −12.0î + 21.2ĵ;\n(d) A⃗ = 5.0B⃗, där B⃗ = 8î − 4ĵ.",
+      "text": "Bestäm vektorn vec(A):s x- och y-komponenter i varje fall:\n(a) vec(A) = 3.20î − 6.50ĵ;\n(b) vec(A) = 18.2ĵ − 7.91î;\n(c) vec(A) = −12.0î + 21.2ĵ;\n(d) vec(A) = 5.0vec(B), där vec(B) = 8î − 4ĵ.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -703,7 +703,7 @@
       }
     ],
     "question": {
-      "text": "Två vektorer är givna: A⃗ = 4.00î + 7.00ĵ och B⃗ = 5.00î − 2.00ĵ.\n(a) Bestäm varje vektors belopp.\n(b) Använd enhetsvektorer för att skriva ett uttryck för vektordifferensen A⃗ − B⃗.\n(c) Bestäm belopp och riktning för vektordifferensen A⃗ − B⃗.\n(d) Visa A⃗, B⃗ och A⃗ − B⃗ i ett vektordiagram och visa att diagrammet kvalitativt stämmer överens med ditt svar på del (c).",
+      "text": "Två vektorer är givna: vec(A) = 4.00î + 7.00ĵ och vec(B) = 5.00î − 2.00ĵ.\n(a) Bestäm varje vektors belopp.\n(b) Använd enhetsvektorer för att skriva ett uttryck för vektordifferensen vec(A) − vec(B).\n(c) Bestäm belopp och riktning för vektordifferensen vec(A) − vec(B).\n(d) Visa vec(A), vec(B) och vec(A) − vec(B) i ett vektordiagram och visa att diagrammet kvalitativt stämmer överens med ditt svar på del (c).",
       "passage": null,
       "table": null,
       "figure": null,
@@ -730,7 +730,7 @@
       }
     ],
     "question": {
-      "text": "(a) Skriv varje vektor i figur E1.37 med hjälp av enhetsvektorerna î och ĵ.\n(b) Använd enhetsvektorer för att uttrycka vektorn C⃗, där C⃗ = 3.00A⃗ − 4.00B⃗.\n(c) Bestäm C⃗:s belopp och riktning.",
+      "text": "(a) Skriv varje vektor i figur E1.37 med hjälp av enhetsvektorerna î och ĵ.\n(b) Använd enhetsvektorer för att uttrycka vektorn vec(C), där vec(C) = 3.00vec(A) − 4.00vec(B).\n(c) Bestäm vec(C):s belopp och riktning.",
       "passage": null,
       "table": null,
       "figure": {
@@ -776,7 +776,7 @@
       }
     ],
     "question": {
-      "text": "Du får två vektorer: A⃗ = −3.00î + 6.00ĵ och B⃗ = 7.00î + 2.00ĵ. Låt vinklar mätta moturs vara positiva.\n(a) Vilken vinkel bildar A⃗ med +x-axeln?\n(b) Vilken vinkel bildar B⃗ med +x-axeln?\n(c) Vektorn C⃗ är summan av A⃗ och B⃗, alltså C⃗ = A⃗ + B⃗. Vilken vinkel bildar C⃗ med +x-axeln?",
+      "text": "Du får två vektorer: vec(A) = −3.00î + 6.00ĵ och vec(B) = 7.00î + 2.00ĵ. Låt vinklar mätta moturs vara positiva.\n(a) Vilken vinkel bildar vec(A) med +x-axeln?\n(b) Vilken vinkel bildar vec(B) med +x-axeln?\n(c) Vektorn vec(C) är summan av vec(A) och vec(B), alltså vec(C) = vec(A) + vec(B). Vilken vinkel bildar vec(C) med +x-axeln?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -804,7 +804,7 @@
       }
     ],
     "question": {
-      "text": "Två vektorer är givna: A⃗ = −2.00î + 3.00ĵ + 4.00k̂ och B⃗ = 3.00î + 1.00ĵ − 3.00k̂.\n(a) Bestäm varje vektors belopp.\n(b) Använd enhetsvektorer för att skriva ett uttryck för vektordifferensen A⃗ − B⃗.\n(c) Bestäm beloppet av vektordifferensen A⃗ − B⃗. Är detta lika stort som beloppet av B⃗ − A⃗? Förklara.",
+      "text": "Två vektorer är givna: vec(A) = −2.00î + 3.00ĵ + 4.00k̂ och vec(B) = 3.00î + 1.00ĵ − 3.00k̂.\n(a) Bestäm varje vektors belopp.\n(b) Använd enhetsvektorer för att skriva ett uttryck för vektordifferensen vec(A) − vec(B).\n(c) Bestäm beloppet av vektordifferensen vec(A) − vec(B). Är detta lika stort som beloppet av vec(B) − vec(A)? Förklara.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -828,11 +828,11 @@
       }
     ],
     "question": {
-      "text": "(a) Bestäm skalärprodukten av vektorerna A⃗ och B⃗ som ges i uppgift 1.36.\n(b) Bestäm vinkeln mellan dessa två vektorer.",
+      "text": "(a) Bestäm skalärprodukten av vektorerna vec(A) och vec(B) som ges i uppgift 1.36.\n(b) Bestäm vinkeln mellan dessa två vektorer.",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Vektorer från uppgift 1.36: A⃗ = 4.00î + 7.00ĵ; B⃗ = 5.00î − 2.00ĵ."
+      "reference": "Vektorer från uppgift 1.36: vec(A) = 4.00î + 7.00ĵ; vec(B) = 5.00î − 2.00ĵ."
     }
   },
   "1.41": {
@@ -868,7 +868,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm följande skalärprodukter för vektorerna A⃗, B⃗ och C⃗ i figur E1.22:\n(a) A⃗ · B⃗;\n(b) B⃗ · C⃗;\n(c) A⃗ · C⃗.",
+      "text": "Bestäm följande skalärprodukter för vektorerna vec(A), vec(B) och vec(C) i figur E1.22:\n(a) vec(A) · vec(B);\n(b) vec(B) · vec(C);\n(c) vec(A) · vec(C).",
       "passage": null,
       "table": null,
       "figure": {
@@ -898,11 +898,11 @@
       }
     ],
     "question": {
-      "text": "Bestäm kryssprodukten A⃗ × B⃗ (uttryckt med enhetsvektorer) av de två vektorer som ges i uppgift 1.36. Vilket belopp har kryssprodukten?",
+      "text": "Bestäm kryssprodukten vec(A) × vec(B) (uttryckt med enhetsvektorer) av de två vektorer som ges i uppgift 1.36. Vilket belopp har kryssprodukten?",
       "passage": null,
       "table": null,
       "figure": null,
-      "reference": "Vektorer från uppgift 1.36: A⃗ = 4.00î + 7.00ĵ; B⃗ = 5.00î − 2.00ĵ."
+      "reference": "Vektorer från uppgift 1.36: vec(A) = 4.00î + 7.00ĵ; vec(B) = 5.00î − 2.00ĵ."
     }
   },
   "1.43": {
@@ -938,7 +938,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm vinkeln mellan vektorerna i vart och ett av följande par:\n(a) A⃗ = −2.00î + 6.00ĵ och B⃗ = 2.00î + 3.00ĵ\n(b) A⃗ = 3.00î + 5.00ĵ och B⃗ = 10.00î + 6.00ĵ\n(c) A⃗ = −4.00î + 2.00ĵ och B⃗ = 7.00î + 14.00ĵ",
+      "text": "Bestäm vinkeln mellan vektorerna i vart och ett av följande par:\n(a) vec(A) = −2.00î + 6.00ĵ och vec(B) = 2.00î + 3.00ĵ\n(b) vec(A) = 3.00î + 5.00ĵ och vec(B) = 10.00î + 6.00ĵ\n(c) vec(A) = −4.00î + 2.00ĵ och vec(B) = 7.00î + 14.00ĵ",
       "passage": null,
       "table": null,
       "figure": null,
@@ -973,7 +973,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm belopp och riktning för följande, utifrån de två vektorerna i figur E1.33:\n(a) kryssprodukten A⃗ × B⃗;\n(b) kryssprodukten B⃗ × A⃗.",
+      "text": "Bestäm belopp och riktning för följande, utifrån de två vektorerna i figur E1.33:\n(a) kryssprodukten vec(A) × vec(B);\n(b) kryssprodukten vec(B) × vec(A).",
       "passage": null,
       "table": null,
       "figure": {
@@ -1012,7 +1012,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm belopp och riktning för följande, utifrån vektorerna A⃗ och D⃗ i figur E1.22:\n(a) kryssprodukten A⃗ × D⃗;\n(b) kryssprodukten D⃗ × A⃗.",
+      "text": "Bestäm belopp och riktning för följande, utifrån vektorerna vec(A) och vec(D) i figur E1.22:\n(a) kryssprodukten vec(A) × vec(D);\n(b) kryssprodukten vec(D) × vec(A).",
       "passage": null,
       "table": null,
       "figure": {
@@ -1042,7 +1042,7 @@
       }
     ],
     "question": {
-      "text": "Bestäm följande för vektorerna A⃗ och B⃗ i figur E1.37:\n(a) skalärprodukten A⃗ · B⃗;\n(b) belopp och riktning för kryssprodukten A⃗ × B⃗.",
+      "text": "Bestäm följande för vektorerna vec(A) och vec(B) i figur E1.37:\n(a) skalärprodukten vec(A) · vec(B);\n(b) belopp och riktning för kryssprodukten vec(A) × vec(B).",
       "passage": null,
       "table": null,
       "figure": {
@@ -1073,7 +1073,7 @@
       }
     ],
     "question": {
-      "text": "Kryssprodukten av vektorerna A⃗ och B⃗ har beloppet 16.0 m² och är riktad i +z-riktningen. Om vektorn A⃗ har beloppet 8.0 m och är riktad i −x-riktningen, vilket belopp och vilken riktning har då vektorn B⃗ om den saknar x-komponent?",
+      "text": "Kryssprodukten av vektorerna vec(A) och vec(B) har beloppet 16.0 m² och är riktad i +z-riktningen. Om vektorn vec(A) har beloppet 8.0 m och är riktad i −x-riktningen, vilket belopp och vilken riktning har då vektorn vec(B) om den saknar x-komponent?",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1269,7 +1269,7 @@
       }
     ],
     "question": {
-      "text": "Vektorn A⃗ = 3.0î − 4.0k̂.\n(a) Konstruera en enhetsvektor som är parallell med A⃗.\n(b) Konstruera en enhetsvektor som är antiparallell med A⃗.\n(c) Konstruera två enhetsvektorer som är vinkelräta mot A⃗ och som saknar y-komponent.",
+      "text": "Vektorn vec(A) = 3.0î − 4.0k̂.\n(a) Konstruera en enhetsvektor som är parallell med vec(A).\n(b) Konstruera en enhetsvektor som är antiparallell med vec(A).\n(c) Konstruera två enhetsvektorer som är vinkelräta mot vec(A) och som saknar y-komponent.",
       "passage": null,
       "table": null,
       "figure": null,
@@ -1299,7 +1299,7 @@
       }
     ],
     "question": {
-      "text": "Tre horisontella rep drar i en stor sten som sitter fast i marken och ger upphov till vektorkrafterna A⃗, B⃗ och C⃗ som visas i figur P1.56. Bestäm belopp och riktning för en fjärde kraft på stenen som gör att vektorsumman av de fyra krafterna blir noll.",
+      "text": "Tre horisontella rep drar i en stor sten som sitter fast i marken och ger upphov till vektorkrafterna vec(A), vec(B) och vec(C) som visas i figur P1.56. Bestäm belopp och riktning för en fjärde kraft på stenen som gör att vektorsumman av de fyra krafterna blir noll.",
       "passage": null,
       "table": null,
       "figure": {
@@ -1392,7 +1392,7 @@
       }
     ],
     "question": {
-      "text": "Ett laddat föremål med elektrisk laddning q alstrar ett elektriskt fält. SI-enheten för elektriskt fält är N/C, där N är SI-enheten för kraft och C är SI-enheten för laddning. Om det i punkten P finns elektriska fält från två eller flera laddade föremål, är det resulterande fältet vektorsumman av fälten från varje föremål. I punkten P är det elektriska fältet E⃗₁ från laddningen q₁ 450 N/C i +y-riktningen, och det elektriska fältet E⃗₂ från laddningen q₂ är 600 N/C i riktningen 36.9° från −y-axeln mot −x-axeln. Vilket belopp och vilken riktning har det resulterande fältet E⃗ = E⃗₁ + E⃗₂ i punkten P från dessa två laddningar?",
+      "text": "Ett laddat föremål med elektrisk laddning q alstrar ett elektriskt fält. SI-enheten för elektriskt fält är N/C, där N är SI-enheten för kraft och C är SI-enheten för laddning. Om det i punkten P finns elektriska fält från två eller flera laddade föremål, är det resulterande fältet vektorsumman av fälten från varje föremål. I punkten P är det elektriska fältet vec(E)₁ från laddningen q₁ 450 N/C i +y-riktningen, och det elektriska fältet vec(E)₂ från laddningen q₂ är 600 N/C i riktningen 36.9° från −y-axeln mot −x-axeln. Vilket belopp och vilken riktning har det resulterande fältet vec(E) = vec(E)₁ + vec(E)₂ i punkten P från dessa två laddningar?",
       "passage": null,
       "table": null,
       "figure": null,
