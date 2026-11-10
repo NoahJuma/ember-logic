@@ -133,3 +133,7 @@ Both `mathematics.html` and `linear-algebra.html` have a Swedish/English selecto
 ## Physics · Chapter 11
 
 `physics-chapter11.html` covers equilibrium and elasticity in Swedish and English, with 139 source-based exercises and checks, 80 quiz questions and variants, and interactive beam and wire models. See [PHYSICS_CHAPTER11_COVERAGE.md](PHYSICS_CHAPTER11_COVERAGE.md) for source coverage, diagrams and assumptions.
+
+## Physics · Chapter 12
+
+Fluid mechanics has six bilingual lessons, 142 adapted textbook entries, a four-mode quiz and an interactive fluid lab. See [Chapter 12 coverage](PHYSICS_CHAPTER12_COVERAGE.md) for source mapping and assumptions.
