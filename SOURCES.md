@@ -142,3 +142,7 @@ Chapter 9 uses the same privately supplied Young and Freedman SI edition, printe
 ## Physics Chapter 10
 
 Chapter 10 uses the same privately supplied Young and Freedman SI edition, printed pages 330–364. The complete PDF remains private. See [PHYSICS_CHAPTER10_COVERAGE.md](PHYSICS_CHAPTER10_COVERAGE.md) for the exercise inventory, figure provenance, supplementary videos and assumptions. The torque lab assumes a fixed axis and constant force and torque.
+
+## Physics Chapter 11
+
+Chapter 11 uses the privately supplied Young and Freedman SI edition, printed pages 365–393. The complete PDF remains private. See [PHYSICS_CHAPTER11_COVERAGE.md](PHYSICS_CHAPTER11_COVERAGE.md) for the exercise inventory, diagrams, supplementary videos and model assumptions. The beam and wire labs are idealized teaching models.

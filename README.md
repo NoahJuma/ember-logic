@@ -129,3 +129,7 @@ Both `mathematics.html` and `linear-algebra.html` have a Swedish/English selecto
 ## Physics · Chapter 10
 
 `physics-chapter10.html` covers torque, rolling, rotational work, angular momentum and gyroscopes in Swedish and English. It includes 148 source-based exercises and checks, 112 quiz questions and variants, and a torque lab. See [PHYSICS_CHAPTER10_COVERAGE.md](PHYSICS_CHAPTER10_COVERAGE.md) for coverage, figures and assumptions.
+
+## Physics · Chapter 11
+
+`physics-chapter11.html` covers equilibrium and elasticity in Swedish and English, with 139 source-based exercises and checks, 80 quiz questions and variants, and interactive beam and wire models. See [PHYSICS_CHAPTER11_COVERAGE.md](PHYSICS_CHAPTER11_COVERAGE.md) for source coverage, diagrams and assumptions.
