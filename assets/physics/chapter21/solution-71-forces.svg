@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 360" role="img">
+ <rect width="690" height="360" rx="16" fill="#faf8f2"/>
+ <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b84c30"/></marker></defs>
+ <g font-family="Arial,sans-serif" font-size="18" fill="#263c38" stroke-linejoin="round">
+  <text x="70" y="45" font-size="23">(a)</text><text x="390" y="45" font-size="23">(b)</text>
+  <g stroke="#94a9a2" stroke-width="2" fill="none"><path d="M70 90H270V290H70Z"/><path d="M390 90H590V290H390Z"/></g>
+  <g stroke="#b84c30" stroke-width="3" fill="none" marker-end="url(#arrow)">
+   <path d="M170 190L120 140"/><path d="M170 190L220 140"/><path d="M170 190L120 240"/>
+   <path d="M590 290L563 263"/><path d="M590 290L590 210"/><path d="M590 290L510 290"/>
+  </g>
+  <g fill="#dceeea" stroke="#263c38" stroke-width="2"><circle cx="70" cy="90" r="12"/><circle cx="270" cy="90" r="12"/><circle cx="70" cy="290" r="12"/><circle cx="390" cy="90" r="12"/><circle cx="590" cy="90" r="12"/><circle cx="390" cy="290" r="12"/><circle cx="170" cy="190" r="13"/><circle cx="590" cy="290" r="13"/></g>
+  <g text-anchor="middle"><text x="70" y="70">q₁</text><text x="270" y="70">q₂</text><text x="70" y="325">q₃</text><text x="390" y="70">q₁</text><text x="590" y="70">q₂</text><text x="390" y="325">q₃</text><text x="170" y="220">−3q</text><text x="620" y="325">−3q</text></g>
+  <g fill="#9e3b26"><text x="107" y="130">F₁</text><text x="223" y="130">F₂</text><text x="103" y="260">F₃</text><text x="535" y="255">F₁</text><text x="600" y="210">F₂</text><text x="490" y="280">F₃</text></g>
+ </g>
+</svg>

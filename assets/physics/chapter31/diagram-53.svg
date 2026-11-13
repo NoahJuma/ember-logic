@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" role="img" aria-labelledby="title desc">
+<title id="title">Variable capacitor plates</title><desc id="desc">The left panel shows the overlap angle of two semicircular plates. The right panel shows ten interleaved plates, alternating between two terminals, with adjacent spacing g divided by two.</desc>
+<rect width="820" height="430" fill="#fffdf7"/>
+<g stroke="#536b67" stroke-width="2"><path d="M215 205 L355 205 A140 140 0 0 0 75 205 Z" fill="#e2b56d" fill-opacity=".7"/><path d="M215 205 L285 84 A140 140 0 0 0 145 326 Z" fill="#88aec3" fill-opacity=".65"/><path d="M215 205 L75 205 A140 140 0 0 1 285 84 Z" fill="#807b9c" fill-opacity=".45"/><path d="M215 205 H355 M215 205 L285 84" fill="none"/><path d="M165 205 A50 50 0 0 1 240 162" fill="none"/></g>
+<g fill="none" stroke-width="5"><path d="M465 95 V335 M465 105 H665 M465 145 H665 M465 185 H665 M465 225 H665 M465 265 H665" stroke="#bb8749"/><path d="M700 115 V355 M495 125 H700 M495 165 H700 M495 205 H700 M495 245 H700 M495 285 H700" stroke="#4d8199"/></g>
+<g fill="none" stroke="#536b67" stroke-width="2"><path d="M735 105 V125 M725 105 H745 M725 125 H745"/><path d="M355 205 H390 M285 84 L300 60"/></g>
+<g font-family="sans-serif" font-size="20" fill="#263f3b"><text x="195" y="145">θ</text><text x="365" y="195">a</text><text x="110" y="380">θ</text><text x="475" y="380">A / B</text><text x="747" y="121">g/2</text><text x="445" y="75">A</text><text x="690" y="90">B</text></g>
+</svg>

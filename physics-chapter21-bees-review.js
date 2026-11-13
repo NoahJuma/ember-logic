@@ -1,0 +1,14 @@
+(function(root){'use strict';
+const context={sv:'Flygande humlor kan få en liten positiv elektrisk laddning. I ett försök uppmättes medelladdningen hos 50 humlor till +(30 ± 5) pC per humla. Forskarna mätte också laddningen på stjälken hos en ursprungligen neutral växt när en laddad humla närmade sig, landade och flög bort. En liten positiv laddning uppmättes på stjälken redan före landningen; efter landningen blev hela växten positivt laddad och laddningen fanns kvar när humlan flugit bort. Försök med konstgjorda blommor visade att humlor kan skilja mellan laddade och oladdade blommor och kan använda kvarvarande laddning som en ledtråd till om blomman redan besökts. ',en:'Flying bees can acquire a small positive electric charge. In one experiment the mean charge of 50 bees was measured as +(30 ± 5) pC per bee. Researchers also measured the stem of an initially neutral plant as a charged bee approached, landed and flew away. A small positive charge was detected on the stem before landing; after landing the whole plant became positively charged and remained so after the bee left. Experiments with artificial flowers showed that bees can distinguish charged from uncharged flowers and may use the remaining charge as a cue that a flower has already been visited. '};
+for(const e of root.EmberChapter21DraftExercises){if(!/^21\.(98|99|100|101)$/.test(e.id))continue;
+ if(e.id==='21.100'){
+  e.sv.prompt='En humla lämnar en blomma positivt laddad och flyger bort. En annan humla med lika stor positiv laddning flyger sedan nära blomman. Vilket av diagrammen (a)–(d) visar fältlinjerna mellan humlan och blomman?';
+  e.en.prompt='After one bee leaves a flower positively charged and flies away, another bee with the same amount of positive charge flies close to the plant. Which diagram (a)–(d) shows the electric field lines between the bee and flower?';
+ }
+ if(e.id==='21.101'){
+  e.sv.prompt='I ett följdförsök placeras laddningen +40 pC i mitten av en konstgjord blomma på en 30 cm lång stjälk. Humlor observeras inte närma sig blomcentrum närmare än 15 cm innan de flyger bort. Vilket av följande värden ligger närmast en uppskattning av det minsta yttre elektriska fält som humlorna kan vara känsliga för: (a) 2,4 N/C, (b) 16 N/C, (c) 2,7·10⁻¹⁰ N/C eller (d) 4,8·10⁻¹⁰ N/C? Använd en punktladdningsmodell.';
+  e.en.prompt='In a follow-up experiment, +40 pC is placed at the center of an artificial flower on a 30 cm stem. Bees are observed to approach no closer than 15 cm from the flower center before flying away. Which value is closest to an estimate of the smallest external electric field to which the bees may be sensitive: (a) 2.4 N/C, (b) 16 N/C, (c) 2.7×10⁻¹⁰ N/C or (d) 4.8×10⁻¹⁰ N/C? Use a point-charge model.';
+ }
+ for(const lang of ['sv','en'])e[lang].prompt=context[lang]+e[lang].prompt;
+}
+})(window);

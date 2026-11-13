@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 420" role="img" aria-labelledby="title desc">
+<title id="title">Three charges in a plane</title><desc id="desc">Positive q1 lies above the origin, positive q2 equally far below, and positive Q lies to the right of the origin.</desc>
+<defs><marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#405e55"/></marker></defs>
+<rect width="580" height="420" rx="14" fill="#fbfaf6"/>
+<g fill="none" stroke="#58766d" stroke-width="2.2" marker-end="url(#ax)"><path d="M70 210 H520"/><path d="M220 370 V50"/></g>
+<g fill="none" stroke="#b2c5bc" stroke-width="2" stroke-dasharray="6 6"><path d="M220 90 L400 210 L220 330"/></g>
+<g fill="#bf6043" stroke="#fbfaf6" stroke-width="3"><circle cx="220" cy="90" r="15"/><circle cx="400" cy="210" r="15"/></g><circle cx="220" cy="330" r="15" fill="#bf6043" stroke="#fbfaf6" stroke-width="3"/>
+<g font-family="system-ui,sans-serif" font-size="19" fill="#263b39"><text x="527" y="217">x</text><text x="211" y="42">y</text><text x="240" y="86">q₁ = +2.0 μC</text><text x="240" y="347">q₂ = +2.0 μC</text><text x="405" y="195">Q = +4.0 μC</text><text x="235" y="111">+0.30 m</text><text x="235" y="319">−0.30 m</text><text x="355" y="245">+0.40 m</text></g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" font-size="19" font-weight="bold" fill="white"><text x="220" y="97">+</text><text x="220" y="337">+</text><text x="400" y="217">+</text></g>
+</svg>

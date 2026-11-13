@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 240" role="img" aria-labelledby="title desc">
+<title id="title">Bimetal strip before and after heating</title>
+<desc id="desc">The initially straight bonded strip has layer 1 on top and layer 2 below. When heated the strip bends into a shallow U, with layer 2 on the longer outside of the curve.</desc>
+<rect width="660" height="240" rx="14" fill="#fbfaf6"/>
+<g font-family="system-ui,sans-serif" font-size="17" fill="#263b39">
+<text x="30" y="33">T₁</text><text x="365" y="33">T₂ &gt; T₁</text>
+<text x="112" y="93">1</text><text x="112" y="158">2</text>
+<text x="466" y="55">1</text><text x="464" y="203">2</text>
+</g>
+<path d="M45 106 H285" stroke="#547eaf" stroke-width="18"/>
+<path d="M45 124 H285" stroke="#d9783c" stroke-width="18"/>
+<path d="M365 93 Q485 182 605 93" fill="none" stroke="#547eaf" stroke-width="18"/>
+<path d="M354 107 Q485 204 616 107" fill="none" stroke="#d9783c" stroke-width="18"/>
+<path d="M310 115 H338 M331 108 L338 115 L331 122" fill="none" stroke="#526d66" stroke-width="3"/>
+</svg>

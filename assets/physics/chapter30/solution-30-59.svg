@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" role="img">
+<rect width="900" height="310" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#293a3e" font-size="14">
+<path d="M 80 26 V 255 H 850" fill="none" stroke="#293a3e" stroke-width="2"/>
+<text x="80" y="18" font-weight="bold">1/t_half (s⁻¹)</text>
+<text x="465.0" y="302" text-anchor="middle">R_ext (Ω)</text>
+<path d="M 80.0 255 v 5" stroke="#293a3e"/>
+<text x="80.0" y="277" text-anchor="middle">0</text>
+<path d="M 272.5 255 v 5" stroke="#293a3e"/>
+<text x="272.5" y="277" text-anchor="middle">3</text>
+<path d="M 465.0 255 v 5" stroke="#293a3e"/>
+<text x="465.0" y="277" text-anchor="middle">6</text>
+<path d="M 657.5 255 v 5" stroke="#293a3e"/>
+<text x="657.5" y="277" text-anchor="middle">9</text>
+<path d="M 850.0 255 v 5" stroke="#293a3e"/>
+<text x="850.0" y="277" text-anchor="middle">12</text>
+<path d="M 75 255.0 h 5" stroke="#293a3e"/>
+<text x="70" y="260.0" text-anchor="end">0</text>
+<path d="M 75 178.66666666666669 h 5" stroke="#293a3e"/>
+<text x="70" y="183.66666666666669" text-anchor="end">1</text>
+<path d="M 75 102.33333333333334 h 5" stroke="#293a3e"/>
+<text x="70" y="107.33333333333334" text-anchor="end">2</text>
+<path d="M 75 26.0 h 5" stroke="#293a3e"/>
+<text x="70" y="31.0" text-anchor="end">3</text>
+<path d="M 80 189.94 L 850 34.97" fill="none" stroke="#176987" stroke-width="3"/>
+<circle cx="272.50" cy="151.15" r="5" fill="#bd552c"/>
+<circle cx="336.67" cy="138.28" r="5" fill="#bd552c"/>
+<circle cx="400.83" cy="125.40" r="5" fill="#bd552c"/>
+<circle cx="465.00" cy="112.59" r="5" fill="#bd552c"/>
+<circle cx="529.17" cy="99.53" r="5" fill="#bd552c"/>
+<circle cx="593.33" cy="86.49" r="5" fill="#bd552c"/>
+<circle cx="721.67" cy="60.77" r="5" fill="#bd552c"/>
+<circle cx="850.00" cy="35.02" r="5" fill="#bd552c"/>
+</g></svg>

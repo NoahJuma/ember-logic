@@ -1,0 +1,4 @@
+/* Keep numeric and selection controls on their own lines in chapter labs. */
+.study-wrap .panel > label:not([hidden]) { display: block; margin: 0 0 1rem; }
+.study-wrap .panel > label > input:not([type="checkbox"]):not([type="radio"]),
+.study-wrap .panel > label > select { display: block; box-sizing: border-box; width: 100%; max-width: 20rem; }

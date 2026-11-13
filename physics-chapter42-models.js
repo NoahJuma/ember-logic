@@ -1,0 +1,4 @@
+(function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.EmberChapter42Models=factory()})(typeof window!=='undefined'?window:globalThis,function(){'use strict';
+const kB=8.617333262145e-5;
+function occupation({energy,fermi,temperature}){const raw=[energy,fermi,temperature];if(raw.some(v=>v===''||v===null||!Number.isFinite(Number(v))))throw new RangeError('finite inputs required');[energy,fermi,temperature]=raw.map(Number);if(temperature<=0)throw new RangeError('positive temperature required');const thermal=kB*temperature,x=(energy-fermi)/thermal;if(!Number.isFinite(thermal)||thermal<=0||!Number.isFinite(x))throw new RangeError('result out of range');const probability=x>=0?Math.exp(-x)/(1+Math.exp(-x)):1/(1+Math.exp(x));return {probability,thermal,delta:energy-fermi};}
+return {occupation};});

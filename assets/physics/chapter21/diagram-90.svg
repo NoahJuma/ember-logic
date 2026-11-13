@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img">
+<rect width="760" height="390" rx="16" fill="#faf8f2"/>
+<g font-family="Arial,sans-serif" fill="#263c38" font-size="16">
+<text x="55" y="45" font-size="21">(a) Ex² (N·m²/C)</text><text x="420" y="45" font-size="21">(b) E/x (N/(C·m))</text>
+<path d="M65 75V285" stroke="#d8e3df"/><text x="65" y="310" text-anchor="middle">0</text>
+<path d="M100 75V285" stroke="#d8e3df"/><text x="100" y="310" text-anchor="middle">1</text>
+<path d="M135 75V285" stroke="#d8e3df"/><text x="135" y="310" text-anchor="middle">2</text>
+<path d="M170 75V285" stroke="#d8e3df"/><text x="170" y="310" text-anchor="middle">3</text>
+<path d="M205 75V285" stroke="#d8e3df"/><text x="205" y="310" text-anchor="middle">4</text>
+<path d="M240 75V285" stroke="#d8e3df"/><text x="240" y="310" text-anchor="middle">5</text>
+<path d="M275 75V285" stroke="#d8e3df"/><text x="275" y="310" text-anchor="middle">6</text>
+<path d="M310 75V285" stroke="#d8e3df"/><text x="310" y="310" text-anchor="middle">7</text>
+<path d="M65 285H310" stroke="#d8e3df"/><text x="55" y="290" text-anchor="end">20</text>
+<path d="M65 250H310" stroke="#d8e3df"/><text x="55" y="255" text-anchor="end">25</text>
+<path d="M65 215H310" stroke="#d8e3df"/><text x="55" y="220" text-anchor="end">30</text>
+<path d="M65 180H310" stroke="#d8e3df"/><text x="55" y="185" text-anchor="end">35</text>
+<path d="M65 145H310" stroke="#d8e3df"/><text x="55" y="150" text-anchor="end">40</text>
+<path d="M65 110H310" stroke="#d8e3df"/><text x="55" y="115" text-anchor="end">45</text>
+<path d="M65 75H310" stroke="#d8e3df"/><text x="55" y="80" text-anchor="end">50</text>
+<path d="M430 75V285" stroke="#d8e3df"/>
+<path d="M465 75V285" stroke="#d8e3df"/>
+<path d="M500 75V285" stroke="#d8e3df"/>
+<path d="M535 75V285" stroke="#d8e3df"/>
+<path d="M570 75V285" stroke="#d8e3df"/>
+<path d="M605 75V285" stroke="#d8e3df"/>
+<path d="M640 75V285" stroke="#d8e3df"/>
+<path d="M675 75V285" stroke="#d8e3df"/>
+<text x="430" y="310" text-anchor="middle">0</text>
+<text x="500.0" y="310" text-anchor="middle">0.1</text>
+<text x="570.0" y="310" text-anchor="middle">0.2</text>
+<text x="640.0" y="310" text-anchor="middle">0.3</text>
+<path d="M430 285.00H675" stroke="#d8e3df"/><text x="420" y="290.00" text-anchor="end">300</text>
+<path d="M430 238.33H675" stroke="#d8e3df"/><text x="420" y="243.33" text-anchor="end">400</text>
+<path d="M430 191.67H675" stroke="#d8e3df"/><text x="420" y="196.67" text-anchor="end">500</text>
+<path d="M430 145.00H675" stroke="#d8e3df"/><text x="420" y="150.00" text-anchor="end">600</text>
+<path d="M430 98.33H675" stroke="#d8e3df"/><text x="420" y="103.33" text-anchor="end">700</text>
+<path d="M65 75V285H310 M430 75V285H675" fill="none" stroke="#263c38" stroke-width="2"/><text x="325" y="310">x (m)</text><text x="690" y="310">x (m)</text>
+<circle cx="82.5" cy="278.0" r="4" fill="#b84c30"/>
+<circle cx="91.2" cy="208.0" r="4" fill="#b84c30"/>
+<circle cx="100.0" cy="173.0" r="4" fill="#b84c30"/>
+<circle cx="117.5" cy="141.5" r="4" fill="#b84c30"/>
+<circle cx="135.0" cy="128.2" r="4" fill="#b84c30"/>
+<circle cx="152.5" cy="121.2" r="4" fill="#b84c30"/>
+<circle cx="170.0" cy="117.0" r="4" fill="#b84c30"/>
+<circle cx="205.0" cy="114.9" r="4" fill="#b84c30"/>
+<circle cx="240.0" cy="113.5" r="4" fill="#b84c30"/>
+<circle cx="275.0" cy="113.5" r="4" fill="#b84c30"/>
+<circle cx="430.0" cy="98.3" r="4" fill="#b84c30"/>
+<circle cx="447.5" cy="100.7" r="4" fill="#b84c30"/>
+<circle cx="465.0" cy="105.3" r="4" fill="#b84c30"/>
+<circle cx="500.0" cy="124.0" r="4" fill="#b84c30"/>
+<circle cx="535.0" cy="154.3" r="4" fill="#b84c30"/>
+<circle cx="570.0" cy="189.3" r="4" fill="#b84c30"/>
+<circle cx="605.0" cy="224.3" r="4" fill="#b84c30"/>
+<circle cx="640.0" cy="257.0" r="4" fill="#b84c30"/>
+</g></svg>

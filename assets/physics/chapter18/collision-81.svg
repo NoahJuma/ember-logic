@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" role="img" aria-labelledby="title desc">
+<title id="title">Two nitrogen molecules in an off-center collision</title>
+<desc id="desc">Before collision two vertical molecules approach each other horizontally. Their near atoms meet on the dashed line, while their centers are offset vertically. After collision both rotate clockwise.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#217079"/></marker></defs>
+<rect width="820" height="390" fill="#fffdf7"/>
+<path d="M55 205H390 M450 205H765" stroke="#9ba6a3" stroke-width="2" stroke-dasharray="8 7"/>
+<g stroke="#5d6057" stroke-width="7" stroke-linecap="round"><path d="M125 75V205 M325 205V335 M535 155L620 70 M535 335L620 250"/></g>
+<g fill="#e89b55" stroke="#914e2f" stroke-width="3"><circle cx="125" cy="75" r="15"/><circle cx="125" cy="205" r="15"/><circle cx="325" cy="205" r="15"/><circle cx="325" cy="335" r="15"/><circle cx="535" cy="155" r="15"/><circle cx="620" cy="70" r="15"/><circle cx="535" cy="335" r="15"/><circle cx="620" cy="250" r="15"/></g>
+<g fill="none" stroke="#217079" stroke-width="4" marker-end="url(#arrow)"><path d="M148 140H240"/><path d="M302 270H210"/><path d="M557 91 A55 55 0 0 1 624 145"/><path d="M557 271 A55 55 0 0 1 624 325"/></g>
+<g font-family="sans-serif" font-size="24" fill="#253c3d"><text x="174" y="129">vᵢ</text><text x="243" y="260">vᵢ</text><text x="577" y="121">ω</text><text x="577" y="301">ω</text></g>
+</svg>

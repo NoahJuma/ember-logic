@@ -145,12 +145,15 @@ test('bilingual search and language switching remain useful when storage is unav
 test('guided vector questions remain readable in both languages',()=>{
   for(const lang of ['sv','en']){
     const f=fixture({lang});
-    for(const id of ['VP1.7.1','VP1.7.2','VP1.10.1']){
+    const seen=new Set();
+    for(const id of ['VP1.7.1','VP1.7.2','VP1.7.3','VP1.7.4','VP1.10.1','VP1.10.2','VP1.10.3','VP1.10.4']){
       f.search(id);
       const card=f.$(`article[data-question="${id}"]`);
       assert.ok(card,id);
-      assert.match(card.querySelector('.question-text').textContent,/vec\([A-D]\)/,id);
+      const question=card.querySelector('.question-text').textContent;
+      assert.match(question,/vec\([A-Za-z]\)/,id);
       assert.doesNotMatch(card.textContent,/\u20d7/,id);
+      assert.ok(!seen.has(question),id+' duplicates another prompt');seen.add(question);
     }
     assert.match(f.$('[data-i18n="translationNote"]').textContent,/vec\(A\)/);
     assert.deepEqual(f.errors,[]);f.close();

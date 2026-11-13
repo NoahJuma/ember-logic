@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" role="img" aria-labelledby="title desc">
+  <title id="title">A conducting bar sliding down inclined rails</title>
+  <desc id="desc">The rails are connected at their lower ends and open at their upper ends. A bar from a to b slides downhill while the magnetic field points vertically downward. Phi is the inclination above the horizontal.</desc>
+  <defs>
+    <marker id="motion-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#253f3c"/></marker>
+    <marker id="field-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#177b9a"/></marker>
+  </defs>
+  <path d="M365 240 H515 V145" fill="none" stroke="#a8b7b3" stroke-width="2" stroke-dasharray="6 5"/>
+  <path d="M402 240 A37 37 0 0 0 396 220" fill="none" stroke="#526a65" stroke-width="2"/>
+  <text x="405" y="232" font-family="Arial,sans-serif" font-size="18" fill="#152826">φ</text>
+  <path id="rails" d="M270 145 L120 240 L365 240 L515 145" fill="none" stroke="#253f3c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210 183 L455 183" fill="none" stroke="#a97820" stroke-width="7" stroke-linecap="round"/>
+  <g font-family="Arial,sans-serif" font-size="18" fill="#152826"><text x="190" y="179">a</text><text x="463" y="189">b</text><text x="326" y="175">L</text><text x="274" y="222">v</text></g>
+  <path d="M345 195 L300 224" fill="none" stroke="#253f3c" stroke-width="3" marker-end="url(#motion-arrow)"/>
+  <g fill="none" stroke="#177b9a" stroke-width="3" marker-end="url(#field-arrow)"><path d="M170 95 V180"/><path d="M470 68 V143"/></g>
+  <text x="480" y="91" font-family="Arial,sans-serif" font-size="19" fill="#177b9a">B</text>
+</svg>

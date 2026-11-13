@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 300" role="img" aria-labelledby="title desc">
+<title id="title">Galvanometer conversions</title><desc id="desc">A galvanometer in parallel with a shunt resistor forms an ammeter. A galvanometer in series with a resistor forms a voltmeter.</desc>
+<rect width="840" height="300" rx="16" fill="#f4f8f5"/>
+<g font-family="system-ui, sans-serif" fill="#183f45" font-size="20"><text x="36" y="39">(a) Ammeter</text><text x="456" y="39">(b) Voltmeter</text></g>
+<g fill="none" stroke="#234a50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 165 H100 M100 165 V95 H175 M235 95 H310 V165 M100 165 V235 H155 M255 235 H310 V165 H370"/>
+<circle cx="205" cy="95" r="30"/><path d="M155 235 l10 -14 20 28 20 -28 20 28 20 -28 10 14"/>
+<path d="M465 165 H520 l10 -14 20 28 20 -28 20 28 20 -28 10 14 H660 M720 165 H790"/><circle cx="690" cy="165" r="30"/>
+</g>
+<g fill="#234a50"><circle cx="100" cy="165" r="6"/><circle cx="310" cy="165" r="6"/><circle cx="40" cy="165" r="6"/><circle cx="370" cy="165" r="6"/><circle cx="465" cy="165" r="6"/><circle cx="790" cy="165" r="6"/></g>
+<g font-family="system-ui, sans-serif" text-anchor="middle" fill="#183f45" font-size="19"><text x="205" y="102">G</text><text x="205" y="199">R<tspan baseline-shift="sub" font-size="14">s</tspan> = 0.641 Ω</text><text x="205" y="55">R<tspan baseline-shift="sub" font-size="14">g</tspan> = 25.0 Ω</text><text x="570" y="125">R = 975 Ω</text><text x="690" y="172">G</text><text x="690" y="225">R<tspan baseline-shift="sub" font-size="14">g</tspan> = 25.0 Ω</text></g>
+</svg>

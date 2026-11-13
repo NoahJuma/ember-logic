@@ -1,0 +1,3 @@
+const test=require('node:test'),assert=require('node:assert/strict'),{wave}=require('../physics-chapter32-models.js');
+test('wave model matches field, flux and pressure relations',()=>{const r=wave({frequency:100,field:10}),c=299792458,eps=8.8541878128e-12;assert.ok(Math.abs(r.wavelength-c/1e8)<1e-12);assert.ok(Math.abs(r.magnetic-10/c)<1e-20);assert.ok(Math.abs(r.intensity-c*eps*100/2)<1e-12);assert.equal(r.reflection,2*r.absorption)});
+test('wave model rejects invalid and nonfinite calculations',()=>{for(const patch of [{frequency:0},{frequency:-1},{field:-1},{field:'Infinity'},{field:''},{frequency:1e304}])assert.throws(()=>wave({frequency:100,field:10,...patch}),RangeError)});

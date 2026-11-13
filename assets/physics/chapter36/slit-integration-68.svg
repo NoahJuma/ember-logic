@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280" role="img" aria-labelledby="title desc">
+<title id="title">Single-slit integration geometry</title><desc id="desc">Schematic of a slit of width a centered on the horizontal axis, a narrow strip above its center, and rays to a point P on a distant screen. The distance from the slit center to P is D, and theta is measured from the central axis. The drawing is not to scale.</desc>
+<rect width="620" height="280" rx="16" fill="#f4f8f5"/><g fill="#d9e3e1" stroke="#345756" stroke-width="2"><path d="M112 28h12v72h-12zM112 210h12v45h-12zM510 35h12v220h-12z"/></g>
+<g stroke="#506967" stroke-width="1.5" fill="none"><path d="M52 155H510" stroke-dasharray="6 5"/><path d="M102 100h-18M102 210h-18M91 100v110M87 100l4-7 4 7M87 210l4 7 4-7"/><path d="M137 155h25M137 120h25M152 155v-35M148 124l4-6 4 6"/><path d="M185 155 A67 67 0 0 0 183 143 M191 169L183 150"/></g>
+<g fill="none" stroke="#a02980" stroke-width="2.5"><path d="M124 155L510 86"/><path d="M124 120L510 86"/></g><g fill="#a02980"><circle cx="510" cy="86" r="4"/><circle cx="124" cy="120" r="3"/></g><circle cx="510" cy="155" r="4" fill="#345756"/>
+<g fill="#193f40" font-family="sans-serif" font-size="18"><text x="66" y="138">a</text><text x="158" y="140">y′</text><text x="133" y="111">dy′</text><text x="194" y="184">θ</text><text x="318" y="135">D</text><text x="532" y="91">P</text><text x="532" y="161">O</text></g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 315" role="img">
+<rect width="760" height="315" rx="16" fill="#faf8f2"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b84c30"/></marker></defs>
+<g font-family="Arial,sans-serif" font-size="17" fill="#263c38">
+<text x="25" y="38" font-size="22">(a)</text><circle cx="95" cy="90" r="22" fill="#f5d2a1" stroke="#263c38" stroke-width="2"/><circle cx="95" cy="240" r="22" fill="#dceeea" stroke="#263c38" stroke-width="2"/><text x="95" y="96" text-anchor="middle">B</text><text x="95" y="246" text-anchor="middle">F</text>
+<g fill="none" stroke="#b84c30" stroke-width="2.5" marker-end="url(#arrow)"><path d="M95 114V215"/><path d="M78 108 C30 120 30 208 78 222"/><path d="M112 108 C160 120 160 208 112 222"/></g>
+<text x="215" y="38" font-size="22">(b)</text><circle cx="285" cy="90" r="22" fill="#f5d2a1" stroke="#263c38" stroke-width="2"/><circle cx="285" cy="240" r="22" fill="#dceeea" stroke="#263c38" stroke-width="2"/><text x="285" y="96" text-anchor="middle">B</text><text x="285" y="246" text-anchor="middle">F</text>
+<g fill="none" stroke="#b84c30" stroke-width="2.5" marker-end="url(#arrow)"><path d="M285 216V115"/><path d="M268 222 C220 208 220 120 268 108"/><path d="M302 222 C350 208 350 120 302 108"/></g>
+<text x="405" y="38" font-size="22">(c)</text><circle cx="475" cy="90" r="22" fill="#f5d2a1" stroke="#263c38" stroke-width="2"/><circle cx="475" cy="240" r="22" fill="#dceeea" stroke="#263c38" stroke-width="2"/><text x="475" y="96" text-anchor="middle">B</text><text x="475" y="246" text-anchor="middle">F</text>
+<g fill="none" stroke="#b84c30" stroke-width="2.5" marker-end="url(#arrow)"><path d="M462 110 Q445 142 405 150"/><path d="M488 110 Q505 142 545 150"/><path d="M462 220 Q445 188 405 180"/><path d="M488 220 Q505 188 545 180"/></g>
+<text x="595" y="38" font-size="22">(d)</text><circle cx="665" cy="90" r="22" fill="#f5d2a1" stroke="#263c38" stroke-width="2"/><circle cx="665" cy="240" r="22" fill="#dceeea" stroke="#263c38" stroke-width="2"/><text x="665" y="96" text-anchor="middle">B</text><text x="665" y="246" text-anchor="middle">F</text>
+<g fill="none" stroke="#b84c30" stroke-width="2.5" marker-end="url(#arrow)"><path d="M595 150 Q635 142 652 110"/><path d="M735 150 Q695 142 678 110"/><path d="M595 180 Q635 188 652 220"/><path d="M735 180 Q695 188 678 220"/></g>
+<text x="380" y="294" text-anchor="middle">B = bee / humla · F = flower / blomma</text></g></svg>

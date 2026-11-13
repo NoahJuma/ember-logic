@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 485" role="img">
+<rect width="780" height="485" fill="white"/>
+<g stroke="#dce5e3" stroke-width="1">
+<path d="M100.00,60 V400"/>
+<path d="M203.33,60 V400"/>
+<path d="M306.67,60 V400"/>
+<path d="M410.00,60 V400"/>
+<path d="M513.33,60 V400"/>
+<path d="M616.67,60 V400"/>
+<path d="M720.00,60 V400"/>
+<path d="M100,400.00 H720"/>
+<path d="M100,357.50 H720"/>
+<path d="M100,315.00 H720"/>
+<path d="M100,272.50 H720"/>
+<path d="M100,230.00 H720"/>
+<path d="M100,187.50 H720"/>
+<path d="M100,145.00 H720"/>
+<path d="M100,102.50 H720"/>
+<path d="M100,60.00 H720"/>
+</g>
+<path d="M100,60 V400 H720" fill="none" stroke="#273b3a" stroke-width="2"/>
+<g fill="#273b3a" font-family="Arial,sans-serif" font-size="19">
+<text x="100.00" y="427" text-anchor="middle">0</text>
+<text x="203.33" y="427" text-anchor="middle">10</text>
+<text x="306.67" y="427" text-anchor="middle">20</text>
+<text x="410.00" y="427" text-anchor="middle">30</text>
+<text x="513.33" y="427" text-anchor="middle">40</text>
+<text x="616.67" y="427" text-anchor="middle">50</text>
+<text x="720.00" y="427" text-anchor="middle">60</text>
+<text x="88" y="406.00" text-anchor="end">0</text>
+<text x="88" y="363.50" text-anchor="end">10</text>
+<text x="88" y="321.00" text-anchor="end">20</text>
+<text x="88" y="278.50" text-anchor="end">30</text>
+<text x="88" y="236.00" text-anchor="end">40</text>
+<text x="88" y="193.50" text-anchor="end">50</text>
+<text x="88" y="151.00" text-anchor="end">60</text>
+<text x="88" y="108.50" text-anchor="end">70</text>
+<text x="88" y="66.00" text-anchor="end">80</text>
+<text x="410.0" y="465" text-anchor="middle">i (mA)</text>
+<text transform="translate(27 230.0) rotate(-90)" text-anchor="middle">q (μC)</text>
+</g>
+<polyline fill="none" stroke="#176475" stroke-width="3" points="100.00,60.42 720.00,378.54"/>
+<circle cx="678.67" cy="357.07" r="5" fill="#9f502c"/>
+<circle cx="596.00" cy="315.85" r="5" fill="#9f502c"/>
+<circle cx="513.33" cy="271.65" r="5" fill="#9f502c"/>
+<circle cx="430.67" cy="230.00" r="5" fill="#9f502c"/>
+<circle cx="348.00" cy="187.93" r="5" fill="#9f502c"/>
+</svg>

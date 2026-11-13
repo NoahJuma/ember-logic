@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+<title id="title">Forces on a corner charge</title><desc id="desc">Four identical charges occupy square corners. At the upper-right charge, forces from the left and lower neighbors point right and up with equal magnitude F0, while the force from the opposite corner points up and right with magnitude F0 over two.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0L7 3 0 6Z" fill="#176678"/></marker></defs>
+<rect width="800" height="460" fill="#faf9f3"/><path d="M100 150H300V350H100Z" fill="none" stroke="#7c8a87" stroke-width="2" stroke-dasharray="7 6"/>
+<g fill="#cf7958" stroke="#7a4638" stroke-width="2"><circle cx="100" cy="150" r="10"/><circle cx="300" cy="150" r="10"/><circle cx="100" cy="350" r="10"/><circle cx="300" cy="350" r="10"/></g>
+<g fill="none" stroke="#176678" stroke-width="4" marker-end="url(#arrow)"><path d="M310 150H440"/><path d="M300 140V30"/><path d="M309 141L365 85"/></g>
+<g fill="#263b3d" font-family="system-ui,sans-serif" font-size="21"><text x="78" y="135">Q</text><text x="278" y="180">Q</text><text x="78" y="385">Q</text><text x="278" y="385">Q</text><text x="452" y="157">F₀</text><text x="310" y="40">F₀</text><text x="376" y="85">F₀/2</text><text x="110" y="425">F₀ = kQ²/L²</text><text x="505" y="140">ΣF = (√2 + ½)F₀</text><text x="505" y="185">45° outward / utåt</text></g></svg>

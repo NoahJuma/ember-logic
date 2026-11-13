@@ -146,3 +146,38 @@ Chapter 10 uses the same privately supplied Young and Freedman SI edition, print
 ## Physics Chapter 11
 
 Chapter 11 uses the privately supplied Young and Freedman SI edition, printed pages 365–393. The complete PDF remains private. See [PHYSICS_CHAPTER11_COVERAGE.md](PHYSICS_CHAPTER11_COVERAGE.md) for the exercise inventory, diagrams, supplementary videos and model assumptions. The beam and wire labs are idealized teaching models.
+
+### Chapter 44 draft: topic-specific video help
+
+The local draft routes video help by topic: CERN's English video on antimatter (https://www.youtube.com/watch?v=lpgw7L-POb4); Khan Academy's English video on charged-particle motion and cyclotrons (https://www.khanacademy.org/test-prep/mcat/physical-processes/magnetism-mcat/v/magnetism-part-4); Khan Academy's English overview of fundamental interactions (https://en.khanacademy.org/science/cosmology-and-astronomy/universe-scale-topic/light-fundamental-forces/v/four-fundamental-forces); Khan Academy's English quark and hadron video (https://www.khanacademy.org/college-careers-more/bjc/2019-challenge/2019-challenge-regional-champions/v/the-quark-theory-of-hadrons); CERN's English video on the historical development of the Standard Model (https://www.youtube.com/watch?v=cfwBelQubYI); and Khan Academy's English videos on Hubble's law (https://www.khanacademy.org/science/physics/cosmology-and-astronomy/universe-scale-topic/v/hubble-s-law) and the cosmic microwave background (https://www.khanacademy.org/science/cosmology-and-astronomy/universe-scale-topic/big-bang-expansion-topic/v/cosmic-background-radiation). Publisher/search descriptions were reviewed on 12 November 2026; video playback and comprehensive topical coverage remain to be checked before release. These videos supplement, rather than replace, the attached textbook.
+
+### Chapter 34 draft: topic-specific video help
+
+The optical video links in the draft are supplementary Khan Academy materials. Their titles and topical scope were checked against Khan Academy page descriptions; English transcripts were available for the curved mirrors, eye, simple microscope and telescope videos. The plane-mirror page did not provide a transcript, so its spoken language is explicitly marked as unverified. The general thin-lens video supplements spherical refraction and camera work rather than claiming to cover the entire topic. Playback has not yet been verified.
+
+- Plane-mirror images: https://en.khanacademy.org/science/ncert-class-8-science/x55541eeaec8b3a9a%3Alight/x55541eeaec8b3a9a%3Acharacteristics-of-images/v/characteristics-of-image-formed-by-a-plane-mirror
+- Curved mirrors: https://www.khanacademy.org/science/in-in-class-12th-physics-india/in-in-ray-optics-and-optical-instruments/in-in-reflection-and-curved-mirrors/v/convex-concave-mirror-ray-diagrams-class-12-india-physics-khan-academy
+- Eye: https://www.khanacademy.org/science/physics/geometric-optics/lenses/v/diopters-aberration-and-the-human-eye
+- Magnifier: https://www.khanacademy.org/science/bmc-grade-10-science/x4e98504963be64d8%3Alenses/x4e98504963be64d8%3Aoptical-instruments/v/simple-microscope
+- Telescope: https://www.khanacademy.org/science/in-in-class-12th-physics-india/in-in-ray-optics-and-optical-instruments/in-in-optic-instruments-telescopes-and-microscopes/v/magnifying-power-of-telescope
+
+### Chapter 35 draft: topic-specific video help
+
+Khan Academy titles, descriptions and English transcripts were consulted to select supplementary help about wave interference, double-slit intensity and thin films. The lesson on the Michelson interferometer links to a general explanation of path difference and labels it supplementary; it is not represented as a Michelson-specific video. Actual playback remains to be checked.
+
+- Interference and path difference: https://www.khanacademy.org/science/physics/light-waves/interference-of-light-waves/v/constructive-and-destructive-interference
+- Double-slit intensity: https://www.khanacademy.org/science/ka-physics-grade-12/xf5c71951dad171dd%3Ain-in-wave-optics/xf5c71951dad171dd%3Aintensity-in-ydse/v/intensity-in-ydse-visual-method-phasors-i-4io-cos-2-phi-2
+- Thin films: https://www.khanacademy.org/science/physics/light-waves/interference-of-light-waves/v/thin-film-interference-part-1
+
+### Chapter 36 draft: diffraction video help
+
+Khan Academy page descriptions and English transcripts were used to distinguish a single-slit video from a multiple-slit/grating video. For Bragg diffraction, circular-aperture resolution and holography these are labelled only as supplementary background; they do not replace topic-specific explanations. Playback remains unverified.
+
+- Single slit: https://www.khanacademy.org/science/physics/light-waves/light-waves/interference-of-light-waves/v/single-slit-interference
+- Grating: https://www.khanacademy.org/science/ap-physics-2/ap-light-waves/ap-interference-of-light-waves/v/diffraction-grating
+
+Chapter 44 problem 44.47 additionally links to Khan Academy’s time-dilation video, https://www.khanacademy.org/science/cosmology-and-astronomy/universe-scale-topic/xcdef9704%3Aspecial-relativity/v/time-dilation, as relevant background for the muon lifetime exercise. Playback remains to be verified.
+
+### Chapter 41: lithium wavelength discrepancy
+
+Problem 41.60 in the attached book prints 67.09608 μm and 67.09761 μm for neutral-lithium 2p–2s transitions. The draft preserves and solves those stated inputs. NIST’s [neutral-lithium line table](https://physics.nist.gov/PhysRefData/Handbook/Tables/lithiumtable3_a.htm) lists the corresponding lines near 670.8 nm in air. These differ in scale by about 100; air and vacuum conventions account for a much smaller additional difference. The draft marks the discrepancy as a possible printing issue and presents a separately labelled sensitivity calculation without asserting what correction the publisher intended.

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 310" role="img" aria-labelledby="title desc">
+<title id="title">Two zoom-lens configurations</title><desc id="desc">Parallel rays enter a converging lens and then a diverging lens. In case a the lenses are 4 centimeters apart and the final image is 24 centimeters beyond the second lens. In case b the separation is 8 centimeters and the final image is 6 centimeters beyond the second lens. Each panel uses its own horizontal scale.</desc>
+<rect width="560" height="310" rx="16" fill="#f4f8f5"/><g font-family="sans-serif" fill="#193f40" font-size="16"><text x="22" y="29">(a)</text><text x="22" y="174">(b)</text></g>
+<g stroke="#526463" stroke-width="1.5"><path d="M55 86H500M55 230H500"/></g>
+<g fill="#d9e9ea" stroke="#24646c" stroke-width="2"><path d="M125 52 Q135 86 125 120 Q115 86 125 52Z"/><path d="M165 52 Q155 86 165 120 L151 120 Q160 86 151 52Z"/><path d="M125 196 Q135 230 125 264 Q115 230 125 196Z"/><path d="M235 196 Q225 230 235 264 L221 264 Q230 230 221 196Z"/></g>
+<g fill="none" stroke="#a12980" stroke-width="2.5"><path d="M55 64H125L158 71.33L356 86M55 108H125L158 100.67L356 86"/><path d="M55 208H125L228 222.67L305.25 230M55 252H125L228 237.33L305.25 230"/></g>
+<g fill="#a12980"><circle cx="356" cy="86" r="4"/><circle cx="305.25" cy="230" r="4"/></g>
+<g fill="none" stroke="#193f40" stroke-width="1.5"><path d="M125 126V137M158 126V137M125 132H158M158 126V151M356 95V151M158 145H356M125 270V282M228 270V282M125 277H228M228 270V297M305.25 240V297M228 291H305.25"/></g>
+<g fill="#193f40" font-family="sans-serif" font-size="15" text-anchor="middle"><text x="141" y="154">4 cm</text><text x="257" y="139">24 cm</text><text x="176" y="296">8 cm</text><text x="266.6" y="285">6 cm</text><text x="125" y="48">L₁</text><text x="158" y="48">L₂</text><text x="125" y="191">L₁</text><text x="228" y="191">L₂</text></g>
+</svg>

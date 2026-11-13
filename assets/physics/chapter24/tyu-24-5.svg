@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+<title id="title">A charged capacitor before and after a dielectric is inserted</title>
+<desc id="desc">In each view the left plate is positive and the right plate negative. In the second view a dielectric fills the gap and has negative bound charge at the left face and positive bound charge at the right face.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#a83d45"/></marker></defs>
+<rect width="720" height="300" rx="14" fill="#fbfaf6"/>
+<g font-family="system-ui,sans-serif" font-size="18" fill="#263b39"><text x="50" y="38">1</text><text x="405" y="38">2</text><text x="38" y="85">+Q</text><text x="264" y="85">−Q</text><text x="393" y="85">+Q</text><text x="620" y="85">−Q</text><text x="500" y="265">κ = 3</text></g>
+<g><rect x="65" y="95" width="18" height="140" fill="#d97873"/><rect x="250" y="95" width="18" height="140" fill="#8faed0"/><rect x="420" y="95" width="18" height="140" fill="#d97873"/><rect x="605" y="95" width="18" height="140" fill="#8faed0"/><rect x="438" y="95" width="167" height="140" fill="#d8ead3" stroke="#91b790"/></g>
+<g font-family="system-ui,sans-serif" font-size="18" fill="#263b39"><text x="447" y="119">−</text><text x="447" y="161">−</text><text x="447" y="203">−</text><text x="581" y="119">+</text><text x="581" y="161">+</text><text x="581" y="203">+</text></g>
+<g stroke="#a83d45" stroke-width="3" marker-end="url(#arr)"><path d="M105 135 H228"/><path d="M105 195 H228"/><path d="M480 135 H564"/><path d="M480 195 H564"/></g>
+</svg>

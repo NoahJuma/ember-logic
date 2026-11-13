@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 310" role="img" aria-labelledby="title desc">
+<title id="title">Moving rod and induced potential</title><desc id="desc">A rod in the xy plane points from a lower-left end to an upper-right end at 36.9 degrees above the positive x axis. It moves in the positive x direction. The in-plane component of v cross B points upward, so positive charge accumulates at the upper-right end, which has higher potential. The z component is omitted from the plane sketch.</desc>
+<defs><marker id="axis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#345756"/></marker><marker id="force" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a02980"/></marker></defs>
+<rect width="610" height="310" rx="16" fill="#f4f8f5"/>
+<g stroke="#345756" stroke-width="2" fill="none"><path d="M105 245H485" marker-end="url(#axis)"/><path d="M105 245V35" marker-end="url(#axis)"/><path d="M157 245 A52 52 0 0 0 147 214"/></g>
+<path d="M105 245L345 65" stroke="#cf951d" stroke-width="12" stroke-linecap="round"/><g fill="#345756"><circle cx="105" cy="245" r="5"/><circle cx="345" cy="65" r="5"/></g>
+<g fill="none" stroke="#a02980" stroke-width="3"><path d="M390 112H492" marker-end="url(#force)"/><path d="M225 155V83" marker-end="url(#force)"/></g>
+<g font-family="sans-serif" font-size="18" fill="#193f40"><text x="491" y="251">x</text><text x="92" y="29">y</text><text x="152" y="230">36.9°</text><text x="424" y="101">v</text><text x="232" y="95">(v × B)ᵧ</text><text x="350" y="61">+  V₊</text><text x="30" y="276">−  V₋</text><text x="500" y="60">V₊ &gt; V₋</text><text x="140" y="291">B = 0.120 î − 0.220 ĵ − 0.0900 k̂ T</text></g>
+</svg>

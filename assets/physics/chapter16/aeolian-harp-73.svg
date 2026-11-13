@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-labelledby="title desc">
+<title id="title">Pole, wire and tube</title><desc id="desc">A rigid pole pivots at a vertical tree, a horizontal wire at height h holds it at 45 degrees from vertical, and a tube hangs from its tip.</desc>
+<rect width="760" height="390" fill="#faf7f0"/><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#176478"/></marker><marker id="dim" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 0 L0 3 L6 6" fill="none" stroke="#493c31"/></marker></defs>
+<path d="M150 35 V330" stroke="#84725e" stroke-width="18"/><path d="M150 285 L350 85" stroke="#75513c" stroke-width="10"/><circle cx="150" cy="285" r="8" fill="#302821"/>
+<path d="M150 207 H228" stroke="#176478" stroke-width="5"/><path d="M350 85 V120" stroke="#493c31" stroke-width="3"/><path d="M330 120 H370 M330 120 V190 M370 120 V190 M330 190 H370" fill="none" stroke="#69777a" stroke-width="5"/><path d="M334 120 H366 M334 190 H366" stroke="#faf7f0" stroke-width="5"/>
+<path d="M150 285 V195" stroke="#8d8277" stroke-dasharray="6 5" stroke-width="2"/><path d="M150 235 A50 50 0 0 1 185.36 249.64" stroke="#493c31" fill="none" stroke-width="2"/>
+<path d="M85 207 V285" stroke="#493c31" stroke-width="2" marker-start="url(#dim)" marker-end="url(#dim)"/><path d="M100 207 H140 M100 285 H140" stroke="#493c31" stroke-width="1.5"/>
+<g font-family="sans-serif" fill="#302821" font-size="20"><text x="68" y="252">h</text><text x="163" y="228">45°</text><text x="395" y="215">μ = 1.40 g/m</text><text x="255" y="70">1.56 m, 8.00 kg</text><text x="395" y="150">0.390 m, 4.00 kg</text><text x="395" y="177">v = 344 m/s</text></g>
+</svg>

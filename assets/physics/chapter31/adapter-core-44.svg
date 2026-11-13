@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" role="img" aria-labelledby="title desc">
+<title id="title">Simplified adapter transformer</title><desc id="desc">A closed rectangular magnetic core has a primary coil on the left and a secondary coil on the right. The primary coil has 200 turns. Its winding height is labeled ell coil, and the dashed central path through the core is labeled ell magnetic; those two lengths need not be equal.</desc>
+<rect width="600" height="310" rx="16" fill="#f4f8f5"/><path d="M175 55H425V255H175Z M230 110V200H370V110Z" fill="#e7d7a9" fill-rule="evenodd" stroke="#8e7439" stroke-width="3"/>
+<path d="M202 82H398V228H202Z" fill="none" stroke="#748773" stroke-width="2" stroke-dasharray="8 5"/>
+<g fill="none" stroke="#235b6a" stroke-width="3"><path d="M170 112q30 8 58 0M170 127q30 8 58 0M170 142q30 8 58 0M170 157q30 8 58 0M170 172q30 8 58 0M170 187q30 8 58 0M170 202q30 8 58 0"/><path d="M372 112q30 8 58 0M372 127q30 8 58 0M372 142q30 8 58 0M372 157q30 8 58 0M372 172q30 8 58 0M372 187q30 8 58 0M372 202q30 8 58 0"/></g>
+<g fill="none" stroke="#345756" stroke-width="1.6"><path d="M140 112h-13M140 202h-13M133 112v90M129 118l4-7 4 7M129 196l4 7 4-7"/></g>
+<g fill="#193f40" font-family="sans-serif" font-size="18"><text x="130" y="42">Nₚ = 200</text><text x="409" y="42">Nₛ</text><text x="45" y="162">ℓ<tspan baseline-shift="sub" font-size="12">coil</tspan></text><text x="259" y="70">ℓ<tspan baseline-shift="sub" font-size="12">mag</tspan></text></g>
+</svg>

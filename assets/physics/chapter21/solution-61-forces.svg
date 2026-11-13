@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img">
+  <rect width="640" height="390" rx="16" fill="#faf8f2"/>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b84c30"/></marker></defs>
+  <g font-family="Arial,sans-serif" font-size="18" fill="#263c38" stroke-linejoin="round">
+    <path d="M320 55L235.5 236.3 M320 55L404.5 236.3" stroke="#607a73" stroke-width="3" fill="none"/>
+    <circle cx="320" cy="55" r="5" fill="#263c38"/>
+    <g stroke="#b84c30" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M235.5 236.3l37.3 -80"/><path d="M235.5 236.3v80"/><path d="M235.5 236.3h-37.3"/><path d="M404.5 236.3l-37.3 -80"/><path d="M404.5 236.3v80"/><path d="M404.5 236.3h37.3"/></g>
+    <circle cx="235.5" cy="236.3" r="13" fill="#dceeea" stroke="#263c38" stroke-width="2"/><circle cx="404.5" cy="236.3" r="13" fill="#dceeea" stroke="#263c38" stroke-width="2"/>
+    <text x="235.5" y="242" text-anchor="middle">−</text><text x="404.5" y="242" text-anchor="middle">−</text>
+    <text x="276" y="154">T</text><text x="350" y="154">T</text><text x="174" y="228" text-anchor="end">Fₑ</text><text x="466" y="228">Fₑ</text><text x="235.5" y="344" text-anchor="middle">mg</text><text x="404.5" y="344" text-anchor="middle">mg</text>
+    <path d="M320 55v95" stroke="#a3b1ad" stroke-dasharray="5 5"/><text x="292" y="125">θ</text><text x="334" y="125">θ</text>
+  </g>
+</svg>

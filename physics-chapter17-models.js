@@ -1,0 +1,7 @@
+(function(root){'use strict';
+function finite(n){if(!Number.isFinite(n))throw new RangeError('finite value required');return n}function positive(n){if(finite(n)<=0)throw new RangeError('positive value required');return n}function kelvin(c){finite(c);if(c < -273.15)throw new RangeError('temperature below absolute zero');return c+273.15}
+function mix({mass1,capacity1,temp1,mass2,capacity2,temp2}){positive(mass1);positive(mass2);positive(capacity1);positive(capacity2);kelvin(temp1);kelvin(temp2);const a=mass1*capacity1,b=mass2*capacity2,final=(a*temp1+b*temp2)/(a+b),heat1=a*(final-temp1),heat2=b*(final-temp2);if(![a,b,final,heat1,heat2].every(Number.isFinite))throw new RangeError('out of range');return{final,heat1,heat2}}
+function expansion({length,coefficient,initial,final}){positive(length);finite(coefficient);kelvin(initial);kelvin(final);const change=length*coefficient*(final-initial),result=length+change;if(!Number.isFinite(result)||result<=0)throw new RangeError('outside the linear model');return{change,result}}
+function conduction({conductivity,area,thickness,hot,cold}){positive(conductivity);positive(area);positive(thickness);kelvin(hot);kelvin(cold);if(hot<cold)throw new RangeError('hot must not be colder than cold');const power=conductivity*area*(hot-cold)/thickness;if(!Number.isFinite(power))throw new RangeError('out of range');return power}
+const api={kelvin,mix,expansion,conduction};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.EmberChapter17Models=api;
+})(typeof window==='undefined'?globalThis:window);

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 485" role="img">
+<rect width="780" height="485" fill="white"/>
+<g stroke="#dce5e3" stroke-width="1">
+<path d="M100.00,60 V400"/>
+<path d="M177.50,60 V400"/>
+<path d="M255.00,60 V400"/>
+<path d="M332.50,60 V400"/>
+<path d="M410.00,60 V400"/>
+<path d="M487.50,60 V400"/>
+<path d="M565.00,60 V400"/>
+<path d="M642.50,60 V400"/>
+<path d="M720.00,60 V400"/>
+<path d="M100,400.00 H720"/>
+<path d="M100,332.00 H720"/>
+<path d="M100,264.00 H720"/>
+<path d="M100,196.00 H720"/>
+<path d="M100,128.00 H720"/>
+<path d="M100,60.00 H720"/>
+</g>
+<path d="M100,60 V400 H720" fill="none" stroke="#273b3a" stroke-width="2"/>
+<g fill="#273b3a" font-family="Arial,sans-serif" font-size="19">
+<text x="100.00" y="427" text-anchor="middle">-4</text>
+<text x="177.50" y="427" text-anchor="middle">-3</text>
+<text x="255.00" y="427" text-anchor="middle">-2</text>
+<text x="332.50" y="427" text-anchor="middle">-1</text>
+<text x="410.00" y="427" text-anchor="middle">0</text>
+<text x="487.50" y="427" text-anchor="middle">1</text>
+<text x="565.00" y="427" text-anchor="middle">2</text>
+<text x="642.50" y="427" text-anchor="middle">3</text>
+<text x="720.00" y="427" text-anchor="middle">4</text>
+<text x="88" y="406.00" text-anchor="end">0</text>
+<text x="88" y="338.00" text-anchor="end">0.2</text>
+<text x="88" y="270.00" text-anchor="end">0.4</text>
+<text x="88" y="202.00" text-anchor="end">0.6</text>
+<text x="88" y="134.00" text-anchor="end">0.8</text>
+<text x="88" y="66.00" text-anchor="end">1</text>
+<text x="410.0" y="465" text-anchor="middle">x/a</text>
+<text transform="translate(27 230.0) rotate(-90)" text-anchor="middle">B / B(0)</text>
+</g>
+<polyline fill="none" stroke="#176475" stroke-width="3" points="100.00,380.00 115.50,377.98 131.00,375.64 146.50,372.93 162.00,369.75 177.50,366.00 193.00,361.54 208.50,356.19 224.00,349.70 239.50,341.78 255.00,332.00 270.50,319.81 286.00,304.49 301.50,285.14 317.00,260.66 332.50,230.00 348.00,192.68 363.50,150.00 379.00,106.90 394.50,73.08 410.00,60.00 425.50,73.08 441.00,106.90 456.50,150.00 472.00,192.68 487.50,230.00 503.00,260.66 518.50,285.14 534.00,304.49 549.50,319.81 565.00,332.00 580.50,341.78 596.00,349.70 611.50,356.19 627.00,361.54 642.50,366.00 658.00,369.75 673.50,372.93 689.00,375.64 704.50,377.98 720.00,380.00"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" role="img" aria-labelledby="title desc">
+<title id="title">Current loops expanding in a magnetic field</title><desc id="desc">Seen from above, a counterclockwise current with the field out of the page and a clockwise current with the field into the page each have outward magnetic forces.</desc>
+<defs><marker id="arrowI" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#225058"/></marker><marker id="arrowF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#be593b"/></marker></defs>
+<rect width="860" height="430" rx="18" fill="#f4f8f5"/>
+<g fill="none" stroke="#225058" stroke-width="5"><circle cx="215" cy="220" r="110"/><circle cx="645" cy="220" r="110"/></g>
+<g fill="none" stroke="#225058" stroke-width="5" marker-end="url(#arrowI)"><path d="M281 132 A110 110 0 0 0 188 113"/><path d="M579 132 A110 110 0 0 1 672 113"/></g>
+<g fill="none" stroke="#be593b" stroke-width="4" marker-end="url(#arrowF)"><path d="M215 105 V55"/><path d="M330 220 H383"/><path d="M215 335 V390"/><path d="M100 220 H48"/><path d="M645 105 V55"/><path d="M760 220 H812"/><path d="M645 335 V390"/><path d="M530 220 H478"/></g>
+<g font-family="system-ui,sans-serif" fill="#183f45" text-anchor="middle"><text x="215" y="236" font-size="48">⊙</text><text x="645" y="236" font-size="48">⊗</text><text x="215" y="275" font-size="21">B</text><text x="645" y="275" font-size="21">B</text><text x="310" y="115" font-size="23">I</text><text x="549" y="115" font-size="23">I</text><text x="403" y="204" font-size="21" fill="#be593b">F</text><text x="833" y="204" font-size="21" fill="#be593b">F</text></g>
+</svg>

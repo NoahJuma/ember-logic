@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 390" role="img" aria-labelledby="title desc">
+<title id="title">Ideal Otto cycle</title>
+<desc id="desc">Pressure against volume. States b and c are at the smaller volume, a and d at the larger volume. The cycle goes from a to b, b to c, c to d, and d to a.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#246e80"/></marker><marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#405e55"/></marker></defs>
+<rect width="590" height="390" rx="14" fill="#fbfaf6"/>
+<g fill="none" stroke="#405e55" stroke-width="2.5" marker-end="url(#ax)"><path d="M75 330 H525"/><path d="M75 330 V35"/></g>
+<path d="M155 183 V74 C190 145 295 222 435 240 V292 C300 280 190 245 155 183Z" fill="#f5d9c9"/>
+<g fill="none" stroke="#246e80" stroke-width="3.5"><path d="M435 292 C300 280 190 245 155 183"/><path d="M155 183 V74"/><path d="M155 74 C190 145 295 222 435 240"/><path d="M435 240 V292"/></g>
+<g fill="none" stroke="#246e80" stroke-width="3" marker-end="url(#ar)"><path d="M310 268 L275 254"/><path d="M155 143 V115"/><path d="M276 188 L313 206"/><path d="M435 257 V278"/></g>
+<g fill="#263b39" font-family="system-ui,sans-serif" font-size="23"><text x="60" y="30">p</text><text x="535" y="338">V</text><text x="132" y="188">b</text><text x="132" y="72">c</text><text x="448" y="243">d</text><text x="448" y="300">a</text></g>
+<g fill="#263b39"><circle cx="155" cy="183" r="5"/><circle cx="155" cy="74" r="5"/><circle cx="435" cy="240" r="5"/><circle cx="435" cy="292" r="5"/></g>
+</svg>

@@ -1,0 +1,3 @@
+const test=require('node:test'),assert=require('node:assert/strict'),{refraction}=require('../physics-chapter33-models.js');
+test('refraction obeys Snell and recognizes critical limit',()=>{const a=refraction({n1:1,n2:1.5,angle:30});assert.ok(Math.abs(a.refracted-Math.asin(1/3)*180/Math.PI)<1e-10);assert.equal(a.critical,null);const crit=Math.asin(1/1.5)*180/Math.PI,b=refraction({n1:1.5,n2:1,angle:crit}),c=refraction({n1:1.5,n2:1,angle:crit+1});assert.equal(b.tir,false);assert.ok(Math.abs(b.refracted-90)<1e-5);assert.equal(c.tir,true);assert.equal(c.refracted,null)});
+test('refraction rejects invalid inputs',()=>{for(const patch of [{n1:0},{n2:-1},{angle:-1},{angle:90},{n1:'Infinity'},{n2:''}])assert.throws(()=>refraction({n1:1,n2:1.5,angle:45,...patch}),RangeError)});

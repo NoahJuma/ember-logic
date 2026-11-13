@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 390" role="img" aria-labelledby="title desc">
+<title id="title">Current loop and axes</title><desc id="desc">The rectangular loop is viewed from positive y. The x axis points left, z points up, the magnetic field points up, and the current circulates counterclockwise.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="context-stroke"/></marker></defs><rect width="660" height="390" rx="18" fill="#f4f8f7"/>
+<path d="M445 295 L190 295 L190 92 L445 92 Z" fill="none" stroke="#40646a" stroke-width="4"/>
+<g fill="none" stroke="#1d6d78" stroke-width="5" marker-end="url(#arrow)"><path d="M380 92 H270"/><path d="M190 145 V220"/><path d="M260 295 H365"/><path d="M445 245 V155"/></g>
+<g fill="none" stroke="#273f42" stroke-width="3" marker-end="url(#arrow)"><path d="M500 325 H395"/><path d="M500 325 V220"/></g><circle cx="500" cy="325" r="11" fill="none" stroke="#273f42" stroke-width="2"/><circle cx="500" cy="325" r="3" fill="#273f42"/>
+<path d="M345 255 V155" fill="none" stroke="#ba633b" stroke-width="4" marker-end="url(#arrow)"/><circle cx="298" cy="195" r="12" fill="none" stroke="#ba633b" stroke-width="2.5"/><circle cx="298" cy="195" r="3" fill="#ba633b"/>
+<path d="M190 52 H445 M190 45 V59 M445 45 V59 M145 92 V295 M138 92 H152 M138 295 H152" fill="none" stroke="#778681" stroke-width="2"/>
+<g fill="#233b40" font-family="Arial,sans-serif" font-size="23"><text x="311" y="42">L</text><text x="113" y="202">H</text><text x="365" y="168">B</text><text x="280" y="235">μ</text><text x="225" y="122">I</text><text x="364" y="360">+x</text><text x="505" y="218">+z</text><text x="520" y="333">+y</text></g>
+</svg>

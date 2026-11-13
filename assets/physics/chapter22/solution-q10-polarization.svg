@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img">
+<rect width="640" height="330" rx="16" fill="#faf8f2"/>
+<g font-family="Arial,sans-serif" fill="#263c38" font-size="23" text-anchor="middle">
+ <circle cx="150" cy="150" r="72" fill="#f5d2a1" stroke="#607a73" stroke-width="2"/>
+ <circle cx="455" cy="150" r="95" fill="#dbe8e3" stroke="#607a73" stroke-width="2"/><circle cx="455" cy="150" r="65" fill="#faf8f2" stroke="#607a73" stroke-width="2"/>
+ <g fill="#b84c30"><text x="222.0" y="158.0">+</text><text x="200.9" y="107.1">+</text><text x="150.0" y="86.0">+</text><text x="99.1" y="107.1">+</text><text x="78.0" y="158.0">+</text><text x="99.1" y="208.9">+</text><text x="150.0" y="230.0">+</text><text x="200.9" y="208.9">+</text></g>
+ <g fill="#263c38"><text x="382.2" y="96.9">−</text><text x="363.2" y="133.4">−</text><text x="363.2" y="182.6">−</text><text x="382.2" y="219.1">−</text><text x="527.8" y="96.9">+</text><text x="546.8" y="133.4">+</text><text x="546.8" y="182.6">+</text><text x="527.8" y="219.1">+</text></g>
+ <text x="455" y="159" font-size="18">E = 0</text>
+ <text x="150" y="280" font-size="17">+Q</text><text x="455" y="280" font-size="17">Q = 0</text>
+</g></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" role="img" aria-labelledby="title desc"><title id="title">Two speakers and observation angle</title><desc id="desc">Speaker A lies above B, separated by 3.50 meters. The centerline points right, and a positive observation angle is measured upward toward A.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="context-stroke"/></marker></defs><rect width="680" height="360" rx="18" fill="#f4f8f7"/>
+<path d="M150 72 V288 M108 72 V288 M101 72 H115 M101 288 H115" fill="none" stroke="#71827c" stroke-width="2"/><circle cx="150" cy="72" r="9" fill="#1e6d79"/><circle cx="150" cy="288" r="9" fill="#1e6d79"/>
+<path d="M150 180 H620" fill="none" stroke="#84918d" stroke-width="2" stroke-dasharray="7 7"/>
+<path d="M150 180 L540 63" fill="none" stroke="#ba633b" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M150 72 L330 18 M150 288 L520 177" fill="none" stroke="#1e6d79" stroke-width="2" stroke-dasharray="5 6"/>
+<path d="M236 180 A86 86 0 0 0 232 155" fill="none" stroke="#ba633b" stroke-width="2"/>
+<g font-family="Arial,sans-serif" font-size="23" fill="#233b40"><text x="126" y="48">A</text><text x="126" y="325">B</text><text x="35" y="187">3.50 m</text><text x="245" y="140">+θ</text><text x="546" y="63">P</text></g>
+</svg>

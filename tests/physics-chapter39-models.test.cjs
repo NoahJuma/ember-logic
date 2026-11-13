@@ -1,0 +1,30 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const {JSDOM, VirtualConsole} = require('jsdom');
+const {electronWave} = require('../physics-chapter39-models.js');
+const near = (actual, expected, relative = 1e-4) => assert.ok(Math.abs(actual / expected - 1) < relative, `${actual} != ${expected}`);
+test('electron de Broglie wavelength agrees with independently calculated limits', () => {
+  const low = electronWave(800);
+  near(low.wavelength, 0.0433437448647);
+  near(low.classicalWavelength, 0.0433607);
+  assert.ok(low.speedFraction > 0 && low.speedFraction < 1);
+  const relativistic = electronWave(2e6);
+  near(relativistic.wavelength, 0.000504317759063);
+  assert.ok(relativistic.classicalPercentError > 50);
+  for (const invalid of ['', null, 0, -1, Infinity, NaN]) assert.throws(() => electronWave(invalid), RangeError);
+});
+test('lab renders, validates, and switches language', () => {
+  const errors = [], virtualConsole = new VirtualConsole();
+  virtualConsole.on('jsdomError', e => errors.push(e.message));
+  const dom = new JSDOM(fs.readFileSync('physics-chapter39-labs.html','utf8'), {url:'https://example.test/physics-chapter39-labs.html?lang=en',runScripts:'outside-only',virtualConsole});
+  const w = dom.window;
+  for (const s of w.document.querySelectorAll('script[src]')) w.eval(fs.readFileSync(s.getAttribute('src'),'utf8'));
+  w.document.getElementById('calculate').click();
+  assert.match(w.document.getElementById('result').textContent, /Relativistic wavelength: 0\.043344 nm/);
+  const input = w.document.getElementById('energy'); input.value = '0'; input.dispatchEvent(new w.Event('input'));
+  assert.match(w.document.getElementById('error').textContent, /positive finite energy/);
+  const selector = w.document.getElementById('language'); selector.value = 'sv'; selector.dispatchEvent(new w.Event('change'));
+  assert.match(w.document.getElementById('error').textContent, /positiv ändlig energi/);
+  assert.deepEqual(errors, []); w.close();
+});

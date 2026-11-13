@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 290" role="img">
+<rect width="640" height="290" rx="16" fill="#faf8f2"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b84c30"/></marker><marker id="measure" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#607a73"/></marker></defs>
+<g font-family="Arial,sans-serif" font-size="19" fill="#263c38" text-anchor="middle">
+ <circle cx="125" cy="110" r="23" fill="#dceeea" stroke="#607a73" stroke-width="2"/><circle cx="495" cy="110" r="27" fill="#dceeea" stroke="#607a73" stroke-width="2"/>
+ <text x="125" y="117">−</text><text x="495" y="117">−</text><text x="125" y="163">q₂</text><text x="495" y="163">q₁</text>
+ <path d="M160 110H260" fill="none" stroke="#b84c30" stroke-width="3" marker-end="url(#arrow)"/><text x="215" y="88">22,0 m/s</text>
+ <path d="M125 193V242 M495 193V242" fill="none" stroke="#a3b1ad" stroke-width="2"/>
+ <path d="M132 220H488" fill="none" stroke="#607a73" stroke-width="2" marker-start="url(#measure)" marker-end="url(#measure)"/><text x="310" y="210">0,800 m</text>
+</g></svg>

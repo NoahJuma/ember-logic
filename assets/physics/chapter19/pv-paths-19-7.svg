@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 400" role="img" aria-labelledby="title desc">
+<title id="title">Pressure-volume paths through states 1, 2, 3 and 4</title>
+<desc id="desc">State 1 is at the upper left, 3 upper right, 4 lower left and 2 lower right. Two horizontal and two vertical segments and a curved path connect states 1 and 2.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#48605a"/></marker></defs>
+<rect width="580" height="400" rx="14" fill="#fbfaf6"/>
+<g fill="none" stroke="#48605a" stroke-width="2.3" marker-end="url(#arrow)"><path d="M80 330 H525"/><path d="M80 330 V45"/></g>
+<g fill="none" stroke="#cfddd4" stroke-width="1.5" stroke-dasharray="5 5"><path d="M145 310 V75 M435 310 V75 M90 105 H460 M90 250 H460"/></g>
+<g fill="none" stroke="#267689" stroke-width="3"><path d="M145 105 H435 V250 H145 Z"/><path d="M145 105 C195 178 307 223 435 250" stroke="#c06d48" stroke-width="3.5"/></g>
+<g fill="#263b39" font-family="system-ui,sans-serif" font-size="22"><text x="540" y="338">V</text><text x="64" y="39">p</text><text x="123" y="95">1</text><text x="444" y="95">3</text><text x="121" y="269">4</text><text x="444" y="269">2</text><text x="130" y="358">V₁</text><text x="422" y="358">V₂</text><text x="48" y="113">p₁</text><text x="48" y="258">p₂</text></g>
+<g fill="#263b39"><circle cx="145" cy="105" r="5"/><circle cx="435" cy="105" r="5"/><circle cx="145" cy="250" r="5"/><circle cx="435" cy="250" r="5"/></g>
+</svg>

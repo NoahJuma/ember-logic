@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 485" role="img">
+<rect width="780" height="485" fill="white"/>
+<g stroke="#dce5e3" stroke-width="1">
+<path d="M100.00,60 V400"/>
+<path d="M203.33,60 V400"/>
+<path d="M306.67,60 V400"/>
+<path d="M410.00,60 V400"/>
+<path d="M513.33,60 V400"/>
+<path d="M616.67,60 V400"/>
+<path d="M720.00,60 V400"/>
+<path d="M100,400.00 H720"/>
+<path d="M100,324.44 H720"/>
+<path d="M100,248.89 H720"/>
+<path d="M100,173.33 H720"/>
+<path d="M100,97.78 H720"/>
+</g>
+<path d="M100,60 V400 H720" fill="none" stroke="#273b3a" stroke-width="2"/>
+<g fill="#273b3a" font-family="Arial,sans-serif" font-size="19">
+<text x="100.00" y="427" text-anchor="middle">0</text>
+<text x="203.33" y="427" text-anchor="middle">1</text>
+<text x="306.67" y="427" text-anchor="middle">2</text>
+<text x="410.00" y="427" text-anchor="middle">3</text>
+<text x="513.33" y="427" text-anchor="middle">4</text>
+<text x="616.67" y="427" text-anchor="middle">5</text>
+<text x="720.00" y="427" text-anchor="middle">6</text>
+<text x="88" y="406.00" text-anchor="end">0</text>
+<text x="88" y="330.44" text-anchor="end">4</text>
+<text x="88" y="254.89" text-anchor="end">8</text>
+<text x="88" y="179.33" text-anchor="end">12</text>
+<text x="88" y="103.78" text-anchor="end">16</text>
+<text x="410.0" y="465" text-anchor="middle">I (mA)</text>
+<text transform="translate(27 230.0) rotate(-90)" text-anchor="middle">BL/μ₀ (A)</text>
+</g>
+<polyline fill="none" stroke="#176475" stroke-width="3" points="100.00,349.62 694.17,60.00"/>
+<circle cx="203.33" cy="299.32" r="5" fill="#9f502c"/>
+<circle cx="306.67" cy="248.89" r="5" fill="#9f502c"/>
+<circle cx="410.00" cy="198.46" r="5" fill="#9f502c"/>
+<circle cx="513.33" cy="148.21" r="5" fill="#9f502c"/>
+<circle cx="616.67" cy="97.78" r="5" fill="#9f502c"/>
+</svg>
